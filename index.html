@@ -6,58 +6,66 @@
 <style>
 body {
   margin: 0;
-  background: #080808;
+  background: #050505;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: Tahoma, Arial, sans-serif;
   text-align: center;
 }
 
 .header {
-  padding: 25px;
-  background: #111;
-  border-bottom: 2px solid gold;
+  background: linear-gradient(#1a1a1a,#080808);
+  padding: 25px 10px;
+  border-bottom: 3px solid gold;
 }
 
-h1 {
+.logo {
   color: gold;
-  font-size: 40px;
-  margin: 10px;
+  font-size: 38px;
+  font-weight: bold;
 }
 
-.subtitle {
-  color: #ddd;
-  font-size: 18px;
+.status {
+  margin-top: 10px;
+  color: #00ff88;
+  font-size: 16px;
+}
+
+.update {
+  color: #aaa;
+  margin-top: 8px;
 }
 
 .container {
-  display: grid;
-  gap: 15px;
-  padding: 20px;
+  padding: 15px;
 }
 
 .card {
-  background: #171717;
-  border: 1px solid #444;
-  border-radius: 15px;
+  background: #151515;
+  border-radius: 18px;
+  margin: 15px 0;
   padding: 20px;
-  box-shadow: 0 0 10px #000;
+  border: 1px solid #333;
 }
 
-.title {
+.card h2 {
   color: gold;
-  font-size: 25px;
-  margin-bottom: 15px;
 }
 
-.price {
-  font-size: 22px;
-  color: #fff;
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #333;
+  font-size: 20px;
+}
+
+.wait {
+  color: #ddd;
 }
 
 .footer {
-  margin-top: 20px;
-  padding: 15px;
-  color: #aaa;
+  padding: 20px;
+  color: #777;
 }
 
 </style>
@@ -67,65 +75,90 @@ h1 {
 <body>
 
 <div class="header">
-<h1>HASINEH MARKET</h1>
-<div class="subtitle">
-تابلو آنلاین اعلام نرخ طلا، ارز و بازار
+
+<div class="logo">
+HASINEH MARKET
 </div>
+
+<div class="status">
+● بازار فعال
+</div>
+
+<div class="update">
+آخرین بروزرسانی: در انتظار اتصال نرخ
+</div>
+
 </div>
 
 
 <div class="container">
 
-<div class="card">
-<div class="title">🟡 HASINEH GOLD</div>
-
-<div class="price">
-طلای ۱۸ عیار : در حال دریافت نرخ
-</div>
-
-<br>
-
-<div class="price">
-مثقال طلا : در حال دریافت نرخ
-</div>
-
-</div>
-
 
 <div class="card">
-<div class="title">💵 HASINEH CURRENCY</div>
 
-<div class="price">
-دلار : در حال دریافت نرخ
+<h2>🟡 HASINEH GOLD</h2>
+
+<div class="row">
+<span>طلای ۱۸ عیار</span>
+<span class="wait">---</span>
 </div>
 
-<br>
+<div class="row">
+<span>مثقال طلا</span>
+<span class="wait">---</span>
+</div>
 
-<div class="price">
-یورو : در حال دریافت نرخ
+<div class="row">
+<span>طلای ۲۴ عیار</span>
+<span class="wait">---</span>
 </div>
 
 </div>
+
 
 
 <div class="card">
-<div class="title">🚗 HASINEH AUTO</div>
 
-<div class="price">
-قیمت خودرو : بزودی
+<h2>💵 HASINEH CURRENCY</h2>
+
+<div class="row">
+<span>دلار</span>
+<span class="wait">---</span>
+</div>
+
+<div class="row">
+<span>یورو</span>
+<span class="wait">---</span>
 </div>
 
 </div>
+
 
 
 <div class="card">
-<div class="title">🏠 HASINEH REAL ESTATE</div>
 
-<div class="price">
-بازار ملک : بزودی
+<h2>🚗 HASINEH AUTO</h2>
+
+<div class="row">
+<span>بازار خودرو</span>
+<span class="wait">بزودی</span>
 </div>
 
 </div>
+
+
+
+<div class="card">
+
+<h2>🏠 HASINEH REAL ESTATE</h2>
+
+<div class="row">
+<span>بازار ملک</span>
+<span class="wait">بزودی</span>
+</div>
+
+</div>
+
 
 </div>
 
