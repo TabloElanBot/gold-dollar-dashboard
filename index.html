@@ -5,67 +5,80 @@
 
 <style>
 body {
-  margin: 0;
-  background: #050505;
-  color: white;
-  font-family: Tahoma, Arial, sans-serif;
-  text-align: center;
+  margin:0;
+  background:#050505;
+  color:white;
+  font-family:Tahoma, Arial, sans-serif;
+  text-align:center;
 }
 
 .header {
-  background: linear-gradient(#1a1a1a,#080808);
-  padding: 25px 10px;
-  border-bottom: 3px solid gold;
+  padding:25px 10px;
+  background:#111;
+  border-bottom:3px solid gold;
 }
 
 .logo {
-  color: gold;
-  font-size: 38px;
-  font-weight: bold;
+  font-size:38px;
+  color:gold;
+  font-weight:bold;
 }
 
-.status {
-  margin-top: 10px;
-  color: #00ff88;
-  font-size: 16px;
+.market {
+  color:#00ff88;
+  margin-top:10px;
 }
 
-.update {
-  color: #aaa;
-  margin-top: 8px;
+.time {
+  color:#aaa;
+  margin-top:8px;
 }
 
 .container {
-  padding: 15px;
+  padding:15px;
 }
 
 .card {
-  background: #151515;
-  border-radius: 18px;
-  margin: 15px 0;
-  padding: 20px;
-  border: 1px solid #333;
+  background:#151515;
+  margin:15px 0;
+  padding:20px;
+  border-radius:18px;
+  border:1px solid #333;
 }
 
-.card h2 {
-  color: gold;
+.title {
+  color:gold;
+  font-size:25px;
+  margin-bottom:15px;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px;
-  border-bottom: 1px solid #333;
-  font-size: 20px;
+.item {
+  display:flex;
+  justify-content:space-between;
+  padding:12px 5px;
+  border-bottom:1px solid #333;
+  font-size:19px;
+}
+
+.price {
+  color:white;
+}
+
+.up {
+  color:#00ff88;
+}
+
+.down {
+  color:#ff4444;
 }
 
 .wait {
-  color: #ddd;
+  color:#aaa;
 }
 
 .footer {
-  padding: 20px;
-  color: #777;
+  padding:20px;
+  color:#777;
 }
 
 </style>
@@ -80,12 +93,12 @@ body {
 HASINEH MARKET
 </div>
 
-<div class="status">
+<div class="market">
 ● بازار فعال
 </div>
 
-<div class="update">
-آخرین بروزرسانی: در انتظار اتصال نرخ
+<div class="time" id="clock">
+در حال دریافت زمان...
 </div>
 
 </div>
@@ -96,21 +109,23 @@ HASINEH MARKET
 
 <div class="card">
 
-<h2>🟡 HASINEH GOLD</h2>
+<div class="title">
+🟡 HASINEH GOLD
+</div>
 
-<div class="row">
+<div class="item">
 <span>طلای ۱۸ عیار</span>
-<span class="wait">---</span>
+<span class="price">---</span>
 </div>
 
-<div class="row">
+<div class="item">
 <span>مثقال طلا</span>
-<span class="wait">---</span>
+<span class="price">---</span>
 </div>
 
-<div class="row">
+<div class="item">
 <span>طلای ۲۴ عیار</span>
-<span class="wait">---</span>
+<span class="price">---</span>
 </div>
 
 </div>
@@ -119,16 +134,18 @@ HASINEH MARKET
 
 <div class="card">
 
-<h2>💵 HASINEH CURRENCY</h2>
+<div class="title">
+💵 HASINEH CURRENCY
+</div>
 
-<div class="row">
+<div class="item">
 <span>دلار</span>
-<span class="wait">---</span>
+<span class="price">---</span>
 </div>
 
-<div class="row">
+<div class="item">
 <span>یورو</span>
-<span class="wait">---</span>
+<span class="price">---</span>
 </div>
 
 </div>
@@ -137,9 +154,11 @@ HASINEH MARKET
 
 <div class="card">
 
-<h2>🚗 HASINEH AUTO</h2>
+<div class="title">
+🚗 HASINEH AUTO
+</div>
 
-<div class="row">
+<div class="item">
 <span>بازار خودرو</span>
 <span class="wait">بزودی</span>
 </div>
@@ -150,9 +169,11 @@ HASINEH MARKET
 
 <div class="card">
 
-<h2>🏠 HASINEH REAL ESTATE</h2>
+<div class="title">
+🏠 HASINEH REAL ESTATE
+</div>
 
-<div class="row">
+<div class="item">
 <span>بازار ملک</span>
 <span class="wait">بزودی</span>
 </div>
@@ -166,6 +187,18 @@ HASINEH MARKET
 <div class="footer">
 HASINEH MARKET © 2026
 </div>
+
+
+<script>
+function updateClock(){
+ let now = new Date();
+ document.getElementById("clock").innerHTML =
+ "آخرین بروزرسانی: " + now.toLocaleString("fa-IR");
+}
+
+setInterval(updateClock,1000);
+updateClock();
+</script>
 
 
 </body>
