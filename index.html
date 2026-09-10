@@ -7,101 +7,137 @@
 
 <style>
 
-body {
-    margin:0;
-    background:#050505;
-    color:white;
-    font-family:Tahoma, Arial, sans-serif;
+body{
+margin:0;
+background:#050505;
+color:white;
+font-family:Tahoma,Arial,sans-serif;
 }
 
-.header {
-    text-align:center;
-    padding:25px;
-    background:#111;
-    border-bottom:3px solid gold;
+.header{
+text-align:center;
+padding:25px;
+background:#111;
+border-bottom:3px solid gold;
 }
 
-.logo {
-    color:gold;
-    font-size:38px;
-    font-weight:bold;
+.logo{
+font-size:38px;
+font-weight:bold;
+color:gold;
 }
 
-.status {
-    color:#00ff88;
-    margin-top:10px;
+.status{
+color:#00ff88;
+margin-top:10px;
 }
 
-.clock {
-    color:#bbb;
-    margin-top:10px;
-}
-
-
-.container {
-    padding:15px;
+.clock{
+color:#aaa;
+margin-top:10px;
 }
 
 
-.card {
-    background:#151515;
-    border:1px solid #333;
-    border-radius:18px;
-    padding:20px;
-    margin-bottom:15px;
+.container{
+padding:15px;
 }
 
 
-.title {
-    color:gold;
-    font-size:25px;
-    text-align:center;
-    margin-bottom:15px;
+.card{
+background:#151515;
+border:1px solid #333;
+border-radius:18px;
+padding:20px;
+margin-bottom:15px;
 }
 
 
-.row {
-    display:flex;
-    justify-content:space-between;
-    padding:12px 5px;
-    border-bottom:1px solid #333;
-    font-size:18px;
+.title{
+color:gold;
+font-size:25px;
+text-align:center;
+margin-bottom:20px;
 }
 
 
-.price {
-    color:white;
+.table-head,
+.row{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 5px;
+border-bottom:1px solid #333;
+
 }
 
 
-.change {
-    color:#00ff88;
+.table-head{
+color:#aaa;
+font-size:14px;
 }
 
 
-.creator {
-    text-align:center;
-    color:#555;
-    font-size:12px;
-    margin-top:25px;
+.name{
+width:40%;
 }
 
 
-.qr-box {
-    text-align:center;
-    color:#777;
-    font-size:13px;
-    margin:20px;
-    padding:15px;
-    border:1px dashed #555;
-    border-radius:15px;
+.price{
+width:30%;
+text-align:center;
 }
 
 
-.footer {
-    text-align:center;
-    color:#777;
-    padding:20px;
+.change{
+width:30%;
+text-align:left;
+}
+
+
+.up{
+color:#00ff88;
+}
+
+
+.down{
+color:#ff4444;
+}
+
+
+.same{
+color:#aaa;
+}
+
+
+.qr-box{
+
+margin-top:20px;
+padding:20px;
+border:1px dashed #555;
+border-radius:15px;
+text-align:center;
+color:#888;
+
+}
+
+
+.creator{
+
+text-align:center;
+font-size:12px;
+color:#555;
+margin:20px;
+
+}
+
+
+.footer{
+
+text-align:center;
+padding:20px;
+color:#777;
+
 }
 
 </style>
@@ -133,6 +169,7 @@ HASINEH MARKET
 <div class="container">
 
 
+
 <div class="card">
 
 <div class="title">
@@ -140,23 +177,62 @@ HASINEH MARKET
 </div>
 
 
-<div class="row">
-<span>طلای ۱۸ عیار</span>
-<span class="price">---</span>
-</div>
-
-<div class="row">
-<span>مثقال طلا</span>
-<span class="price">---</span>
+<div class="table-head">
+<span>عنوان</span>
+<span>قیمت</span>
+<span>تغییر</span>
 </div>
 
 
 <div class="row">
-<span>طلای ۲۴ عیار</span>
-<span class="price">---</span>
-</div>
+
+<span class="name">طلای ۱۸ عیار</span>
+
+<span class="price">
+---
+</span>
+
+<span class="change up">
+▲ ---
+</span>
 
 </div>
+
+
+
+<div class="row">
+
+<span class="name">مثقال طلا</span>
+
+<span class="price">
+---
+</span>
+
+<span class="change down">
+▼ ---
+</span>
+
+</div>
+
+
+
+<div class="row">
+
+<span class="name">طلای ۲۴ عیار</span>
+
+<span class="price">
+---
+</span>
+
+<span class="change same">
+● ---
+</span>
+
+</div>
+
+
+</div>
+
 
 
 
@@ -169,56 +245,71 @@ HASINEH MARKET
 </div>
 
 
-<div class="row">
-<span>دلار آمریکا USD</span>
-<span>---</span>
+<div class="table-head">
+<span>ارز</span>
+<span>قیمت</span>
+<span>تغییر</span>
 </div>
 
 
-<div class="row">
-<span>یورو EUR</span>
-<span>---</span>
-</div>
-
 
 <div class="row">
-<span>درهم امارات AED</span>
-<span>---</span>
+<span class="name">دلار USD</span>
+<span class="price">---</span>
+<span class="change up">▲ ---</span>
 </div>
 
 
 <div class="row">
-<span>پوند انگلیس GBP</span>
-<span>---</span>
+<span class="name">یورو EUR</span>
+<span class="price">---</span>
+<span class="change down">▼ ---</span>
 </div>
 
 
 <div class="row">
-<span>دلار کانادا CAD</span>
-<span>---</span>
+<span class="name">درهم AED</span>
+<span class="price">---</span>
+<span class="change same">● ---</span>
 </div>
 
 
 <div class="row">
-<span>دلار استرالیا AUD</span>
-<span>---</span>
+<span class="name">پوند GBP</span>
+<span class="price">---</span>
+<span class="change same">● ---</span>
 </div>
 
 
 <div class="row">
-<span>لیر ترکیه TRY</span>
-<span>---</span>
+<span class="name">دلار کانادا CAD</span>
+<span class="price">---</span>
+<span class="change same">● ---</span>
 </div>
 
 
 <div class="row">
-<span>یوان چین CNY</span>
-<span>---</span>
+<span class="name">دلار استرالیا AUD</span>
+<span class="price">---</span>
+<span class="change same">● ---</span>
+</div>
+
+
+<div class="row">
+<span class="name">لیر TRY</span>
+<span class="price">---</span>
+<span class="change same">● ---</span>
+</div>
+
+
+<div class="row">
+<span class="name">یوان CNY</span>
+<span class="price">---</span>
+<span class="change same">● ---</span>
 </div>
 
 
 </div>
-
 
 
 
@@ -231,11 +322,10 @@ HASINEH MARKET
 
 <div class="row">
 <span>بازار خودرو</span>
-<span>بزودی</span>
+<span class="same">بزودی</span>
 </div>
 
 </div>
-
 
 
 
@@ -247,11 +337,10 @@ HASINEH MARKET
 
 <div class="row">
 <span>بازار ملک</span>
-<span>بزودی</span>
+<span class="same">بزودی</span>
 </div>
 
 </div>
-
 
 
 
@@ -261,10 +350,9 @@ QR رسمی HASINEH MARKET
 
 <br><br>
 
-صفحه معرفی پروژه و ارتباطات
+اتصال به صفحه رسمی پروژه
 
 </div>
-
 
 
 
@@ -277,11 +365,8 @@ Created by: Hassan Divanizadeh
 
 
 
-
 <div class="footer">
-
 HASINEH MARKET © ۱۴۰۵
-
 </div>
 
 
@@ -302,7 +387,6 @@ setInterval(updateClock,1000);
 updateClock();
 
 </script>
-
 
 
 </body>
