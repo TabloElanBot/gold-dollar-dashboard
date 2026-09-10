@@ -1,91 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
+
+<meta charset="UTF-8">
 <title>HASINEH MARKET</title>
 
 <style>
+
 body {
-  margin:0;
-  background:#050505;
-  color:white;
-  font-family:Tahoma, Arial, sans-serif;
-  text-align:center;
+    margin:0;
+    background:#050505;
+    color:white;
+    font-family:Tahoma, Arial, sans-serif;
 }
 
 .header {
-  padding:25px 10px;
-  background:#111;
-  border-bottom:3px solid gold;
+    text-align:center;
+    padding:25px;
+    background:#111;
+    border-bottom:3px solid gold;
 }
 
 .logo {
-  font-size:38px;
-  color:gold;
-  font-weight:bold;
+    color:gold;
+    font-size:38px;
+    font-weight:bold;
 }
 
-.market {
-  color:#00ff88;
-  margin-top:10px;
+.status {
+    color:#00ff88;
+    margin-top:10px;
 }
 
-.time {
-  color:#aaa;
-  margin-top:8px;
+.clock {
+    color:#bbb;
+    margin-top:10px;
 }
+
 
 .container {
-  padding:15px;
+    padding:15px;
 }
+
 
 .card {
-  background:#151515;
-  margin:15px 0;
-  padding:20px;
-  border-radius:18px;
-  border:1px solid #333;
+    background:#151515;
+    border:1px solid #333;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:15px;
 }
+
 
 .title {
-  color:gold;
-  font-size:25px;
-  margin-bottom:15px;
+    color:gold;
+    font-size:25px;
+    text-align:center;
+    margin-bottom:15px;
 }
 
-.item {
-  display:flex;
-  justify-content:space-between;
-  padding:12px 5px;
-  border-bottom:1px solid #333;
-  font-size:19px;
+
+.row {
+    display:flex;
+    justify-content:space-between;
+    padding:12px 5px;
+    border-bottom:1px solid #333;
+    font-size:18px;
 }
+
 
 .price {
-  color:white;
+    color:white;
 }
 
-.up {
-  color:#00ff88;
+
+.change {
+    color:#00ff88;
 }
 
-.down {
-  color:#ff4444;
+
+.creator {
+    text-align:center;
+    color:#555;
+    font-size:12px;
+    margin-top:25px;
 }
 
-.wait {
-  color:#aaa;
+
+.qr-box {
+    text-align:center;
+    color:#777;
+    font-size:13px;
+    margin:20px;
+    padding:15px;
+    border:1px dashed #555;
+    border-radius:15px;
 }
+
 
 .footer {
-  padding:20px;
-  color:#777;
+    text-align:center;
+    color:#777;
+    padding:20px;
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="header">
 
@@ -93,15 +118,16 @@ body {
 HASINEH MARKET
 </div>
 
-<div class="market">
+<div class="status">
 ● بازار فعال
 </div>
 
-<div class="time" id="clock">
+<div class="clock" id="clock">
 در حال دریافت زمان...
 </div>
 
 </div>
+
 
 
 <div class="container">
@@ -113,22 +139,26 @@ HASINEH MARKET
 🟡 HASINEH GOLD
 </div>
 
-<div class="item">
+
+<div class="row">
 <span>طلای ۱۸ عیار</span>
 <span class="price">---</span>
 </div>
 
-<div class="item">
+<div class="row">
 <span>مثقال طلا</span>
 <span class="price">---</span>
 </div>
 
-<div class="item">
+
+<div class="row">
 <span>طلای ۲۴ عیار</span>
 <span class="price">---</span>
 </div>
 
 </div>
+
+
 
 
 
@@ -138,17 +168,58 @@ HASINEH MARKET
 💵 HASINEH CURRENCY
 </div>
 
-<div class="item">
-<span>دلار</span>
-<span class="price">---</span>
+
+<div class="row">
+<span>دلار آمریکا USD</span>
+<span>---</span>
 </div>
 
-<div class="item">
-<span>یورو</span>
-<span class="price">---</span>
+
+<div class="row">
+<span>یورو EUR</span>
+<span>---</span>
 </div>
 
+
+<div class="row">
+<span>درهم امارات AED</span>
+<span>---</span>
 </div>
+
+
+<div class="row">
+<span>پوند انگلیس GBP</span>
+<span>---</span>
+</div>
+
+
+<div class="row">
+<span>دلار کانادا CAD</span>
+<span>---</span>
+</div>
+
+
+<div class="row">
+<span>دلار استرالیا AUD</span>
+<span>---</span>
+</div>
+
+
+<div class="row">
+<span>لیر ترکیه TRY</span>
+<span>---</span>
+</div>
+
+
+<div class="row">
+<span>یوان چین CNY</span>
+<span>---</span>
+</div>
+
+
+</div>
+
+
 
 
 
@@ -158,12 +229,13 @@ HASINEH MARKET
 🚗 HASINEH AUTO
 </div>
 
-<div class="item">
+<div class="row">
 <span>بازار خودرو</span>
-<span class="wait">بزودی</span>
+<span>بزودی</span>
 </div>
 
 </div>
+
 
 
 
@@ -173,32 +245,64 @@ HASINEH MARKET
 🏠 HASINEH REAL ESTATE
 </div>
 
-<div class="item">
+<div class="row">
 <span>بازار ملک</span>
-<span class="wait">بزودی</span>
+<span>بزودی</span>
 </div>
 
 </div>
 
 
+
+
+<div class="qr-box">
+
+QR رسمی HASINEH MARKET
+
+<br><br>
+
+صفحه معرفی پروژه و ارتباطات
+
 </div>
+
+
+
+
+<div class="creator">
+Created by: Hassan Divanizadeh
+</div>
+
+
+</div>
+
+
 
 
 <div class="footer">
-HASINEH MARKET © 2026
+
+HASINEH MARKET © ۱۴۰۵
+
 </div>
 
 
+
 <script>
+
 function updateClock(){
- let now = new Date();
- document.getElementById("clock").innerHTML =
- "آخرین بروزرسانی: " + now.toLocaleString("fa-IR");
+
+let now = new Date();
+
+document.getElementById("clock").innerHTML =
+"آخرین بروزرسانی: " + now.toLocaleString("fa-IR");
+
 }
 
 setInterval(updateClock,1000);
+
 updateClock();
+
 </script>
+
 
 
 </body>
