@@ -10,43 +10,49 @@
 body{
 margin:0;
 background:#030303;
-color:#fff;
+color:white;
 font-family:Tahoma,Arial,sans-serif;
 }
 
 
 .header{
 text-align:center;
-padding:30px 10px;
-background:linear-gradient(#181818,#050505);
+padding:25px 10px;
+background:#111;
 border-bottom:2px solid gold;
 }
 
 
 .logo{
-font-size:42px;
+font-size:40px;
 font-weight:bold;
 color:#ffd700;
-letter-spacing:2px;
 }
 
 
-.tag{
-margin-top:8px;
+.subtitle{
+margin-top:10px;
 color:#ddd;
-font-size:16px;
 }
 
 
 .live{
+margin:15px auto;
 display:inline-block;
-margin-top:15px;
 padding:6px 18px;
 border-radius:20px;
 background:#063b1c;
 color:#00ff88;
+}
+
+
+.date-box{
+margin-top:15px;
+line-height:2;
+color:#ccc;
 font-size:14px;
 }
+
 
 
 .container{
@@ -54,25 +60,27 @@ padding:15px;
 }
 
 
+
 .card{
 background:#101010;
 border:1px solid #333;
 border-radius:20px;
-padding:20px;
+padding:18px;
 margin-bottom:18px;
-box-shadow:0 0 15px #000;
 }
+
 
 
 .title{
 text-align:center;
-font-size:26px;
 color:#ffd700;
-margin-bottom:18px;
+font-size:25px;
+margin-bottom:15px;
 }
 
 
-.head,.row{
+
+.row{
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -81,15 +89,11 @@ border-bottom:1px solid #292929;
 }
 
 
-.head{
-color:#888;
-font-size:14px;
-}
-
 
 .up{
 color:#00ff88;
 }
+
 
 
 .down{
@@ -97,9 +101,11 @@ color:#ff4444;
 }
 
 
+
 .same{
 color:#aaa;
 }
+
 
 
 .price{
@@ -107,33 +113,35 @@ font-weight:bold;
 }
 
 
+
 .qr{
 
-margin:25px 10px;
+margin:25px 5px;
 padding:20px;
-border:1px dashed #666;
+border:1px dashed #555;
 border-radius:18px;
 text-align:center;
-color:#aaa;
+color:#888;
 
 }
+
 
 
 .creator{
 
 text-align:center;
 font-size:12px;
-color:#666;
-margin-bottom:20px;
+color:#555;
 
 }
+
 
 
 .footer{
 
 text-align:center;
-color:#777;
 padding:20px;
+color:#777;
 
 }
 
@@ -143,18 +151,20 @@ padding:20px;
 </head>
 
 
+
 <body>
 
 
 
 <div class="header">
 
+
 <div class="logo">
 HASINEH MARKET
 </div>
 
 
-<div class="tag">
+<div class="subtitle">
 تابلو آنلاین طلا، ارز و بازارهای مالی
 </div>
 
@@ -164,7 +174,28 @@ HASINEH MARKET
 </div>
 
 
+
+<div class="date-box">
+
+<div id="solar">
+در حال دریافت تاریخ شمسی...
 </div>
+
+<div id="clock">
+در حال دریافت ساعت ایران...
+</div>
+
+<div id="lunar">
+در حال دریافت تاریخ قمری...
+</div>
+
+
+</div>
+
+
+</div>
+
+
 
 
 
@@ -176,13 +207,6 @@ HASINEH MARKET
 
 <div class="title">
 🟡 HASINEH GOLD
-</div>
-
-
-<div class="head">
-<span>عنوان</span>
-<span>قیمت</span>
-<span>تغییر</span>
 </div>
 
 
@@ -208,7 +232,6 @@ HASINEH MARKET
 
 
 </div>
-
 
 
 
@@ -283,7 +306,6 @@ HASINEH MARKET
 
 
 
-
 <div class="card">
 
 <div class="title">
@@ -317,7 +339,6 @@ HASINEH MARKET
 
 
 
-
 <div class="qr">
 
 QR رسمی HASINEH MARKET
@@ -336,16 +357,70 @@ Created by: Hassan Divanizadeh
 </div>
 
 
+
 </div>
 
 
 
 
 <div class="footer">
-
 HASINEH MARKET © ۱۴۰۵
-
 </div>
+
+
+
+
+<script>
+
+
+function iranTime(){
+
+
+let now = new Date();
+
+
+let iran = new Date(
+now.toLocaleString("en-US",
+{timeZone:"Asia/Tehran"})
+);
+
+
+
+document.getElementById("clock").innerHTML =
+"ساعت ایران: " +
+iran.toLocaleTimeString("fa-IR");
+
+
+document.getElementById("solar").innerHTML =
+"تاریخ شمسی: " +
+iran.toLocaleDateString("fa-IR",
+{
+weekday:"long",
+year:"numeric",
+month:"long",
+day:"numeric"
+});
+
+
+
+document.getElementById("lunar").innerHTML =
+"تاریخ قمری: " +
+iran.toLocaleDateString("fa-IR-u-ca-islamic",
+{
+year:"numeric",
+month:"long",
+day:"numeric"
+});
+
+}
+
+
+setInterval(iranTime,1000);
+
+iranTime();
+
+
+</script>
 
 
 
