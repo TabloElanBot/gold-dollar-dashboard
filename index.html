@@ -1,174 +1,112 @@
 <!-- ==========================
- HASINEH MARKET V45
- CURRENCY DISPLAY CARDS
+ HASINEH MARKET V46
+ PREMIUM MARKET SUMMARY
 ========================== -->
 
 
-<div class="box currency-display-box">
+<div class="box summary-board-box">
 
 
-<div class="box-title currency-display-title">
+<div class="box-title summary-board-title">
 
-💵 HASINEH CURRENCY MARKET V45
-
-</div>
-
-
-
-<div class="currency-card-grid">
-
-
-
-<div class="currency-card">
-
-<div class="card-name">
-
-دلار آمریکا
+📊 HASINEH MARKET SUMMARY V46
 
 </div>
 
-<div class="card-info">
 
-USD 🇺🇸
 
-</div>
+<div class="summary-row">
 
-<div class="card-price" id="usd-display-v45">
+<span>
+ساعت ایران:
+</span>
+
+<span 
+class="status-gold"
+id="iran-clock-v46">
 
 ---
 
-</div>
+</span>
 
 </div>
 
 
 
 
-<div class="currency-card">
+<div class="summary-row">
 
-<div class="card-name">
+<span>
+تاریخ شمسی:
+</span>
 
-یورو
-
-</div>
-
-<div class="card-info">
-
-EUR 🇪🇺
-
-</div>
-
-<div class="card-price" id="eur-display-v45">
+<span 
+class="status-gold"
+id="solar-date-v46">
 
 ---
 
-</div>
+</span>
 
 </div>
 
 
 
 
-<div class="currency-card">
+<div class="summary-row">
 
-<div class="card-name">
+<span>
+وضعیت بازار:
+</span>
 
-درهم امارات
+<span 
+class="status-green"
+id="market-live-v46">
+
+🟢 ACTIVE
+
+</span>
 
 </div>
 
-<div class="card-info">
 
-AED 🇦🇪
 
-</div>
 
-<div class="card-price" id="aed-display-v45">
+<div class="summary-row">
+
+<span>
+آخرین بروزرسانی:
+</span>
+
+<span 
+class="status-gold"
+id="last-update-v46">
 
 ---
 
-</div>
+</span>
 
 </div>
 
 
 
 
-<div class="currency-card">
+<div class="summary-row">
 
-<div class="card-name">
+<span>
+سیستم:
+</span>
 
-پوند انگلیس
+<span 
+class="status-green"
+id="system-v46">
 
-</div>
+🟢 ONLINE
 
-<div class="card-info">
-
-GBP 🇬🇧
-
-</div>
-
-<div class="card-price" id="gbp-display-v45">
-
----
+</span>
 
 </div>
 
-</div>
-
-
-
-
-<div class="currency-card">
-
-<div class="card-name">
-
-لیر ترکیه
-
-</div>
-
-<div class="card-info">
-
-TRY 🇹🇷
-
-</div>
-
-<div class="card-price" id="try-display-v45">
-
----
-
-</div>
-
-</div>
-
-
-
-
-<div class="currency-card">
-
-<div class="card-name">
-
-یوان چین
-
-</div>
-
-<div class="card-info">
-
-CNY 🇨🇳
-
-</div>
-
-<div class="card-price" id="cny-display-v45">
-
----
-
-</div>
-
-</div>
-
-
-
-</div>
 
 
 </div>
@@ -176,40 +114,40 @@ CNY 🇨🇳
 
 
 /* ==========================
- HASINEH MARKET V45
- CURRENCY DISPLAY STYLE
+ HASINEH MARKET V46
+ PREMIUM SUMMARY STYLE
 ========================== */
 
 
-.currency-display-box{
+.summary-board-box{
 
 margin:20px auto;
 
-max-width:520px;
+max-width:420px;
 
 padding:22px;
 
-border-radius:28px;
+border-radius:30px;
 
 background:
 
 linear-gradient(
 145deg,
-#080808,
-#121212
+#070707,
+#141414
 );
 
 border:1px solid #d4af37;
 
 box-shadow:
 
-0 0 30px rgba(212,175,55,0.30);
+0 0 35px rgba(212,175,55,0.30);
 
 }
 
 
 
-.currency-display-title{
+.summary-board-title{
 
 font-size:20px;
 
@@ -225,55 +163,43 @@ margin-bottom:18px;
 
 
 
-.currency-card-grid{
+.summary-row{
 
-display:grid;
+display:flex;
 
-grid-template-columns:repeat(2,1fr);
+justify-content:space-between;
 
-gap:12px;
+align-items:center;
 
-}
+padding:11px 5px;
 
+border-bottom:
 
-
-.currency-card{
-
-background:#101010;
-
-border:
-
-1px solid rgba(212,175,55,0.45);
-
-border-radius:20px;
-
-padding:15px;
-
-text-align:center;
-
-transition:0.3s;
+1px solid rgba(212,175,55,0.18);
 
 }
 
 
 
-.currency-card:hover{
+.summary-row:last-child{
 
-transform:translateY(-3px);
-
-box-shadow:
-
-0 0 18px rgba(212,175,55,0.35);
+border-bottom:none;
 
 }
 
 
 
-.currency-card .card-name{
+.summary-row span:first-child{
 
 color:#ffffff;
 
-font-size:16px;
+font-weight:bold;
+
+}
+
+
+
+.summary-row span:last-child{
 
 font-weight:bold;
 
@@ -281,130 +207,167 @@ font-weight:bold;
 
 
 
-.currency-card .card-info{
+.summary-live{
 
-color:#999;
-
-font-size:13px;
-
-margin-top:5px;
+color:#00ff88;
 
 }
 
 
 
-.currency-card .card-price{
+.summary-warning{
 
 color:#ffd700;
 
-font-size:18px;
+}
 
-font-weight:bold;
 
-margin-top:10px;
 
-direction:ltr;
+.summary-offline{
+
+color:#ff5555;
 
 }
 
 
 
-@media(max-width:450px){
+/* جلوه ظریف تابلو */
 
+.summary-board-box:hover{
 
-.currency-card-grid{
+box-shadow:
 
-grid-template-columns:1fr;
-
-}
-
+0 0 45px rgba(212,175,55,0.45);
 
 }
-
 
 
 
 /* ==========================
- HASINEH MARKET V45
- CURRENCY DISPLAY ENGINE
+ HASINEH MARKET V46
+ PREMIUM SUMMARY ENGINE
 ========================== */
 
 
-const HASINEH_CURRENCY_DISPLAY_V45 = {
+const HASINEH_SUMMARY_V46 = {
 
 
-items:{
+status:"ACTIVE",
+
+system:"ONLINE",
 
 
-usd:{
-price:"---"
-},
+
+update:function(){
 
 
-eur:{
-price:"---"
-},
+
+let now = new Date();
 
 
-aed:{
-price:"---"
-},
 
 
-gbp:{
-price:"---"
-},
+let clock =
+document.getElementById(
+"iran-clock-v46"
+);
 
 
-try:{
-price:"---"
-},
 
+if(clock){
 
-cny:{
-price:"---"
+clock.innerHTML =
+now.toLocaleTimeString(
+"fa-IR",
+{
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit"
+}
+);
+
 }
 
 
-},
+
+
+
+let date =
+document.getElementById(
+"solar-date-v46"
+);
+
+
+
+if(date){
+
+date.innerHTML =
+now.toLocaleDateString(
+"fa-IR"
+);
+
+}
 
 
 
 
-render:function(){
+
+let update =
+document.getElementById(
+"last-update-v46"
+);
 
 
 
-let currencies = {
+if(update){
 
+update.innerHTML =
+now.toLocaleTimeString(
+"fa-IR"
+);
 
-"usd-display-v45":
-this.items.usd.price,
-
-
-
-"eur-display-v45":
-this.items.eur.price,
-
-
-
-"aed-display-v45":
-this.items.aed.price,
+}
 
 
 
-"gbp-display-v45":
-this.items.gbp.price,
+
+
+let live =
+document.getElementById(
+"market-live-v46"
+);
 
 
 
-"try-display-v45":
-this.items.try.price,
+if(live){
+
+live.innerHTML =
+"🟢 ACTIVE";
+
+}
 
 
 
-"cny-display-v45":
-this.items.cny.price
+
+
+let system =
+document.getElementById(
+"system-v46"
+);
+
+
+
+if(system){
+
+system.innerHTML =
+"🟢 ONLINE";
+
+}
+
+
+
+}
+
 
 
 };
@@ -412,45 +375,15 @@ this.items.cny.price
 
 
 
-for(let id in currencies){
 
 
-let item =
-document.getElementById(id);
-
-
-
-if(item){
-
-item.innerHTML =
-currencies[id] + " تومان";
-
-}
-
-
-
-}
-
-
-
-}
-
-
-
-};
-
-
-
-
-
-
-function hasinehCurrencyDisplayMonitorV45(){
+function hasinehSummaryMonitorV46(){
 
 
 try{
 
 
-HASINEH_CURRENCY_DISPLAY_V45.render();
+HASINEH_SUMMARY_V46.update();
 
 
 
@@ -460,7 +393,7 @@ catch(error){
 
 
 console.log(
-"HASINEH CURRENCY DISPLAY V45 ERROR"
+"HASINEH SUMMARY V46 ERROR"
 );
 
 
@@ -476,9 +409,9 @@ console.log(
 
 setInterval(
 
-hasinehCurrencyDisplayMonitorV45,
+hasinehSummaryMonitorV46,
 
-15000
+1000
 
 );
 
@@ -486,4 +419,4 @@ hasinehCurrencyDisplayMonitorV45,
 
 
 
-hasinehCurrencyDisplayMonitorV45();
+hasinehSummaryMonitorV46();
