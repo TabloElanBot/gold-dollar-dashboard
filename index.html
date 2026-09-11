@@ -1,90 +1,103 @@
 <!-- ==========================
- HASINEH MARKET V63
- MASTER PRICE DATABASE
+ HASINEH MARKET V64
+ PRICE DISPLAY CONNECTOR
 ========================== -->
 
 
-<div class="box price-database-box-v63">
+<div class="box display-connector-box-v64">
 
 
-<div class="box-title price-database-title-v63">
+<div class="box-title display-connector-title-v64">
 
-💰 HASINEH PRICE DATABASE V63
+🔗 HASINEH DISPLAY CONNECTOR V64
 
 </div>
 
 
 
 
-<div class="database-row-v63">
+<div class="connector-row-v64">
 
 <span>
-وضعیت بانک قیمت:
+اتصال بانک قیمت:
 </span>
 
 
-<span 
-id="price-db-status-v63">
+<span id="connector-db-v64">
+
+🟢 CONNECTED
+
+</span>
+
+</div>
+
+
+
+
+<div class="connector-row-v64">
+
+<span>
+نمایش طلا:
+</span>
+
+
+<span id="connector-gold-v64">
 
 🟢 READY
 
 </span>
 
-
 </div>
 
 
 
 
-<div class="database-row-v63">
+<div class="connector-row-v64">
 
 <span>
-تعداد آیتم‌ها:
+نمایش سکه:
 </span>
 
 
-<span 
-id="price-db-count-v63">
+<span id="connector-coin-v64">
 
-13 ITEMS
+🟢 READY
 
 </span>
-
 
 </div>
 
 
 
 
-<div class="database-row-v63">
+<div class="connector-row-v64">
 
 <span>
-حالت بروزرسانی:
+نمایش ارز:
 </span>
 
 
-<span 
-id="price-db-mode-v63">
+<span id="connector-currency-v64">
 
-LIVE READY
+🟢 READY
 
 </span>
-
 
 </div>
 
 
 
 </div>
+
 
 
 /* ==========================
- HASINEH MARKET V63
- PRICE DATABASE STYLE
+ HASINEH MARKET V64
+ DISPLAY CONNECTOR STYLE
 ========================== */
 
 
-.price-database-box-v63{
+.display-connector-box-v64{
 
 margin:25px auto;
 
@@ -116,7 +129,7 @@ box-shadow:
 
 
 
-.price-database-title-v63{
+.display-connector-title-v64{
 
 text-align:center;
 
@@ -134,7 +147,7 @@ margin-bottom:18px;
 
 
 
-.database-row-v63{
+.connector-row-v64{
 
 display:flex;
 
@@ -154,7 +167,7 @@ border-bottom:
 
 
 
-.database-row-v63:last-child{
+.connector-row-v64:last-child{
 
 border-bottom:none;
 
@@ -164,7 +177,7 @@ border-bottom:none;
 
 
 
-.database-row-v63 span:first-child{
+.connector-row-v64 span:first-child{
 
 color:#ffffff;
 
@@ -176,31 +189,13 @@ font-weight:bold;
 
 
 
-.database-row-v63 span:last-child{
-
-color:#d4af37;
+.connector-row-v64 span:last-child{
 
 font-weight:bold;
 
-}
-
-
-
-
-
-#price-db-status-v63{
-
 color:#00ff88;
 
-}
-
-
-
-
-
-#price-db-mode-v63{
-
-color:#ffd700;
+font-size:13px;
 
 }
 
@@ -208,7 +203,7 @@ color:#ffd700;
 
 
 
-.price-database-box-v63:hover{
+.display-connector-box-v64:hover{
 
 box-shadow:
 
@@ -219,98 +214,28 @@ box-shadow:
 
 
 /* ==========================
- HASINEH MARKET V63
- PRICE DATABASE ENGINE
+ HASINEH MARKET V64
+ DISPLAY CONNECTOR ENGINE
 ========================== */
 
 
-const HASINEH_PRICE_DATABASE_V63 = {
+const HASINEH_DISPLAY_CONNECTOR_V64 = {
 
 
-status:
+database:
+"CONNECTED",
+
+
+gold:
 "READY",
 
 
-mode:
-"LIVE READY",
+coin:
+"READY",
 
 
-
-items:{
-
-
-gold18:
-{
-name:"طلای ۱۸ عیار",
-price:"---"
-},
-
-
-gold24:
-{
-name:"طلای ۲۴ عیار",
-price:"---"
-},
-
-
-abshode:
-{
-name:"آبشده طلا",
-price:"---"
-},
-
-
-emami:
-{
-name:"سکه امامی",
-price:"---"
-},
-
-
-nim:
-{
-name:"نیم سکه",
-price:"---"
-},
-
-
-rob:
-{
-name:"ربع سکه",
-price:"---"
-},
-
-
-gerami:
-{
-name:"سکه گرمی",
-price:"---"
-},
-
-
-usd:
-{
-name:"دلار آمریکا",
-price:"---"
-},
-
-
-eur:
-{
-name:"یورو",
-price:"---"
-},
-
-
-aed:
-{
-name:"درهم امارات",
-price:"---"
-}
-
-
-},
-
+currency:
+"READY",
 
 
 
@@ -318,34 +243,68 @@ update:function(){
 
 
 
-let status =
+let db =
 document.getElementById(
-"price-db-status-v63"
+"connector-db-v64"
 );
 
 
 
-if(status){
+if(db){
 
-status.innerHTML =
-"🟢 " + this.status;
+db.innerHTML =
+"🟢 " + this.database;
 
 }
 
 
 
 
-let mode =
+let gold =
 document.getElementById(
-"price-db-mode-v63"
+"connector-gold-v64"
 );
 
 
 
-if(mode){
+if(gold){
 
-mode.innerHTML =
-this.mode;
+gold.innerHTML =
+"🟢 " + this.gold;
+
+}
+
+
+
+
+let coin =
+document.getElementById(
+"connector-coin-v64"
+);
+
+
+
+if(coin){
+
+coin.innerHTML =
+"🟢 " + this.coin;
+
+}
+
+
+
+
+let currency =
+document.getElementById(
+"connector-currency-v64"
+);
+
+
+
+if(currency){
+
+currency.innerHTML =
+"🟢 " + this.currency;
 
 }
 
@@ -353,7 +312,7 @@ this.mode;
 
 
 console.log(
-"HASINEH PRICE DATABASE V63 READY"
+"HASINEH DISPLAY CONNECTOR V64 READY"
 );
 
 
@@ -369,13 +328,13 @@ console.log(
 
 
 
-function hasinehPriceDatabaseMonitorV63(){
+function hasinehDisplayConnectorMonitorV64(){
 
 
 try{
 
 
-HASINEH_PRICE_DATABASE_V63.update();
+HASINEH_DISPLAY_CONNECTOR_V64.update();
 
 
 
@@ -385,7 +344,7 @@ catch(error){
 
 
 console.log(
-"HASINEH PRICE DATABASE V63 ERROR"
+"HASINEH DISPLAY CONNECTOR V64 ERROR"
 );
 
 
@@ -402,7 +361,7 @@ console.log(
 
 setInterval(
 
-hasinehPriceDatabaseMonitorV63,
+hasinehDisplayConnectorMonitorV64,
 
 30000
 
@@ -412,4 +371,4 @@ hasinehPriceDatabaseMonitorV63,
 
 
 
-hasinehPriceDatabaseMonitorV63();
+hasinehDisplayConnectorMonitorV64();
