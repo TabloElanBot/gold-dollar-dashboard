@@ -21,61 +21,83 @@ font-family:Tahoma,Arial,sans-serif;
 
 
 .header{
+
 text-align:center;
 padding:25px 10px;
-background:linear-gradient(#151515,#050505);
+background:linear-gradient(#171717,#050505);
 border-bottom:2px solid #d4af37;
+
 }
 
 
 .logo{
+
 font-size:42px;
 font-weight:bold;
 color:#ffd700;
 letter-spacing:2px;
+
 }
 
 
 .subtitle{
+
 color:#ccc;
 font-size:14px;
 margin-top:8px;
+
 }
 
 
 .brand{
+
 color:#777;
 font-size:12px;
 margin-top:8px;
+
 }
+
 
 
 .status-box{
 
 margin:15px auto;
 max-width:320px;
-padding:14px;
+padding:15px;
 border-radius:18px;
 background:#101010;
 border:1px solid #333;
+
+}
+
+
+.status-title{
+
+font-size:16px;
+font-weight:bold;
+color:#ffd700;
+
 }
 
 
 .status-online{
 
+margin-top:8px;
 color:#00ff88;
 font-weight:bold;
 
 }
 
 
-.status-text{
+.status-time{
 
-color:#aaa;
-font-size:13px;
 margin-top:8px;
+font-size:13px;
+color:#aaa;
 
 }
+
+
 
 
 .notice-box{
@@ -90,6 +112,8 @@ color:#ffd700;
 line-height:2;
 
 }
+
+
 
 
 .market-pulse{
@@ -108,10 +132,12 @@ color:#ccc;
 
 .market-pulse span{
 
-color:#fff;
 font-weight:bold;
+color:#fff;
 
 }
+
+
 
 
 .live{
@@ -126,6 +152,8 @@ color:#00ff88;
 }
 
 
+
+
 .date-box{
 
 margin-top:15px;
@@ -134,6 +162,7 @@ font-size:14px;
 color:#bbb;
 
 }
+
 
 
 .update-box{
@@ -147,7 +176,9 @@ border:1px solid #333;
 color:#aaa;
 
 }
-  .container{
+
+
+.container{
 
 padding:15px;
 
@@ -230,65 +261,7 @@ font-weight:bold;
 color:#aaa;
 
 }
-
-
-.qr{
-
-margin:25px 5px;
-padding:22px;
-border-radius:20px;
-border:1px dashed #555;
-text-align:center;
-color:#aaa;
-
-}
-
-
-.qr-title{
-
-font-size:18px;
-color:#ffd700;
-margin-bottom:10px;
-
-}
-
-
-.creator{
-
-text-align:center;
-margin-top:30px;
-
-}
-
-
-.creator-name{
-
-font-size:13px;
-color:#777;
-letter-spacing:1px;
-
-}
-
-
-.support{
-
-font-size:12px;
-color:#555;
-margin-top:8px;
-
-}
-
-
-.footer{
-
-text-align:center;
-padding:20px;
-color:#666;
-
-}
-
-
-</style>
+  </style>
 
 </head>
 
@@ -320,23 +293,35 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
+
 <div class="status-box">
 
-<div class="status-online">
 
-🟢 سیستم آنلاین
+<div class="status-title">
 
-</div>
-
-
-<div class="status-text">
-
-آماده دریافت و نمایش اطلاعات بازار
+📡 وضعیت سیستم
 
 </div>
 
 
+<div class="status-online" id="market-state">
+
+🟢 بازار آماده دریافت اطلاعات
+
 </div>
+
+
+<div class="status-time" id="data-time">
+
+آخرین دریافت اطلاعات: ---
+
+</div>
+
+
+</div>
+
+
+
 
 
 <div class="notice-box">
@@ -345,16 +330,21 @@ Digital Market Board | Bandar Hasineh
 
 <br>
 
-تابلو هوشمند اعلام نرخ و خدمات بازار
+تابلو هوشمند اعلام نرخ طلا، ارز و بازار
 
 </div>
 
 
+
+
+
 <div class="market-pulse">
+
 
 📊 نبض بازار
 
 <br>
+
 
 🟢 بیشترین رشد:
 
@@ -365,7 +355,10 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
+
 <br>
+
+
 
 🔴 بیشترین کاهش:
 
@@ -376,7 +369,10 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
+
 <br>
+
+
 
 ⏱ آخرین تغییر:
 
@@ -387,7 +383,11 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
+
 </div>
+
+
+
 
 
 <div class="live">
@@ -395,6 +395,9 @@ Digital Market Board | Bandar Hasineh
 ● LIVE MARKET
 
 </div>
+
+
+
 
 
 <div class="date-box">
@@ -407,11 +410,13 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
+
 <div id="clock">
 
 ساعت ایران
 
 </div>
+
 
 
 <div id="lunar">
@@ -424,6 +429,9 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
+
+
+
 <div id="update" class="update-box">
 
 آخرین بروزرسانی: ---
@@ -431,8 +439,19 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
+
 </div>
+
+
+
+
+
+
+
 <div class="container">
+
+
+
 
 
 <div class="card">
@@ -446,6 +465,8 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
+
 <div class="item">
 
 
@@ -454,6 +475,7 @@ Digital Market Board | Bandar Hasineh
 طلای ۱۸ عیار
 
 </div>
+
 
 
 <div class="price-line">
@@ -472,6 +494,7 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
+
 <span>
 
 فروش:
@@ -485,6 +508,7 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
+
 <span class="change-up" id="gold18-change">
 
 ▲ 0%
@@ -492,10 +516,13 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
+
 </div>
 
 
 </div>
+
+
 
 
 
@@ -509,6 +536,7 @@ Digital Market Board | Bandar Hasineh
 مثقال طلا
 
 </div>
+
 
 
 <div class="price-line">
@@ -527,6 +555,7 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
+
 <span>
 
 فروش:
@@ -540,6 +569,7 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -547,10 +577,13 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
+
 </div>
 
 
 </div>
+
+
 
 
 
@@ -564,6 +597,7 @@ Digital Market Board | Bandar Hasineh
 طلای ۲۴ عیار
 
 </div>
+
 
 
 <div class="price-line">
@@ -582,6 +616,7 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
+
 <span>
 
 فروش:
@@ -595,6 +630,7 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -602,8 +638,6 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
-</div>
-
 
 </div>
 
@@ -611,10 +645,7 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
-
-
-
-
+</div>
 <div class="card">
 
 
@@ -627,8 +658,8 @@ Digital Market Board | Bandar Hasineh
 
 
 
-<div class="item">
 
+<div class="item">
 
 <div class="item-name">
 
@@ -653,6 +684,7 @@ USD دلار آمریکا
 </span>
 
 
+
 <span>
 
 فروش:
@@ -666,6 +698,7 @@ USD دلار آمریکا
 </span>
 
 
+
 <span class="change-up">
 
 ▲ 0%
@@ -675,15 +708,15 @@ USD دلار آمریکا
 
 </div>
 
-
 </div>
 
 
 
 
 
-<div class="item">
 
+
+<div class="item">
 
 <div class="item-name">
 
@@ -708,6 +741,7 @@ EUR یورو
 </span>
 
 
+
 <span>
 
 فروش:
@@ -721,6 +755,7 @@ EUR یورو
 </span>
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -730,15 +765,15 @@ EUR یورو
 
 </div>
 
-
 </div>
 
 
 
 
 
-<div class="item">
 
+
+<div class="item">
 
 <div class="item-name">
 
@@ -763,6 +798,7 @@ AED درهم امارات
 </span>
 
 
+
 <span>
 
 فروش:
@@ -776,6 +812,7 @@ AED درهم امارات
 </span>
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -785,10 +822,15 @@ AED درهم امارات
 
 </div>
 
-
 </div>
-<div class="item">
 
+
+
+
+
+
+
+<div class="item">
 
 <div class="item-name">
 
@@ -813,6 +855,7 @@ GBP پوند انگلیس
 </span>
 
 
+
 <span>
 
 فروش:
@@ -826,6 +869,7 @@ GBP پوند انگلیس
 </span>
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -835,15 +879,15 @@ GBP پوند انگلیس
 
 </div>
 
-
 </div>
 
 
 
 
 
-<div class="item">
 
+
+<div class="item">
 
 <div class="item-name">
 
@@ -868,6 +912,7 @@ CAD دلار کانادا
 </span>
 
 
+
 <span>
 
 فروش:
@@ -881,6 +926,7 @@ CAD دلار کانادا
 </span>
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -890,15 +936,15 @@ CAD دلار کانادا
 
 </div>
 
-
 </div>
 
 
 
 
 
-<div class="item">
 
+
+<div class="item">
 
 <div class="item-name">
 
@@ -923,6 +969,7 @@ TRY لیر ترکیه
 </span>
 
 
+
 <span>
 
 فروش:
@@ -936,6 +983,7 @@ TRY لیر ترکیه
 </span>
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -945,15 +993,15 @@ TRY لیر ترکیه
 
 </div>
 
-
 </div>
 
 
 
 
 
-<div class="item">
 
+
+<div class="item">
 
 <div class="item-name">
 
@@ -978,6 +1026,7 @@ CNY یوان چین
 </span>
 
 
+
 <span>
 
 فروش:
@@ -991,6 +1040,7 @@ CNY یوان چین
 </span>
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -1000,9 +1050,7 @@ CNY یوان چین
 
 </div>
 
-
 </div>
-
 
 
 </div>
@@ -1024,6 +1072,7 @@ CNY یوان چین
 </div>
 
 
+
 <div class="item">
 
 
@@ -1032,6 +1081,7 @@ CNY یوان چین
 بازار خودرو
 
 </div>
+
 
 
 <div class="price-line">
@@ -1058,6 +1108,7 @@ CNY یوان چین
 
 
 </div>
+
 
 
 
@@ -1075,6 +1126,7 @@ CNY یوان چین
 </div>
 
 
+
 <div class="item">
 
 
@@ -1083,6 +1135,7 @@ CNY یوان چین
 بازار ملک
 
 </div>
+
 
 
 <div class="price-line">
@@ -1109,6 +1162,7 @@ CNY یوان چین
 
 
 </div>
+
 
 
 
@@ -1166,11 +1220,13 @@ Support: 09178649970
 
 
 
+
 <div class="footer">
 
 HASINEH MARKET © ۱۴۰۵
 
 </div>
+
 
 
 
@@ -1273,13 +1329,22 @@ iran.toLocaleTimeString("fa-IR");
 
 
 
+document.getElementById("data-time").innerHTML =
+
+"آخرین دریافت اطلاعات: " +
+
+iran.toLocaleTimeString("fa-IR");
+
+
+
+
+
 document.getElementById("last-change").innerHTML =
 
 iran.toLocaleTimeString("fa-IR");
 
 
 }
-
 
 
 
