@@ -1,50 +1,26 @@
 <!-- ==========================
- HASINEH MARKET V38
- GOLD PRICE BOARD
+ HASINEH MARKET V39
+ MARKET CLOCK PANEL
 ========================== -->
 
 
-<div class="box gold-board-box">
+<div class="box market-clock-box">
 
 
-<div class="box-title gold-board-title">
+<div class="box-title market-clock-title">
 
-🪙 HASINEH GOLD PRICE BOARD V38
-
-</div>
-
-
-
-
-<div class="board-header">
-
-<span>عنوان</span>
-
-<span>قیمت</span>
-
-<span>تغییر</span>
+🕒 HASINEH MARKET CLOCK V39
 
 </div>
 
 
 
 
-<div class="board-row">
+<div>
 
-<span>
-طلای ۱۸ عیار
-</span>
+زمان ایران:
 
-<span 
-class="status-gold"
-id="board-gold18-v38">
-
----
-
-</span>
-
-<span
-id="board-change-gold18-v38">
+<span class="status-gold" id="iran-time-v39">
 
 ---
 
@@ -55,22 +31,11 @@ id="board-change-gold18-v38">
 
 
 
-<div class="board-row">
+<div>
 
-<span>
-سکه امامی
-</span>
+تاریخ شمسی:
 
-<span 
-class="status-gold"
-id="board-emami-v38">
-
----
-
-</span>
-
-<span
-id="board-change-emami-v38">
+<span class="status-gold" id="solar-date-v39">
 
 ---
 
@@ -81,24 +46,13 @@ id="board-change-emami-v38">
 
 
 
-<div class="board-row">
+<div>
 
-<span>
-نیم سکه
-</span>
+وضعیت بازار:
 
-<span 
-class="status-gold"
-id="board-nim-v38">
+<span class="status-green" id="market-status-v39">
 
----
-
-</span>
-
-<span
-id="board-change-nim-v38">
-
----
+🟢 OPEN
 
 </span>
 
@@ -107,22 +61,11 @@ id="board-change-nim-v38">
 
 
 
-<div class="board-row">
+<div>
 
-<span>
-ربع سکه
-</span>
+آخرین بروزرسانی تابلو:
 
-<span 
-class="status-gold"
-id="board-rob-v38">
-
----
-
-</span>
-
-<span
-id="board-change-rob-v38">
+<span class="status-gold" id="board-update-v39">
 
 ---
 
@@ -133,39 +76,40 @@ id="board-change-rob-v38">
 
 
 </div>
+
 
 
 /* ==========================
- HASINEH MARKET V38
- GOLD PRICE BOARD STYLE
+ HASINEH MARKET V39
+ MARKET CLOCK STYLE
 ========================== */
 
 
-.gold-board-box{
+.market-clock-box{
 
 margin:20px auto;
 
-max-width:460px;
+max-width:360px;
 
 padding:20px;
 
 border-radius:25px;
 
-background:#080808;
+background:#090909;
 
 border:1px solid #d4af37;
 
-box-shadow:0 0 25px rgba(212,175,55,0.35);
-
 line-height:2;
+
+box-shadow:0 0 20px rgba(212,175,55,0.30);
 
 }
 
 
 
-.gold-board-title{
+.market-clock-title{
 
-font-size:20px;
+font-size:19px;
 
 font-weight:bold;
 
@@ -173,67 +117,21 @@ color:#ffd700;
 
 text-align:center;
 
-margin-bottom:15px;
+margin-bottom:12px;
 
 }
 
 
 
-.board-header{
+.market-clock-box div{
 
-display:flex;
-
-justify-content:space-between;
-
-padding:8px;
-
-border-bottom:1px solid #d4af37;
-
-color:#ffd700;
-
-font-weight:bold;
+margin:7px 0;
 
 }
 
 
 
-.board-row{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:10px 8px;
-
-border-bottom:1px solid rgba(212,175,55,0.18);
-
-}
-
-
-
-.board-row span:first-child{
-
-color:#ffffff;
-
-font-weight:bold;
-
-}
-
-
-
-.board-row span:nth-child(2){
-
-color:#ffd700;
-
-font-weight:bold;
-
-}
-
-
-
-.change-up{
+.time-live{
 
 color:#00ff88;
 
@@ -243,17 +141,7 @@ font-weight:bold;
 
 
 
-.change-down{
-
-color:#ff5555;
-
-font-weight:bold;
-
-}
-
-
-
-.change-flat{
+.date-solar{
 
 color:#ffd700;
 
@@ -263,109 +151,120 @@ font-weight:bold;
 
 
 
+.market-open{
+
+color:#00ff88;
+
+font-weight:bold;
+
+}
+
+
+
+.market-close{
+
+color:#ff5555;
+
+font-weight:bold;
+
+}
+
+
+
 /* ==========================
- HASINEH MARKET V38
- GOLD PRICE BOARD ENGINE
+ HASINEH MARKET V39
+ MARKET CLOCK ENGINE
 ========================== */
 
 
-const HASINEH_GOLD_BOARD_V38 = {
+const HASINEH_CLOCK_V39 = {
 
 
-prices:{
+update:function(){
 
 
-gold18:{
-price:"---",
-change:"---"
-},
+
+let now = new Date();
 
 
-emami:{
-price:"---",
-change:"---"
-},
 
 
-nim:{
-price:"---",
-change:"---"
-},
+let time =
+document.getElementById(
+"iran-time-v39"
+);
 
 
-rob:{
-price:"---",
-change:"---"
+
+if(time){
+
+time.innerHTML =
+now.toLocaleTimeString(
+"fa-IR",
+{
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit"
 }
-
-
-},
-
-
-
-render:function(){
-
-
-
-let board = {
-
-
-"board-gold18-v38":
-this.prices.gold18.price,
-
-
-"board-change-gold18-v38":
-this.prices.gold18.change,
-
-
-
-"board-emami-v38":
-this.prices.emami.price,
-
-
-"board-change-emami-v38":
-this.prices.emami.change,
-
-
-
-"board-nim-v38":
-this.prices.nim.price,
-
-
-"board-change-nim-v38":
-this.prices.nim.change,
-
-
-
-"board-rob-v38":
-this.prices.rob.price,
-
-
-"board-change-rob-v38":
-this.prices.rob.change
-
-
-};
-
-
-
-
-for(let id in board){
-
-
-let item =
-document.getElementById(id);
-
-
-
-if(item){
-
-item.innerHTML =
-board[id];
+);
 
 }
 
 
+
+
+
+let date =
+document.getElementById(
+"solar-date-v39"
+);
+
+
+
+if(date){
+
+date.innerHTML =
+now.toLocaleDateString(
+"fa-IR"
+);
+
+}
+
+
+
+
+
+let update =
+document.getElementById(
+"board-update-v39"
+);
+
+
+
+if(update){
+
+update.innerHTML =
+now.toLocaleTimeString(
+"fa-IR"
+);
+
+}
+
+
+
+
+
+let status =
+document.getElementById(
+"market-status-v39"
+);
+
+
+
+if(status){
+
+status.innerHTML =
+"🟢 OPEN";
 
 }
 
@@ -382,13 +281,13 @@ board[id];
 
 
 
-function hasinehGoldBoardMonitorV38(){
+function hasinehClockMonitorV39(){
 
 
 try{
 
 
-HASINEH_GOLD_BOARD_V38.render();
+HASINEH_CLOCK_V39.update();
 
 
 
@@ -398,7 +297,7 @@ catch(error){
 
 
 console.log(
-"HASINEH GOLD BOARD V38 ERROR"
+"HASINEH CLOCK V39 ERROR"
 );
 
 
@@ -414,9 +313,9 @@ console.log(
 
 setInterval(
 
-hasinehGoldBoardMonitorV38,
+hasinehClockMonitorV39,
 
-15000
+1000
 
 );
 
@@ -424,4 +323,4 @@ hasinehGoldBoardMonitorV38,
 
 
 
-hasinehGoldBoardMonitorV38();
+hasinehClockMonitorV39();
