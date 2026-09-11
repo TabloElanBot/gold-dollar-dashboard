@@ -1,80 +1,110 @@
 <!-- ==========================
- HASINEH MARKET V53
- PREMIUM PRICE ANIMATION
+ HASINEH MARKET V54
+ REAL DATA CONNECTOR
 ========================== -->
 
 
-<div class="box price-animation-box">
+<div class="box real-data-box">
 
 
-<div class="box-title price-animation-title">
+<div class="box-title real-data-title">
 
-💰 HASINEH PRICE MOVEMENT V53
+📡 HASINEH REAL DATA CONNECTOR V54
 
 </div>
 
 
 
 
-<div class="movement-row">
-
+<div class="data-line">
 
 <span>
-
-آخرین تغییر:
-
+وضعیت اتصال:
 </span>
-
 
 
 <span 
-id="price-movement-v53">
+class="status-green"
+id="real-status-v54">
 
-⚖️ بدون تغییر
+🟢 READY
 
 </span>
-
 
 </div>
 
 
 
 
-<div class="movement-row">
-
+<div class="data-line">
 
 <span>
-
-وضعیت حرکت:
-
+منبع نرخ:
 </span>
-
 
 
 <span 
-id="price-direction-v53">
+class="status-gold"
+id="real-source-v54">
 
-STABLE
+PENDING API
 
 </span>
 
+</div>
+
+
+
+
+<div class="data-line">
+
+<span>
+آخرین دریافت:
+</span>
+
+
+<span 
+class="status-gold"
+id="real-update-v54">
+
+---
+
+</span>
 
 </div>
 
 
 
 
+<div class="data-line">
+
+<span>
+سلامت موتور:
+</span>
+
+
+<span 
+class="status-green"
+id="real-health-v54">
+
+100%
+
+</span>
+
 </div>
 
+
+
+</div>
 
 
 /* ==========================
- HASINEH MARKET V53
- PRICE MOVEMENT STYLE
+ HASINEH MARKET V54
+ REAL DATA CONNECTOR STYLE
 ========================== */
 
 
-.price-animation-box{
+.real-data-box{
 
 margin:20px auto;
 
@@ -102,7 +132,7 @@ box-shadow:
 
 
 
-.price-animation-title{
+.real-data-title{
 
 font-size:20px;
 
@@ -118,7 +148,7 @@ margin-bottom:18px;
 
 
 
-.movement-row{
+.data-line{
 
 display:flex;
 
@@ -132,6 +162,20 @@ border-bottom:
 
 1px solid rgba(212,175,55,0.18);
 
+}
+
+
+
+.data-line:last-child{
+
+border-bottom:none;
+
+}
+
+
+
+.data-line span:first-child{
+
 color:#ffffff;
 
 font-weight:bold;
@@ -140,45 +184,25 @@ font-weight:bold;
 
 
 
-.movement-row:last-child{
+.data-line span:last-child{
 
-border-bottom:none;
+font-weight:bold;
 
 }
 
 
 
-/* حالت افزایش */
+/* وضعیت اتصال */
 
-.price-up{
+.connector-ready{
 
 color:#00ff88;
 
-animation:
-
-pricePulse 1s ease;
-
 }
 
 
 
-/* حالت کاهش */
-
-.price-down{
-
-color:#ff5555;
-
-animation:
-
-pricePulse 1s ease;
-
-}
-
-
-
-/* حالت ثابت */
-
-.price-stable{
+.connector-waiting{
 
 color:#ffd700;
 
@@ -186,44 +210,39 @@ color:#ffd700;
 
 
 
+.connector-error{
 
-@keyframes pricePulse{
-
-
-0%{
-
-opacity:0.4;
-
-transform:scale(0.98);
+color:#ff5555;
 
 }
 
 
 
-100%{
+/* افکت اعتماد */
 
-opacity:1;
+.real-data-box:hover{
 
-transform:scale(1);
+box-shadow:
 
-}
-
+0 0 50px rgba(212,175,55,0.45);
 
 }
 
 
 /* ==========================
- HASINEH MARKET V53
- PRICE MOVEMENT ENGINE
+ HASINEH MARKET V54
+ REAL DATA CONNECTOR ENGINE
 ========================== */
 
 
-const HASINEH_PRICE_MOVEMENT_V53 = {
+const HASINEH_REAL_DATA_V54 = {
 
 
-direction:"STABLE",
+status:"READY",
 
-message:"⚖️ بدون تغییر",
+source:"PENDING API",
+
+health:"100%",
 
 
 
@@ -231,35 +250,75 @@ update:function(){
 
 
 
-let movement =
+let now = new Date();
+
+
+
+
+let status =
 document.getElementById(
-"price-movement-v53"
+"real-status-v54"
 );
 
 
 
-let direction =
-document.getElementById(
-"price-direction-v53"
-);
+if(status){
 
-
-
-
-if(movement){
-
-movement.innerHTML =
-this.message;
+status.innerHTML =
+"🟢 READY";
 
 }
 
 
 
 
-if(direction){
+let source =
+document.getElementById(
+"real-source-v54"
+);
 
-direction.innerHTML =
-this.direction;
+
+
+if(source){
+
+source.innerHTML =
+this.source;
+
+}
+
+
+
+
+let update =
+document.getElementById(
+"real-update-v54"
+);
+
+
+
+if(update){
+
+update.innerHTML =
+now.toLocaleTimeString(
+"fa-IR"
+);
+
+}
+
+
+
+
+let health =
+document.getElementById(
+"real-health-v54"
+);
+
+
+
+if(health){
+
+health.innerHTML =
+this.health;
 
 }
 
@@ -276,13 +335,13 @@ this.direction;
 
 
 
-function hasinehPriceMovementMonitorV53(){
+function hasinehRealDataMonitorV54(){
 
 
 try{
 
 
-HASINEH_PRICE_MOVEMENT_V53.update();
+HASINEH_REAL_DATA_V54.update();
 
 
 
@@ -292,7 +351,7 @@ catch(error){
 
 
 console.log(
-"HASINEH PRICE MOVEMENT V53 ERROR"
+"HASINEH REAL DATA V54 ERROR"
 );
 
 
@@ -306,10 +365,9 @@ console.log(
 
 
 
-
 setInterval(
 
-hasinehPriceMovementMonitorV53,
+hasinehRealDataMonitorV54,
 
 10000
 
@@ -319,4 +377,4 @@ hasinehPriceMovementMonitorV53,
 
 
 
-hasinehPriceMovementMonitorV53();
+hasinehRealDataMonitorV54();
