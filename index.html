@@ -8,12 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-HASINEH MARKET V29 REAL MARKET ENGINE
+HASINEH MARKET V30 REAL LIVE ENGINE
 </title>
 
 
 <style>
-
 
 *{
 box-sizing:border-box;
@@ -33,6 +32,8 @@ font-family:Tahoma,Arial,sans-serif;
 }
 
 
+/* HEADER V30 */
+
 .header{
 
 text-align:center;
@@ -42,13 +43,14 @@ padding:35px 15px;
 background:
 linear-gradient(
 180deg,
-#242424,
+#252525,
 #050505
 );
 
 border-bottom:2px solid #d4af37;
 
 }
+
 
 
 .logo{
@@ -62,6 +64,7 @@ letter-spacing:5px;
 color:#ffd700;
 
 text-shadow:
+
 0 0 18px #806900;
 
 }
@@ -92,6 +95,9 @@ color:#888;
 
 
 
+/* GENERAL BOX */
+
+
 .box{
 
 margin:20px auto;
@@ -112,7 +118,7 @@ line-height:2;
 
 
 
-.title-box{
+.box-title{
 
 font-size:18px;
 
@@ -142,6 +148,31 @@ font-weight:bold;
 
 }
 
+
+
+.gray{
+
+color:#aaa;
+
+}
+
+
+
+/* ENGINE BOX */
+
+
+.engine{
+
+border:1px solid #d4af37;
+
+background:#090909;
+
+}
+
+
+
+
+/* MAIN */
 
 
 .container{
@@ -243,65 +274,10 @@ font-size:23px;
 color:#ffd700;
 
 }
-<style>
-
-.status{
-
-font-size:15px;
-
-color:#ccc;
-
-}
-
-
-.ai-box{
-
-border:1px solid #d4af37;
-
-background:#080808;
-
-}
 
 
 
-.engine-box{
-
-border:1px solid #d4af37;
-
-background:#0b0b0b;
-
-}
-
-
-
-.market-ready{
-
-color:#00ff88;
-
-font-weight:bold;
-
-}
-
-
-
-.change-up{
-
-color:#00ff88;
-
-font-weight:bold;
-
-}
-
-
-
-.change-down{
-
-color:#ff4444;
-
-font-weight:bold;
-
-}
-
+/* FOOTER */
 
 
 .footer{
@@ -319,10 +295,13 @@ font-size:13px;
 
 </style>
 
+
 </head>
 
 
+
 <body>
+
 
 
 <div class="header">
@@ -335,11 +314,13 @@ HASINEH MARKET
 </div>
 
 
+
 <div class="subtitle">
 
-Real Market Engine V29
+REAL LIVE MARKET ENGINE V30
 
 </div>
+
 
 
 <div class="brand">
@@ -353,12 +334,13 @@ Digital Smart Market Board | Bandar Hasineh
 
 
 
+
 <div class="box">
 
 
-<div class="title-box">
+<div class="box-title">
 
-📡 وضعیت سیستم V29
+📡 وضعیت سیستم V30
 
 </div>
 
@@ -370,7 +352,7 @@ Digital Smart Market Board | Bandar Hasineh
 </div>
 
 
-<div class="status" id="system-time">
+<div class="gray" id="system-time">
 
 آخرین بررسی: ---
 
@@ -382,41 +364,13 @@ Digital Smart Market Board | Bandar Hasineh
 
 
 
-<div class="box ai-box">
+
+<div class="box engine">
 
 
-<div class="title-box">
+<div class="box-title">
 
-🤖 HASINEH AI MARKET V29
-
-</div>
-
-
-<div class="green">
-
-🟢 موتور تحلیل فعال
-
-</div>
-
-
-<div class="status">
-
-آماده تحلیل تغییرات بازار
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="box engine-box">
-
-
-<div class="title-box">
-
-⚡ HASINEH REAL DATA ENGINE
+⚡ HASINEH LIVE DATA ENGINE
 
 </div>
 
@@ -425,7 +379,7 @@ Digital Smart Market Board | Bandar Hasineh
 
 وضعیت موتور:
 
-<span class="market-ready" id="engine-status">
+<span class="green">
 
 READY
 
@@ -434,12 +388,11 @@ READY
 </div>
 
 
-
 <div>
 
 حالت دریافت:
 
-<span class="gold" id="api-mode">
+<span class="gold" id="data-mode">
 
 API WAITING
 
@@ -448,12 +401,11 @@ API WAITING
 </div>
 
 
-
 <div>
 
 آخرین پردازش:
 
-<span id="engine-time">
+<span id="process-time">
 
 ---
 
@@ -462,8 +414,8 @@ API WAITING
 </div>
 
 
-
 </div>
+
 
 
 
@@ -471,46 +423,30 @@ API WAITING
 <div class="box">
 
 
-<div class="title-box">
+<div class="box-title">
 
-🧠 HASINEH MARKET INTELLIGENCE
-
-</div>
-
-
-<div>
-
-روند بازار:
-
-<span class="green">
-
-در انتظار داده زنده
-
-</span>
+🤖 HASINEH AI MARKET V30
 
 </div>
 
 
-<div>
+<div class="green">
 
-هشدار تغییر:
+🟢 تحلیل هوشمند فعال
 
-<span class="green">
+</div>
 
-فعال
 
-</span>
+<div class="gray">
+
+آماده بررسی روند بازار و تغییرات قیمت
 
 </div>
 
 
 </div>
-
-
-
-
-
 <div class="container">
+
 
 
 <div class="card">
@@ -518,9 +454,10 @@ API WAITING
 
 <div class="card-title">
 
-🟡 HASINEH GOLD V29
+🟡 HASINEH GOLD V30
 
 </div>
+
 
 
 <div class="item">
@@ -531,6 +468,7 @@ API WAITING
 طلای ۱۸ عیار
 
 </div>
+
 
 
 <div class="price-line">
@@ -563,8 +501,8 @@ API WAITING
 </span>
 
 
-
 </div>
+
 
 
 <div class="live-price" id="gold-live">
@@ -574,7 +512,10 @@ API WAITING
 </div>
 
 
+
 </div>
+
+
 
 
 
@@ -588,6 +529,7 @@ API WAITING
 </div>
 
 
+
 <div class="price-line">
 
 
@@ -595,7 +537,7 @@ API WAITING
 
 خرید:
 
-<b class="price">
+<b class="price" id="mesghal-buy">
 
 ---
 
@@ -609,7 +551,57 @@ API WAITING
 
 فروش:
 
-<b class="price">
+<b class="price" id="mesghal-sell">
+
+---
+
+</b>
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="item">
+
+
+<div class="item-name">
+
+طلای ۲۴ عیار
+
+</div>
+
+
+
+<div class="price-line">
+
+
+<span>
+
+خرید:
+
+<b class="price" id="gold24-buy">
+
+---
+
+</b>
+
+</span>
+
+
+
+<span>
+
+فروش:
+
+<b class="price" id="gold24-sell">
 
 ---
 
@@ -626,17 +618,25 @@ API WAITING
 
 
 </div>
- <div class="card">
+
+
+
+
+
+<div class="card">
 
 
 <div class="card-title">
 
-💵 HASINEH CURRENCY V29
+💵 HASINEH CURRENCY V30
 
 </div>
 
 
+
+
 <div class="item">
+
 
 <div class="item-name">
 
@@ -645,9 +645,12 @@ USD دلار آمریکا
 </div>
 
 
+
 <div class="price-line">
 
+
 <span>
+
 خرید:
 
 <b class="price" id="usd-buy">
@@ -659,7 +662,9 @@ USD دلار آمریکا
 </span>
 
 
+
 <span>
+
 فروش:
 
 <b class="price" id="usd-sell">
@@ -673,12 +678,15 @@ USD دلار آمریکا
 
 </div>
 
+
 </div>
 
 
 
 
+
 <div class="item">
+
 
 <div class="item-name">
 
@@ -687,9 +695,12 @@ EUR یورو
 </div>
 
 
+
 <div class="price-line">
 
+
 <span>
+
 خرید:
 
 <b class="price" id="eur-buy">
@@ -701,7 +712,9 @@ EUR یورو
 </span>
 
 
+
 <span>
+
 فروش:
 
 <b class="price" id="eur-sell">
@@ -715,11 +728,15 @@ EUR یورو
 
 </div>
 
+
 </div>
 
 
 
+
+
 <div class="item">
+
 
 <div class="item-name">
 
@@ -728,9 +745,12 @@ AED درهم امارات
 </div>
 
 
+
 <div class="price-line">
 
+
 <span>
+
 خرید:
 
 <b class="price" id="aed-buy">
@@ -742,7 +762,9 @@ AED درهم امارات
 </span>
 
 
+
 <span>
+
 فروش:
 
 <b class="price" id="aed-sell">
@@ -756,6 +778,54 @@ AED درهم امارات
 
 </div>
 
+
+</div>
+
+
+
+
+
+<div class="item">
+
+
+<div class="item-name">
+
+GBP پوند انگلیس
+
+</div>
+
+
+
+<div class="price-line">
+
+
+<span>
+
+خرید:
+
+<b class="price" id="gbp-buy">
+
+---
+
+</b>
+
+</span>
+
+
+
+<span>
+
+فروش:
+
+<b class="price" id="gbp-sell">
+
+---
+
+</b>
+
+</span>
+
+
 </div>
 
 
@@ -764,14 +834,165 @@ AED درهم امارات
 
 
 
-<div class="box">
+
+<div class="item">
 
 
-<div class="title-box">
+<div class="item-name">
 
-📡 HASINEH API ENGINE V29
+TRY لیر ترکیه
 
 </div>
+
+
+
+<div class="price-line">
+
+
+<span>
+
+خرید:
+
+<b class="price" id="try-buy">
+
+---
+
+</b>
+
+</span>
+
+
+
+<span>
+
+فروش:
+
+<b class="price" id="try-sell">
+
+---
+
+</b>
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="item">
+
+
+<div class="item-name">
+
+CAD دلار کانادا
+
+</div>
+
+
+
+<div class="price-line">
+
+
+<span>
+
+خرید:
+
+<b class="price" id="cad-buy">
+
+---
+
+</b>
+
+</span>
+
+
+
+<span>
+
+فروش:
+
+<b class="price" id="cad-sell">
+
+---
+
+</b>
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="item">
+
+
+<div class="item-name">
+
+CNY یوان چین
+
+</div>
+
+
+
+<div class="price-line">
+
+
+<span>
+
+خرید:
+
+<b class="price" id="cny-buy">
+
+---
+
+</b>
+
+</span>
+
+
+
+<span>
+
+فروش:
+
+<b class="price" id="cny-sell">
+
+---
+
+</b>
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+ </div>
+ <div class="box">
+
+
+<div class="box-title">
+
+📡 HASINEH API MONITOR V30
+
+</div>
+
 
 
 <div>
@@ -780,11 +1001,12 @@ AED درهم امارات
 
 <span class="gold" id="api-status">
 
-در انتظار اتصال API
+API WAITING
 
 </span>
 
 </div>
+
 
 
 <div>
@@ -800,7 +1022,22 @@ AED درهم امارات
 </div>
 
 
+
+<div>
+
+وضعیت داده:
+
+<span class="green">
+
+LIVE ENGINE READY
+
+</span>
+
 </div>
+
+
+</div>
+
 
 
 
@@ -808,25 +1045,36 @@ AED درهم امارات
 <div class="box">
 
 
-<div class="title-box">
+<div class="box-title">
 
-⚙️ HASINEH CONTROL V29
+⚙️ HASINEH CONTROL V30
 
 </div>
 
 
 <div>
 
-نسخه:
+نسخه سیستم:
 
-V29 REAL MARKET ENGINE
+REAL LIVE MARKET ENGINE
 
 </div>
 
 
+
 <div class="green">
 
-🟢 ساختار تمیز و آماده توسعه
+🟢 ساختار آماده اتصال API
+
+</div>
+
+
+
+<div>
+
+حالت:
+
+DEVELOPMENT MODE
 
 </div>
 
@@ -850,16 +1098,17 @@ Created by Hassan Divanizadeh
 
 
 
+
 <script>
 
 
 /* ==========================
-HASINEH MARKET V29 ENGINE
+ HASINEH MARKET V30 ENGINE
 ========================== */
 
 
 
-const marketData = {
+const HASINEH_DATA = {
 
 
 gold:{
@@ -869,6 +1118,24 @@ buy:"---",
 sell:"---",
 
 live:"---"
+
+},
+
+
+mesghal:{
+
+buy:"---",
+
+sell:"---"
+
+},
+
+
+gold24:{
+
+buy:"---",
+
+sell:"---"
 
 },
 
@@ -888,6 +1155,51 @@ buy:"---",
 
 sell:"---"
 
+},
+
+
+aed:{
+
+buy:"---",
+
+sell:"---"
+
+},
+
+
+gbp:{
+
+buy:"---",
+
+sell:"---"
+
+},
+
+
+try:{
+
+buy:"---",
+
+sell:"---"
+
+},
+
+
+cad:{
+
+buy:"---",
+
+sell:"---"
+
+},
+
+
+cny:{
+
+buy:"---",
+
+sell:"---"
+
 }
 
 
@@ -897,41 +1209,54 @@ sell:"---"
 
 
 
-function updateData(){
+
+function updateMarket(){
+
 
 
 document.getElementById("gold-buy").innerHTML =
-marketData.gold.buy;
+HASINEH_DATA.gold.buy;
 
 
 document.getElementById("gold-sell").innerHTML =
-marketData.gold.sell;
+HASINEH_DATA.gold.sell;
+
+
+document.getElementById("gold-live").innerHTML =
+
+"قیمت لحظه‌ای: " +
+
+HASINEH_DATA.gold.live;
+
+
 
 
 document.getElementById("usd-buy").innerHTML =
-marketData.usd.buy;
+HASINEH_DATA.usd.buy;
 
 
 document.getElementById("usd-sell").innerHTML =
-marketData.usd.sell;
+HASINEH_DATA.usd.sell;
+
 
 
 document.getElementById("eur-buy").innerHTML =
-marketData.eur.buy;
+HASINEH_DATA.eur.buy;
 
 
 document.getElementById("eur-sell").innerHTML =
-marketData.eur.sell;
+HASINEH_DATA.eur.sell;
 
 
 
-document.getElementById("engine-time").innerHTML =
+document.getElementById("process-time").innerHTML =
 
 new Date().toLocaleTimeString("fa-IR");
 
 
-
 }
+
+
 
 
 
@@ -939,17 +1264,20 @@ new Date().toLocaleTimeString("fa-IR");
 function apiMonitor(){
 
 
+
 document.getElementById("api-time").innerHTML =
 
 new Date().toLocaleTimeString("fa-IR");
-
 
 
 }
 
 
 
-function systemClock(){
+
+
+function systemMonitor(){
+
 
 
 document.getElementById("system-time").innerHTML =
@@ -964,28 +1292,51 @@ new Date().toLocaleTimeString("fa-IR");
 
 
 
-setInterval(updateData,30000);
+
+setInterval(
+
+updateMarket,
+
+30000
+
+);
 
 
-setInterval(apiMonitor,10000);
+
+setInterval(
+
+apiMonitor,
+
+10000
+
+);
 
 
-setInterval(systemClock,1000);
+
+setInterval(
+
+systemMonitor,
+
+1000
+
+);
 
 
 
-updateData();
+
+
+updateMarket();
 
 apiMonitor();
 
-systemClock();
+systemMonitor();
 
 
 
 </script>
 
 
-</body>
 
+</body>
 
 </html>
