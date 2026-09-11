@@ -1,109 +1,43 @@
 <!-- ==========================
- HASINEH MARKET V43
- MARKET INTELLIGENCE PANEL
+ HASINEH MARKET V44
+ PREMIUM BRAND HEADER
 ========================== -->
 
 
-<div class="box intelligence-box">
+<div class="box premium-header-box">
 
 
-<div class="box-title intelligence-title">
+<div class="brand-logo-v44">
 
-🤖 HASINEH MARKET INTELLIGENCE V43
-
-</div>
-
-
-
-<div class="intel-row">
-
-<span>
-نبض بازار:
-</span>
-
-<span 
-class="status-green"
-id="market-pulse-v43">
-
-🟢 STABLE
-
-</span>
+HASINEH MARKET
 
 </div>
 
 
 
+<div class="brand-subtitle-v44">
 
-<div class="intel-row">
-
-<span>
-روند کلی:
-</span>
-
-<span 
-class="status-gold"
-id="market-trend-v43">
-
-WAITING
-
-</span>
+SMART GOLD & CURRENCY BOARD
 
 </div>
 
 
 
+<div class="brand-location-v44">
 
-<div class="intel-row">
-
-<span>
-بیشترین رشد:
-</span>
-
-<span 
-class="status-gold"
-id="top-rise-v43">
-
----
-
-</span>
+Bandar Hasineh
 
 </div>
 
 
 
-
-<div class="intel-row">
-
-<span>
-بیشترین تغییر:
-</span>
-
-<span 
-class="status-gold"
-id="top-change-v43">
-
----
-
-</span>
-
-</div>
+<div class="brand-line-v44"></div>
 
 
 
+<div class="brand-status-v44">
 
-<div class="intel-row">
-
-<span>
-آخرین تحلیل:
-</span>
-
-<span 
-class="status-green"
-id="ai-status-v43">
-
-READY
-
-</span>
+🟢 LIVE MARKET SYSTEM
 
 </div>
 
@@ -112,59 +46,158 @@ READY
 </div>
 
 
- /* ==========================
- HASINEH MARKET V43
- MARKET INTELLIGENCE STYLE
+/* ==========================
+ HASINEH MARKET V44
+ PREMIUM HEADER STYLE
 ========================== */
 
 
-.intelligence-box{
+.premium-header-box{
 
 margin:20px auto;
 
-max-width:420px;
+max-width:520px;
 
-padding:22px;
+padding:30px 20px;
 
-border-radius:28px;
+border-radius:32px;
 
 background:
+
 linear-gradient(
 145deg,
-#090909,
-#111111
+#050505,
+#151515
 );
 
 border:1px solid #d4af37;
 
 box-shadow:
-0 0 30px rgba(212,175,55,0.30);
 
-line-height:2;
-
-}
-
-
-
-.intelligence-title{
-
-font-size:20px;
-
-font-weight:bold;
-
-color:#ffd700;
+0 0 35px rgba(212,175,55,0.35);
 
 text-align:center;
 
-margin-bottom:15px;
+}
 
-letter-spacing:0.5px;
+
+
+/* لوگوی اصلی */
+
+.brand-logo-v44{
+
+font-size:32px;
+
+font-weight:700;
+
+letter-spacing:3px;
+
+color:#ffd700;
+
+text-shadow:
+
+0 0 15px rgba(212,175,55,0.45);
+
+font-family:
+
+"Georgia",
+serif;
 
 }
 
 
 
-.intel-row{
+/* زیر عنوان */
+
+.brand-subtitle-v44{
+
+margin-top:8px;
+
+font-size:13px;
+
+color:#dddddd;
+
+letter-spacing:1.5px;
+
+}
+
+
+
+/* موقعیت */
+
+.brand-location-v44{
+
+margin-top:10px;
+
+font-size:14px;
+
+color:#b9b9b9;
+
+}
+
+
+
+/* خط جداکننده */
+
+.brand-line-v44{
+
+width:70%;
+
+height:1px;
+
+margin:18px auto;
+
+background:#d4af37;
+
+opacity:0.5;
+
+}
+
+
+
+/* وضعیت سیستم */
+
+.brand-status-v44{
+
+font-size:14px;
+
+color:#00ff88;
+
+font-weight:bold;
+
+}
+
+
+
+@media(max-width:450px){
+
+
+.brand-logo-v44{
+
+font-size:25px;
+
+letter-spacing:2px;
+
+}
+
+
+}
+
+
+
+/* ==========================
+ HASINEH MARKET V44
+ CREATOR SIGNATURE STYLE
+========================== */
+
+
+.brand-footer-v44{
+
+margin:25px auto 10px;
+
+max-width:520px;
+
+padding:15px;
 
 display:flex;
 
@@ -172,27 +205,33 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:10px 5px;
+background:#080808;
 
-border-bottom:
-
-1px solid rgba(212,175,55,0.18);
+border-top:1px solid rgba(212,175,55,0.3);
 
 }
 
 
 
-.intel-row:last-child{
+.creator-signature-v44{
 
-border-bottom:none;
+text-align:left;
+
+font-size:11px;
+
+color:#888;
+
+line-height:1.8;
 
 }
 
 
 
-.intel-row span:first-child{
+.creator-signature-v44 span{
 
-color:#ffffff;
+color:rgba(212,175,55,0.7);
+
+font-size:13px;
 
 font-weight:bold;
 
@@ -200,209 +239,38 @@ font-weight:bold;
 
 
 
-.intel-row span:last-child{
+.qr-space-v44{
 
-font-weight:bold;
+width:55px;
 
-}
+height:55px;
 
+border:1px solid rgba(212,175,55,0.5);
 
+border-radius:8px;
 
-.pulse-active{
+display:flex;
 
-color:#00ff88;
+align-items:center;
 
-}
+justify-content:center;
 
+font-size:12px;
 
-
-.pulse-warning{
-
-color:#ffd700;
-
-}
-
-
-
-.pulse-danger{
-
-color:#ff5555;
+color:#777;
 
 }
 
 
 
-/* جلوه ظریف هوشمندی */
+.creator-info-v44{
 
-.intelligence-box:hover{
+text-align:right;
 
-box-shadow:
+font-size:10px;
 
-0 0 40px rgba(212,175,55,0.45);
+color:#777;
 
-}
-
-
-/* ==========================
- HASINEH MARKET V43
- MARKET INTELLIGENCE ENGINE
-========================== */
-
-
-const HASINEH_INTELLIGENCE_V43 = {
-
-
-pulse:"STABLE",
-
-trend:"WAITING",
-
-topRise:"---",
-
-topChange:"---",
-
-ai:"READY",
-
-
-
-analyze:function(){
-
-
-
-let pulse =
-document.getElementById(
-"market-pulse-v43"
-);
-
-
-
-if(pulse){
-
-pulse.innerHTML =
-"🟢 STABLE";
+line-height:1.7;
 
 }
-
-
-
-
-let trend =
-document.getElementById(
-"market-trend-v43"
-);
-
-
-
-if(trend){
-
-trend.innerHTML =
-"WAITING DATA";
-
-}
-
-
-
-
-let rise =
-document.getElementById(
-"top-rise-v43"
-);
-
-
-
-if(rise){
-
-rise.innerHTML =
-"---";
-
-}
-
-
-
-
-let change =
-document.getElementById(
-"top-change-v43"
-);
-
-
-
-if(change){
-
-change.innerHTML =
-"---";
-
-}
-
-
-
-
-let ai =
-document.getElementById(
-"ai-status-v43"
-);
-
-
-
-if(ai){
-
-ai.innerHTML =
-"🟢 READY";
-
-}
-
-
-
-}
-
-
-
-};
-
-
-
-
-
-
-function hasinehIntelligenceMonitorV43(){
-
-
-try{
-
-
-HASINEH_INTELLIGENCE_V43.analyze();
-
-
-
-}
-
-catch(error){
-
-
-console.log(
-"HASINEH INTELLIGENCE V43 ERROR"
-);
-
-
-
-}
-
-
-
-}
-
-
-
-
-setInterval(
-
-hasinehIntelligenceMonitorV43,
-
-15000
-
-);
-
-
-
-
-
-hasinehIntelligenceMonitorV43();
