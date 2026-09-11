@@ -1,123 +1,76 @@
-/* ==========================
- HASINEH MARKET V68
- CURRENCY MASTER BOARD
-========================== */
+<!-- ==========================
+ HASINEH MARKET V69
+ MASTER HOME BOARD
+========================== -->
 
 
-<div class="box currency-master-board-v68">
+<div class="box master-home-board-v69">
 
 
-<div class="box-title currency-master-title-v68">
+<div class="home-brand-v69">
 
-💵 HASINEH CURRENCY MARKET
-
-</div>
-
-
-
-
-<div class="currency-item-v68">
-
-<span>
-دلار آمریکا 🇺🇸
-</span>
-
-
-<span id="usd-board-v68">
-
----
-
-</span>
+HASINEH MARKET
 
 </div>
 
 
 
 
-<div class="currency-item-v68">
+<div class="home-subtitle-v69">
 
-<span>
-یورو 🇪🇺
-</span>
-
-
-<span id="eur-board-v68">
-
----
-
-</span>
+Premium Digital Market Board
 
 </div>
 
 
 
 
-<div class="currency-item-v68">
-
-<span>
-درهم امارات 🇦🇪
-</span>
-
-
-<span id="aed-board-v68">
-
----
-
-</span>
-
-</div>
+<div class="home-divider-v69"></div>
 
 
 
 
-<div class="currency-item-v68">
-
-<span>
-پوند انگلیس 🇬🇧
-</span>
+<div class="home-menu-v69">
 
 
-<span id="gbp-board-v68">
 
----
+<div class="home-card-v69">
 
-</span>
+🪙
+
+<br>
+
+HASINEH GOLD
 
 </div>
 
 
 
 
-<div class="currency-item-v68">
+<div class="home-card-v69">
 
-<span>
-لیر ترکیه 🇹🇷
-</span>
+💵
 
+<br>
 
-<span id="try-board-v68">
-
----
-
-</span>
+HASINEH CURRENCY
 
 </div>
 
 
 
 
-<div class="currency-item-v68">
+<div class="home-card-v69">
 
-<span>
-یوان چین 🇨🇳
-</span>
+📊
+
+<br>
+
+MARKET STATUS
+
+</div>
 
 
-<span id="cny-board-v68">
-
----
-
-</span>
 
 </div>
 
@@ -127,20 +80,20 @@
 
 
 /* ==========================
- HASINEH MARKET V68
- CURRENCY MASTER BOARD STYLE
+ HASINEH MARKET V69
+ MASTER HOME BOARD STYLE
 ========================== */
 
 
-.currency-master-board-v68{
+.master-home-board-v69{
 
 margin:25px auto;
 
 max-width:600px;
 
-padding:25px;
+padding:30px;
 
-border-radius:35px;
+border-radius:38px;
 
 background:
 
@@ -152,49 +105,33 @@ linear-gradient(
 
 border:
 
-1px solid rgba(212,175,55,0.65);
+1px solid rgba(212,175,55,0.75);
 
 box-shadow:
 
-0 0 55px rgba(212,175,55,0.35);
-
-}
-
-
-
-
-
-.currency-master-title-v68{
+0 0 60px rgba(212,175,55,0.35);
 
 text-align:center;
 
-font-size:24px;
+}
+
+
+
+
+
+.home-brand-v69{
+
+font-size:32px;
 
 font-weight:bold;
 
-color:#ffd700;
+letter-spacing:7px;
 
-margin-bottom:22px;
+color:#d4af37;
 
-}
+text-shadow:
 
-
-
-
-
-.currency-item-v68{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:15px 10px;
-
-border-bottom:
-
-1px solid rgba(212,175,55,0.15);
+0 0 20px rgba(212,175,55,0.55);
 
 }
 
@@ -202,9 +139,15 @@ border-bottom:
 
 
 
-.currency-item-v68:last-child{
+.home-subtitle-v69{
 
-border-bottom:none;
+margin-top:12px;
+
+color:#aaa;
+
+font-size:14px;
+
+letter-spacing:3px;
 
 }
 
@@ -212,13 +155,57 @@ border-bottom:none;
 
 
 
-.currency-item-v68 span:first-child{
+.home-divider-v69{
+
+height:1px;
+
+background:
+
+rgba(212,175,55,0.35);
+
+margin:25px 0;
+
+}
+
+
+
+
+
+.home-menu-v69{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:15px;
+
+}
+
+
+
+
+
+.home-card-v69{
+
+padding:22px 10px;
+
+background:#0c0c0c;
+
+border-radius:25px;
+
+border:
+
+1px solid rgba(212,175,55,0.30);
 
 color:#ffffff;
 
 font-weight:bold;
 
-font-size:16px;
+font-size:15px;
+
+transition:0.3s;
 
 }
 
@@ -226,27 +213,13 @@ font-size:16px;
 
 
 
-.currency-item-v68 span:last-child{
+.home-card-v69:hover{
 
-color:#ffd700;
-
-font-weight:bold;
-
-font-size:17px;
-
-direction:ltr;
-
-}
-
-
-
-
-
-.currency-master-board-v68:hover{
+transform:translateY(-5px);
 
 box-shadow:
 
-0 0 65px rgba(212,175,55,0.45);
+0 0 30px rgba(212,175,55,0.35);
 
 }
 
@@ -257,20 +230,27 @@ box-shadow:
 @media(max-width:450px){
 
 
-.currency-master-board-v68{
+.master-home-board-v69{
 
-padding:18px;
+padding:22px;
+
+}
+
+
+
+.home-brand-v69{
+
+font-size:24px;
 
 }
 
 
 
-.currency-item-v68 span:first-child{
+.home-menu-v69{
 
-font-size:14px;
+grid-template-columns:1fr;
 
 }
-
 
 
 }
@@ -278,38 +258,20 @@ font-size:14px;
 
 
 /* ==========================
- HASINEH MARKET V68
- CURRENCY MASTER BOARD ENGINE
+ HASINEH MARKET V69
+ MASTER HOME BOARD ENGINE
 ========================== */
 
 
-const HASINEH_CURRENCY_BOARD_V68 = {
+const HASINEH_HOME_BOARD_V69 = {
 
 
-prices:{
+brand:
+"HASINEH MARKET",
 
 
-usd:"---",
-
-
-eur:"---",
-
-
-aed:"---",
-
-
-gbp:"---",
-
-
-try:"---",
-
-
-cny:"---"
-
-
-
-},
-
+subtitle:
+"Premium Digital Market Board",
 
 
 
@@ -317,57 +279,34 @@ update:function(){
 
 
 
-let currencies = {
-
-
-"usd-board-v68":
-this.prices.usd,
-
-
-"eur-board-v68":
-this.prices.eur,
-
-
-"aed-board-v68":
-this.prices.aed,
-
-
-"gbp-board-v68":
-this.prices.gbp,
-
-
-"try-board-v68":
-this.prices.try,
-
-
-"cny-board-v68":
-this.prices.cny
+let brand =
+document.querySelector(
+".home-brand-v69"
+);
 
 
 
-};
+if(brand){
 
-
-
-
-
-for(let id in currencies){
-
-
-
-let element =
-document.getElementById(id);
-
-
-
-if(element){
-
-element.innerHTML =
-currencies[id] + " تومان";
+brand.innerHTML =
+this.brand;
 
 }
 
 
+
+
+let subtitle =
+document.querySelector(
+".home-subtitle-v69"
+);
+
+
+
+if(subtitle){
+
+subtitle.innerHTML =
+this.subtitle;
 
 }
 
@@ -375,7 +314,7 @@ currencies[id] + " تومان";
 
 
 console.log(
-"HASINEH CURRENCY BOARD V68 READY"
+"HASINEH MASTER HOME BOARD V69 READY"
 );
 
 
@@ -391,13 +330,13 @@ console.log(
 
 
 
-function hasinehCurrencyBoardMonitorV68(){
+function hasinehHomeBoardMonitorV69(){
 
 
 try{
 
 
-HASINEH_CURRENCY_BOARD_V68.update();
+HASINEH_HOME_BOARD_V69.update();
 
 
 
@@ -407,7 +346,7 @@ catch(error){
 
 
 console.log(
-"HASINEH CURRENCY BOARD V68 ERROR"
+"HASINEH HOME BOARD V69 ERROR"
 );
 
 
@@ -424,9 +363,9 @@ console.log(
 
 setInterval(
 
-hasinehCurrencyBoardMonitorV68,
+hasinehHomeBoardMonitorV69,
 
-15000
+30000
 
 );
 
@@ -434,4 +373,4 @@ hasinehCurrencyBoardMonitorV68,
 
 
 
-hasinehCurrencyBoardMonitorV68();
+hasinehHomeBoardMonitorV69();
