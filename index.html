@@ -1,42 +1,36 @@
 <!-- ==========================
- HASINEH MARKET V52
- PREMIUM DISPLAY MODE
+ HASINEH MARKET V53
+ PREMIUM PRICE ANIMATION
 ========================== -->
 
 
-<div class="box display-mode-box">
+<div class="box price-animation-box">
 
 
-<div class="display-header">
+<div class="box-title price-animation-title">
 
-
-<div class="display-brand">
-
-HASINEH MARKET
-
-</div>
-
-
-
-<div class="display-live">
-
-🟢 LIVE MARKET BOARD
-
-</div>
-
-
+💰 HASINEH PRICE MOVEMENT V53
 
 </div>
 
 
 
 
-<div class="display-time">
+<div class="movement-row">
 
 
-<span id="display-time-v52">
+<span>
 
----
+آخرین تغییر:
+
+</span>
+
+
+
+<span 
+id="price-movement-v53">
+
+⚖️ بدون تغییر
 
 </span>
 
@@ -46,45 +40,23 @@ HASINEH MARKET
 
 
 
-<div class="display-grid">
+<div class="movement-row">
 
 
-<div class="display-section">
+<span>
 
-🪙
+وضعیت حرکت:
 
-<br>
-
-HASINEH GOLD
-
-</div>
+</span>
 
 
 
+<span 
+id="price-direction-v53">
 
-<div class="display-section">
+STABLE
 
-🪙
-
-<br>
-
-HASINEH COIN
-
-</div>
-
-
-
-
-<div class="display-section">
-
-💵
-
-<br>
-
-HASINEH CURRENCY
-
-</div>
-
+</span>
 
 
 </div>
@@ -92,56 +64,61 @@ HASINEH CURRENCY
 
 
 
-<div class="display-footer">
-
-Digital Smart Market Board
-
 </div>
 
-
-
-</div>
 
 
 /* ==========================
- HASINEH MARKET V52
- PREMIUM DISPLAY STYLE
+ HASINEH MARKET V53
+ PRICE MOVEMENT STYLE
 ========================== */
 
 
-.display-mode-box{
+.price-animation-box{
 
-margin:25px auto;
+margin:20px auto;
 
-max-width:900px;
+max-width:420px;
 
-min-height:320px;
+padding:22px;
 
-padding:30px;
-
-border-radius:35px;
+border-radius:30px;
 
 background:
 
 linear-gradient(
 145deg,
-#050505,
-#121212
+#070707,
+#141414
 );
 
 border:1px solid #d4af37;
 
 box-shadow:
 
-0 0 50px rgba(212,175,55,0.35);
+0 0 35px rgba(212,175,55,0.30);
 
 }
 
 
 
-/* هدر تابلو */
+.price-animation-title{
 
-.display-header{
+font-size:20px;
+
+font-weight:bold;
+
+color:#ffd700;
+
+text-align:center;
+
+margin-bottom:18px;
+
+}
+
+
+
+.movement-row{
 
 display:flex;
 
@@ -149,214 +126,140 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-bottom:25px;
+padding:12px 5px;
 
-}
+border-bottom:
 
-
-
-.display-brand{
-
-font-size:32px;
-
-font-weight:bold;
-
-letter-spacing:4px;
-
-color:#ffd700;
-
-}
-
-
-
-.display-live{
-
-color:#00ff88;
-
-font-weight:bold;
-
-font-size:14px;
-
-}
-
-
-
-
-.display-time{
-
-text-align:center;
-
-font-size:28px;
-
-font-weight:bold;
+1px solid rgba(212,175,55,0.18);
 
 color:#ffffff;
 
-margin-bottom:30px;
-
-}
-
-
-
-
-.display-grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:20px;
-
-}
-
-
-
-
-.display-section{
-
-background:#101010;
-
-border:
-
-1px solid rgba(212,175,55,0.45);
-
-border-radius:25px;
-
-padding:25px;
-
-text-align:center;
-
-font-size:22px;
-
 font-weight:bold;
+
+}
+
+
+
+.movement-row:last-child{
+
+border-bottom:none;
+
+}
+
+
+
+/* حالت افزایش */
+
+.price-up{
+
+color:#00ff88;
+
+animation:
+
+pricePulse 1s ease;
+
+}
+
+
+
+/* حالت کاهش */
+
+.price-down{
+
+color:#ff5555;
+
+animation:
+
+pricePulse 1s ease;
+
+}
+
+
+
+/* حالت ثابت */
+
+.price-stable{
 
 color:#ffd700;
 
-transition:0.3s;
-
-}
-
-
-
-.display-section:hover{
-
-transform:scale(1.03);
-
-box-shadow:
-
-0 0 30px rgba(212,175,55,0.45);
-
-}
-
-
-
-.display-footer{
-
-text-align:center;
-
-margin-top:25px;
-
-font-size:13px;
-
-color:#888;
-
 }
 
 
 
 
-@media(max-width:700px){
+@keyframes pricePulse{
 
 
-.display-grid{
+0%{
 
-grid-template-columns:1fr;
+opacity:0.4;
 
-}
-
-
-.display-header{
-
-flex-direction:column;
-
-gap:15px;
+transform:scale(0.98);
 
 }
 
 
+
+100%{
+
+opacity:1;
+
+transform:scale(1);
+
 }
 
+
+}
 
 
 /* ==========================
- HASINEH MARKET V52
- PREMIUM DISPLAY ENGINE
+ HASINEH MARKET V53
+ PRICE MOVEMENT ENGINE
 ========================== */
 
 
-const HASINEH_DISPLAY_V52 = {
+const HASINEH_PRICE_MOVEMENT_V53 = {
+
+
+direction:"STABLE",
+
+message:"⚖️ بدون تغییر",
+
 
 
 update:function(){
 
 
 
-let now = new Date();
-
-
-
-
-let time =
+let movement =
 document.getElementById(
-"display-time-v52"
+"price-movement-v53"
 );
 
 
 
-if(time){
-
-time.innerHTML =
-now.toLocaleTimeString(
-"fa-IR",
-{
-hour:"2-digit",
-minute:"2-digit",
-second:"2-digit"
-}
-);
-
-}
-
-
-
-
-let brand =
-document.querySelector(
-".display-brand"
+let direction =
+document.getElementById(
+"price-direction-v53"
 );
 
 
 
-if(brand){
 
-brand.innerHTML =
-"HASINEH MARKET";
+if(movement){
+
+movement.innerHTML =
+this.message;
 
 }
 
 
 
-let live =
-document.querySelector(
-".display-live"
-);
 
+if(direction){
 
-
-if(live){
-
-live.innerHTML =
-"🟢 LIVE MARKET BOARD";
+direction.innerHTML =
+this.direction;
 
 }
 
@@ -373,13 +276,13 @@ live.innerHTML =
 
 
 
-function hasinehDisplayMonitorV52(){
+function hasinehPriceMovementMonitorV53(){
 
 
 try{
 
 
-HASINEH_DISPLAY_V52.update();
+HASINEH_PRICE_MOVEMENT_V53.update();
 
 
 
@@ -389,7 +292,7 @@ catch(error){
 
 
 console.log(
-"HASINEH DISPLAY V52 ERROR"
+"HASINEH PRICE MOVEMENT V53 ERROR"
 );
 
 
@@ -399,15 +302,16 @@ console.log(
 
 
 }
+
 
 
 
 
 setInterval(
 
-hasinehDisplayMonitorV52,
+hasinehPriceMovementMonitorV53,
 
-1000
+10000
 
 );
 
@@ -415,4 +319,4 @@ hasinehDisplayMonitorV52,
 
 
 
-hasinehDisplayMonitorV52();
+hasinehPriceMovementMonitorV53();
