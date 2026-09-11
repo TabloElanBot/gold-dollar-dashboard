@@ -1,42 +1,105 @@
 <!-- ==========================
- HASINEH MARKET V59
- PREMIUM BRAND HEADER
+ HASINEH MARKET V60
+ FINAL SYSTEM CONTROL
 ========================== -->
 
 
-<div class="box brand-identity-v59">
+<div class="box final-control-box-v60">
 
 
-<div class="brand-logo-v59">
+<div class="box-title final-control-title-v60">
 
-HASINEH MARKET
-
-</div>
-
-
-
-
-<div class="brand-subtitle-v59">
-
-DIGITAL GOLD & CURRENCY BOARD
+⚙️ HASINEH MARKET CONTROL CENTER
 
 </div>
 
 
 
 
-<div class="brand-line-v59">
+<div class="control-row-v60">
 
-━━━━━━━━━━━━━━
+<span>
+
+نسخه سیستم:
+
+</span>
+
+
+<span id="system-version-v60">
+
+V60 PREMIUM
+
+</span>
+
 
 </div>
 
 
 
 
-<div class="brand-motto-v59">
+<div class="control-row-v60">
 
-PRECISION • TRUST • MARKET
+<span>
+
+وضعیت تابلو:
+
+</span>
+
+
+<span 
+class="online-v60"
+id="board-status-v60">
+
+🟢 ONLINE
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="control-row-v60">
+
+<span>
+
+موتور نرخ:
+
+</span>
+
+
+<span 
+class="ready-v60"
+id="rate-engine-v60">
+
+🟢 READY
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="control-row-v60">
+
+<span>
+
+آمادگی انتشار:
+
+</span>
+
+
+<span 
+class="ready-v60"
+id="launch-status-v60">
+
+🟢 READY
+
+</span>
+
 
 </div>
 
@@ -46,38 +109,36 @@ PRECISION • TRUST • MARKET
 
 
 /* ==========================
- HASINEH MARKET V59
- PREMIUM BRAND STYLE
+ HASINEH MARKET V60
+ FINAL CONTROL STYLE
 ========================== */
 
 
-.brand-identity-v59{
+.final-control-box-v60{
 
 margin:25px auto;
 
-max-width:600px;
+max-width:420px;
 
-padding:28px 20px;
+padding:22px;
 
-border-radius:35px;
+border-radius:30px;
 
 background:
 
 linear-gradient(
 145deg,
-#050505,
-#141414
+#070707,
+#151515
 );
 
 border:
 
-1px solid rgba(212,175,55,0.45);
-
-text-align:center;
+1px solid rgba(212,175,55,0.55);
 
 box-shadow:
 
-0 0 45px rgba(212,175,55,0.25);
+0 0 35px rgba(212,175,55,0.25);
 
 }
 
@@ -85,24 +146,17 @@ box-shadow:
 
 
 
-.brand-logo-v59{
+.final-control-title-v60{
 
-font-size:38px;
+text-align:center;
+
+font-size:20px;
 
 font-weight:bold;
 
-letter-spacing:8px;
+color:#ffd700;
 
-color:#d4af37;
-
-text-shadow:
-
-0 0 20px rgba(212,175,55,0.55);
-
-font-family:
-
-"Times New Roman",
-serif;
+margin-bottom:18px;
 
 }
 
@@ -110,29 +164,19 @@ serif;
 
 
 
-.brand-subtitle-v59{
+.control-row-v60{
 
-margin-top:12px;
+display:flex;
 
-font-size:13px;
+justify-content:space-between;
 
-letter-spacing:3px;
+align-items:center;
 
-color:#aaaaaa;
+padding:12px 5px;
 
-}
+border-bottom:
 
-
-
-
-
-.brand-line-v59{
-
-margin:18px 0;
-
-color:#d4af37;
-
-opacity:0.7;
+1px solid rgba(212,175,55,0.18);
 
 }
 
@@ -140,26 +184,9 @@ opacity:0.7;
 
 
 
-.brand-motto-v59{
+.control-row-v60:last-child{
 
-font-size:12px;
-
-letter-spacing:4px;
-
-color:#777;
-
-}
-
-
-
-
-/* افکت ظریف لوکس */
-
-.brand-logo-v59:hover{
-
-text-shadow:
-
-0 0 30px rgba(212,175,55,0.85);
+border-bottom:none;
 
 }
 
@@ -167,46 +194,81 @@ text-shadow:
 
 
 
-@media(max-width:450px){
+.control-row-v60 span:first-child{
 
+color:#ffffff;
 
-.brand-logo-v59{
-
-font-size:28px;
-
-letter-spacing:5px;
+font-weight:bold;
 
 }
 
 
 
-.brand-subtitle-v59{
 
-font-size:11px;
+
+.control-row-v60 span:last-child{
+
+font-weight:bold;
 
 }
 
 
+
+
+
+.online-v60{
+
+color:#00ff88;
+
+}
+
+
+
+
+
+.ready-v60{
+
+color:#ffd700;
+
+}
+
+
+
+
+
+.final-control-box-v60:hover{
+
+box-shadow:
+
+0 0 50px rgba(212,175,55,0.45);
 
 }
 
 
 
 /* ==========================
- HASINEH MARKET V59
- BRAND IDENTITY ENGINE
+ HASINEH MARKET V60
+ FINAL CONTROL ENGINE
 ========================== */
 
 
-const HASINEH_BRAND_V59 = {
+const HASINEH_CONTROL_V60 = {
 
 
-brand:
-"HASINEH MARKET",
+version:
+"V60 PREMIUM",
 
 
-subtitle:
-"DIGITAL GOLD & CURRENCY BOARD",
+board:
+"ONLINE",
+
+
+rate:
+"READY",
+
+
+launch:
+"READY",
 
 
 
@@ -214,34 +276,71 @@ update:function(){
 
 
 
-let logo =
-document.querySelector(
-".brand-logo-v59"
+let version =
+document.getElementById(
+"system-version-v60"
 );
 
 
 
-if(logo){
+if(version){
 
-logo.innerHTML =
-this.brand;
+version.innerHTML =
+this.version;
 
 }
 
 
 
 
-let subtitle =
-document.querySelector(
-".brand-subtitle-v59"
+
+let board =
+document.getElementById(
+"board-status-v60"
 );
 
 
 
-if(subtitle){
+if(board){
 
-subtitle.innerHTML =
-this.subtitle;
+board.innerHTML =
+"🟢 " + this.board;
+
+}
+
+
+
+
+
+let rate =
+document.getElementById(
+"rate-engine-v60"
+);
+
+
+
+if(rate){
+
+rate.innerHTML =
+"🟢 " + this.rate;
+
+}
+
+
+
+
+
+let launch =
+document.getElementById(
+"launch-status-v60"
+);
+
+
+
+if(launch){
+
+launch.innerHTML =
+"🟢 " + this.launch;
 
 }
 
@@ -249,7 +348,7 @@ this.subtitle;
 
 
 console.log(
-"HASINEH BRAND IDENTITY V59 READY"
+"HASINEH MARKET V60 FINAL CONTROL READY"
 );
 
 
@@ -265,13 +364,13 @@ console.log(
 
 
 
-function hasinehBrandMonitorV59(){
+function hasinehControlMonitorV60(){
 
 
 try{
 
 
-HASINEH_BRAND_V59.update();
+HASINEH_CONTROL_V60.update();
 
 
 
@@ -281,7 +380,7 @@ catch(error){
 
 
 console.log(
-"HASINEH BRAND V59 ERROR"
+"HASINEH CONTROL V60 ERROR"
 );
 
 
@@ -298,7 +397,7 @@ console.log(
 
 setInterval(
 
-hasinehBrandMonitorV59,
+hasinehControlMonitorV60,
 
 30000
 
@@ -308,4 +407,4 @@ hasinehBrandMonitorV59,
 
 
 
-hasinehBrandMonitorV59();
+hasinehControlMonitorV60();
