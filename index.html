@@ -1,62 +1,112 @@
 <!-- ==========================
- HASINEH MARKET V61
- MASTER PROJECT HEADER
+ HASINEH MARKET V62
+ DATA ENGINE FOUNDATION
 ========================== -->
 
 
-<div class="box master-header-v61">
+<div class="box data-engine-box-v62">
 
 
-<div class="master-logo-v61">
+<div class="box-title data-engine-title-v62">
 
-HASINEH MARKET
-
-</div>
-
-
-
-<div class="master-desc-v61">
-
-Premium Digital Market Board
+📡 HASINEH DATA ENGINE V62
 
 </div>
 
 
 
 
-<div class="master-version-v61">
+<div class="data-row-v62">
 
-SYSTEM VERSION : V61
+<span>
+
+وضعیت موتور داده:
+
+</span>
+
+
+<span 
+class="data-active-v62"
+id="data-engine-status-v62">
+
+🟢 ACTIVE
+
+</span>
+
 
 </div>
 
 
 
+
+<div class="data-row-v62">
+
+<span>
+
+منبع نرخ:
+
+</span>
+
+
+<span id="data-source-v62">
+
+MANUAL / API READY
+
+</span>
+
+
 </div>
+
+
+
+
+<div class="data-row-v62">
+
+<span>
+
+آخرین بروزرسانی:
+
+</span>
+
+
+<span id="data-last-update-v62">
+
+---
+
+</span>
+
+
+</div>
+
+
+
+
+</div>
+
 
 
 /* ==========================
- HASINEH MARKET V61
- MASTER HEADER STYLE
+ HASINEH MARKET V62
+ DATA ENGINE STYLE
 ========================== */
 
 
-.master-header-v61{
+.data-engine-box-v62{
 
 margin:25px auto;
 
-max-width:600px;
+max-width:420px;
 
-padding:30px 20px;
+padding:22px;
 
-border-radius:35px;
+border-radius:30px;
 
 background:
 
 linear-gradient(
 145deg,
-#050505,
-#161616
+#070707,
+#151515
 );
 
 border:
@@ -65,45 +115,81 @@ border:
 
 box-shadow:
 
-0 0 45px rgba(212,175,55,0.30);
+0 0 35px rgba(212,175,55,0.30);
+
+}
+
+
+
+
+
+.data-engine-title-v62{
 
 text-align:center;
 
-}
-
-
-
-
-
-.master-logo-v61{
-
-font-size:34px;
+font-size:20px;
 
 font-weight:bold;
 
-letter-spacing:8px;
+color:#ffd700;
+
+margin-bottom:18px;
+
+}
+
+
+
+
+
+.data-row-v62{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:12px 5px;
+
+border-bottom:
+
+1px solid rgba(212,175,55,0.18);
+
+}
+
+
+
+
+
+.data-row-v62:last-child{
+
+border-bottom:none;
+
+}
+
+
+
+
+
+.data-row-v62 span:first-child{
+
+color:#ffffff;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+.data-row-v62 span:last-child{
 
 color:#d4af37;
 
-text-shadow:
+font-weight:bold;
 
-0 0 20px rgba(212,175,55,0.55);
-
-}
-
-
-
-
-
-.master-desc-v61{
-
-margin-top:12px;
-
-font-size:14px;
-
-letter-spacing:3px;
-
-color:#aaaaaa;
+font-size:13px;
 
 }
 
@@ -111,23 +197,9 @@ color:#aaaaaa;
 
 
 
-.master-version-v61{
+.data-active-v62{
 
-margin-top:18px;
-
-font-size:12px;
-
-color:#ffd700;
-
-letter-spacing:2px;
-
-padding:8px;
-
-border-radius:15px;
-
-background:#101010;
-
-display:inline-block;
+color:#00ff88 !important;
 
 }
 
@@ -135,34 +207,31 @@ display:inline-block;
 
 
 
-.master-header-v61:hover{
+.data-engine-box-v62:hover{
 
 box-shadow:
 
-0 0 60px rgba(212,175,55,0.45);
+0 0 50px rgba(212,175,55,0.45);
 
 }
 
 
+
 /* ==========================
- HASINEH MARKET V61
- MASTER SYSTEM ENGINE
+ HASINEH MARKET V62
+ DATA ENGINE CORE
 ========================== */
 
 
-const HASINEH_MASTER_V61 = {
+const HASINEH_DATA_ENGINE_V62 = {
 
 
-brand:
-"HASINEH MARKET",
+status:
+"ACTIVE",
 
 
-description:
-"Premium Digital Market Board",
-
-
-version:
-"V61",
+source:
+"MANUAL / API READY",
 
 
 
@@ -170,62 +239,69 @@ update:function(){
 
 
 
-let logo =
-document.querySelector(
-".master-logo-v61"
+let status =
+document.getElementById(
+"data-engine-status-v62"
 );
 
 
 
-if(logo){
+if(status){
 
-logo.innerHTML =
-this.brand;
+status.innerHTML =
+"🟢 " + this.status;
 
 }
 
 
 
 
-
-let desc =
-document.querySelector(
-".master-desc-v61"
+let source =
+document.getElementById(
+"data-source-v62"
 );
 
 
 
-if(desc){
+if(source){
 
-desc.innerHTML =
-this.description;
+source.innerHTML =
+this.source;
 
 }
 
 
 
 
-
-let ver =
-document.querySelector(
-".master-version-v61"
+let update =
+document.getElementById(
+"data-last-update-v62"
 );
 
 
 
-if(ver){
+if(update){
 
-ver.innerHTML =
-"SYSTEM VERSION : " + this.version;
+let now = new Date();
+
+
+update.innerHTML =
+now.toLocaleTimeString(
+"fa-IR",
+{
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit"
+}
+);
 
 }
-
 
 
 
 
 console.log(
-"HASINEH MASTER SYSTEM V61 READY"
+"HASINEH DATA ENGINE V62 READY"
 );
 
 
@@ -241,13 +317,13 @@ console.log(
 
 
 
-function hasinehMasterMonitorV61(){
+function hasinehDataEngineMonitorV62(){
 
 
 try{
 
 
-HASINEH_MASTER_V61.update();
+HASINEH_DATA_ENGINE_V62.update();
 
 
 
@@ -257,7 +333,7 @@ catch(error){
 
 
 console.log(
-"HASINEH MASTER V61 ERROR"
+"HASINEH DATA ENGINE V62 ERROR"
 );
 
 
@@ -274,9 +350,9 @@ console.log(
 
 setInterval(
 
-hasinehMasterMonitorV61,
+hasinehDataEngineMonitorV62,
 
-30000
+15000
 
 );
 
@@ -284,4 +360,4 @@ hasinehMasterMonitorV61,
 
 
 
-hasinehMasterMonitorV61();
+hasinehDataEngineMonitorV62();
