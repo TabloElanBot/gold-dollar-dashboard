@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>HASINEH MARKET</title>
@@ -14,52 +13,83 @@
 
 body{
 margin:0;
-background:#030303;
+background:#020202;
 color:white;
 font-family:Tahoma,Arial,sans-serif;
 }
 
 
 .header{
+
 text-align:center;
 padding:25px 10px;
-background:#111;
-border-bottom:2px solid gold;
+background:linear-gradient(#111,#050505);
+border-bottom:2px solid #d4af37;
+
 }
 
 
 .logo{
-font-size:40px;
+
+font-size:42px;
 font-weight:bold;
 color:#ffd700;
-letter-spacing:1px;
+letter-spacing:2px;
+
 }
 
 
 .subtitle{
-color:#ddd;
-margin-top:10px;
+
+margin-top:8px;
 font-size:14px;
+color:#bbb;
+
+}
+
+
+.brand{
+
+margin-top:8px;
+font-size:12px;
+color:#777;
+
 }
 
 
 .live{
+
 display:inline-block;
-margin-top:15px;
-padding:7px 22px;
-border-radius:25px;
+margin-top:18px;
+padding:8px 25px;
+border-radius:30px;
 background:#063b1c;
 color:#00ff88;
+
+}
+
+
+.date-box{
+
+margin-top:15px;
+line-height:2;
 font-size:14px;
+color:#ccc;
+
 }
 
 
 
-.date-box{
-margin-top:15px;
-line-height:2;
-color:#bbb;
-font-size:14px;
+.update-box{
+
+margin:15px auto;
+padding:10px;
+max-width:280px;
+background:#0d0d0d;
+border-radius:15px;
+border:1px solid #333;
+color:#aaa;
+
 }
 
 
@@ -73,24 +103,26 @@ padding:14px;
 border-radius:15px;
 background:#191919;
 color:#ffd700;
-font-size:18px;
+
 }
 
 
 
 .container{
+
 padding:15px;
+
 }
 
 
 
 .card{
 
-background:#101010;
-border:1px solid #333;
-border-radius:20px;
-padding:18px;
-margin-bottom:18px;
+background:#0c0c0c;
+border:1px solid #292929;
+border-radius:22px;
+padding:20px;
+margin-bottom:20px;
 
 }
 
@@ -99,81 +131,95 @@ margin-bottom:18px;
 .title{
 
 text-align:center;
+font-size:25px;
 color:#ffd700;
-font-size:24px;
-margin-bottom:15px;
+margin-bottom:18px;
 
 }
 
 
 
-.row{
+.item{
 
 padding:15px 5px;
-border-bottom:1px solid #292929;
+border-bottom:1px solid #222;
 
 }
 
 
 
-.name{
+.item-name{
 
 font-size:17px;
+margin-bottom:10px;
 
 }
 
 
 
-.prices{
+.price-line{
 
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-top:10px;
-font-size:13px;
+font-size:14px;
+
+}
+
+
+
+.main-price{
+
+font-size:18px;
+font-weight:bold;
 
 }
 
 
 
 .buy{
+
 color:#ddd;
+
 }
 
 
 
 .sell{
+
 color:#ddd;
+
 }
 
 
 
 .up{
+
 color:#00ff88;
-font-weight:bold;
+
 }
 
 
 
 .down{
+
 color:#ff4444;
-font-weight:bold;
+
 }
 
 
 
 .same{
+
 color:#aaa;
+
 }
-
-
-
-.qr{
+  .qr{
 
 margin:25px 5px;
 padding:20px;
+border-radius:20px;
 border:1px dashed #555;
-border-radius:18px;
 text-align:center;
 color:#888;
 
@@ -184,15 +230,16 @@ color:#888;
 .creator{
 
 text-align:center;
-margin-top:25px;
+margin-top:30px;
+
 }
 
 
 
 .creator-name{
 
-color:#777;
 font-size:13px;
+color:#777;
 letter-spacing:1px;
 
 }
@@ -201,8 +248,8 @@ letter-spacing:1px;
 
 .support{
 
-color:#555;
 font-size:12px;
+color:#555;
 margin-top:8px;
 
 }
@@ -213,14 +260,16 @@ margin-top:8px;
 
 text-align:center;
 padding:20px;
-color:#777;
+color:#666;
 
 }
 
 
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -239,12 +288,19 @@ Online Gold, Currency & Market Dashboard
 </div>
 
 
+<div class="brand">
+Real-Time Market Board
+</div>
+
+
 <div class="live">
 ● LIVE MARKET
 </div>
 
 
+
 <div class="date-box">
+
 
 <div id="solar">
 تاریخ شمسی
@@ -265,107 +321,146 @@ Online Gold, Currency & Market Dashboard
 
 
 
+<div id="update" class="update-box">
+
+آخرین بروزرسانی:
+---
+
+</div>
+
+
+
+
 <div id="holiday" class="holiday">
 
 </div>
 
 
+
 </div>
 
 
+
+
 <div class="container">
-  
+
+
+
 <div class="card">
+
 
 <div class="title">
 🟡 HASINEH GOLD
 </div>
 
 
-<div class="row">
 
-<div class="name">
+<div class="item">
+
+<div class="item-name">
 طلای ۱۸ عیار
 </div>
 
-<div class="prices">
+
+<div class="price-line">
 
 <span class="buy">
 خرید: ---
 </span>
 
+
 <span class="sell">
 فروش: ---
 </span>
 
-<span class="up">
+
+<span class="main-price up">
 ▲ ---
 </span>
 
-</div>
 
 </div>
 
+</div>
 
 
-<div class="row">
 
-<div class="name">
+
+<div class="item">
+
+
+<div class="item-name">
 مثقال طلا
 </div>
 
-<div class="prices">
+
+<div class="price-line">
 
 <span class="buy">
 خرید: ---
 </span>
 
+
 <span class="sell">
 فروش: ---
 </span>
 
-<span class="down">
+
+<span class="main-price down">
 ▼ ---
 </span>
 
-</div>
 
 </div>
 
 
+</div>
 
-<div class="row">
 
-<div class="name">
+
+
+<div class="item">
+
+
+<div class="item-name">
 طلای ۲۴ عیار
 </div>
 
-<div class="prices">
+
+<div class="price-line">
 
 <span class="buy">
 خرید: ---
 </span>
 
+
 <span class="sell">
 فروش: ---
 </span>
 
-<span class="same">
+
+<span class="main-price same">
 ● ---
 </span>
 
-</div>
 
 </div>
 
 
 </div>
+
+
+
+</div>
+
+
 
 
 
 
 
 <div class="card">
+
 
 <div class="title">
 💵 HASINEH CURRENCY
@@ -373,13 +468,14 @@ Online Gold, Currency & Market Dashboard
 
 
 
-<div class="row">
+<div class="item">
 
-<div class="name">
+<div class="item-name">
 USD دلار آمریکا
 </div>
 
-<div class="prices">
+
+<div class="price-line">
 
 <span>
 خرید: ---
@@ -395,18 +491,20 @@ USD دلار آمریکا
 
 </div>
 
+
 </div>
 
 
 
 
-<div class="row">
+<div class="item">
 
-<div class="name">
+<div class="item-name">
 EUR یورو
 </div>
 
-<div class="prices">
+
+<div class="price-line">
 
 <span>
 خرید: ---
@@ -422,18 +520,20 @@ EUR یورو
 
 </div>
 
+
 </div>
 
 
 
 
-<div class="row">
+<div class="item">
 
-<div class="name">
+<div class="item-name">
 AED درهم امارات
 </div>
 
-<div class="prices">
+
+<div class="price-line">
 
 <span>
 خرید: ---
@@ -449,18 +549,19 @@ AED درهم امارات
 
 </div>
 
+
 </div>
 
 
 
+<div class="item">
 
-<div class="row">
-
-<div class="name">
+<div class="item-name">
 GBP پوند انگلیس
 </div>
 
-<div class="prices">
+
+<div class="price-line">
 
 <span>
 خرید: ---
@@ -476,18 +577,19 @@ GBP پوند انگلیس
 
 </div>
 
+
 </div>
 
 
 
+<div class="item">
 
-<div class="row">
-
-<div class="name">
+<div class="item-name">
 CAD دلار کانادا
 </div>
 
-<div class="prices">
+
+<div class="price-line">
 
 <span>
 خرید: ---
@@ -503,18 +605,19 @@ CAD دلار کانادا
 
 </div>
 
+
 </div>
 
 
 
+<div class="item">
 
-<div class="row">
-
-<div class="name">
+<div class="item-name">
 TRY لیر ترکیه
 </div>
 
-<div class="prices">
+
+<div class="price-line">
 
 <span>
 خرید: ---
@@ -530,18 +633,19 @@ TRY لیر ترکیه
 
 </div>
 
+
 </div>
 
 
 
+<div class="item">
 
-<div class="row">
-
-<div class="name">
+<div class="item-name">
 CNY یوان چین
 </div>
 
-<div class="prices">
+
+<div class="price-line">
 
 <span>
 خرید: ---
@@ -557,30 +661,29 @@ CNY یوان چین
 
 </div>
 
-</div>
-
-
 
 </div>
 
 
 
-
+</div>
 
 <div class="card">
+
 
 <div class="title">
 🚗 HASINEH AUTO
 </div>
 
 
-<div class="row">
+<div class="item">
 
-<div class="name">
+<div class="item-name">
 بازار خودرو
 </div>
 
-<div class="prices">
+
+<div class="price-line">
 
 <span>
 وضعیت:
@@ -590,12 +693,15 @@ CNY یوان چین
 به زودی
 </span>
 
-</div>
 
 </div>
 
 
 </div>
+
+
+</div>
+
 
 
 
@@ -603,34 +709,44 @@ CNY یوان چین
 
 <div class="card">
 
+
 <div class="title">
 🏠 HASINEH REAL ESTATE
 </div>
 
 
-<div class="row">
 
-<div class="name">
+<div class="item">
+
+
+<div class="item-name">
 بازار ملک
 </div>
 
 
-<div class="prices">
+
+<div class="price-line">
+
 
 <span>
 وضعیت:
 </span>
 
+
 <span>
 به زودی
 </span>
 
-</div>
 
 </div>
 
 
 </div>
+
+
+</div>
+
+
 
 
 
@@ -642,7 +758,7 @@ QR رسمی HASINEH MARKET
 
 <br><br>
 
-کانال روبیکا / ارتباطات آینده
+اتصال به کانال روبیکا و خدمات آینده
 
 </div>
 
@@ -650,7 +766,10 @@ QR رسمی HASINEH MARKET
 
 
 
+
+
 <div class="creator">
+
 
 <div class="creator-name">
 
@@ -668,6 +787,11 @@ Support: 09178649970
 
 </div>
 
+
+
+
+
+
 <div class="footer">
 
 HASINEH MARKET © ۱۴۰۵
@@ -675,7 +799,11 @@ HASINEH MARKET © ۱۴۰۵
 </div>
 
 
+
 </div>
+
+
+
 
 
 
@@ -690,12 +818,15 @@ let now = new Date();
 
 
 let iran = new Date(
+
 now.toLocaleString(
 "en-US",
 {
 timeZone:"Asia/Tehran"
 }
+
 )
+
 );
 
 
@@ -703,6 +834,7 @@ timeZone:"Asia/Tehran"
 document.getElementById("clock").innerHTML =
 "ساعت ایران: " +
 iran.toLocaleTimeString("fa-IR");
+
 
 
 
@@ -720,6 +852,7 @@ weekday:"long"
 
 
 
+
 document.getElementById("lunar").innerHTML =
 "تاریخ قمری: " +
 iran.toLocaleDateString(
@@ -733,80 +866,15 @@ day:"numeric"
 
 
 
-checkHoliday(iran);
+
+document.getElementById("update").innerHTML =
+"آخرین بروزرسانی: " +
+iran.toLocaleTimeString("fa-IR");
+
 
 
 }
 
-
-
-
-function checkHoliday(date){
-
-
-let month = date.getMonth()+1;
-
-let day = date.getDate();
-
-
-
-let message="";
-
-
-// نوروز (شروع سال شمسی)
-
-if(month===3 && day===21){
-
-message =
-"🌱 نوروز مبارک 🌱<br>سال نو بر شما مبارک";
-
-}
-
-
-
-// نمونه مناسبت‌های اسلامی
-// آماده توسعه دقیق‌تر تقویمی
-
-if(message===""){
-
-let lunar =
-date.toLocaleDateString(
-"fa-IR-u-ca-islamic",
-{
-month:"numeric",
-day:"numeric"
-}
-);
-
-
-// عید فطر
-
-if(
-lunar.includes("10")
-){
-
-message =
-"🌙 عيد مبارك 🌙<br>كل عام وأنتم بخير";
-
-}
-
-
-}
-
-
-
-if(message!==""){
-
-let box=document.getElementById("holiday");
-
-box.style.display="block";
-
-box.innerHTML=message;
-
-
-}
-
-}
 
 
 
