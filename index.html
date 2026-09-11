@@ -1,79 +1,112 @@
 <!-- ==========================
- HASINEH MARKET V50
- PREMIUM BRAND HEADER
+ HASINEH MARKET V51
+ PREMIUM NAVIGATION PANEL
 ========================== -->
 
 
-<div class="box brand-header-box">
+<div class="box nav-box">
 
 
-<div class="brand-logo">
+<div class="box-title nav-title">
 
-HASINEH MARKET
-
-</div>
-
-
-
-<div class="brand-subtitle">
-
-DIGITAL GOLD • CURRENCY • MARKET BOARD
+✨ HASINEH MARKET MENU V51
 
 </div>
 
 
 
 
-<div class="brand-divider">
+<div class="nav-grid">
 
-✦ ✦ ✦
+
+<div class="nav-card">
+
+🪙
+
+<div>
+
+HASINEH GOLD
+
+</div>
 
 </div>
 
 
 
 
-<div class="brand-credit">
+<div class="nav-card">
 
-Created by Hassan Divanizadeh
+🪙
+
+<div>
+
+HASINEH COIN
+
+</div>
 
 </div>
 
 
 
 
-<div class="brand-contact">
+<div class="nav-card">
 
-QR ACCESS • RUBIKA CHANNEL
+💵
+
+<div>
+
+HASINEH CURRENCY
+
+</div>
+
+</div>
+
+
+
+
+<div class="nav-card">
+
+📊
+
+<div>
+
+MARKET DATA
+
+</div>
 
 </div>
 
 
 
 </div>
+
+
+
+</div>
+
 
 
 /* ==========================
- HASINEH MARKET V50
- PREMIUM BRAND STYLE
+ HASINEH MARKET V51
+ PREMIUM NAVIGATION STYLE
 ========================== */
 
 
-.brand-header-box{
+.nav-box{
 
 margin:25px auto;
 
 max-width:520px;
 
-padding:30px 20px;
+padding:22px;
 
-border-radius:35px;
+border-radius:30px;
 
 background:
 
 linear-gradient(
 145deg,
-#050505,
+#070707,
 #151515
 );
 
@@ -81,181 +114,158 @@ border:1px solid #d4af37;
 
 box-shadow:
 
-0 0 45px rgba(212,175,55,0.35);
-
-text-align:center;
+0 0 35px rgba(212,175,55,0.30);
 
 }
 
 
 
+.nav-title{
 
-.brand-logo{
-
-font-size:34px;
+font-size:20px;
 
 font-weight:bold;
 
-letter-spacing:3px;
+color:#ffd700;
+
+text-align:center;
+
+margin-bottom:20px;
+
+}
+
+
+
+.nav-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:14px;
+
+}
+
+
+
+.nav-card{
+
+background:#101010;
+
+border:
+
+1px solid rgba(212,175,55,0.45);
+
+border-radius:22px;
+
+padding:18px 10px;
+
+text-align:center;
 
 color:#ffd700;
 
-text-shadow:
+font-size:25px;
 
-0 0 15px rgba(255,215,0,0.35);
+font-weight:bold;
 
-}
+transition:0.3s;
 
-
-
-.brand-subtitle{
-
-margin-top:12px;
-
-font-size:13px;
-
-color:#b8b8b8;
-
-letter-spacing:1px;
+cursor:pointer;
 
 }
 
 
 
-.brand-divider{
-
-margin:18px 0;
-
-color:#d4af37;
-
-font-size:16px;
-
-letter-spacing:5px;
-
-}
-
-
-
-.brand-credit{
-
-font-size:13px;
-
-color:#888;
-
-font-style:italic;
-
-}
-
-
-
-.brand-contact{
+.nav-card div{
 
 margin-top:8px;
 
-font-size:12px;
+font-size:14px;
 
-color:#666;
-
-letter-spacing:1px;
+color:#ffffff;
 
 }
 
 
 
+.nav-card:hover{
 
-/* جلوه برند */
-
-.brand-header-box:hover{
+transform:translateY(-5px);
 
 box-shadow:
 
-0 0 60px rgba(212,175,55,0.50);
+0 0 25px rgba(212,175,55,0.45);
 
 }
 
 
 
-/* آماده برای لوگوی تصویری */
+/* موبایل */
 
-.brand-logo{
+@media(max-width:450px){
 
-font-family:
 
-"Georgia",
-"Times New Roman",
-serif;
+.nav-grid{
+
+grid-template-columns:1fr;
 
 }
+
+
+}
+
+
 
 
 /* ==========================
- HASINEH MARKET V50
- PREMIUM BRAND ENGINE
+ HASINEH MARKET V51
+ PREMIUM NAVIGATION ENGINE
 ========================== */
 
 
-const HASINEH_BRAND_V50 = {
+const HASINEH_NAV_V51 = {
 
 
-brand:"HASINEH MARKET",
-
-creator:"Hassan Divanizadeh",
-
-access:"QR ACCESS • RUBIKA CHANNEL",
+init:function(){
 
 
 
-update:function(){
-
-
-
-let logo =
-document.querySelector(
-".brand-logo"
+let cards =
+document.querySelectorAll(
+".nav-card"
 );
 
 
 
-if(logo){
-
-logo.innerHTML =
-this.brand;
-
-}
+cards.forEach(function(card){
 
 
 
+card.addEventListener(
+"click",
+function(){
 
-let credit =
-document.querySelector(
-".brand-credit"
+
+
+let title =
+this.innerText;
+
+
+
+console.log(
+"HASINEH NAV:",
+title
 );
 
 
 
-if(credit){
-
-credit.innerHTML =
-"Created by " + this.creator;
-
 }
 
-
-
-
-let contact =
-document.querySelector(
-".brand-contact"
 );
 
 
 
-if(contact){
-
-contact.innerHTML =
-this.access;
-
-}
+});
 
 
 
@@ -270,13 +280,13 @@ this.access;
 
 
 
-function hasinehBrandMonitorV50(){
+function hasinehNavMonitorV51(){
 
 
 try{
 
 
-HASINEH_BRAND_V50.update();
+HASINEH_NAV_V51.init();
 
 
 
@@ -286,7 +296,7 @@ catch(error){
 
 
 console.log(
-"HASINEH BRAND V50 ERROR"
+"HASINEH NAV V51 ERROR"
 );
 
 
@@ -300,16 +310,5 @@ console.log(
 
 
 
-setInterval(
 
-hasinehBrandMonitorV50,
-
-30000
-
-);
-
-
-
-
-
-hasinehBrandMonitorV50();
+hasinehNavMonitorV51();
