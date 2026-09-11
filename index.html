@@ -1,35 +1,32 @@
 <!-- ==========================
- HASINEH MARKET V62
- DATA ENGINE FOUNDATION
+ HASINEH MARKET V63
+ MASTER PRICE DATABASE
 ========================== -->
 
 
-<div class="box data-engine-box-v62">
+<div class="box price-database-box-v63">
 
 
-<div class="box-title data-engine-title-v62">
+<div class="box-title price-database-title-v63">
 
-📡 HASINEH DATA ENGINE V62
+💰 HASINEH PRICE DATABASE V63
 
 </div>
 
 
 
 
-<div class="data-row-v62">
+<div class="database-row-v63">
 
 <span>
-
-وضعیت موتور داده:
-
+وضعیت بانک قیمت:
 </span>
 
 
 <span 
-class="data-active-v62"
-id="data-engine-status-v62">
+id="price-db-status-v63">
 
-🟢 ACTIVE
+🟢 READY
 
 </span>
 
@@ -39,18 +36,17 @@ id="data-engine-status-v62">
 
 
 
-<div class="data-row-v62">
+<div class="database-row-v63">
 
 <span>
-
-منبع نرخ:
-
+تعداد آیتم‌ها:
 </span>
 
 
-<span id="data-source-v62">
+<span 
+id="price-db-count-v63">
 
-MANUAL / API READY
+13 ITEMS
 
 </span>
 
@@ -60,18 +56,17 @@ MANUAL / API READY
 
 
 
-<div class="data-row-v62">
+<div class="database-row-v63">
 
 <span>
-
-آخرین بروزرسانی:
-
+حالت بروزرسانی:
 </span>
 
 
-<span id="data-last-update-v62">
+<span 
+id="price-db-mode-v63">
 
----
+LIVE READY
 
 </span>
 
@@ -80,18 +75,16 @@ MANUAL / API READY
 
 
 
-
 </div>
-
 
 
 /* ==========================
- HASINEH MARKET V62
- DATA ENGINE STYLE
+ HASINEH MARKET V63
+ PRICE DATABASE STYLE
 ========================== */
 
 
-.data-engine-box-v62{
+.price-database-box-v63{
 
 margin:25px auto;
 
@@ -123,7 +116,7 @@ box-shadow:
 
 
 
-.data-engine-title-v62{
+.price-database-title-v63{
 
 text-align:center;
 
@@ -141,7 +134,7 @@ margin-bottom:18px;
 
 
 
-.data-row-v62{
+.database-row-v63{
 
 display:flex;
 
@@ -161,7 +154,7 @@ border-bottom:
 
 
 
-.data-row-v62:last-child{
+.database-row-v63:last-child{
 
 border-bottom:none;
 
@@ -171,7 +164,7 @@ border-bottom:none;
 
 
 
-.data-row-v62 span:first-child{
+.database-row-v63 span:first-child{
 
 color:#ffffff;
 
@@ -183,13 +176,21 @@ font-weight:bold;
 
 
 
-.data-row-v62 span:last-child{
+.database-row-v63 span:last-child{
 
 color:#d4af37;
 
 font-weight:bold;
 
-font-size:13px;
+}
+
+
+
+
+
+#price-db-status-v63{
+
+color:#00ff88;
 
 }
 
@@ -197,9 +198,9 @@ font-size:13px;
 
 
 
-.data-active-v62{
+#price-db-mode-v63{
 
-color:#00ff88 !important;
+color:#ffd700;
 
 }
 
@@ -207,7 +208,7 @@ color:#00ff88 !important;
 
 
 
-.data-engine-box-v62:hover{
+.price-database-box-v63:hover{
 
 box-shadow:
 
@@ -218,20 +219,98 @@ box-shadow:
 
 
 /* ==========================
- HASINEH MARKET V62
- DATA ENGINE CORE
+ HASINEH MARKET V63
+ PRICE DATABASE ENGINE
 ========================== */
 
 
-const HASINEH_DATA_ENGINE_V62 = {
+const HASINEH_PRICE_DATABASE_V63 = {
 
 
 status:
-"ACTIVE",
+"READY",
 
 
-source:
-"MANUAL / API READY",
+mode:
+"LIVE READY",
+
+
+
+items:{
+
+
+gold18:
+{
+name:"طلای ۱۸ عیار",
+price:"---"
+},
+
+
+gold24:
+{
+name:"طلای ۲۴ عیار",
+price:"---"
+},
+
+
+abshode:
+{
+name:"آبشده طلا",
+price:"---"
+},
+
+
+emami:
+{
+name:"سکه امامی",
+price:"---"
+},
+
+
+nim:
+{
+name:"نیم سکه",
+price:"---"
+},
+
+
+rob:
+{
+name:"ربع سکه",
+price:"---"
+},
+
+
+gerami:
+{
+name:"سکه گرمی",
+price:"---"
+},
+
+
+usd:
+{
+name:"دلار آمریکا",
+price:"---"
+},
+
+
+eur:
+{
+name:"یورو",
+price:"---"
+},
+
+
+aed:
+{
+name:"درهم امارات",
+price:"---"
+}
+
+
+},
+
 
 
 
@@ -241,7 +320,7 @@ update:function(){
 
 let status =
 document.getElementById(
-"data-engine-status-v62"
+"price-db-status-v63"
 );
 
 
@@ -256,44 +335,17 @@ status.innerHTML =
 
 
 
-let source =
+let mode =
 document.getElementById(
-"data-source-v62"
+"price-db-mode-v63"
 );
 
 
 
-if(source){
+if(mode){
 
-source.innerHTML =
-this.source;
-
-}
-
-
-
-
-let update =
-document.getElementById(
-"data-last-update-v62"
-);
-
-
-
-if(update){
-
-let now = new Date();
-
-
-update.innerHTML =
-now.toLocaleTimeString(
-"fa-IR",
-{
-hour:"2-digit",
-minute:"2-digit",
-second:"2-digit"
-}
-);
+mode.innerHTML =
+this.mode;
 
 }
 
@@ -301,7 +353,7 @@ second:"2-digit"
 
 
 console.log(
-"HASINEH DATA ENGINE V62 READY"
+"HASINEH PRICE DATABASE V63 READY"
 );
 
 
@@ -317,13 +369,13 @@ console.log(
 
 
 
-function hasinehDataEngineMonitorV62(){
+function hasinehPriceDatabaseMonitorV63(){
 
 
 try{
 
 
-HASINEH_DATA_ENGINE_V62.update();
+HASINEH_PRICE_DATABASE_V63.update();
 
 
 
@@ -333,7 +385,7 @@ catch(error){
 
 
 console.log(
-"HASINEH DATA ENGINE V62 ERROR"
+"HASINEH PRICE DATABASE V63 ERROR"
 );
 
 
@@ -350,9 +402,9 @@ console.log(
 
 setInterval(
 
-hasinehDataEngineMonitorV62,
+hasinehPriceDatabaseMonitorV63,
 
-15000
+30000
 
 );
 
@@ -360,4 +412,4 @@ hasinehDataEngineMonitorV62,
 
 
 
-hasinehDataEngineMonitorV62();
+hasinehPriceDatabaseMonitorV63();
