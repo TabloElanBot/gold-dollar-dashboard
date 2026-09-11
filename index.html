@@ -31,9 +31,9 @@ font-family:Tahoma,Arial,sans-serif;
 
 text-align:center;
 
-padding:25px 10px;
+padding:28px 10px;
 
-background:linear-gradient(#202020,#050505);
+background:linear-gradient(#222,#050505);
 
 border-bottom:2px solid #d4af37;
 
@@ -41,19 +41,17 @@ border-bottom:2px solid #d4af37;
 
 
 
-
 .logo{
 
-font-size:42px;
+font-size:44px;
 
 font-weight:bold;
 
 color:#ffd700;
 
-letter-spacing:2px;
+letter-spacing:3px;
 
 }
-
 
 
 
@@ -63,10 +61,9 @@ color:#ccc;
 
 font-size:14px;
 
-margin-top:8px;
+margin-top:10px;
 
 }
-
 
 
 
@@ -82,25 +79,21 @@ margin-top:8px;
 
 
 
-
-
 .status-box{
 
 margin:15px auto;
 
-max-width:320px;
+max-width:330px;
 
-padding:15px;
+padding:16px;
 
-border-radius:18px;
+border-radius:20px;
 
 background:#101010;
 
 border:1px solid #333;
 
 }
-
-
 
 
 
@@ -116,19 +109,15 @@ color:#ffd700;
 
 
 
-
-
 .status-online{
 
-margin-top:8px;
+margin-top:10px;
 
 color:#00ff88;
 
 font-weight:bold;
 
 }
-
-
 
 
 
@@ -144,21 +133,19 @@ color:#aaa;
 
 
 
-
-
-.connection-box{
+.ai-box{
 
 margin:15px auto;
 
-max-width:320px;
+max-width:330px;
 
-padding:14px;
+padding:15px;
 
-border-radius:18px;
+border-radius:20px;
 
 background:#0d0d0d;
 
-border:1px solid #333;
+border:1px solid #444;
 
 line-height:2;
 
@@ -166,63 +153,23 @@ line-height:2;
 
 
 
+.ai-title{
+
+color:#ffd700;
+
+font-weight:bold;
+
+}
 
 
-.connection-online{
+
+.ai-ready{
 
 color:#00ff88;
 
-font-weight:bold;
+font-size:14px;
 
 }
-
-
-
-
-
-.market-mode{
-
-margin:15px auto;
-
-max-width:320px;
-
-padding:12px;
-
-border-radius:18px;
-
-background:#111;
-
-border:1px solid #444;
-
-text-align:center;
-
-}
-
-
-
-
-
-.mode-open{
-
-color:#00ff88;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-.mode-close{
-
-color:#ff4444;
-
-font-weight:bold;
-
-}
-
-
 
 
 
@@ -230,11 +177,11 @@ font-weight:bold;
 
 margin:15px auto;
 
-max-width:320px;
+max-width:330px;
 
-padding:15px;
+padding:16px;
 
-border-radius:18px;
+border-radius:20px;
 
 background:#111;
 
@@ -248,40 +195,35 @@ line-height:2;
 
 
 
-
-
 .market-pulse{
 
 margin:15px auto;
 
-max-width:320px;
+max-width:330px;
 
-padding:15px;
+padding:16px;
 
-border-radius:18px;
+border-radius:20px;
 
 background:#0d0d0d;
 
 border:1px solid #333;
 
-line-height:2;
-
 color:#ccc;
 
+line-height:2;
+
 }
-
-
 
 
 
 .market-pulse span{
 
-font-weight:bold;
-
 color:#fff;
 
-}
+font-weight:bold;
 
+}
 
 
 
@@ -291,7 +233,7 @@ display:inline-block;
 
 margin-top:18px;
 
-padding:8px 25px;
+padding:9px 28px;
 
 border-radius:30px;
 
@@ -317,12 +259,11 @@ color:#bbb;
 
 
 
-
 .update-box{
 
 margin:15px auto;
 
-max-width:300px;
+max-width:310px;
 
 padding:12px;
 
@@ -352,7 +293,7 @@ background:#0c0c0c;
 
 border:1px solid #292929;
 
-border-radius:22px;
+border-radius:24px;
 
 padding:20px;
 
@@ -368,21 +309,22 @@ text-align:center;
 
 color:#ffd700;
 
-font-size:25px;
+font-size:26px;
 
-margin-bottom:18px;
+margin-bottom:20px;
 
 }
-  .item{
 
-padding:15px 5px;
+
+
+.item{
+
+padding:16px 5px;
 
 border-bottom:1px solid #222;
 
 }
-
-
-
+  
 .item-name{
 
 font-size:17px;
@@ -390,6 +332,7 @@ font-size:17px;
 margin-bottom:10px;
 
 }
+
 
 
 
@@ -409,6 +352,7 @@ font-size:13px;
 
 
 
+
 .price{
 
 font-size:18px;
@@ -418,6 +362,21 @@ font-weight:bold;
 color:#fff;
 
 }
+
+
+
+
+
+.live-price{
+
+font-size:21px;
+
+font-weight:bold;
+
+color:#ffd700;
+
+}
+
 
 
 
@@ -433,6 +392,7 @@ font-weight:bold;
 
 
 
+
 .change-down{
 
 color:#ff4444;
@@ -440,6 +400,7 @@ color:#ff4444;
 font-weight:bold;
 
 }
+
 
 
 
@@ -453,58 +414,8 @@ color:#aaa;
 
 
 
-.live-price{
 
-font-size:20px;
-
-color:#ffd700;
-
-font-weight:bold;
-
-}
-
-
-
-
-.price-alert{
-
-margin-top:10px;
-
-padding:8px;
-
-border-radius:12px;
-
-background:#111;
-
-text-align:center;
-
-font-size:13px;
-
-}
-
-
-
-
-
-.alert-green{
-
-color:#00ff88;
-
-}
-
-
-
-
-.alert-red{
-
-color:#ff4444;
-
-}
-
-
-
-
-.badge{
+.market-tag{
 
 display:inline-block;
 
@@ -519,6 +430,56 @@ color:#ffd700;
 font-size:12px;
 
 margin-top:10px;
+
+}
+
+
+
+
+
+.api-box{
+
+margin:15px auto;
+
+max-width:330px;
+
+padding:14px;
+
+border-radius:18px;
+
+background:#101010;
+
+border:1px solid #333;
+
+color:#aaa;
+
+line-height:2;
+
+text-align:center;
+
+}
+
+
+
+
+
+.api-online{
+
+color:#00ff88;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+.api-offline{
+
+color:#ff4444;
+
+font-weight:bold;
 
 }
 
@@ -541,6 +502,7 @@ text-align:center;
 color:#aaa;
 
 }
+
 
 
 
@@ -598,6 +560,7 @@ margin-top:8px;
 
 
 
+
 .footer{
 
 text-align:center;
@@ -611,6 +574,7 @@ color:#666;
 
 
 
+
 .hidden{
 
 display:none;
@@ -619,8 +583,8 @@ display:none;
 
 
 
-
 </style>
+
 
 </head>
 
@@ -640,7 +604,7 @@ HASINEH MARKET
 
 <div class="subtitle">
 
-Online Gold, Currency & Market Dashboard
+Online Gold, Currency & Smart Market Dashboard
 
 </div>
 
@@ -650,6 +614,7 @@ Online Gold, Currency & Market Dashboard
 Digital Market Board | Bandar Hasineh
 
 </div>
+  
 <div class="status-box">
 
 
@@ -682,49 +647,29 @@ Digital Market Board | Bandar Hasineh
 
 
 
-<div class="connection-box">
+
+<div class="ai-box">
 
 
-<div class="connection-online">
+<div class="ai-title">
 
-🟢 اتصال تابلو فعال
+🤖 هوش بازار HASINEH AI
 
 </div>
 
+
+<div class="ai-ready">
+
+🟢 آماده تحلیل تغییرات بازار
+
+</div>
 
 
 <div>
 
-آماده نمایش نرخ لحظه‌ای بازار
+بررسی رشد، کاهش و تغییرات نرخ‌ها
 
 </div>
-
-
-</div>
-
-
-
-
-
-
-<div class="market-mode">
-
-
-<div class="badge">
-
-وضعیت معاملات
-
-</div>
-
-
-<br>
-
-
-<span class="mode-open" id="market-mode">
-
-🟢 بازار باز
-
-</span>
 
 
 </div>
@@ -748,6 +693,7 @@ Digital Market Board | Bandar Hasineh
 
 
 </div>
+
 
 
 
@@ -851,7 +797,6 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
-
 </div>
 
 
@@ -877,8 +822,6 @@ Digital Market Board | Bandar Hasineh
 <div class="container">
 
 
-
-
 <div class="card">
 
 
@@ -887,7 +830,7 @@ Digital Market Board | Bandar Hasineh
 🟡 HASINEH GOLD
 
 </div>
-
+  
 <div class="item">
 
 
@@ -961,7 +904,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
 <div class="price-line">
 
 
@@ -1021,7 +963,6 @@ Digital Market Board | Bandar Hasineh
 طلای ۲۴ عیار
 
 </div>
-
 
 
 
@@ -1094,6 +1035,9 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
+
+
+
 <div class="item">
 
 
@@ -1102,6 +1046,7 @@ Digital Market Board | Bandar Hasineh
 USD دلار آمریکا
 
 </div>
+
 
 
 
@@ -1149,6 +1094,7 @@ USD دلار آمریکا
 
 
 </div>
+  
 
 <div class="item">
 
@@ -1633,6 +1579,31 @@ CNY یوان چین
 
 
 </div>
+
+<div class="api-box">
+
+
+<div class="api-online">
+
+🟢 API آماده اتصال
+
+</div>
+
+
+<div>
+
+سیستم دریافت خودکار نرخ‌ها در مرحله بعد فعال می‌شود
+
+</div>
+
+
+</div>
+
+
+
+
+
+
 
 <div class="qr">
 
