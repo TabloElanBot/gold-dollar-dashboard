@@ -104,6 +104,22 @@ color:#aaa;
 
 
 
+.holiday-box{
+
+display:none;
+margin:15px auto;
+max-width:300px;
+padding:15px;
+border-radius:18px;
+background:#111;
+border:1px solid #d4af37;
+color:#ffd700;
+font-size:16px;
+
+}
+
+
+
 .system-box{
 
 margin:15px auto;
@@ -284,6 +300,16 @@ margin-top:8px;
 
 
 
+.origin{
+
+font-size:12px;
+color:#555;
+margin-top:6px;
+
+}
+
+
+
 .footer{
 
 text-align:center;
@@ -297,17 +323,13 @@ color:#666;
 </style>
 
 
-
 </head>
-
 
 
 <body>
 
 
-
 <div class="header">
-
 
 
 <div class="logo">
@@ -329,6 +351,14 @@ Online Gold, Currency & Market Dashboard
 <div class="brand">
 
 Real-Time Market Board
+
+</div>
+
+
+
+<div class="origin">
+
+From Bandar Hasineh
 
 </div>
 
@@ -372,6 +402,15 @@ Real-Time Market Board
 
 
 
+
+<div id="holiday" class="holiday-box">
+
+</div>
+
+
+
+
+
 <div id="update" class="update-box">
 
 آخرین بروزرسانی: ---
@@ -398,7 +437,7 @@ Real-Time Market Board
 
 <div class="market-message">
 
-آخرین پیام بازار:
+آخرین وضعیت بازار:
 
 <br><br>
 
@@ -408,8 +447,8 @@ Real-Time Market Board
 
 
 
-
 </div>
+
 
 
 
@@ -426,7 +465,6 @@ Real-Time Market Board
 <div class="card">
 
 
-
 <div class="title">
 
 🟡 HASINEH GOLD
@@ -437,11 +475,8 @@ Real-Time Market Board
 
 
 
-<div id="gold-list">
-
-
-
 <div class="item">
+
 
 <div class="item-name">
 
@@ -451,6 +486,7 @@ Real-Time Market Board
 
 
 <div class="price-line">
+
 
 <span>
 
@@ -466,18 +502,18 @@ Real-Time Market Board
 </span>
 
 
-<span class="change-up" id="gold-change">
+<span class="change-up">
 
 ▲ 0%
 
 </span>
 
 
-</div>
-
 
 </div>
 
+
+</div>
 
 
 
@@ -485,11 +521,13 @@ Real-Time Market Board
 
 <div class="item">
 
+
 <div class="item-name">
 
 مثقال طلا
 
 </div>
+
 
 
 <div class="price-line">
@@ -529,11 +567,13 @@ Real-Time Market Board
 
 <div class="item">
 
+
 <div class="item-name">
 
 طلای ۲۴ عیار
 
 </div>
+
 
 
 <div class="price-line">
@@ -568,11 +608,6 @@ Real-Time Market Board
 
 
 
-
-</div>
-
-
-
 </div>
 
 
@@ -597,6 +632,7 @@ Real-Time Market Board
 
 <div class="item">
 
+
 <div class="item-name">
 
 USD دلار آمریکا
@@ -609,14 +645,14 @@ USD دلار آمریکا
 
 <span>
 
-خرید: <b id="usd-buy">---</b>
+خرید: ---
 
 </span>
 
 
 <span>
 
-فروش: <b id="usd-sell">---</b>
+فروش: ---
 
 </span>
 
@@ -638,8 +674,8 @@ USD دلار آمریکا
 
 
 
-
 <div class="item">
+
 
 <div class="item-name">
 
@@ -682,8 +718,8 @@ EUR یورو
 
 
 
-
 <div class="item">
+
 
 <div class="item-name">
 
@@ -725,7 +761,9 @@ AED درهم امارات
 
 
 
+
 <div class="item">
+
 
 <div class="item-name">
 
@@ -767,7 +805,9 @@ GBP پوند انگلیس
 
 
 
+
 <div class="item">
+
 
 <div class="item-name">
 
@@ -809,7 +849,9 @@ CAD دلار کانادا
 
 
 
+
 <div class="item">
+
 
 <div class="item-name">
 
@@ -851,7 +893,9 @@ TRY لیر ترکیه
 
 
 
+
 <div class="item">
+
 
 <div class="item-name">
 
@@ -916,7 +960,6 @@ CNY یوان چین
 </div>
 
 
-
 <div class="price-line">
 
 
@@ -967,7 +1010,6 @@ CNY یوان چین
 بازار ملک
 
 </div>
-
 
 
 <div class="price-line">
@@ -1070,40 +1112,6 @@ HASINEH MARKET © ۱۴۰۵
 <script>
 
 
-// ساختار آماده نرخ‌ها برای اتصال آینده
-
-const marketData = {
-
-
-gold:{
-
-buy:"---",
-
-sell:"---",
-
-change:0
-
-},
-
-
-usd:{
-
-buy:"---",
-
-sell:"---",
-
-change:0
-
-}
-
-
-};
-
-
-
-
-
-
 function updateTime(){
 
 
@@ -1127,7 +1135,6 @@ timeZone:"Asia/Tehran"
 )
 
 );
-
 
 
 
@@ -1195,6 +1202,8 @@ day:"numeric"
 
 
 
+checkHoliday(iran);
+
 
 
 document.getElementById("update").innerHTML =
@@ -1202,6 +1211,95 @@ document.getElementById("update").innerHTML =
 "آخرین بروزرسانی: " +
 
 iran.toLocaleTimeString("fa-IR");
+
+
+
+}
+
+
+
+
+
+function checkHoliday(date){
+
+
+
+let box = document.getElementById("holiday");
+
+let message = "";
+
+
+
+let month = date.getMonth()+1;
+
+let day = date.getDate();
+
+
+
+
+// نوروز
+
+if(month===3 && day===21){
+
+message="🌱 نوروز مبارک 🌱<br>سال نو بر شما مبارک";
+
+}
+
+
+
+
+
+// رمضان (آماده توسعه تقویمی)
+
+let lunar = date.toLocaleDateString(
+
+"fa-IR-u-ca-islamic",
+
+{
+
+month:"numeric",
+
+day:"numeric"
+
+}
+
+);
+
+
+
+
+
+if(message===""){
+
+
+if(lunar.includes("9")){
+
+message="🌙 رمضان کریم 🌙<br>قبول طاعات و عبادات";
+
+}
+
+
+}
+
+
+
+
+
+if(message!==""){
+
+
+box.style.display="block";
+
+box.innerHTML=message;
+
+
+}else{
+
+
+box.style.display="none";
+
+
+}
 
 
 
@@ -1219,7 +1317,6 @@ updateTime();
 
 
 </script>
-
 
 
 
