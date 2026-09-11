@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>HASINEH MARKET</title>
@@ -11,12 +12,16 @@
 
 <style>
 
+
 body{
+
 margin:0;
 background:#020202;
-color:white;
+color:#fff;
 font-family:Tahoma,Arial,sans-serif;
+
 }
+
 
 
 .header{
@@ -29,6 +34,7 @@ border-bottom:2px solid #d4af37;
 }
 
 
+
 .logo{
 
 font-size:42px;
@@ -39,22 +45,25 @@ letter-spacing:2px;
 }
 
 
+
 .subtitle{
 
-margin-top:8px;
+color:#ccc;
 font-size:14px;
-color:#bbb;
+margin-top:8px;
 
 }
+
 
 
 .brand{
 
-margin-top:8px;
-font-size:12px;
 color:#777;
+font-size:12px;
+margin-top:8px;
 
 }
+
 
 
 .live{
@@ -69,12 +78,13 @@ color:#00ff88;
 }
 
 
+
 .date-box{
 
 margin-top:15px;
 line-height:2;
 font-size:14px;
-color:#ccc;
+color:#bbb;
 
 }
 
@@ -83,12 +93,59 @@ color:#ccc;
 .update-box{
 
 margin:15px auto;
-padding:10px;
-max-width:280px;
-background:#0d0d0d;
+max-width:300px;
+padding:12px;
 border-radius:15px;
+background:#0d0d0d;
 border:1px solid #333;
 color:#aaa;
+
+}
+
+
+
+.market-status{
+
+margin:15px auto;
+max-width:300px;
+padding:15px;
+border-radius:18px;
+background:#111;
+border:1px solid #333;
+text-align:center;
+
+}
+
+
+
+.status-title{
+
+color:#ffd700;
+margin-bottom:10px;
+
+}
+
+
+
+.status-value{
+
+color:#00ff88;
+font-size:18px;
+font-weight:bold;
+
+}
+
+
+
+.news-box{
+
+margin:15px auto;
+max-width:300px;
+padding:15px;
+border-radius:18px;
+background:#111;
+border:1px solid #333;
+color:#ccc;
 
 }
 
@@ -98,7 +155,6 @@ color:#aaa;
 
 display:none;
 margin:15px auto;
-max-width:300px;
 padding:14px;
 border-radius:15px;
 background:#191919;
@@ -131,8 +187,8 @@ margin-bottom:20px;
 .title{
 
 text-align:center;
-font-size:25px;
 color:#ffd700;
+font-size:25px;
 margin-bottom:18px;
 
 }
@@ -162,32 +218,15 @@ margin-bottom:10px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-font-size:14px;
+font-size:13px;
 
 }
 
 
 
-.main-price{
+.change{
 
-font-size:18px;
-font-weight:bold;
-
-}
-
-
-
-.buy{
-
-color:#ddd;
-
-}
-
-
-
-.sell{
-
-color:#ddd;
+font-size:12px;
 
 }
 
@@ -214,14 +253,25 @@ color:#ff4444;
 color:#aaa;
 
 }
-  .qr{
+  
+.qr{
 
 margin:25px 5px;
-padding:20px;
+padding:22px;
 border-radius:20px;
 border:1px dashed #555;
 text-align:center;
-color:#888;
+color:#aaa;
+
+}
+
+
+
+.qr-title{
+
+font-size:18px;
+color:#ffd700;
+margin-bottom:10px;
 
 }
 
@@ -265,6 +315,7 @@ color:#666;
 }
 
 
+
 </style>
 
 
@@ -283,14 +334,17 @@ HASINEH MARKET
 </div>
 
 
+
 <div class="subtitle">
 Online Gold, Currency & Market Dashboard
 </div>
 
 
+
 <div class="brand">
 Real-Time Market Board
 </div>
+
 
 
 <div class="live">
@@ -323,10 +377,39 @@ Real-Time Market Board
 
 <div id="update" class="update-box">
 
-آخرین بروزرسانی:
----
+آخرین بروزرسانی: ---
 
 </div>
+
+
+
+
+<div class="market-status">
+
+
+<div class="status-title">
+وضعیت کلی بازار
+</div>
+
+
+<div class="status-value">
+🟢 در حال بررسی
+</div>
+
+
+</div>
+
+
+
+
+<div class="news-box">
+
+📰 آخرین وضعیت بازار:
+<br><br>
+در انتظار اتصال اطلاعات لحظه‌ای
+
+</div>
+
 
 
 
@@ -342,46 +425,64 @@ Real-Time Market Board
 
 
 
+
+
 <div class="container">
 
 
 
+
+
 <div class="card">
 
 
 <div class="title">
+
 🟡 HASINEH GOLD
+
 </div>
+
 
 
 
 <div class="item">
 
+
 <div class="item-name">
+
 طلای ۱۸ عیار
+
 </div>
+
 
 
 <div class="price-line">
 
-<span class="buy">
+
+<span>
 خرید: ---
 </span>
 
 
-<span class="sell">
+<span>
 فروش: ---
 </span>
 
 
-<span class="main-price up">
-▲ ---
+<span class="change up">
+
+▲ +0%
+
 </span>
 
 
-</div>
 
 </div>
+
+
+</div>
+
+
 
 
 
@@ -390,31 +491,41 @@ Real-Time Market Board
 
 
 <div class="item-name">
+
 مثقال طلا
+
 </div>
+
 
 
 <div class="price-line">
 
-<span class="buy">
+
+<span>
 خرید: ---
 </span>
 
 
-<span class="sell">
+<span>
 فروش: ---
 </span>
 
 
-<span class="main-price down">
-▼ ---
+<span class="change down">
+
+▼ -0%
+
 </span>
 
 
+
 </div>
 
 
 </div>
+
+
+
 
 
 
@@ -423,35 +534,42 @@ Real-Time Market Board
 
 
 <div class="item-name">
+
 طلای ۲۴ عیار
+
 </div>
+
 
 
 <div class="price-line">
 
-<span class="buy">
+
+<span>
 خرید: ---
 </span>
 
 
-<span class="sell">
+<span>
 فروش: ---
 </span>
 
 
-<span class="main-price same">
-● ---
+<span class="change same">
+
+● 0%
+
 </span>
 
 
+
+</div>
+
+
 </div>
 
 
 </div>
 
-
-
-</div>
 
 
 
@@ -463,201 +581,283 @@ Real-Time Market Board
 
 
 <div class="title">
+
 💵 HASINEH CURRENCY
+
 </div>
+
 
 
 
 <div class="item">
 
+
 <div class="item-name">
+
 USD دلار آمریکا
+
 </div>
 
 
+
 <div class="price-line">
+
 
 <span>
 خرید: ---
 </span>
 
+
 <span>
 فروش: ---
 </span>
 
-<span class="up">
-▲
+
+<span class="change up">
+
+▲ +0%
+
 </span>
 
+
 </div>
 
 
 </div>
+
+
 
 
 
 
 <div class="item">
 
+
 <div class="item-name">
+
 EUR یورو
+
 </div>
 
 
+
 <div class="price-line">
+
 
 <span>
 خرید: ---
 </span>
 
+
 <span>
 فروش: ---
 </span>
 
-<span class="down">
-▼
+
+<span class="change down">
+
+▼ -0%
+
 </span>
 
+
 </div>
 
 
 </div>
+
 
 
 
 
 <div class="item">
 
+
 <div class="item-name">
+
 AED درهم امارات
+
 </div>
 
 
+
 <div class="price-line">
+
 
 <span>
 خرید: ---
 </span>
 
+
 <span>
 فروش: ---
 </span>
 
-<span class="same">
-●
+
+<span class="change same">
+
+● 0%
+
 </span>
 
+
 </div>
 
 
 </div>
+
 
 
 
 <div class="item">
 
+
 <div class="item-name">
+
 GBP پوند انگلیس
+
 </div>
 
 
+
 <div class="price-line">
+
 
 <span>
 خرید: ---
 </span>
 
+
 <span>
 فروش: ---
 </span>
 
-<span class="same">
-●
+
+<span class="change same">
+
+● 0%
+
 </span>
 
+
 </div>
 
 
 </div>
+
+
 
 
 
 <div class="item">
 
+
 <div class="item-name">
+
 CAD دلار کانادا
+
 </div>
 
 
+
 <div class="price-line">
+
 
 <span>
 خرید: ---
 </span>
 
+
 <span>
 فروش: ---
 </span>
 
-<span class="same">
-●
+
+<span class="change same">
+
+● 0%
+
 </span>
 
+
 </div>
 
 
 </div>
+
+
 
 
 
 <div class="item">
 
+
 <div class="item-name">
+
 TRY لیر ترکیه
+
 </div>
 
 
+
 <div class="price-line">
+
 
 <span>
 خرید: ---
 </span>
 
+
 <span>
 فروش: ---
 </span>
 
-<span class="same">
-●
+
+<span class="change same">
+
+● 0%
+
 </span>
 
+
 </div>
 
 
 </div>
+
 
 
 
 <div class="item">
 
+
 <div class="item-name">
+
 CNY یوان چین
+
 </div>
 
 
+
 <div class="price-line">
+
 
 <span>
 خرید: ---
 </span>
 
+
 <span>
 فروش: ---
 </span>
 
-<span class="same">
-●
+
+<span class="change same">
+
+● 0%
+
 </span>
+
 
 </div>
 
@@ -672,35 +872,46 @@ CNY یوان چین
 
 
 <div class="title">
+
 🚗 HASINEH AUTO
+
 </div>
+
 
 
 <div class="item">
 
+
 <div class="item-name">
+
 بازار خودرو
+
 </div>
+
 
 
 <div class="price-line">
 
+
 <span>
 وضعیت:
 </span>
+
 
 <span>
 به زودی
 </span>
 
 
-</div>
-
 
 </div>
 
 
 </div>
+
+
+</div>
+
 
 
 
@@ -711,7 +922,9 @@ CNY یوان چین
 
 
 <div class="title">
+
 🏠 HASINEH REAL ESTATE
+
 </div>
 
 
@@ -720,7 +933,9 @@ CNY یوان چین
 
 
 <div class="item-name">
+
 بازار ملک
+
 </div>
 
 
@@ -738,13 +953,15 @@ CNY یوان چین
 </span>
 
 
-</div>
-
 
 </div>
 
 
 </div>
+
+
+</div>
+
 
 
 
@@ -754,11 +971,20 @@ CNY یوان چین
 
 <div class="qr">
 
-QR رسمی HASINEH MARKET
+
+<div class="qr-title">
+
+🔳 HASINEH MARKET QR
+
+</div>
+
+
+اسکن کنید
 
 <br><br>
 
-اتصال به کانال روبیکا و خدمات آینده
+ورود به کانال روبیکا و خدمات آینده
+
 
 </div>
 
@@ -778,6 +1004,7 @@ Created by Hassan Divanizadeh
 </div>
 
 
+
 <div class="support">
 
 Support: 09178649970
@@ -786,6 +1013,7 @@ Support: 09178649970
 
 
 </div>
+
 
 
 
@@ -807,14 +1035,16 @@ HASINEH MARKET © ۱۴۰۵
 
 
 
-
 <script>
+
 
 
 function updateTime(){
 
 
+
 let now = new Date();
+
 
 
 let iran = new Date(
@@ -831,44 +1061,75 @@ timeZone:"Asia/Tehran"
 
 
 
+
+
 document.getElementById("clock").innerHTML =
+
 "ساعت ایران: " +
+
 iran.toLocaleTimeString("fa-IR");
 
 
 
 
+
+
 document.getElementById("solar").innerHTML =
+
 "تاریخ شمسی: " +
+
 iran.toLocaleDateString(
+
 "fa-IR",
+
 {
+
 year:"numeric",
+
 month:"long",
+
 day:"numeric",
+
 weekday:"long"
+
 }
+
 );
+
+
 
 
 
 
 document.getElementById("lunar").innerHTML =
+
 "تاریخ قمری: " +
+
 iran.toLocaleDateString(
+
 "fa-IR-u-ca-islamic",
+
 {
+
 year:"numeric",
+
 month:"long",
+
 day:"numeric"
+
 }
+
 );
 
 
 
 
+
+
 document.getElementById("update").innerHTML =
+
 "آخرین بروزرسانی: " +
+
 iran.toLocaleTimeString("fa-IR");
 
 
@@ -880,11 +1141,14 @@ iran.toLocaleTimeString("fa-IR");
 
 setInterval(updateTime,1000);
 
+
 updateTime();
 
 
 
 </script>
+
+
 
 
 
