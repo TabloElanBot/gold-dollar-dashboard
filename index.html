@@ -1,27 +1,28 @@
 <!-- ==========================
- HASINEH MARKET V34
- CORE DATA ENGINE PANEL
+ HASINEH MARKET V35
+ HASINEH GOLD MODULE
 ========================== -->
 
 
-<div class="box data-core-box">
+<div class="box gold-market-box">
 
 
-<div class="box-title data-core-title">
+<div class="box-title gold-market-title">
 
-⚙️ HASINEH CORE DATA ENGINE V34
+🪙 HASINEH GOLD V35
 
 </div>
 
 
 
+
 <div>
 
-وضعیت هسته:
+طلای ۱۸ عیار:
 
-<span class="status-green" id="core-engine-v34">
+<span class="status-gold" id="gold18-v35">
 
-🟢 ONLINE
+---
 
 </span>
 
@@ -32,26 +33,11 @@
 
 <div>
 
-دریافت داده:
+سکه امامی:
 
-<span class="status-gold" id="data-fetch-v34">
+<span class="status-gold" id="emami-v35">
 
-WAITING
-
-</span>
-
-</div>
-
-
-
-
-<div>
-
-تعداد ماژول فعال:
-
-<span class="status-gold" id="module-count-v34">
-
-4 MODULES
+---
 
 </span>
 
@@ -62,11 +48,56 @@ WAITING
 
 <div>
 
-آمادگی API:
+نیم سکه:
 
-<span class="status-green" id="api-ready-v34">
+<span class="status-gold" id="nim-v35">
 
-READY
+---
+
+</span>
+
+</div>
+
+
+
+
+<div>
+
+ربع سکه:
+
+<span class="status-gold" id="rob-v35">
+
+---
+
+</span>
+
+</div>
+
+
+
+
+<div>
+
+آبشده:
+
+<span class="status-gold" id="abshode-v35">
+
+---
+
+</span>
+
+</div>
+
+
+
+
+<div>
+
+وضعیت بازار:
+
+<span class="status-green" id="gold-status-v35">
+
+🟢 READY
 
 </span>
 
@@ -75,14 +106,15 @@ READY
 
 
 </div>
+
 
 /* ==========================
- HASINEH MARKET V34
- CORE DATA ENGINE STYLE
+ HASINEH MARKET V35
+ HASINEH GOLD STYLE
 ========================== */
 
 
-.data-core-box{
+.gold-market-box{
 
 margin:20px auto;
 
@@ -98,15 +130,15 @@ border:1px solid #d4af37;
 
 line-height:2;
 
-box-shadow:0 0 18px rgba(212,175,55,0.25);
+box-shadow:0 0 20px rgba(212,175,55,0.30);
 
 }
 
 
 
-.data-core-title{
+.gold-market-title{
 
-font-size:18px;
+font-size:19px;
 
 font-weight:bold;
 
@@ -120,25 +152,15 @@ margin-bottom:12px;
 
 
 
-.data-core-box div{
+.gold-market-box div{
 
-margin:6px 0;
-
-}
-
-
-
-.core-online{
-
-color:#00ff88;
-
-font-weight:bold;
+margin:7px 0;
 
 }
 
 
 
-.core-waiting{
+.gold-price{
 
 color:#ffd700;
 
@@ -148,7 +170,17 @@ font-weight:bold;
 
 
 
-.core-error{
+.gold-ready{
+
+color:#00ff88;
+
+font-weight:bold;
+
+}
+
+
+
+.gold-offline{
 
 color:#ff5555;
 
@@ -156,97 +188,103 @@ font-weight:bold;
 
 }
 
+
+
+/* جدا کننده آیتم‌های بازار */
+
+.gold-market-box span{
+
+direction:ltr;
+
+display:inline-block;
+
+margin-right:5px;
+
+}
+
+
 /* ==========================
- HASINEH MARKET V34
- CORE DATA ENGINE
+ HASINEH MARKET V35
+ HASINEH GOLD DATA ENGINE
 ========================== */
 
 
-const HASINEH_CORE_V34 = {
+const HASINEH_GOLD_V35 = {
 
 
-engine:"ONLINE",
+gold18:"---",
 
-fetchStatus:"WAITING",
+emami:"---",
 
-modules:4,
+nim:"---",
 
-api:"READY",
+rob:"---",
+
+abshode:"---",
+
+status:"READY",
 
 
 
-start:function(){
+load:function(){
 
 
-let engine =
+
+let items = {
+
+
+"gold18-v35":this.gold18,
+
+"emami-v35":this.emami,
+
+"nim-v35":this.nim,
+
+"rob-v35":this.rob,
+
+"abshode-v35":this.abshode
+
+};
+
+
+
+for(let id in items){
+
+
+let element =
+document.getElementById(id);
+
+
+
+if(element){
+
+element.innerHTML =
+items[id];
+
+}
+
+
+}
+
+
+
+
+let status =
 document.getElementById(
-"core-engine-v34"
+"gold-status-v35"
 );
 
 
 
-if(engine){
+if(status){
 
-engine.innerHTML =
-"🟢 ONLINE";
-
-}
-
-
-
-
-let fetch =
-document.getElementById(
-"data-fetch-v34"
-);
-
-
-
-if(fetch){
-
-fetch.innerHTML =
-"WAITING";
-
-}
-
-
-
-
-let modules =
-document.getElementById(
-"module-count-v34"
-);
-
-
-
-if(modules){
-
-modules.innerHTML =
-this.modules + " MODULES";
-
-}
-
-
-
-
-let api =
-document.getElementById(
-"api-ready-v34"
-);
-
-
-
-if(api){
-
-api.innerHTML =
-"READY";
+status.innerHTML =
+"🟢 READY";
 
 }
 
 
 
 }
-
 
 
 
@@ -257,13 +295,13 @@ api.innerHTML =
 
 
 
-function hasinehCoreMonitorV34(){
+function hasinehGoldMonitorV35(){
 
 
 try{
 
 
-HASINEH_CORE_V34.start();
+HASINEH_GOLD_V35.load();
 
 
 
@@ -273,7 +311,7 @@ catch(error){
 
 
 console.log(
-"HASINEH CORE V34 ERROR"
+"HASINEH GOLD V35 ERROR"
 );
 
 
@@ -289,7 +327,7 @@ console.log(
 
 setInterval(
 
-hasinehCoreMonitorV34,
+hasinehGoldMonitorV35,
 
 15000
 
@@ -299,4 +337,4 @@ hasinehCoreMonitorV34,
 
 
 
-hasinehCoreMonitorV34();
+hasinehGoldMonitorV35();
