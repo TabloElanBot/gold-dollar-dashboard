@@ -1,163 +1,87 @@
-/* ==========================
- HASINEH MARKET V49
- PREMIUM MARKET ALERT SYSTEM
-========================== */
+<!-- ==========================
+ HASINEH MARKET V50
+ PREMIUM BRAND HEADER
+========================== -->
 
 
-<div class="box alert-box">
+<div class="box brand-header-box">
 
 
-<div class="box-title alert-title">
+<div class="brand-logo">
 
-🔔 HASINEH MARKET ALERT V49
+HASINEH MARKET
+
+</div>
+
+
+
+<div class="brand-subtitle">
+
+DIGITAL GOLD • CURRENCY • MARKET BOARD
 
 </div>
 
 
 
 
-<div class="alert-main">
+<div class="brand-divider">
 
-
-<span 
-id="alert-icon-v49">
-
-🟢
-
-</span>
-
-
-
-<span 
-id="alert-message-v49">
-
-بازار در وضعیت پایدار قرار دارد
-
-</span>
-
+✦ ✦ ✦
 
 </div>
 
 
 
 
-<div class="alert-status-row">
+<div class="brand-credit">
 
+Created by Hassan Divanizadeh
 
-<span>
-
-وضعیت اعلان:
-
-</span>
+</div>
 
 
 
-<span 
-class="status-green"
-id="alert-status-v49">
 
-ACTIVE
+<div class="brand-contact">
 
-</span>
-
+QR ACCESS • RUBIKA CHANNEL
 
 </div>
 
 
 
 </div>
-
 
 
 /* ==========================
- HASINEH MARKET V49
- ALERT PANEL STYLE
+ HASINEH MARKET V50
+ PREMIUM BRAND STYLE
 ========================== */
 
 
-.alert-box{
+.brand-header-box{
 
-margin:20px auto;
+margin:25px auto;
 
-max-width:420px;
+max-width:520px;
 
-padding:22px;
+padding:30px 20px;
 
-border-radius:30px;
+border-radius:35px;
 
 background:
 
 linear-gradient(
 145deg,
-#070707,
-#141414
+#050505,
+#151515
 );
 
 border:1px solid #d4af37;
 
 box-shadow:
 
-0 0 35px rgba(212,175,55,0.30);
-
-}
-
-
-
-.alert-title{
-
-font-size:20px;
-
-font-weight:bold;
-
-color:#ffd700;
-
-text-align:center;
-
-margin-bottom:18px;
-
-}
-
-
-
-.alert-main{
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:12px;
-
-padding:18px;
-
-border-radius:22px;
-
-background:#101010;
-
-border:
-
-1px solid rgba(212,175,55,0.25);
-
-}
-
-
-
-#alert-icon-v49{
-
-font-size:30px;
-
-}
-
-
-
-#alert-message-v49{
-
-color:#ffffff;
-
-font-weight:bold;
-
-font-size:15px;
+0 0 45px rgba(212,175,55,0.35);
 
 text-align:center;
 
@@ -165,78 +89,119 @@ text-align:center;
 
 
 
-.alert-status-row{
 
-display:flex;
+.brand-logo{
 
-justify-content:space-between;
-
-margin-top:15px;
-
-padding:10px 5px;
-
-border-top:
-
-1px solid rgba(212,175,55,0.18);
-
-color:#ffffff;
+font-size:34px;
 
 font-weight:bold;
 
-}
-
-
-
-/* حالت‌های هشدار */
-
-.alert-green{
-
-color:#00ff88;
-
-}
-
-
-
-.alert-yellow{
+letter-spacing:3px;
 
 color:#ffd700;
 
-}
+text-shadow:
 
-
-
-.alert-red{
-
-color:#ff5555;
+0 0 15px rgba(255,215,0,0.35);
 
 }
 
 
 
-/* افکت ظریف اعلان */
+.brand-subtitle{
 
-.alert-box:hover{
+margin-top:12px;
+
+font-size:13px;
+
+color:#b8b8b8;
+
+letter-spacing:1px;
+
+}
+
+
+
+.brand-divider{
+
+margin:18px 0;
+
+color:#d4af37;
+
+font-size:16px;
+
+letter-spacing:5px;
+
+}
+
+
+
+.brand-credit{
+
+font-size:13px;
+
+color:#888;
+
+font-style:italic;
+
+}
+
+
+
+.brand-contact{
+
+margin-top:8px;
+
+font-size:12px;
+
+color:#666;
+
+letter-spacing:1px;
+
+}
+
+
+
+
+/* جلوه برند */
+
+.brand-header-box:hover{
 
 box-shadow:
 
-0 0 45px rgba(212,175,55,0.45);
+0 0 60px rgba(212,175,55,0.50);
 
 }
 
 
 
+/* آماده برای لوگوی تصویری */
+
+.brand-logo{
+
+font-family:
+
+"Georgia",
+"Times New Roman",
+serif;
+
+}
+
+
 /* ==========================
- HASINEH MARKET V49
- ALERT ENGINE
+ HASINEH MARKET V50
+ PREMIUM BRAND ENGINE
 ========================== */
 
 
-const HASINEH_ALERT_V49 = {
+const HASINEH_BRAND_V50 = {
 
 
-type:"STABLE",
+brand:"HASINEH MARKET",
 
-message:"بازار در وضعیت پایدار قرار دارد",
+creator:"Hassan Divanizadeh",
+
+access:"QR ACCESS • RUBIKA CHANNEL",
 
 
 
@@ -244,52 +209,51 @@ update:function(){
 
 
 
-let icon =
-document.getElementById(
-"alert-icon-v49"
+let logo =
+document.querySelector(
+".brand-logo"
 );
 
 
 
-let message =
-document.getElementById(
-"alert-message-v49"
-);
+if(logo){
 
-
-
-let status =
-document.getElementById(
-"alert-status-v49"
-);
-
-
-
-
-if(icon){
-
-icon.innerHTML =
-"🟢";
+logo.innerHTML =
+this.brand;
 
 }
 
 
 
 
-if(message){
+let credit =
+document.querySelector(
+".brand-credit"
+);
 
-message.innerHTML =
-this.message;
+
+
+if(credit){
+
+credit.innerHTML =
+"Created by " + this.creator;
 
 }
 
 
 
 
-if(status){
+let contact =
+document.querySelector(
+".brand-contact"
+);
 
-status.innerHTML =
-"ACTIVE";
+
+
+if(contact){
+
+contact.innerHTML =
+this.access;
 
 }
 
@@ -306,13 +270,13 @@ status.innerHTML =
 
 
 
-function hasinehAlertMonitorV49(){
+function hasinehBrandMonitorV50(){
 
 
 try{
 
 
-HASINEH_ALERT_V49.update();
+HASINEH_BRAND_V50.update();
 
 
 
@@ -322,7 +286,7 @@ catch(error){
 
 
 console.log(
-"HASINEH ALERT V49 ERROR"
+"HASINEH BRAND V50 ERROR"
 );
 
 
@@ -338,9 +302,9 @@ console.log(
 
 setInterval(
 
-hasinehAlertMonitorV49,
+hasinehBrandMonitorV50,
 
-15000
+30000
 
 );
 
@@ -348,4 +312,4 @@ hasinehAlertMonitorV49,
 
 
 
-hasinehAlertMonitorV49();
+hasinehBrandMonitorV50();
