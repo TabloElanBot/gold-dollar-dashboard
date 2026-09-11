@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-HASINEH MARKET V28 LIVE DATA FOUNDATION
+HASINEH MARKET V29 REAL MARKET ENGINE
 </title>
 
 
@@ -32,8 +32,6 @@ font-family:Tahoma,Arial,sans-serif;
 
 }
 
-
-/* HEADER V28 */
 
 .header{
 
@@ -69,6 +67,7 @@ text-shadow:
 }
 
 
+
 .subtitle{
 
 margin-top:12px;
@@ -78,6 +77,7 @@ font-size:15px;
 color:#ddd;
 
 }
+
 
 
 .brand{
@@ -91,9 +91,8 @@ color:#888;
 }
 
 
-/* STATUS */
 
-.status-box{
+.box{
 
 margin:20px auto;
 
@@ -107,10 +106,13 @@ background:#0c0c0c;
 
 border:1px solid #333;
 
+line-height:2;
+
 }
 
 
-.status-title{
+
+.title-box{
 
 font-size:18px;
 
@@ -121,120 +123,8 @@ color:#ffd700;
 }
 
 
-.status-online{
 
-margin-top:12px;
-
-font-weight:bold;
-
-color:#00ff88;
-
-}
-
-
-.status-time{
-
-margin-top:10px;
-
-font-size:13px;
-
-color:#aaa;
-
-}
-
-
-/* AI */
-
-.ai-box{
-
-margin:20px auto;
-
-max-width:360px;
-
-padding:20px;
-
-border-radius:25px;
-
-background:#080808;
-
-border:1px solid #d4af37;
-
-line-height:2;
-
-}
-
-
-.ai-title{
-
-font-size:18px;
-
-font-weight:bold;
-
-color:#ffd700;
-
-}
-
-
-.ai-status{
-
-font-weight:bold;
-
-color:#00ff88;
-
-}
-
-
-.ai-text{
-
-font-size:13px;
-
-color:#ccc;
-
-}
-
-
-/* DATA ENGINE V28 */
-
-.data-engine-box{
-
-margin:20px auto;
-
-max-width:360px;
-
-padding:20px;
-
-border-radius:25px;
-
-background:#0b0b0b;
-
-border:1px solid #d4af37;
-
-line-height:2;
-
-}
-
-
-.data-engine-title{
-
-font-size:18px;
-
-font-weight:bold;
-
-color:#ffd700;
-
-}
-
-
-.data-engine-item{
-
-font-size:14px;
-
-color:#ccc;
-
-}
-
-
-.data-online{
+.green{
 
 color:#00ff88;
 
@@ -243,7 +133,8 @@ font-weight:bold;
 }
 
 
-.data-ready{
+
+.gold{
 
 color:#ffd700;
 
@@ -252,171 +143,6 @@ font-weight:bold;
 }
 
 
-/* INTELLIGENCE */
-
-.intelligence-box{
-
-margin:20px auto;
-
-max-width:360px;
-
-padding:20px;
-
-border-radius:25px;
-
-background:#101010;
-
-border:1px solid #333;
-
-line-height:2;
-
-}
-
-
-.intelligence-title{
-
-font-size:17px;
-
-font-weight:bold;
-
-color:#ffd700;
-
-}
-
-
-.intelligence-item{
-
-font-size:14px;
-
-color:#ccc;
-
-}
-
-
-.market-alert{
-
-color:#00ff88;
-
-font-weight:bold;
-
-}
-/* NOTICE */
-
-.notice-box{
-
-margin:20px auto;
-
-max-width:360px;
-
-padding:20px;
-
-border-radius:25px;
-
-background:#111;
-
-border:1px solid #d4af37;
-
-color:#ffd700;
-
-line-height:2;
-
-}
-
-
-/* MARKET PULSE */
-
-.market-pulse{
-
-margin:20px auto;
-
-max-width:360px;
-
-padding:20px;
-
-border-radius:25px;
-
-background:#0d0d0d;
-
-border:1px solid #333;
-
-line-height:2;
-
-color:#ccc;
-
-}
-
-
-.market-pulse span{
-
-color:#fff;
-
-font-weight:bold;
-
-}
-
-
-
-/* LIVE */
-
-.live{
-
-display:inline-block;
-
-margin-top:20px;
-
-padding:12px 35px;
-
-border-radius:35px;
-
-background:#063b1c;
-
-color:#00ff88;
-
-font-weight:bold;
-
-}
-
-
-
-/* DATE */
-
-.date-box{
-
-margin-top:20px;
-
-font-size:14px;
-
-line-height:2;
-
-color:#aaa;
-
-}
-
-
-
-/* UPDATE */
-
-.update-box{
-
-margin:20px auto;
-
-max-width:340px;
-
-padding:14px;
-
-border-radius:18px;
-
-background:#101010;
-
-border:1px solid #333;
-
-color:#aaa;
-
-}
-
-
-
-/* MAIN */
 
 .container{
 
@@ -425,8 +151,6 @@ padding:15px;
 }
 
 
-
-/* CARDS */
 
 .card{
 
@@ -444,7 +168,7 @@ margin-bottom:25px;
 
 
 
-.title{
+.card-title{
 
 text-align:center;
 
@@ -469,12 +193,6 @@ border-bottom:1px solid #222;
 }
 
 
-.item:last-child{
-
-border-bottom:none;
-
-}
-
 
 .item-name{
 
@@ -494,10 +212,6 @@ justify-content:space-between;
 
 align-items:center;
 
-gap:8px;
-
-font-size:13px;
-
 }
 
 
@@ -508,15 +222,13 @@ font-size:20px;
 
 font-weight:bold;
 
-color:#fff;
-
 }
 
 
 
-.price-box{
+.live-price{
 
-margin-top:12px;
+margin-top:15px;
 
 padding:12px;
 
@@ -526,19 +238,50 @@ background:#111;
 
 text-align:center;
 
-}
-
-
-
-.live-price{
-
 font-size:23px;
-
-font-weight:bold;
 
 color:#ffd700;
 
 }
+<style>
+
+.status{
+
+font-size:15px;
+
+color:#ccc;
+
+}
+
+
+.ai-box{
+
+border:1px solid #d4af37;
+
+background:#080808;
+
+}
+
+
+
+.engine-box{
+
+border:1px solid #d4af37;
+
+background:#0b0b0b;
+
+}
+
+
+
+.market-ready{
+
+color:#00ff88;
+
+font-weight:bold;
+
+}
+
 
 
 .change-up{
@@ -550,6 +293,7 @@ font-weight:bold;
 }
 
 
+
 .change-down{
 
 color:#ff4444;
@@ -559,141 +303,16 @@ font-weight:bold;
 }
 
 
-.change-same{
 
-color:#999;
-
-}
-
-
-
-/* API MONITOR V28 */
-
-
-.api-monitor{
-
-margin:20px auto;
-
-max-width:360px;
-
-padding:18px;
-
-border-radius:22px;
-
-background:#0b0b0b;
-
-border:1px solid #333;
-
-line-height:2;
-
-}
-
-
-.api-monitor-title{
-
-font-size:17px;
-
-font-weight:bold;
-
-color:#ffd700;
-
-}
-
-
-.api-monitor-item{
-
-font-size:14px;
-
-color:#ccc;
-
-}
-
-
-.api-ready{
-
-color:#ffd700;
-
-font-weight:bold;
-
-}
-
-
-.api-connected{
-
-color:#00ff88;
-
-font-weight:bold;
-
-}
-
-
-
-/* CONTROL */
-
-.control-box{
-
-margin:20px auto;
-
-max-width:360px;
-
-padding:18px;
-
-border-radius:22px;
-
-background:#0c0c0c;
-
-border:1px solid #333;
-
-line-height:2;
-
-}
-
-
-.control-title{
-
-color:#ffd700;
-
-font-weight:bold;
-
-}
-
-
-.control-ready{
-
-color:#00ff88;
-
-font-weight:bold;
-
-}
-
-
-
-/* QR */
-
-.qr{
-
-margin:25px 5px;
-
-padding:25px;
-
-border-radius:25px;
-
-border:1px dashed #555;
+.footer{
 
 text-align:center;
 
-color:#aaa;
+padding:25px;
 
-}
+color:#666;
 
-
-.qr-title{
-
-font-size:20px;
-
-color:#ffd700;
-
-margin-bottom:12px;
+font-size:13px;
 
 }
 
@@ -704,7 +323,9 @@ margin-bottom:12px;
 
 
 <body>
- <div class="header">
+
+
+<div class="header">
 
 
 <div class="logo">
@@ -714,13 +335,11 @@ HASINEH MARKET
 </div>
 
 
-
 <div class="subtitle">
 
-Live Data Foundation Dashboard V28
+Real Market Engine V29
 
 </div>
-
 
 
 <div class="brand">
@@ -730,65 +349,32 @@ Digital Smart Market Board | Bandar Hasineh
 </div>
 
 
-
-
-<div class="status-box">
-
-
-<div class="status-title">
-
-📡 وضعیت سیستم
-
 </div>
 
 
 
-<div class="status-online" id="market-state">
-
-🟢 سیستم آنلاین و آماده فعالیت
-
-</div>
+<div class="box">
 
 
+<div class="title-box">
 
-<div class="status-time" id="data-time">
-
-آخرین دریافت اطلاعات: ---
+📡 وضعیت سیستم V29
 
 </div>
 
 
+<div class="green">
+
+🟢 سیستم آنلاین
 
 </div>
 
 
+<div class="status" id="system-time">
 
-
-<div class="ai-box">
-
-
-<div class="ai-title">
-
-🤖 HASINEH AI MARKET V28
+آخرین بررسی: ---
 
 </div>
-
-
-
-<div class="ai-status">
-
-🟢 موتور تحلیل هوشمند فعال
-
-</div>
-
-
-
-<div class="ai-text">
-
-آماده‌سازی تحلیل بازار و اتصال به داده‌های زنده
-
-</div>
-
 
 
 </div>
@@ -796,25 +382,52 @@ Digital Smart Market Board | Bandar Hasineh
 
 
 
+<div class="box ai-box">
 
-<div class="data-engine-box">
+
+<div class="title-box">
+
+🤖 HASINEH AI MARKET V29
+
+</div>
 
 
-<div class="data-engine-title">
+<div class="green">
 
-⚡ HASINEH DATA ENGINE V28
+🟢 موتور تحلیل فعال
+
+</div>
+
+
+<div class="status">
+
+آماده تحلیل تغییرات بازار
+
+</div>
+
 
 </div>
 
 
 
-<div class="data-engine-item">
 
-وضعیت موتور داده:
+<div class="box engine-box">
 
-<span class="data-online" id="data-engine-status">
 
-🟢 فعال
+<div class="title-box">
+
+⚡ HASINEH REAL DATA ENGINE
+
+</div>
+
+
+<div>
+
+وضعیت موتور:
+
+<span class="market-ready" id="engine-status">
+
+READY
 
 </span>
 
@@ -822,14 +435,13 @@ Digital Smart Market Board | Bandar Hasineh
 
 
 
-
-<div class="data-engine-item">
+<div>
 
 حالت دریافت:
 
-<span class="data-ready" id="data-mode">
+<span class="gold" id="api-mode">
 
-آماده اتصال API
+API WAITING
 
 </span>
 
@@ -837,11 +449,11 @@ Digital Smart Market Board | Bandar Hasineh
 
 
 
-<div class="data-engine-item">
+<div>
 
 آخرین پردازش:
 
-<span id="data-process-time">
+<span id="engine-time">
 
 ---
 
@@ -852,52 +464,38 @@ Digital Smart Market Board | Bandar Hasineh
 
 
 </div>
-   <div class="intelligence-box">
 
 
-<div class="intelligence-title">
 
-🧠 HASINEH MARKET INTELLIGENCE V28
+
+<div class="box">
+
+
+<div class="title-box">
+
+🧠 HASINEH MARKET INTELLIGENCE
 
 </div>
 
 
+<div>
 
-<div class="intelligence-item">
+روند بازار:
 
-وضعیت بازار:
+<span class="green">
 
-<span class="market-alert">
-
-آماده دریافت داده
+در انتظار داده زنده
 
 </span>
 
 </div>
 
 
+<div>
 
+هشدار تغییر:
 
-<div class="intelligence-item">
-
-روند کلی:
-
-<span class="market-alert">
-
-در انتظار تحلیل
-
-</span>
-
-</div>
-
-
-
-
-<div class="intelligence-item">
-
-هشدار تغییرات:
-
-<span class="market-alert">
+<span class="green">
 
 فعال
 
@@ -906,141 +504,23 @@ Digital Smart Market Board | Bandar Hasineh
 </div>
 
 
-
 </div>
 
 
 
 
 
-<div class="notice-box">
-
-📢 پیام HASINEH MARKET
-
-<br>
-
-نسخه V28 آماده زیرساخت دریافت نرخ‌های زنده
-
-</div>
-
-
-
-
-
-<div class="market-pulse">
-
-
-📊 نبض بازار
-
-
-<br><br>
-
-
-
-🟢 بیشترین رشد:
-
-<span id="top-up">
-
----
-
-</span>
-
-
-
-<br>
-
-
-
-🔴 بیشترین کاهش:
-
-<span id="top-down">
-
----
-
-</span>
-
-
-
-<br>
-
-
-
-⏱ آخرین تغییر:
-
-<span id="last-change">
-
----
-
-</span>
-
-
-
-</div>
-
-
-
-
-
-<div class="live">
-
-● LIVE MARKET V28
-
-</div>
-
-
-
-
-
-<div class="date-box">
-
-
-<div id="solar">
-
-تاریخ شمسی: ---
-
-</div>
-
-
-
-<div id="clock">
-
-ساعت ایران: ---
-
-</div>
-
-
-
-<div id="lunar">
-
-تاریخ قمری: ---
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-<div id="update" class="update-box">
-
-آخرین بروزرسانی: ---
-
-</div>
 <div class="container">
 
 
 <div class="card">
 
 
-<div class="title">
+<div class="card-title">
 
-🟡 HASINEH GOLD V28
+🟡 HASINEH GOLD V29
 
 </div>
-
 
 
 <div class="item">
@@ -1053,7 +533,6 @@ Digital Smart Market Board | Bandar Hasineh
 </div>
 
 
-
 <div class="price-line">
 
 
@@ -1061,7 +540,7 @@ Digital Smart Market Board | Bandar Hasineh
 
 خرید:
 
-<b class="price" id="gold18-buy">
+<b class="price" id="gold-buy">
 
 ---
 
@@ -1075,7 +554,7 @@ Digital Smart Market Board | Bandar Hasineh
 
 فروش:
 
-<b class="price" id="gold18-sell">
+<b class="price" id="gold-sell">
 
 ---
 
@@ -1085,35 +564,17 @@ Digital Smart Market Board | Bandar Hasineh
 
 
 
-<span class="change-up" id="gold18-change">
-
-▲ 0%
-
-</span>
-
-
 </div>
 
 
+<div class="live-price" id="gold-live">
 
-<div class="price-box">
-
-قیمت لحظه‌ای
-
-<div class="live-price" id="gold18-live">
-
----
+قیمت لحظه‌ای: ---
 
 </div>
 
 
 </div>
-
-
-
-</div>
-
-
 
 
 
@@ -1127,7 +588,6 @@ Digital Smart Market Board | Bandar Hasineh
 </div>
 
 
-
 <div class="price-line">
 
 
@@ -1135,7 +595,7 @@ Digital Smart Market Board | Bandar Hasineh
 
 خرید:
 
-<b class="price" id="mesghal-buy">
+<b class="price">
 
 ---
 
@@ -1149,7 +609,7 @@ Digital Smart Market Board | Bandar Hasineh
 
 فروش:
 
-<b class="price" id="mesghal-sell">
+<b class="price">
 
 ---
 
@@ -1158,14 +618,6 @@ Digital Smart Market Board | Bandar Hasineh
 </span>
 
 
-
-<span class="change-same">
-
-● 0%
-
-</span>
-
-
 </div>
 
 
@@ -1173,78 +625,18 @@ Digital Smart Market Board | Bandar Hasineh
 
 
 
+</div>
+ <div class="card">
+
+
+<div class="card-title">
+
+💵 HASINEH CURRENCY V29
+
+</div>
 
 
 <div class="item">
-
-
-<div class="item-name">
-
-طلای ۲۴ عیار
-
-</div>
-
-
-
-<div class="price-line">
-
-
-<span>
-
-خرید:
-
-<b class="price" id="gold24-buy">
-
----
-
-</b>
-
-</span>
-
-
-
-<span>
-
-فروش:
-
-<b class="price" id="gold24-sell">
-
----
-
-</b>
-
-</span>
-
-
-
-<span class="change-same">
-
-● 0%
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-</div>
-<div class="card">
-
-
-<div class="title">
-
-💵 HASINEH CURRENCY V28
-
-</div>
-
-
-
-<div class="item">
-
 
 <div class="item-name">
 
@@ -1253,12 +645,9 @@ USD دلار آمریکا
 </div>
 
 
-
 <div class="price-line">
 
-
 <span>
-
 خرید:
 
 <b class="price" id="usd-buy">
@@ -1270,9 +659,7 @@ USD دلار آمریکا
 </span>
 
 
-
 <span>
-
 فروش:
 
 <b class="price" id="usd-sell">
@@ -1284,25 +671,14 @@ USD دلار آمریکا
 </span>
 
 
-
-<span class="change-up">
-
-▲ 0%
-
-</span>
-
-
 </div>
 
-
 </div>
-
 
 
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -1311,12 +687,9 @@ EUR یورو
 </div>
 
 
-
 <div class="price-line">
 
-
 <span>
-
 خرید:
 
 <b class="price" id="eur-buy">
@@ -1328,9 +701,7 @@ EUR یورو
 </span>
 
 
-
 <span>
-
 فروش:
 
 <b class="price" id="eur-sell">
@@ -1342,25 +713,13 @@ EUR یورو
 </span>
 
 
-
-<span class="change-same">
-
-● 0%
-
-</span>
-
-
 </div>
 
-
 </div>
-
-
 
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -1369,12 +728,9 @@ AED درهم امارات
 </div>
 
 
-
 <div class="price-line">
 
-
 <span>
-
 خرید:
 
 <b class="price" id="aed-buy">
@@ -1386,9 +742,7 @@ AED درهم امارات
 </span>
 
 
-
 <span>
-
 فروش:
 
 <b class="price" id="aed-sell">
@@ -1400,13 +754,7 @@ AED درهم امارات
 </span>
 
 
-
-<span class="change-same">
-
-● 0%
-
-</span>
-
+</div>
 
 </div>
 
@@ -1416,333 +764,34 @@ AED درهم امارات
 
 
 
-
-<div class="item">
-
-
-<div class="item-name">
-
-GBP پوند انگلیس
-
-</div>
+<div class="box">
 
 
+<div class="title-box">
 
-<div class="price-line">
-
-
-<span>
-
-خرید:
-
-<b class="price" id="gbp-buy">
-
----
-
-</b>
-
-</span>
-
-
-
-<span>
-
-فروش:
-
-<b class="price" id="gbp-sell">
-
----
-
-</b>
-
-</span>
-
-
-
-<span class="change-same">
-
-● 0%
-
-</span>
-
+📡 HASINEH API ENGINE V29
 
 </div>
-
-
-</div>
-<div class="item">
-
-
-<div class="item-name">
-
-CAD دلار کانادا
-
-</div>
-
-
-
-<div class="price-line">
-
-
-<span>
-
-خرید:
-
-<b class="price" id="cad-buy">
-
----
-
-</b>
-
-</span>
-
-
-
-<span>
-
-فروش:
-
-<b class="price" id="cad-sell">
-
----
-
-</b>
-
-</span>
-
-
-
-<span class="change-same">
-
-● 0%
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="item">
-
-
-<div class="item-name">
-
-TRY لیر ترکیه
-
-</div>
-
-
-
-<div class="price-line">
-
-
-<span>
-
-خرید:
-
-<b class="price" id="try-buy">
-
----
-
-</b>
-
-</span>
-
-
-
-<span>
-
-فروش:
-
-<b class="price" id="try-sell">
-
----
-
-</b>
-
-</span>
-
-
-
-<span class="change-same">
-
-● 0%
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="item">
-
-
-<div class="item-name">
-
-CNY یوان چین
-
-</div>
-
-
-
-<div class="price-line">
-
-
-<span>
-
-خرید:
-
-<b class="price" id="cny-buy">
-
----
-
-</b>
-
-</span>
-
-
-
-<span>
-
-فروش:
-
-<b class="price" id="cny-sell">
-
----
-
-</b>
-
-</span>
-
-
-
-<span class="change-same">
-
-● 0%
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-</div>
-<div class="control-box">
-
-
-<div class="control-title">
-
-⚙️ HASINEH MARKET CONTROL V28
-
-</div>
-
-
-
-<div>
-
-نسخه سیستم:
-
-V28 LIVE DATA FOUNDATION
-
-</div>
-
-
-
-<div class="control-ready">
-
-🟢 موتور داده آماده توسعه
-
-</div>
-
 
 
 <div>
 
 وضعیت اتصال:
 
-آماده دریافت API
+<span class="gold" id="api-status">
 
-</div>
-
-
-
-</div>
-
-
-
-
-
-<div class="api-box">
-
-
-<div class="api-online">
-
-🟢 API FOUNDATION READY
-
-</div>
-
-
-
-<div class="api-status">
-
-زیرساخت اتصال نرخ‌های واقعی آماده است
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-<div class="api-monitor">
-
-
-<div class="api-monitor-title">
-
-📡 HASINEH API MONITOR V28
-
-</div>
-
-
-
-<div class="api-monitor-item">
-
-وضعیت اتصال:
-
-<span class="api-ready" id="api-state">
-
-آماده اتصال
+در انتظار اتصال API
 
 </span>
 
 </div>
 
 
-
-<div class="api-monitor-item">
+<div>
 
 آخرین بررسی:
 
-<span id="api-check">
+<span id="api-time">
 
 ---
 
@@ -1751,62 +800,35 @@ V28 LIVE DATA FOUNDATION
 </div>
 
 
-
-<div class="api-monitor-item">
-
-حالت سیستم:
-
-<span class="api-connected">
-
-DATA ENGINE READY
-
-</span>
-
-</div>
-
-
-
-</div>
-<div class="qr">
-
-
-<div class="qr-title">
-
-🔳 HASINEH MARKET QR V28
-
-</div>
-
-
-اسکن کنید
-
-<br><br>
-
-ورود به کانال روبیکا و خدمات آینده
-
-
 </div>
 
 
 
 
+<div class="box">
 
-<div class="creator">
+
+<div class="title-box">
+
+⚙️ HASINEH CONTROL V29
+
+</div>
 
 
-<div class="creator-name">
+<div>
 
-Created by Hassan Divanizadeh
+نسخه:
+
+V29 REAL MARKET ENGINE
 
 </div>
 
 
+<div class="green">
 
-<div class="support">
-
-Support: 09178649970
+🟢 ساختار تمیز و آماده توسعه
 
 </div>
-
 
 
 </div>
@@ -1819,19 +841,28 @@ Support: 09178649970
 
 HASINEH MARKET © ۱۴۰۵
 
+<br>
+
+Created by Hassan Divanizadeh
+
 </div>
+
+
+
+
 <script>
 
 
 /* ==========================
-   HASINEH DATA ENGINE V28
+HASINEH MARKET V29 ENGINE
 ========================== */
 
 
-const hasinehData = {
+
+const marketData = {
 
 
-gold18:{
+gold:{
 
 buy:"---",
 
@@ -1865,68 +896,42 @@ sell:"---"
 
 
 
-function updateMarketData(){
+
+function updateData(){
 
 
-
-document.getElementById("gold18-buy").innerHTML =
-hasinehData.gold18.buy;
-
+document.getElementById("gold-buy").innerHTML =
+marketData.gold.buy;
 
 
-document.getElementById("gold18-sell").innerHTML =
-hasinehData.gold18.sell;
-
-
-
-document.getElementById("gold18-live").innerHTML =
-hasinehData.gold18.live;
-
+document.getElementById("gold-sell").innerHTML =
+marketData.gold.sell;
 
 
 document.getElementById("usd-buy").innerHTML =
-hasinehData.usd.buy;
-
+marketData.usd.buy;
 
 
 document.getElementById("usd-sell").innerHTML =
-hasinehData.usd.sell;
-
+marketData.usd.sell;
 
 
 document.getElementById("eur-buy").innerHTML =
-hasinehData.eur.buy;
-
+marketData.eur.buy;
 
 
 document.getElementById("eur-sell").innerHTML =
-hasinehData.eur.sell;
+marketData.eur.sell;
 
 
 
-
-document.getElementById("data-process-time").innerHTML =
+document.getElementById("engine-time").innerHTML =
 
 new Date().toLocaleTimeString("fa-IR");
 
 
 
 }
-
-
-
-updateMarketData();
-
-
-
-setInterval(
-
-updateMarketData,
-
-30000
-
-);
-
 
 
 
@@ -1934,8 +939,7 @@ updateMarketData,
 function apiMonitor(){
 
 
-
-document.getElementById("api-check").innerHTML =
+document.getElementById("api-time").innerHTML =
 
 new Date().toLocaleTimeString("fa-IR");
 
@@ -1945,341 +949,43 @@ new Date().toLocaleTimeString("fa-IR");
 
 
 
-setInterval(
-
-apiMonitor,
-
-30000
-
-);
+function systemClock(){
 
 
+document.getElementById("system-time").innerHTML =
+
+"آخرین بررسی: " +
+
+new Date().toLocaleTimeString("fa-IR");
+
+
+}
+
+
+
+
+setInterval(updateData,30000);
+
+
+setInterval(apiMonitor,10000);
+
+
+setInterval(systemClock,1000);
+
+
+
+updateData();
 
 apiMonitor();
 
+systemClock();
 
 
 
-
-function updateTime(){
-
-
-let now = new Date();
-
-
-let iran = new Date(
-
-now.toLocaleString(
-
-"en-US",
-
-{
-
-timeZone:"Asia/Tehran"
-
-}
-
-)
-
-);
-
-
-
-document.getElementById("clock").innerHTML =
-
-"ساعت ایران: " +
-
-iran.toLocaleTimeString("fa-IR");
-
-
-
-
-document.getElementById("solar").innerHTML =
-
-"تاریخ شمسی: " +
-
-iran.toLocaleDateString(
-
-"fa-IR",
-
-{
-
-year:"numeric",
-
-month:"long",
-
-day:"numeric",
-
-weekday:"long"
-
-}
-
-);
-
-
-
-document.getElementById("lunar").innerHTML =
-
-"تاریخ قمری: " +
-
-iran.toLocaleDateString(
-
-"fa-IR-u-ca-islamic",
-
-{
-
-year:"numeric",
-
-month:"long",
-
-day:"numeric"
-
-}
-
-);
-
-
-
-document.getElementById("update").innerHTML =
-
-"آخرین بروزرسانی: " +
-
-iran.toLocaleTimeString("fa-IR");
-
-
-
-document.getElementById("data-time").innerHTML =
-
-"آخرین دریافت اطلاعات: " +
-
-iran.toLocaleTimeString("fa-IR");
-
-
-
-}
-
-
-
-setInterval(updateTime,1000);
-
-
-updateTime();
-
-
-
-                        </script>
-</body>
-
-</html>
-  <script>
-
-/* ==========================
-   HASINEH DATA ENGINE V28.1
-========================== */
-
-
-const HASINEH_ENGINE = {
-
-status:"READY",
-
-mode:"API_WAIT",
-
-lastUpdate:null,
-
-
-refresh:function(){
-
-this.lastUpdate =
-new Date();
-
-
-document.getElementById(
-"data-process-time"
-).innerHTML =
-
-this.lastUpdate.toLocaleTimeString("fa-IR");
-
-
-}
-
-
-};
-
-
-
-function hasinehStatus(){
-
-
-let state =
-document.getElementById(
-"data-engine-status"
-);
-
-
-
-if(state){
-
-state.innerHTML =
-"🟢 موتور داده فعال";
-
-}
-
-
-
-let mode =
-document.getElementById(
-"data-mode"
-);
-
-
-
-if(mode){
-
-mode.innerHTML =
-"آماده دریافت API";
-
-}
-
-
-}
-
-
-
-
-function safeUpdate(){
-
-
-try{
-
-
-HASINEH_ENGINE.refresh();
-
-
-
-hasinehStatus();
-
-
-
-}
-
-catch(error){
-
-
-
-console.log(
-"HASINEH DATA ENGINE ERROR"
-);
-
-
-
-}
-
-
-}
-
-
-
-setInterval(
-
-safeUpdate,
-
-30000
-
-);
-
-
-
-safeUpdate();
-
-
-
-  </script>
-  /* ==========================
-   HASINEH MARKET V28 FINAL
-   SYSTEM MONITOR
-========================== */
-
-
-function systemMonitor(){
-
-
-let status =
-document.getElementById("market-state");
-
-
-if(status){
-
-status.innerHTML =
-"🟢 سیستم آنلاین و آماده فعالیت";
-
-}
-
-
-
-let api =
-document.getElementById("api-state");
-
-
-if(api){
-
-api.innerHTML =
-"آماده اتصال API";
-
-}
-
-
-
-}
-
-
-
-function updateLastChange(){
-
-
-let change =
-document.getElementById("last-change");
-
-
-if(change){
-
-change.innerHTML =
-
-new Date().toLocaleTimeString("fa-IR");
-
-}
-
-
-}
-
-
-
-setInterval(
-
-systemMonitor,
-
-10000
-
-);
-
-
-
-setInterval(
-
-updateLastChange,
-
-10000
-
-);
-
-
-
-systemMonitor();
-
-updateLastChange();
 </script>
 
 
 </body>
 
 
-</html>  
+</html>
