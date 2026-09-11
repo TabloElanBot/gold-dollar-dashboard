@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HASINEH MARKET</title>
+<title>HASINEH MARKET V25</title>
 
 
 <style>
@@ -26,24 +26,22 @@ font-family:Tahoma,Arial,sans-serif;
 }
 
 
-
 .header{
 
 text-align:center;
 
-padding:28px 10px;
+padding:30px 10px;
 
-background:linear-gradient(#222,#050505);
+background:linear-gradient(#252525,#050505);
 
 border-bottom:2px solid #d4af37;
 
 }
 
 
-
 .logo{
 
-font-size:44px;
+font-size:45px;
 
 font-weight:bold;
 
@@ -52,7 +50,6 @@ color:#ffd700;
 letter-spacing:3px;
 
 }
-
 
 
 .subtitle{
@@ -66,10 +63,9 @@ margin-top:10px;
 }
 
 
-
 .brand{
 
-color:#777;
+color:#888;
 
 font-size:12px;
 
@@ -96,7 +92,6 @@ border:1px solid #333;
 }
 
 
-
 .status-title{
 
 font-size:16px;
@@ -106,7 +101,6 @@ font-weight:bold;
 color:#ffd700;
 
 }
-
 
 
 .status-online{
@@ -120,7 +114,6 @@ font-weight:bold;
 }
 
 
-
 .status-time{
 
 margin-top:8px;
@@ -132,48 +125,53 @@ color:#aaa;
 }
 
 
-
 .ai-box{
 
 margin:15px auto;
 
 max-width:330px;
 
-padding:15px;
+padding:16px;
 
 border-radius:20px;
 
-background:#0d0d0d;
+background:#0c0c0c;
 
-border:1px solid #444;
+border:1px solid #d4af37;
 
 line-height:2;
 
 }
 
 
-
 .ai-title{
 
 color:#ffd700;
+
+font-size:17px;
 
 font-weight:bold;
 
 }
 
 
-
-.ai-ready{
+.ai-status{
 
 color:#00ff88;
 
-font-size:14px;
+font-weight:bold;
 
 }
 
 
+.ai-text{
 
-.notice-box{
+color:#ccc;
+
+font-size:13px;
+
+}
+  .notice-box{
 
 margin:15px auto;
 
@@ -324,7 +322,9 @@ padding:16px 5px;
 border-bottom:1px solid #222;
 
 }
-  
+
+
+
 .item-name{
 
 font-size:17px;
@@ -332,8 +332,6 @@ font-size:17px;
 margin-bottom:10px;
 
 }
-
-
 
 
 
@@ -351,8 +349,6 @@ font-size:13px;
 
 
 
-
-
 .price{
 
 font-size:18px;
@@ -362,25 +358,7 @@ font-weight:bold;
 color:#fff;
 
 }
-
-
-
-
-
-.live-price{
-
-font-size:21px;
-
-font-weight:bold;
-
-color:#ffd700;
-
-}
-
-
-
-
-
+  
 .change-up{
 
 color:#00ff88;
@@ -388,8 +366,6 @@ color:#00ff88;
 font-weight:bold;
 
 }
-
-
 
 
 
@@ -403,15 +379,11 @@ font-weight:bold;
 
 
 
-
-
 .change-same{
 
 color:#aaa;
 
 }
-
-
 
 
 
@@ -435,21 +407,19 @@ margin-top:10px;
 
 
 
-
-
 .api-box{
 
 margin:15px auto;
 
 max-width:330px;
 
-padding:14px;
+padding:15px;
 
 border-radius:18px;
 
 background:#101010;
 
-border:1px solid #333;
+border:1px solid #444;
 
 color:#aaa;
 
@@ -458,8 +428,6 @@ line-height:2;
 text-align:center;
 
 }
-
-
 
 
 
@@ -473,17 +441,13 @@ font-weight:bold;
 
 
 
+.api-status{
 
+color:#ffd700;
 
-.api-offline{
-
-color:#ff4444;
-
-font-weight:bold;
+font-size:13px;
 
 }
-
-
 
 
 
@@ -505,8 +469,6 @@ color:#aaa;
 
 
 
-
-
 .qr-title{
 
 font-size:18px;
@@ -519,8 +481,6 @@ margin-bottom:10px;
 
 
 
-
-
 .creator{
 
 text-align:center;
@@ -528,8 +488,6 @@ text-align:center;
 margin-top:30px;
 
 }
-
-
 
 
 
@@ -545,8 +503,6 @@ letter-spacing:1px;
 
 
 
-
-
 .support{
 
 font-size:12px;
@@ -559,8 +515,6 @@ margin-top:8px;
 
 
 
-
-
 .footer{
 
 text-align:center;
@@ -569,22 +523,9 @@ padding:20px;
 
 color:#666;
 
-}
-
-
-
-
-
-.hidden{
-
-display:none;
-
-}
-
-
-
+  }
+  
 </style>
-
 
 </head>
 
@@ -604,7 +545,7 @@ HASINEH MARKET
 
 <div class="subtitle">
 
-Online Gold, Currency & Smart Market Dashboard
+Online Gold, Currency & Smart Market Dashboard V25
 
 </div>
 
@@ -614,7 +555,9 @@ Online Gold, Currency & Smart Market Dashboard
 Digital Market Board | Bandar Hasineh
 
 </div>
-  
+
+
+
 <div class="status-box">
 
 
@@ -645,39 +588,33 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
-
-
 <div class="ai-box">
 
 
 <div class="ai-title">
 
-🤖 هوش بازار HASINEH AI
-
-</div>
-
-
-<div class="ai-ready">
-
-🟢 آماده تحلیل تغییرات بازار
-
-</div>
-
-
-<div>
-
-بررسی رشد، کاهش و تغییرات نرخ‌ها
-
-</div>
-
+🤖 HASINEH AI MARKET V25
 
 </div>
 
 
 
+<div class="ai-status">
+
+🟢 موتور تحلیل بازار آماده است
+
+</div>
 
 
+
+<div class="ai-text">
+
+تحلیل تغییرات قیمت، روند رشد و کاهش بازار در نسخه‌های آینده فعال می‌شود
+
+</div>
+
+
+</div>
 
 
 <div class="notice-box">
@@ -693,13 +630,6 @@ Digital Market Board | Bandar Hasineh
 
 
 </div>
-
-
-
-
-
-
-
 
 <div class="market-pulse">
 
@@ -757,14 +687,11 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
-
 <div class="live">
 
 ● LIVE MARKET
 
 </div>
-
 
 
 
@@ -804,7 +731,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
 <div id="update" class="update-box">
 
 آخرین بروزرسانی: ---
@@ -830,7 +756,8 @@ Digital Market Board | Bandar Hasineh
 🟡 HASINEH GOLD
 
 </div>
-  
+
+
 <div class="item">
 
 
@@ -859,7 +786,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
 <span>
 
 فروش:
@@ -874,7 +800,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
 <span class="change-up" id="gold18-change">
 
 ▲ 0%
@@ -882,16 +807,10 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
-</div>
-
 
 </div>
 
-
-
-
-
-
+</div>
 
 <div class="item">
 
@@ -921,7 +840,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
 <span>
 
 فروش:
@@ -936,7 +854,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
 <span class="change-same">
 
 ● 0%
@@ -944,11 +861,11 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
-</div>
-
 
 </div>
 
+
+</div>
 
 
 
@@ -983,7 +900,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
 <span>
 
 فروش:
@@ -998,7 +914,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
 <span class="change-same">
 
 ● 0%
@@ -1006,18 +921,16 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
-</div>
-
 
 </div>
-
-
-
 
 
 </div>
 
 
+
+
+</div>
 
 
 
@@ -1036,8 +949,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
-
 <div class="item">
 
 
@@ -1046,7 +957,6 @@ Digital Market Board | Bandar Hasineh
 USD دلار آمریکا
 
 </div>
-
 
 
 
@@ -1067,7 +977,6 @@ USD دلار آمریکا
 
 
 
-
 <span>
 
 فروش:
@@ -1082,7 +991,6 @@ USD دلار آمریکا
 
 
 
-
 <span class="change-up">
 
 ▲ 0%
@@ -1090,11 +998,11 @@ USD دلار آمریکا
 </span>
 
 
+
 </div>
 
 
 </div>
-  
 
 <div class="item">
 
@@ -1124,7 +1032,6 @@ EUR یورو
 
 
 
-
 <span>
 
 فروش:
@@ -1139,7 +1046,6 @@ EUR یورو
 
 
 
-
 <span class="change-same">
 
 ● 0%
@@ -1147,11 +1053,11 @@ EUR یورو
 </span>
 
 
-</div>
-
 
 </div>
 
+
+</div>
 
 
 
@@ -1186,7 +1092,6 @@ AED درهم امارات
 
 
 
-
 <span>
 
 فروش:
@@ -1201,7 +1106,6 @@ AED درهم امارات
 
 
 
-
 <span class="change-same">
 
 ● 0%
@@ -1209,11 +1113,11 @@ AED درهم امارات
 </span>
 
 
-</div>
-
 
 </div>
 
+
+</div>
 
 
 
@@ -1248,7 +1152,6 @@ GBP پوند انگلیس
 
 
 
-
 <span>
 
 فروش:
@@ -1263,7 +1166,6 @@ GBP پوند انگلیس
 
 
 
-
 <span class="change-same">
 
 ● 0%
@@ -1271,11 +1173,11 @@ GBP پوند انگلیس
 </span>
 
 
-</div>
-
 
 </div>
 
+
+</div>
 
 
 
@@ -1310,7 +1212,6 @@ CAD دلار کانادا
 
 
 
-
 <span>
 
 فروش:
@@ -1325,12 +1226,12 @@ CAD دلار کانادا
 
 
 
-
 <span class="change-same">
 
 ● 0%
 
 </span>
+
 
 
 </div>
@@ -1366,7 +1267,6 @@ TRY لیر ترکیه
 
 
 
-
 <span>
 
 فروش:
@@ -1381,7 +1281,6 @@ TRY لیر ترکیه
 
 
 
-
 <span class="change-same">
 
 ● 0%
@@ -1389,11 +1288,11 @@ TRY لیر ترکیه
 </span>
 
 
-</div>
-
 
 </div>
 
+
+</div>
 
 
 
@@ -1428,7 +1327,6 @@ CNY یوان چین
 
 
 
-
 <span>
 
 فروش:
@@ -1443,7 +1341,6 @@ CNY یوان چین
 
 
 
-
 <span class="change-same">
 
 ● 0%
@@ -1451,18 +1348,17 @@ CNY یوان چین
 </span>
 
 
-</div>
-
 
 </div>
-
-
-
 
 
 </div>
 
 
+
+
+
+</div>
 
 
 
@@ -1481,8 +1377,6 @@ CNY یوان چین
 
 
 
-
-
 <div class="item">
 
 
@@ -1491,7 +1385,6 @@ CNY یوان چین
 بازار خودرو
 
 </div>
-
 
 
 
@@ -1506,7 +1399,6 @@ CNY یوان چین
 
 
 
-
 <span>
 
 به‌زودی
@@ -1514,14 +1406,14 @@ CNY یوان چین
 </span>
 
 
-</div>
-
 
 </div>
 
 
 </div>
 
+
+</div>
 
 
 
@@ -1539,8 +1431,6 @@ CNY یوان چین
 
 
 
-
-
 <div class="item">
 
 
@@ -1549,7 +1439,6 @@ CNY یوان چین
 بازار ملک
 
 </div>
-
 
 
 
@@ -1564,12 +1453,12 @@ CNY یوان چین
 
 
 
-
 <span>
 
 به‌زودی
 
 </span>
+
 
 
 </div>
@@ -1590,11 +1479,13 @@ CNY یوان چین
 </div>
 
 
-<div>
+
+<div class="api-status">
 
 سیستم دریافت خودکار نرخ‌ها در مرحله بعد فعال می‌شود
 
 </div>
+
 
 
 </div>
@@ -1634,7 +1525,6 @@ CNY یوان چین
 
 
 
-
 <div class="creator">
 
 
@@ -1643,7 +1533,6 @@ CNY یوان چین
 Created by Hassan Divanizadeh
 
 </div>
-
 
 
 
@@ -1662,20 +1551,11 @@ Support: 09178649970
 
 
 
-
 <div class="footer">
-
 
 HASINEH MARKET © ۱۴۰۵
 
-
 </div>
-
-
-
-
-
-
 
 <script>
 
@@ -1782,6 +1662,7 @@ iran.toLocaleTimeString("fa-IR");
 
 
 
+
 document.getElementById("data-time").innerHTML =
 
 "آخرین دریافت اطلاعات: " +
@@ -1812,9 +1693,6 @@ updateTime();
 
 
 </script>
-
-
-</div>
 
 
 </body>
