@@ -1,31 +1,31 @@
 <!-- ==========================
- HASINEH MARKET V64
- PRICE DISPLAY CONNECTOR
+ HASINEH MARKET V65
+ LIVE PRICE MOVEMENT
 ========================== -->
 
 
-<div class="box display-connector-box-v64">
+<div class="box movement-box-v65">
 
 
-<div class="box-title display-connector-title-v64">
+<div class="box-title movement-title-v65">
 
-🔗 HASINEH DISPLAY CONNECTOR V64
+📈 HASINEH MARKET MOVEMENT V65
 
 </div>
 
 
 
 
-<div class="connector-row-v64">
+<div class="movement-row-v65">
 
 <span>
-اتصال بانک قیمت:
+وضعیت حرکت بازار:
 </span>
 
 
-<span id="connector-db-v64">
+<span id="market-movement-v65">
 
-🟢 CONNECTED
+🟢 STABLE
 
 </span>
 
@@ -34,16 +34,16 @@
 
 
 
-<div class="connector-row-v64">
+<div class="movement-row-v65">
 
 <span>
-نمایش طلا:
+آخرین تغییر:
 </span>
 
 
-<span id="connector-gold-v64">
+<span id="last-change-v65">
 
-🟢 READY
+---
 
 </span>
 
@@ -52,34 +52,16 @@
 
 
 
-<div class="connector-row-v64">
+<div class="movement-row-v65">
 
 <span>
-نمایش سکه:
+روند کلی:
 </span>
 
 
-<span id="connector-coin-v64">
+<span id="market-trend-v65">
 
-🟢 READY
-
-</span>
-
-</div>
-
-
-
-
-<div class="connector-row-v64">
-
-<span>
-نمایش ارز:
-</span>
-
-
-<span id="connector-currency-v64">
-
-🟢 READY
+📊 MONITORING
 
 </span>
 
@@ -88,16 +70,15 @@
 
 
 </div>
-
 
 
 /* ==========================
- HASINEH MARKET V64
- DISPLAY CONNECTOR STYLE
+ HASINEH MARKET V65
+ MOVEMENT STYLE
 ========================== */
 
 
-.display-connector-box-v64{
+.movement-box-v65{
 
 margin:25px auto;
 
@@ -129,7 +110,7 @@ box-shadow:
 
 
 
-.display-connector-title-v64{
+.movement-title-v65{
 
 text-align:center;
 
@@ -147,7 +128,7 @@ margin-bottom:18px;
 
 
 
-.connector-row-v64{
+.movement-row-v65{
 
 display:flex;
 
@@ -167,7 +148,7 @@ border-bottom:
 
 
 
-.connector-row-v64:last-child{
+.movement-row-v65:last-child{
 
 border-bottom:none;
 
@@ -177,7 +158,7 @@ border-bottom:none;
 
 
 
-.connector-row-v64 span:first-child{
+.movement-row-v65 span:first-child{
 
 color:#ffffff;
 
@@ -189,11 +170,9 @@ font-weight:bold;
 
 
 
-.connector-row-v64 span:last-child{
+.movement-row-v65 span:last-child{
 
 font-weight:bold;
-
-color:#00ff88;
 
 font-size:13px;
 
@@ -203,7 +182,37 @@ font-size:13px;
 
 
 
-.display-connector-box-v64:hover{
+#market-movement-v65{
+
+color:#00ff88;
+
+}
+
+
+
+
+
+#last-change-v65{
+
+color:#ffd700;
+
+}
+
+
+
+
+
+#market-trend-v65{
+
+color:#d4af37;
+
+}
+
+
+
+
+
+.movement-box-v65:hover{
 
 box-shadow:
 
@@ -212,30 +221,25 @@ box-shadow:
 }
 
 
-
 /* ==========================
- HASINEH MARKET V64
- DISPLAY CONNECTOR ENGINE
+ HASINEH MARKET V65
+ MOVEMENT ENGINE
 ========================== */
 
 
-const HASINEH_DISPLAY_CONNECTOR_V64 = {
+const HASINEH_MOVEMENT_V65 = {
 
 
-database:
-"CONNECTED",
+status:
+"STABLE",
 
 
-gold:
-"READY",
+change:
+"---",
 
 
-coin:
-"READY",
-
-
-currency:
-"READY",
+trend:
+"MONITORING",
 
 
 
@@ -243,68 +247,51 @@ update:function(){
 
 
 
-let db =
+let movement =
 document.getElementById(
-"connector-db-v64"
+"market-movement-v65"
 );
 
 
 
-if(db){
+if(movement){
 
-db.innerHTML =
-"🟢 " + this.database;
+movement.innerHTML =
+"🟢 " + this.status;
 
 }
 
 
 
 
-let gold =
+let change =
 document.getElementById(
-"connector-gold-v64"
+"last-change-v65"
 );
 
 
 
-if(gold){
+if(change){
 
-gold.innerHTML =
-"🟢 " + this.gold;
+change.innerHTML =
+this.change;
 
 }
 
 
 
 
-let coin =
+let trend =
 document.getElementById(
-"connector-coin-v64"
+"market-trend-v65"
 );
 
 
 
-if(coin){
+if(trend){
 
-coin.innerHTML =
-"🟢 " + this.coin;
-
-}
-
-
-
-
-let currency =
-document.getElementById(
-"connector-currency-v64"
-);
-
-
-
-if(currency){
-
-currency.innerHTML =
-"🟢 " + this.currency;
+trend.innerHTML =
+"📊 " + this.trend;
 
 }
 
@@ -312,7 +299,7 @@ currency.innerHTML =
 
 
 console.log(
-"HASINEH DISPLAY CONNECTOR V64 READY"
+"HASINEH MOVEMENT ENGINE V65 READY"
 );
 
 
@@ -328,13 +315,13 @@ console.log(
 
 
 
-function hasinehDisplayConnectorMonitorV64(){
+function hasinehMovementMonitorV65(){
 
 
 try{
 
 
-HASINEH_DISPLAY_CONNECTOR_V64.update();
+HASINEH_MOVEMENT_V65.update();
 
 
 
@@ -344,7 +331,7 @@ catch(error){
 
 
 console.log(
-"HASINEH DISPLAY CONNECTOR V64 ERROR"
+"HASINEH MOVEMENT V65 ERROR"
 );
 
 
@@ -361,9 +348,9 @@ console.log(
 
 setInterval(
 
-hasinehDisplayConnectorMonitorV64,
+hasinehMovementMonitorV65,
 
-30000
+15000
 
 );
 
@@ -371,4 +358,4 @@ hasinehDisplayConnectorMonitorV64,
 
 
 
-hasinehDisplayConnectorMonitorV64();
+hasinehMovementMonitorV65();
