@@ -1,137 +1,149 @@
 <!-- ==========================
- HASINEH MARKET V69
- MASTER HOME BOARD
+ HASINEH MARKET V70
+ MARKET STATUS CENTER
 ========================== -->
 
 
-<div class="box master-home-board-v69">
+<div class="box status-center-v70">
 
 
-<div class="home-brand-v69">
+<div class="box-title status-title-v70">
 
-HASINEH MARKET
-
-</div>
-
-
-
-
-<div class="home-subtitle-v69">
-
-Premium Digital Market Board
+📊 HASINEH MARKET STATUS
 
 </div>
 
 
 
 
-<div class="home-divider-v69"></div>
+<div class="status-row-v70">
+
+<span>
+وضعیت سیستم:
+</span>
 
 
+<span id="system-status-v70">
 
+🟢 ONLINE
 
-<div class="home-menu-v69">
-
-
-
-<div class="home-card-v69">
-
-🪙
-
-<br>
-
-HASINEH GOLD
-
-</div>
-
-
-
-
-<div class="home-card-v69">
-
-💵
-
-<br>
-
-HASINEH CURRENCY
-
-</div>
-
-
-
-
-<div class="home-card-v69">
-
-📊
-
-<br>
-
-MARKET STATUS
-
-</div>
-
+</span>
 
 
 </div>
 
 
 
+
+<div class="status-row-v70">
+
+<span>
+ساعت ایران:
+</span>
+
+
+<span id="iran-time-v70">
+
+---
+
+</span>
+
+
 </div>
+
+
+
+
+<div class="status-row-v70">
+
+<span>
+موتور داده:
+</span>
+
+
+<span id="data-status-v70">
+
+🟢 ACTIVE
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="status-row-v70">
+
+<span>
+آخرین بروزرسانی:
+</span>
+
+
+<span id="update-time-v70">
+
+---
+
+</span>
+
+
+</div>
+
+
+
+</div>
+
 
 
 /* ==========================
- HASINEH MARKET V69
- MASTER HOME BOARD STYLE
+ HASINEH MARKET V70
+ STATUS CENTER STYLE
 ========================== */
 
 
-.master-home-board-v69{
+.status-center-v70{
 
 margin:25px auto;
 
-max-width:600px;
+max-width:420px;
 
-padding:30px;
+padding:22px;
 
-border-radius:38px;
+border-radius:32px;
 
 background:
 
 linear-gradient(
 145deg,
-#050505,
+#070707,
 #151515
 );
 
 border:
 
-1px solid rgba(212,175,55,0.75);
+1px solid rgba(212,175,55,0.60);
 
 box-shadow:
 
-0 0 60px rgba(212,175,55,0.35);
+0 0 40px rgba(212,175,55,0.30);
+
+}
+
+
+
+
+
+.status-title-v70{
 
 text-align:center;
 
-}
-
-
-
-
-
-.home-brand-v69{
-
-font-size:32px;
+font-size:21px;
 
 font-weight:bold;
 
-letter-spacing:7px;
+color:#ffd700;
 
-color:#d4af37;
-
-text-shadow:
-
-0 0 20px rgba(212,175,55,0.55);
+margin-bottom:18px;
 
 }
 
@@ -139,31 +151,19 @@ text-shadow:
 
 
 
-.home-subtitle-v69{
+.status-row-v70{
 
-margin-top:12px;
+display:flex;
 
-color:#aaa;
+justify-content:space-between;
 
-font-size:14px;
+align-items:center;
 
-letter-spacing:3px;
+padding:12px 5px;
 
-}
+border-bottom:
 
-
-
-
-
-.home-divider-v69{
-
-height:1px;
-
-background:
-
-rgba(212,175,55,0.35);
-
-margin:25px 0;
+1px solid rgba(212,175,55,0.18);
 
 }
 
@@ -171,15 +171,9 @@ margin:25px 0;
 
 
 
-.home-menu-v69{
+.status-row-v70:last-child{
 
-display:grid;
-
-grid-template-columns:
-
-repeat(3,1fr);
-
-gap:15px;
+border-bottom:none;
 
 }
 
@@ -187,25 +181,23 @@ gap:15px;
 
 
 
-.home-card-v69{
-
-padding:22px 10px;
-
-background:#0c0c0c;
-
-border-radius:25px;
-
-border:
-
-1px solid rgba(212,175,55,0.30);
+.status-row-v70 span:first-child{
 
 color:#ffffff;
 
 font-weight:bold;
 
-font-size:15px;
+}
 
-transition:0.3s;
+
+
+
+
+.status-row-v70 span:last-child{
+
+font-weight:bold;
+
+color:#d4af37;
 
 }
 
@@ -213,65 +205,51 @@ transition:0.3s;
 
 
 
-.home-card-v69:hover{
+#system-status-v70{
 
-transform:translateY(-5px);
+color:#00ff88;
+
+}
+
+
+
+
+
+#data-status-v70{
+
+color:#00ff88;
+
+}
+
+
+
+
+
+.status-center-v70:hover{
 
 box-shadow:
 
-0 0 30px rgba(212,175,55,0.35);
-
-}
-
-
-
-
-
-@media(max-width:450px){
-
-
-.master-home-board-v69{
-
-padding:22px;
-
-}
-
-
-
-.home-brand-v69{
-
-font-size:24px;
-
-}
-
-
-
-.home-menu-v69{
-
-grid-template-columns:1fr;
-
-}
-
+0 0 55px rgba(212,175,55,0.45);
 
 }
 
 
 
 /* ==========================
- HASINEH MARKET V69
- MASTER HOME BOARD ENGINE
+ HASINEH MARKET V70
+ STATUS CENTER ENGINE
 ========================== */
 
 
-const HASINEH_HOME_BOARD_V69 = {
+const HASINEH_STATUS_CENTER_V70 = {
 
 
-brand:
-"HASINEH MARKET",
+system:
+"ONLINE",
 
 
-subtitle:
-"Premium Digital Market Board",
+data:
+"ACTIVE",
 
 
 
@@ -279,34 +257,82 @@ update:function(){
 
 
 
-let brand =
-document.querySelector(
-".home-brand-v69"
+let system =
+document.getElementById(
+"system-status-v70"
 );
 
 
 
-if(brand){
+if(system){
 
-brand.innerHTML =
-this.brand;
+system.innerHTML =
+"🟢 " + this.system;
 
 }
 
 
 
 
-let subtitle =
-document.querySelector(
-".home-subtitle-v69"
+let data =
+document.getElementById(
+"data-status-v70"
 );
 
 
 
-if(subtitle){
+if(data){
 
-subtitle.innerHTML =
-this.subtitle;
+data.innerHTML =
+"🟢 " + this.data;
+
+}
+
+
+
+
+let now = new Date();
+
+
+
+
+let iranTime =
+document.getElementById(
+"iran-time-v70"
+);
+
+
+
+if(iranTime){
+
+iranTime.innerHTML =
+now.toLocaleTimeString(
+"fa-IR",
+{
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit"
+}
+);
+
+}
+
+
+
+
+let update =
+document.getElementById(
+"update-time-v70"
+);
+
+
+
+if(update){
+
+update.innerHTML =
+now.toLocaleTimeString(
+"fa-IR"
+);
 
 }
 
@@ -314,7 +340,7 @@ this.subtitle;
 
 
 console.log(
-"HASINEH MASTER HOME BOARD V69 READY"
+"HASINEH STATUS CENTER V70 READY"
 );
 
 
@@ -330,13 +356,13 @@ console.log(
 
 
 
-function hasinehHomeBoardMonitorV69(){
+function hasinehStatusCenterMonitorV70(){
 
 
 try{
 
 
-HASINEH_HOME_BOARD_V69.update();
+HASINEH_STATUS_CENTER_V70.update();
 
 
 
@@ -346,7 +372,7 @@ catch(error){
 
 
 console.log(
-"HASINEH HOME BOARD V69 ERROR"
+"HASINEH STATUS CENTER V70 ERROR"
 );
 
 
@@ -363,9 +389,9 @@ console.log(
 
 setInterval(
 
-hasinehHomeBoardMonitorV69,
+hasinehStatusCenterMonitorV70,
 
-30000
+1000
 
 );
 
@@ -373,4 +399,4 @@ hasinehHomeBoardMonitorV69,
 
 
 
-hasinehHomeBoardMonitorV69();
+hasinehStatusCenterMonitorV70();
