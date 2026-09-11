@@ -1,28 +1,39 @@
 <!-- ==========================
- HASINEH MARKET V36
- GOLD LIVE PRICE CONNECTOR
+ HASINEH MARKET V37
+ GOLD MARKET DATA MODEL
 ========================== -->
 
 
-<div class="box live-connector-box">
+<div class="box gold-model-box">
 
 
-<div class="box-title live-connector-title">
+<div class="box-title gold-model-title">
 
-📡 HASINEH GOLD LIVE CONNECTOR V36
+📈 HASINEH GOLD MARKET MODEL V37
 
 </div>
 
 
 
 
-<div>
+<div class="market-row">
 
-وضعیت دریافت:
+<span>
+طلای ۱۸ عیار
+</span>
 
-<span class="status-green" id="live-status-v36">
+<span 
+class="status-gold"
+id="model-gold18-v37">
 
-🟢 CONNECTING
+---
+
+</span>
+
+<span
+id="change-gold18-v37">
+
+---
 
 </span>
 
@@ -31,13 +42,24 @@
 
 
 
-<div>
+<div class="market-row">
 
-منبع قیمت:
+<span>
+سکه امامی
+</span>
 
-<span class="status-gold" id="live-source-v36">
+<span 
+class="status-gold"
+id="model-emami-v37">
 
-PENDING API
+---
+
+</span>
+
+<span
+id="change-emami-v37">
+
+---
 
 </span>
 
@@ -46,11 +68,22 @@ PENDING API
 
 
 
-<div>
+<div class="market-row">
 
-آخرین بررسی:
+<span>
+آبشده
+</span>
 
-<span class="status-gold" id="live-check-v36">
+<span 
+class="status-gold"
+id="model-abshode-v37">
+
+---
+
+</span>
+
+<span
+id="change-abshode-v37">
 
 ---
 
@@ -63,11 +96,13 @@ PENDING API
 
 <div>
 
-اتصال به GOLD ENGINE:
+وضعیت بازار:
 
-<span class="status-green" id="gold-engine-link-v36">
+<span 
+class="status-green"
+id="market-trend-v37">
 
-CONNECTED
+🟢 STABLE
 
 </span>
 
@@ -77,18 +112,17 @@ CONNECTED
 
 </div>
 
-
 /* ==========================
- HASINEH MARKET V36
- GOLD LIVE CONNECTOR STYLE
+ HASINEH MARKET V37
+ GOLD MARKET MODEL STYLE
 ========================== */
 
 
-.live-connector-box{
+.gold-model-box{
 
 margin:20px auto;
 
-max-width:360px;
+max-width:420px;
 
 padding:20px;
 
@@ -106,9 +140,9 @@ box-shadow:0 0 20px rgba(212,175,55,0.35);
 
 
 
-.live-connector-title{
+.gold-model-title{
 
-font-size:18px;
+font-size:19px;
 
 font-weight:bold;
 
@@ -116,21 +150,47 @@ color:#ffd700;
 
 text-align:center;
 
-margin-bottom:12px;
+margin-bottom:15px;
 
 }
 
 
 
-.live-connector-box div{
+.market-row{
 
-margin:7px 0;
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:8px 0;
+
+border-bottom:1px solid rgba(212,175,55,0.2);
 
 }
 
 
 
-.connector-active{
+.market-row:last-child{
+
+border-bottom:none;
+
+}
+
+
+
+.market-row span:first-child{
+
+color:#ffffff;
+
+font-weight:bold;
+
+}
+
+
+
+.market-up{
 
 color:#00ff88;
 
@@ -140,17 +200,7 @@ font-weight:bold;
 
 
 
-.connector-waiting{
-
-color:#ffd700;
-
-font-weight:bold;
-
-}
-
-
-
-.connector-error{
+.market-down{
 
 color:#ff5555;
 
@@ -160,9 +210,9 @@ font-weight:bold;
 
 
 
-/* نمایش وضعیت اتصال */
+.market-neutral{
 
-.live-connector-box span{
+color:#ffd700;
 
 font-weight:bold;
 
@@ -170,95 +220,112 @@ font-weight:bold;
 
 
 /* ==========================
- HASINEH MARKET V36
- GOLD LIVE CONNECTOR ENGINE
+ HASINEH MARKET V37
+ GOLD MARKET DATA ENGINE
 ========================== */
 
 
-const HASINEH_LIVE_GOLD_V36 = {
+const HASINEH_GOLD_MODEL_V37 = {
 
 
-status:"CONNECTING",
-
-source:"PENDING API",
-
-lastCheck:null,
-
-link:"CONNECTED",
+data:{
 
 
-
-check:function(){
-
-
-
-this.lastCheck = new Date();
-
+gold18:{
+price:"---",
+change:"---",
+trend:"STABLE"
+},
 
 
+emami:{
+price:"---",
+change:"---",
+trend:"STABLE"
+},
 
-let status =
-document.getElementById(
-"live-status-v36"
-);
+
+abshode:{
+price:"---",
+change:"---",
+trend:"STABLE"
+}
+
+
+},
 
 
 
-if(status){
+update:function(){
 
-status.innerHTML =
-"🟢 CONNECTING";
+
+
+let items = {
+
+
+"model-gold18-v37":
+this.data.gold18.price,
+
+
+"change-gold18-v37":
+this.data.gold18.change,
+
+
+
+"model-emami-v37":
+this.data.emami.price,
+
+
+"change-emami-v37":
+this.data.emami.change,
+
+
+
+"model-abshode-v37":
+this.data.abshode.price,
+
+
+"change-abshode-v37":
+this.data.abshode.change
+
+
+};
+
+
+
+
+for(let id in items){
+
+
+let element =
+document.getElementById(id);
+
+
+
+if(element){
+
+element.innerHTML =
+items[id];
+
+}
+
 
 }
 
 
 
 
-let source =
+let trend =
 document.getElementById(
-"live-source-v36"
+"market-trend-v37"
 );
 
 
 
-if(source){
+if(trend){
 
-source.innerHTML =
-this.source;
-
-}
-
-
-
-
-let check =
-document.getElementById(
-"live-check-v36"
-);
-
-
-
-if(check){
-
-check.innerHTML =
-this.lastCheck.toLocaleTimeString("fa-IR");
-
-}
-
-
-
-
-let link =
-document.getElementById(
-"gold-engine-link-v36"
-);
-
-
-
-if(link){
-
-link.innerHTML =
-"CONNECTED";
+trend.innerHTML =
+"🟢 STABLE";
 
 }
 
@@ -275,13 +342,13 @@ link.innerHTML =
 
 
 
-function hasinehLiveGoldMonitorV36(){
+function hasinehGoldModelMonitorV37(){
 
 
 try{
 
 
-HASINEH_LIVE_GOLD_V36.check();
+HASINEH_GOLD_MODEL_V37.update();
 
 
 
@@ -291,7 +358,7 @@ catch(error){
 
 
 console.log(
-"HASINEH LIVE GOLD V36 ERROR"
+"HASINEH GOLD MODEL V37 ERROR"
 );
 
 
@@ -307,7 +374,7 @@ console.log(
 
 setInterval(
 
-hasinehLiveGoldMonitorV36,
+hasinehGoldModelMonitorV37,
 
 15000
 
@@ -317,4 +384,4 @@ hasinehLiveGoldMonitorV36,
 
 
 
-hasinehLiveGoldMonitorV36();
+hasinehGoldModelMonitorV37();
