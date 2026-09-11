@@ -1,69 +1,112 @@
-<!-- ==========================
- HASINEH MARKET V65
- LIVE PRICE MOVEMENT
-========================== -->
+/* ==========================
+ HASINEH MARKET V66
+ PREMIUM PRICE CARDS
+========================== */
 
 
-<div class="box movement-box-v65">
+<div class="box premium-price-board-v66">
 
 
-<div class="box-title movement-title-v65">
+<div class="box-title premium-price-title-v66">
 
-📈 HASINEH MARKET MOVEMENT V65
-
-</div>
-
-
-
-
-<div class="movement-row-v65">
-
-<span>
-وضعیت حرکت بازار:
-</span>
-
-
-<span id="market-movement-v65">
-
-🟢 STABLE
-
-</span>
+💎 HASINEH PREMIUM PRICES
 
 </div>
 
 
 
 
-<div class="movement-row-v65">
-
-<span>
-آخرین تغییر:
-</span>
+<div class="price-card-v66">
 
 
-<span id="last-change-v65">
+<div class="price-name-v66">
+
+طلای ۱۸ عیار
+
+</div>
+
+
+
+<div class="price-value-v66" id="gold18-price-v66">
 
 ---
 
-</span>
+</div>
+
+
+
+<div class="price-change-v66" id="gold18-change-v66">
+
+---
+
+</div>
+
+
 
 </div>
 
 
 
 
-<div class="movement-row-v65">
 
-<span>
-روند کلی:
-</span>
+<div class="price-card-v66">
 
 
-<span id="market-trend-v65">
+<div class="price-name-v66">
 
-📊 MONITORING
+سکه امامی
 
-</span>
+</div>
+
+
+
+<div class="price-value-v66" id="emami-price-v66">
+
+---
+
+</div>
+
+
+
+<div class="price-change-v66" id="emami-change-v66">
+
+---
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div class="price-card-v66">
+
+
+<div class="price-name-v66">
+
+دلار آمریکا
+
+</div>
+
+
+
+<div class="price-value-v66" id="usd-price-v66">
+
+---
+
+</div>
+
+
+
+<div class="price-change-v66" id="usd-change-v66">
+
+---
+
+</div>
+
+
 
 </div>
 
@@ -73,36 +116,36 @@
 
 
 /* ==========================
- HASINEH MARKET V65
- MOVEMENT STYLE
+ HASINEH MARKET V66
+ PREMIUM PRICE CARD STYLE
 ========================== */
 
 
-.movement-box-v65{
+.premium-price-board-v66{
 
 margin:25px auto;
 
-max-width:420px;
+max-width:600px;
 
-padding:22px;
+padding:25px;
 
-border-radius:30px;
+border-radius:35px;
 
 background:
 
 linear-gradient(
 145deg,
-#070707,
+#050505,
 #151515
 );
 
 border:
 
-1px solid rgba(212,175,55,0.55);
+1px solid rgba(212,175,55,0.65);
 
 box-shadow:
 
-0 0 35px rgba(212,175,55,0.30);
+0 0 55px rgba(212,175,55,0.35);
 
 }
 
@@ -110,17 +153,17 @@ box-shadow:
 
 
 
-.movement-title-v65{
+.premium-price-title-v66{
 
 text-align:center;
 
-font-size:20px;
+font-size:22px;
 
 font-weight:bold;
 
 color:#ffd700;
 
-margin-bottom:18px;
+margin-bottom:22px;
 
 }
 
@@ -128,19 +171,29 @@ margin-bottom:18px;
 
 
 
-.movement-row-v65{
+.price-card-v66{
 
-display:flex;
+margin-bottom:15px;
 
-justify-content:space-between;
+padding:20px;
 
-align-items:center;
+background:
 
-padding:12px 5px;
+linear-gradient(
+145deg,
+#0b0b0b,
+#111111
+);
 
-border-bottom:
+border-radius:25px;
 
-1px solid rgba(212,175,55,0.18);
+border:
+
+1px solid rgba(212,175,55,0.35);
+
+text-align:center;
+
+transition:0.3s;
 
 }
 
@@ -148,9 +201,13 @@ border-bottom:
 
 
 
-.movement-row-v65:last-child{
+.price-card-v66:hover{
 
-border-bottom:none;
+transform:translateY(-4px);
+
+box-shadow:
+
+0 0 30px rgba(212,175,55,0.35);
 
 }
 
@@ -158,11 +215,31 @@ border-bottom:none;
 
 
 
-.movement-row-v65 span:first-child{
+.price-name-v66{
+
+font-size:17px;
+
+font-weight:bold;
 
 color:#ffffff;
 
+}
+
+
+
+
+
+.price-value-v66{
+
+margin-top:12px;
+
+font-size:28px;
+
 font-weight:bold;
+
+color:#ffd700;
+
+direction:ltr;
 
 }
 
@@ -170,19 +247,13 @@ font-weight:bold;
 
 
 
-.movement-row-v65 span:last-child{
+.price-change-v66{
+
+margin-top:10px;
+
+font-size:14px;
 
 font-weight:bold;
-
-font-size:13px;
-
-}
-
-
-
-
-
-#market-movement-v65{
 
 color:#00ff88;
 
@@ -192,7 +263,8 @@ color:#00ff88;
 
 
 
-#last-change-v65{
+.price-card-v66:nth-child(3)
+.price-change-v66{
 
 color:#ffd700;
 
@@ -200,46 +272,39 @@ color:#ffd700;
 
 
 
-
-
-#market-trend-v65{
-
-color:#d4af37;
-
-}
-
-
-
-
-
-.movement-box-v65:hover{
-
-box-shadow:
-
-0 0 50px rgba(212,175,55,0.45);
-
-}
-
-
 /* ==========================
- HASINEH MARKET V65
- MOVEMENT ENGINE
+ HASINEH MARKET V66
+ PREMIUM PRICE CARD ENGINE
 ========================== */
 
 
-const HASINEH_MOVEMENT_V65 = {
+const HASINEH_PRICE_CARD_V66 = {
 
 
-status:
-"STABLE",
+prices:{
 
 
-change:
-"---",
+gold18:{
+value:"---",
+change:"---"
+},
 
 
-trend:
-"MONITORING",
+emami:{
+value:"---",
+change:"---"
+},
+
+
+usd:{
+value:"---",
+change:"---"
+}
+
+
+
+},
+
 
 
 
@@ -247,59 +312,64 @@ update:function(){
 
 
 
-let movement =
-document.getElementById(
-"market-movement-v65"
-);
+let items = {
+
+
+"gold18-price-v66":
+this.prices.gold18.value,
+
+
+"gold18-change-v66":
+this.prices.gold18.change,
+
+
+"emami-price-v66":
+this.prices.emami.value,
+
+
+"emami-change-v66":
+this.prices.emami.change,
+
+
+"usd-price-v66":
+this.prices.usd.value,
+
+
+"usd-change-v66":
+this.prices.usd.change
 
 
 
-if(movement){
+};
 
-movement.innerHTML =
-"🟢 " + this.status;
+
+
+
+
+for(let id in items){
+
+
+let element =
+document.getElementById(id);
+
+
+
+if(element){
+
+element.innerHTML =
+items[id];
 
 }
 
 
-
-
-let change =
-document.getElementById(
-"last-change-v65"
-);
-
-
-
-if(change){
-
-change.innerHTML =
-this.change;
-
 }
 
-
-
-
-let trend =
-document.getElementById(
-"market-trend-v65"
-);
-
-
-
-if(trend){
-
-trend.innerHTML =
-"📊 " + this.trend;
-
-}
 
 
 
 
 console.log(
-"HASINEH MOVEMENT ENGINE V65 READY"
+"HASINEH PREMIUM PRICE CARD V66 READY"
 );
 
 
@@ -315,13 +385,13 @@ console.log(
 
 
 
-function hasinehMovementMonitorV65(){
+function hasinehPriceCardMonitorV66(){
 
 
 try{
 
 
-HASINEH_MOVEMENT_V65.update();
+HASINEH_PRICE_CARD_V66.update();
 
 
 
@@ -331,7 +401,7 @@ catch(error){
 
 
 console.log(
-"HASINEH MOVEMENT V65 ERROR"
+"HASINEH PRICE CARD V66 ERROR"
 );
 
 
@@ -348,7 +418,7 @@ console.log(
 
 setInterval(
 
-hasinehMovementMonitorV65,
+hasinehPriceCardMonitorV66,
 
 15000
 
@@ -358,4 +428,4 @@ hasinehMovementMonitorV65,
 
 
 
-hasinehMovementMonitorV65();
+hasinehPriceCardMonitorV66();
