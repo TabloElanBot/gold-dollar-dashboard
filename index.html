@@ -1,15 +1,15 @@
 <!-- ==========================
- HASINEH MARKET V32
- DATA STATUS UPGRADE
+ HASINEH MARKET V33
+ DATA STATUS PANEL
 ========================== -->
 
 
-<div class="box">
+<div class="box data-status-box">
 
 
-<div class="box-title">
+<div class="box-title data-status-title">
 
-📊 HASINEH DATA STATUS V32
+📊 HASINEH DATA STATUS V33
 
 </div>
 
@@ -19,7 +19,7 @@
 
 وضعیت موتور داده:
 
-<span class="green" id="engine-status-v32">
+<span class="status-green" id="engine-status-v33">
 
 🟢 ACTIVE
 
@@ -34,7 +34,7 @@
 
 آخرین بروزرسانی:
 
-<span class="gold" id="data-update-v32">
+<span class="status-gold" id="data-update-v33">
 
 ---
 
@@ -49,7 +49,7 @@
 
 منبع داده:
 
-<span class="gold" id="source-v32">
+<span class="status-gold" id="source-v33">
 
 API CONNECTOR
 
@@ -64,7 +64,7 @@ API CONNECTOR
 
 وضعیت اتصال:
 
-<span class="green" id="connection-v32">
+<span class="status-green" id="connection-v33">
 
 READY
 
@@ -74,10 +74,25 @@ READY
 
 
 
+<div>
+
+نسخه موتور:
+
+<span class="status-gold">
+
+V33 DATA ENGINE
+
+</span>
 
 </div>
+
+
+
+</div>
+
+
 /* ==========================
- HASINEH MARKET V32
+ HASINEH MARKET V33
  DATA STATUS STYLE
 ========================== */
 
@@ -98,6 +113,8 @@ border:1px solid #d4af37;
 
 line-height:2;
 
+box-shadow:0 0 15px rgba(212,175,55,0.25);
+
 }
 
 
@@ -109,6 +126,10 @@ font-size:18px;
 font-weight:bold;
 
 color:#ffd700;
+
+text-align:center;
+
+margin-bottom:10px;
 
 }
 
@@ -142,20 +163,33 @@ color:#aaa;
 
 
 
+.data-status-box div{
+
+margin:6px 0;
+
+}
+
+
+
+/* وضعیت خطا یا قطع ارتباط */
+
 .api-error{
 
-color:#00ff88;
+color:#ff5555;
 
 font-weight:bold;
 
 }
+
+
 /* ==========================
- HASINEH MARKET V32
+ HASINEH MARKET V33
  LIVE DATA STATUS ENGINE
 ========================== */
 
 
-const HASINEH_STATUS_V32 = {
+const HASINEH_STATUS_V33 = {
+
 
 engine:"ACTIVE",
 
@@ -166,16 +200,19 @@ source:"API CONNECTOR",
 lastUpdate:null,
 
 
+
 refresh:function(){
 
 
 this.lastUpdate = new Date();
 
 
+
 let update =
 document.getElementById(
-"data-update-v32"
+"data-update-v33"
 );
+
 
 
 if(update){
@@ -187,10 +224,12 @@ this.lastUpdate.toLocaleTimeString("fa-IR");
 
 
 
+
 let status =
 document.getElementById(
-"engine-status-v32"
+"engine-status-v33"
 );
+
 
 
 if(status){
@@ -202,10 +241,12 @@ status.innerHTML =
 
 
 
+
 let connect =
 document.getElementById(
-"connection-v32"
+"connection-v33"
 );
+
 
 
 if(connect){
@@ -217,10 +258,12 @@ connect.innerHTML =
 
 
 
+
 let source =
 document.getElementById(
-"source-v32"
+"source-v33"
 );
+
 
 
 if(source){
@@ -242,13 +285,14 @@ source.innerHTML =
 
 
 
-function hasinehV32Monitor(){
+
+function hasinehV33Monitor(){
 
 
 try{
 
 
-HASINEH_STATUS_V32.refresh();
+HASINEH_STATUS_V33.refresh();
 
 
 
@@ -257,9 +301,8 @@ HASINEH_STATUS_V32.refresh();
 catch(error){
 
 
-
 console.log(
-"HASINEH V32 MONITOR ERROR"
+"HASINEH V33 MONITOR ERROR"
 );
 
 
@@ -275,7 +318,7 @@ console.log(
 
 setInterval(
 
-hasinehV32Monitor,
+hasinehV33Monitor,
 
 10000
 
@@ -283,4 +326,6 @@ hasinehV32Monitor,
 
 
 
-hasinehV32Monitor();
+
+
+hasinehV33Monitor();
