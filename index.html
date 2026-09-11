@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-HASINEH MARKET V30 REAL LIVE ENGINE
+HASINEH MARKET V31 API CONNECTOR FOUNDATION
 </title>
 
 
@@ -31,8 +31,6 @@ font-family:Tahoma,Arial,sans-serif;
 
 }
 
-
-/* HEADER V30 */
 
 .header{
 
@@ -64,7 +62,6 @@ letter-spacing:5px;
 color:#ffd700;
 
 text-shadow:
-
 0 0 18px #806900;
 
 }
@@ -95,7 +92,58 @@ color:#888;
 
 
 
-/* GENERAL BOX */
+/* V31 API CONNECTOR */
+
+.api-core{
+
+margin:20px auto;
+
+max-width:360px;
+
+padding:20px;
+
+border-radius:25px;
+
+background:#090909;
+
+border:1px solid #d4af37;
+
+line-height:2;
+
+}
+
+
+
+.api-title{
+
+font-size:18px;
+
+font-weight:bold;
+
+color:#ffd700;
+
+}
+
+
+
+.api-green{
+
+color:#00ff88;
+
+font-weight:bold;
+
+}
+
+
+
+.api-gold{
+
+color:#ffd700;
+
+font-weight:bold;
+
+}
+
 
 
 .box{
@@ -117,7 +165,6 @@ line-height:2;
 }
 
 
-
 .box-title{
 
 font-size:18px;
@@ -129,7 +176,6 @@ color:#ffd700;
 }
 
 
-
 .green{
 
 color:#00ff88;
@@ -137,7 +183,6 @@ color:#00ff88;
 font-weight:bold;
 
 }
-
 
 
 .gold{
@@ -149,7 +194,6 @@ font-weight:bold;
 }
 
 
-
 .gray{
 
 color:#aaa;
@@ -158,29 +202,11 @@ color:#aaa;
 
 
 
-/* ENGINE BOX */
-
-
-.engine{
-
-border:1px solid #d4af37;
-
-background:#090909;
-
-}
-
-
-
-
-/* MAIN */
-
-
 .container{
 
 padding:15px;
 
 }
-
 
 
 .card{
@@ -198,7 +224,6 @@ margin-bottom:25px;
 }
 
 
-
 .card-title{
 
 text-align:center;
@@ -214,7 +239,6 @@ margin-bottom:25px;
 }
 
 
-
 .item{
 
 padding:18px 5px;
@@ -224,7 +248,6 @@ border-bottom:1px solid #222;
 }
 
 
-
 .item-name{
 
 font-size:18px;
@@ -232,7 +255,6 @@ font-size:18px;
 margin-bottom:15px;
 
 }
-
 
 
 .price-line{
@@ -246,7 +268,6 @@ align-items:center;
 }
 
 
-
 .price{
 
 font-size:20px;
@@ -255,29 +276,6 @@ font-weight:bold;
 
 }
 
-
-
-.live-price{
-
-margin-top:15px;
-
-padding:12px;
-
-border-radius:18px;
-
-background:#111;
-
-text-align:center;
-
-font-size:23px;
-
-color:#ffd700;
-
-}
-
-
-
-/* FOOTER */
 
 
 .footer{
@@ -292,12 +290,9 @@ font-size:13px;
 
 }
 
-
 </style>
 
-
 </head>
-
 
 
 <body>
@@ -317,7 +312,7 @@ HASINEH MARKET
 
 <div class="subtitle">
 
-REAL LIVE MARKET ENGINE V30
+API CONNECTOR FOUNDATION V31
 
 </div>
 
@@ -335,51 +330,23 @@ Digital Smart Market Board | Bandar Hasineh
 
 
 
-<div class="box">
+
+<div class="api-core">
 
 
-<div class="box-title">
+<div class="api-title">
 
-📡 وضعیت سیستم V30
-
-</div>
-
-
-<div class="green">
-
-🟢 سیستم آنلاین
+📡 HASINEH API CONNECTOR V31
 
 </div>
 
-
-<div class="gray" id="system-time">
-
-آخرین بررسی: ---
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="box engine">
-
-
-<div class="box-title">
-
-⚡ HASINEH LIVE DATA ENGINE
-
-</div>
 
 
 <div>
 
-وضعیت موتور:
+وضعیت اتصال:
 
-<span class="green">
+<span class="api-green">
 
 READY
 
@@ -388,24 +355,26 @@ READY
 </div>
 
 
+
 <div>
 
-حالت دریافت:
+حالت:
 
-<span class="gold" id="data-mode">
+<span class="api-gold">
 
-API WAITING
+WAITING FOR SOURCE
 
 </span>
 
 </div>
 
 
+
 <div>
 
-آخرین پردازش:
+آخرین دریافت:
 
-<span id="process-time">
+<span id="api-receive-time">
 
 ---
 
@@ -415,38 +384,7 @@ API WAITING
 
 
 </div>
-
-
-
-
-
-<div class="box">
-
-
-<div class="box-title">
-
-🤖 HASINEH AI MARKET V30
-
-</div>
-
-
-<div class="green">
-
-🟢 تحلیل هوشمند فعال
-
-</div>
-
-
-<div class="gray">
-
-آماده بررسی روند بازار و تغییرات قیمت
-
-</div>
-
-
-</div>
 <div class="container">
-
 
 
 <div class="card">
@@ -454,7 +392,7 @@ API WAITING
 
 <div class="card-title">
 
-🟡 HASINEH GOLD V30
+🟡 HASINEH GOLD V31
 
 </div>
 
@@ -504,17 +442,7 @@ API WAITING
 </div>
 
 
-
-<div class="live-price" id="gold-live">
-
-قیمت لحظه‌ای: ---
-
 </div>
-
-
-
-</div>
-
 
 
 
@@ -564,7 +492,6 @@ API WAITING
 
 
 </div>
-
 
 
 
@@ -623,12 +550,13 @@ API WAITING
 
 
 
+
 <div class="card">
 
 
 <div class="card-title">
 
-💵 HASINEH CURRENCY V30
+💵 HASINEH CURRENCY V31
 
 </div>
 
@@ -785,258 +713,8 @@ AED درهم امارات
 
 
 
-<div class="item">
-
-
-<div class="item-name">
-
-GBP پوند انگلیس
-
 </div>
 
-
-
-<div class="price-line">
-
-
-<span>
-
-خرید:
-
-<b class="price" id="gbp-buy">
-
----
-
-</b>
-
-</span>
-
-
-
-<span>
-
-فروش:
-
-<b class="price" id="gbp-sell">
-
----
-
-</b>
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="item">
-
-
-<div class="item-name">
-
-TRY لیر ترکیه
-
-</div>
-
-
-
-<div class="price-line">
-
-
-<span>
-
-خرید:
-
-<b class="price" id="try-buy">
-
----
-
-</b>
-
-</span>
-
-
-
-<span>
-
-فروش:
-
-<b class="price" id="try-sell">
-
----
-
-</b>
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="item">
-
-
-<div class="item-name">
-
-CAD دلار کانادا
-
-</div>
-
-
-
-<div class="price-line">
-
-
-<span>
-
-خرید:
-
-<b class="price" id="cad-buy">
-
----
-
-</b>
-
-</span>
-
-
-
-<span>
-
-فروش:
-
-<b class="price" id="cad-sell">
-
----
-
-</b>
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="item">
-
-
-<div class="item-name">
-
-CNY یوان چین
-
-</div>
-
-
-
-<div class="price-line">
-
-
-<span>
-
-خرید:
-
-<b class="price" id="cny-buy">
-
----
-
-</b>
-
-</span>
-
-
-
-<span>
-
-فروش:
-
-<b class="price" id="cny-sell">
-
----
-
-</b>
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
- </div>
- <div class="box">
-
-
-<div class="box-title">
-
-📡 HASINEH API MONITOR V30
-
-</div>
-
-
-
-<div>
-
-وضعیت اتصال:
-
-<span class="gold" id="api-status">
-
-API WAITING
-
-</span>
-
-</div>
-
-
-
-<div>
-
-آخرین بررسی:
-
-<span id="api-time">
-
----
-
-</span>
-
-</div>
-
-
-
-<div>
-
-وضعیت داده:
-
-<span class="green">
-
-LIVE ENGINE READY
-
-</span>
-
-</div>
-
-
-</div>
 
 
 
@@ -1047,16 +725,65 @@ LIVE ENGINE READY
 
 <div class="box-title">
 
-⚙️ HASINEH CONTROL V30
+⚙️ HASINEH DATA CONTROL V31
 
 </div>
 
 
+
 <div>
 
-نسخه سیستم:
+نسخه:
 
-REAL LIVE MARKET ENGINE
+<span class="gold">
+
+API CONNECTOR FOUNDATION
+
+</span>
+
+</div>
+
+
+
+<div>
+
+وضعیت موتور:
+
+<span class="green">
+
+ACTIVE
+
+</span>
+
+</div>
+
+
+
+<div>
+
+منبع داده:
+
+<span class="gray">
+
+در انتظار اتصال
+
+</span>
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div class="box">
+
+
+<div class="box-title">
+
+🤖 HASINEH AI MARKET V31
 
 </div>
 
@@ -1064,25 +791,317 @@ REAL LIVE MARKET ENGINE
 
 <div class="green">
 
-🟢 ساختار آماده اتصال API
+🟢 تحلیل هوشمند آماده
 
 </div>
 
 
 
-<div>
+<div class="gray">
 
-حالت:
-
-DEVELOPMENT MODE
-
-</div>
-
+داده‌های دریافتی پس از اتصال API تحلیل خواهند شد
 
 </div>
 
 
 
+</div>
+<script>
+
+/* ==========================
+ HASINEH MARKET V31
+ API CONNECTOR ENGINE
+========================== */
+
+
+const HASINEH_API = {
+
+
+status:"READY",
+
+source:"WAITING",
+
+lastReceive:null,
+
+
+connect:function(){
+
+
+this.lastReceive = new Date();
+
+
+document.getElementById(
+"api-receive-time"
+).innerHTML =
+
+
+this.lastReceive.toLocaleTimeString("fa-IR");
+
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+const MARKET_DATA_V31 = {
+
+
+gold:{
+
+
+buy:"---",
+
+sell:"---"
+
+
+},
+
+
+
+mesghal:{
+
+
+buy:"---",
+
+sell:"---"
+
+
+},
+
+
+
+gold24:{
+
+
+buy:"---",
+
+sell:"---"
+
+
+},
+
+
+
+usd:{
+
+
+buy:"---",
+
+sell:"---"
+
+
+},
+
+
+
+eur:{
+
+
+buy:"---",
+
+sell:"---"
+
+
+},
+
+
+
+aed:{
+
+
+buy:"---",
+
+sell:"---"
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+function updateMarketV31(){
+
+
+
+document.getElementById(
+"gold-buy"
+).innerHTML =
+
+MARKET_DATA_V31.gold.buy;
+
+
+
+
+document.getElementById(
+"gold-sell"
+).innerHTML =
+
+MARKET_DATA_V31.gold.sell;
+
+
+
+
+
+document.getElementById(
+"mesghal-buy"
+).innerHTML =
+
+MARKET_DATA_V31.mesghal.buy;
+
+
+
+
+document.getElementById(
+"mesghal-sell"
+).innerHTML =
+
+MARKET_DATA_V31.mesghal.sell;
+
+
+
+
+
+document.getElementById(
+"gold24-buy"
+).innerHTML =
+
+MARKET_DATA_V31.gold24.buy;
+
+
+
+
+document.getElementById(
+"gold24-sell"
+).innerHTML =
+
+MARKET_DATA_V31.gold24.sell;
+
+
+
+
+
+
+document.getElementById(
+"usd-buy"
+).innerHTML =
+
+MARKET_DATA_V31.usd.buy;
+
+
+
+
+document.getElementById(
+"usd-sell"
+).innerHTML =
+
+MARKET_DATA_V31.usd.sell;
+
+
+
+
+
+
+document.getElementById(
+"eur-buy"
+).innerHTML =
+
+MARKET_DATA_V31.eur.buy;
+
+
+
+
+document.getElementById(
+"eur-sell"
+).innerHTML =
+
+MARKET_DATA_V31.eur.sell;
+
+
+
+
+
+
+document.getElementById(
+"aed-buy"
+).innerHTML =
+
+MARKET_DATA_V31.aed.buy;
+
+
+
+
+document.getElementById(
+"aed-sell"
+).innerHTML =
+
+MARKET_DATA_V31.aed.sell;
+
+
+
+}
+
+
+
+
+
+
+function apiHeartbeat(){
+
+
+
+HASINEH_API.connect();
+
+
+
+}
+
+
+
+
+
+setInterval(
+
+apiHeartbeat,
+
+10000
+
+);
+
+
+
+setInterval(
+
+updateMarketV31,
+
+30000
+
+);
+
+
+
+
+
+apiHeartbeat();
+
+
+updateMarketV31();
+
+
+
+</script>
 
 
 <div class="footer">
@@ -1094,247 +1113,6 @@ HASINEH MARKET © ۱۴۰۵
 Created by Hassan Divanizadeh
 
 </div>
-
-
-
-
-
-<script>
-
-
-/* ==========================
- HASINEH MARKET V30 ENGINE
-========================== */
-
-
-
-const HASINEH_DATA = {
-
-
-gold:{
-
-buy:"---",
-
-sell:"---",
-
-live:"---"
-
-},
-
-
-mesghal:{
-
-buy:"---",
-
-sell:"---"
-
-},
-
-
-gold24:{
-
-buy:"---",
-
-sell:"---"
-
-},
-
-
-usd:{
-
-buy:"---",
-
-sell:"---"
-
-},
-
-
-eur:{
-
-buy:"---",
-
-sell:"---"
-
-},
-
-
-aed:{
-
-buy:"---",
-
-sell:"---"
-
-},
-
-
-gbp:{
-
-buy:"---",
-
-sell:"---"
-
-},
-
-
-try:{
-
-buy:"---",
-
-sell:"---"
-
-},
-
-
-cad:{
-
-buy:"---",
-
-sell:"---"
-
-},
-
-
-cny:{
-
-buy:"---",
-
-sell:"---"
-
-}
-
-
-};
-
-
-
-
-
-
-function updateMarket(){
-
-
-
-document.getElementById("gold-buy").innerHTML =
-HASINEH_DATA.gold.buy;
-
-
-document.getElementById("gold-sell").innerHTML =
-HASINEH_DATA.gold.sell;
-
-
-document.getElementById("gold-live").innerHTML =
-
-"قیمت لحظه‌ای: " +
-
-HASINEH_DATA.gold.live;
-
-
-
-
-document.getElementById("usd-buy").innerHTML =
-HASINEH_DATA.usd.buy;
-
-
-document.getElementById("usd-sell").innerHTML =
-HASINEH_DATA.usd.sell;
-
-
-
-document.getElementById("eur-buy").innerHTML =
-HASINEH_DATA.eur.buy;
-
-
-document.getElementById("eur-sell").innerHTML =
-HASINEH_DATA.eur.sell;
-
-
-
-document.getElementById("process-time").innerHTML =
-
-new Date().toLocaleTimeString("fa-IR");
-
-
-}
-
-
-
-
-
-
-function apiMonitor(){
-
-
-
-document.getElementById("api-time").innerHTML =
-
-new Date().toLocaleTimeString("fa-IR");
-
-
-}
-
-
-
-
-
-function systemMonitor(){
-
-
-
-document.getElementById("system-time").innerHTML =
-
-"آخرین بررسی: " +
-
-new Date().toLocaleTimeString("fa-IR");
-
-
-}
-
-
-
-
-
-setInterval(
-
-updateMarket,
-
-30000
-
-);
-
-
-
-setInterval(
-
-apiMonitor,
-
-10000
-
-);
-
-
-
-setInterval(
-
-systemMonitor,
-
-1000
-
-);
-
-
-
-
-
-updateMarket();
-
-apiMonitor();
-
-systemMonitor();
-
-
-
-</script>
-
 
 
 </body>
