@@ -15,7 +15,7 @@
 body{
 margin:0;
 background:#020202;
-color:white;
+color:#fff;
 font-family:Tahoma,Arial,sans-serif;
 }
 
@@ -52,7 +52,7 @@ margin-top:8px;
 
 .market-status{
 margin:15px auto;
-max-width:300px;
+max-width:320px;
 padding:12px;
 border-radius:18px;
 background:#111;
@@ -60,6 +60,28 @@ border:1px solid #333;
 color:#00ff88;
 font-weight:bold;
 }
+
+
+.market-pulse{
+
+margin:15px auto;
+max-width:320px;
+padding:15px;
+border-radius:18px;
+background:#0d0d0d;
+border:1px solid #333;
+line-height:2;
+color:#ccc;
+
+}
+
+
+.market-pulse span{
+
+font-weight:bold;
+
+}
+
 
 
 .live{
@@ -81,6 +103,7 @@ color:#bbb;
 
 
 .update-box{
+
 margin:15px auto;
 max-width:300px;
 padding:12px;
@@ -88,85 +111,92 @@ border-radius:15px;
 background:#0d0d0d;
 border:1px solid #333;
 color:#aaa;
-}
 
-
-.holiday-box{
-display:none;
-margin:15px auto;
-max-width:300px;
-padding:15px;
-border-radius:18px;
-background:#111;
-border:1px solid #d4af37;
-color:#ffd700;
-font-size:16px;
 }
 
 
 .container{
+
 padding:15px;
+
 }
 
 
 .card{
+
 background:#0c0c0c;
 border:1px solid #292929;
 border-radius:22px;
 padding:20px;
 margin-bottom:20px;
+
 }
 
 
 .title{
+
 text-align:center;
 color:#ffd700;
 font-size:25px;
 margin-bottom:18px;
+
 }
 
 
 .item{
+
 padding:15px 5px;
 border-bottom:1px solid #222;
+
 }
 
 
 .item-name{
+
 font-size:17px;
 margin-bottom:10px;
+
 }
 
 
 .price-line{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
 font-size:13px;
+
 }
 
 
 .price{
+
 font-size:18px;
 font-weight:bold;
-color:white;
+
 }
 
 
 .change-up{
+
 color:#00ff88;
 font-weight:bold;
+
 }
 
 
 .change-down{
+
 color:#ff4444;
 font-weight:bold;
+
 }
 
 
 .change-same{
+
 color:#aaa;
+
 }
   
 .qr{
@@ -181,7 +211,6 @@ color:#aaa;
 }
 
 
-
 .qr-title{
 
 font-size:18px;
@@ -191,14 +220,12 @@ margin-bottom:10px;
 }
 
 
-
 .creator{
 
 text-align:center;
 margin-top:30px;
 
 }
-
 
 
 .creator-name{
@@ -210,7 +237,6 @@ letter-spacing:1px;
 }
 
 
-
 .support{
 
 font-size:12px;
@@ -218,7 +244,6 @@ color:#555;
 margin-top:8px;
 
 }
-
 
 
 .footer{
@@ -277,6 +302,43 @@ Digital Market Board | Bandar Hasineh
 
 
 
+<div class="market-pulse">
+
+📊 نبض بازار
+
+<br>
+
+🟢 بیشترین رشد:
+<span id="top-up">
+
+---
+
+</span>
+
+<br>
+
+🔴 بیشترین کاهش:
+<span id="top-down">
+
+---
+
+</span>
+
+<br>
+
+⏱ آخرین تغییر:
+<span id="last-change">
+
+---
+
+</span>
+
+</div>
+
+
+
+
+
 <div class="live">
 
 ● LIVE MARKET
@@ -315,14 +377,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-<div id="holiday" class="holiday-box">
-
-</div>
-
-
-
-
-
 <div id="update" class="update-box">
 
 آخرین بروزرسانی: ---
@@ -333,6 +387,7 @@ Digital Market Board | Bandar Hasineh
 
 
 </div>
+
 
 
 
@@ -357,6 +412,7 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
 <div class="item">
 
 
@@ -365,6 +421,7 @@ Digital Market Board | Bandar Hasineh
 طلای ۱۸ عیار
 
 </div>
+
 
 
 <div class="price-line">
@@ -472,7 +529,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
 <div class="item">
 
 
@@ -526,9 +582,7 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
-
 </div>
-
 
 
 
@@ -544,8 +598,6 @@ Digital Market Board | Bandar Hasineh
 💵 HASINEH CURRENCY
 
 </div>
-
-
 
 
 
@@ -601,12 +653,7 @@ USD دلار آمریکا
 
 </div>
 
-
-
-
-
 <div class="item">
-
 
 <div class="item-name">
 
@@ -651,14 +698,16 @@ EUR یورو
 </span>
 
 
-
 </div>
 
 
 </div>
+
+
+
+
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -703,7 +752,6 @@ AED درهم امارات
 </span>
 
 
-
 </div>
 
 
@@ -714,7 +762,6 @@ AED درهم امارات
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -759,7 +806,6 @@ GBP پوند انگلیس
 </span>
 
 
-
 </div>
 
 
@@ -770,7 +816,6 @@ GBP پوند انگلیس
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -815,7 +860,6 @@ CAD دلار کانادا
 </span>
 
 
-
 </div>
 
 
@@ -826,7 +870,6 @@ CAD دلار کانادا
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -871,7 +914,6 @@ TRY لیر ترکیه
 </span>
 
 
-
 </div>
 
 
@@ -882,7 +924,6 @@ TRY لیر ترکیه
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -927,12 +968,10 @@ CNY یوان چین
 </span>
 
 
-
 </div>
 
 
 </div>
-
 
 
 </div>
@@ -955,7 +994,6 @@ CNY یوان چین
 
 <div class="item">
 
-
 <div class="item-name">
 
 بازار خودرو
@@ -964,7 +1002,6 @@ CNY یوان چین
 
 
 <div class="price-line">
-
 
 <span>
 
@@ -1006,7 +1043,6 @@ CNY یوان چین
 
 <div class="item">
 
-
 <div class="item-name">
 
 بازار ملک
@@ -1015,7 +1051,6 @@ CNY یوان چین
 
 
 <div class="price-line">
-
 
 <span>
 
@@ -1103,6 +1138,7 @@ HASINEH MARKET © ۱۴۰۵
 
 
 
+
 </div>
 
 
@@ -1112,7 +1148,6 @@ HASINEH MARKET © ۱۴۰۵
 
 
 <script>
-
 
 
 function updateTime(){
@@ -1139,13 +1174,11 @@ timeZone:"Asia/Tehran"
 
 
 
-
 document.getElementById("clock").innerHTML =
 
 "ساعت ایران: " +
 
 iran.toLocaleTimeString("fa-IR");
-
 
 
 
@@ -1174,8 +1207,6 @@ weekday:"long"
 
 
 
-
-
 document.getElementById("lunar").innerHTML =
 
 "تاریخ قمری: " +
@@ -1198,11 +1229,15 @@ day:"numeric"
 
 
 
-
-
 document.getElementById("update").innerHTML =
 
 "آخرین بروزرسانی: " +
+
+iran.toLocaleTimeString("fa-IR");
+
+
+
+document.getElementById("last-change").innerHTML =
 
 iran.toLocaleTimeString("fa-IR");
 
@@ -1212,11 +1247,9 @@ iran.toLocaleTimeString("fa-IR");
 
 
 
-
 setInterval(updateTime,1000);
 
 updateTime();
-
 
 
 </script>
@@ -1225,4 +1258,4 @@ updateTime();
 
 </body>
 
-</html>
+  </html>
