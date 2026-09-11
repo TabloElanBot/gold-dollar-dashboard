@@ -1,134 +1,109 @@
 <!-- ==========================
- HASINEH MARKET V42
- COIN DISPLAY CARDS
+ HASINEH MARKET V43
+ MARKET INTELLIGENCE PANEL
 ========================== -->
 
 
-<div class="box coin-display-box">
+<div class="box intelligence-box">
 
 
-<div class="box-title coin-display-title">
+<div class="box-title intelligence-title">
 
-🪙 HASINEH COIN MARKET V42
+🤖 HASINEH MARKET INTELLIGENCE V43
+
+</div>
+
+
+
+<div class="intel-row">
+
+<span>
+نبض بازار:
+</span>
+
+<span 
+class="status-green"
+id="market-pulse-v43">
+
+🟢 STABLE
+
+</span>
 
 </div>
 
 
 
-<div class="coin-card-grid">
 
+<div class="intel-row">
 
+<span>
+روند کلی:
+</span>
 
-<div class="coin-card">
+<span 
+class="status-gold"
+id="market-trend-v43">
 
+WAITING
 
-<div class="card-name">
-
-سکه امامی
-
-</div>
-
-
-<div class="card-info">
-
-تمام بهار آزادی
+</span>
 
 </div>
 
 
-<div class="card-price" id="emami-display-v42">
+
+
+<div class="intel-row">
+
+<span>
+بیشترین رشد:
+</span>
+
+<span 
+class="status-gold"
+id="top-rise-v43">
 
 ---
 
-</div>
-
-
-</div>
-
-
-
-
-<div class="coin-card">
-
-
-<div class="card-name">
-
-نیم سکه
+</span>
 
 </div>
 
 
-<div class="card-info">
-
-بهار آزادی
-
-</div>
 
 
-<div class="card-price" id="nim-display-v42">
+<div class="intel-row">
+
+<span>
+بیشترین تغییر:
+</span>
+
+<span 
+class="status-gold"
+id="top-change-v43">
 
 ---
 
-</div>
-
-
-</div>
-
-
-
-
-<div class="coin-card">
-
-
-<div class="card-name">
-
-ربع سکه
-
-</div>
-
-
-<div class="card-info">
-
-بهار آزادی
-
-</div>
-
-
-<div class="card-price" id="rob-display-v42">
-
----
-
-</div>
-
+</span>
 
 </div>
 
 
 
 
-<div class="coin-card">
+<div class="intel-row">
 
+<span>
+آخرین تحلیل:
+</span>
 
-<div class="card-name">
+<span 
+class="status-green"
+id="ai-status-v43">
 
-سکه گرمی
+READY
 
-</div>
-
-
-<div class="card-info">
-
-بانک مرکزی
-
-</div>
-
-
-<div class="card-price" id="gerami-display-v42">
-
----
-
-</div>
-
+</span>
 
 </div>
 
@@ -137,35 +112,41 @@
 </div>
 
 
-</div>
-
-/* ==========================
- HASINEH MARKET V42
- COIN DISPLAY STYLE
+ /* ==========================
+ HASINEH MARKET V43
+ MARKET INTELLIGENCE STYLE
 ========================== */
 
 
-.coin-display-box{
+.intelligence-box{
 
 margin:20px auto;
 
-max-width:520px;
+max-width:420px;
 
-padding:20px;
+padding:22px;
 
 border-radius:28px;
 
-background:#080808;
+background:
+linear-gradient(
+145deg,
+#090909,
+#111111
+);
 
 border:1px solid #d4af37;
 
-box-shadow:0 0 30px rgba(212,175,55,0.35);
+box-shadow:
+0 0 30px rgba(212,175,55,0.30);
+
+line-height:2;
 
 }
 
 
 
-.coin-display-title{
+.intelligence-title{
 
 font-size:20px;
 
@@ -175,166 +156,204 @@ color:#ffd700;
 
 text-align:center;
 
-margin-bottom:18px;
+margin-bottom:15px;
+
+letter-spacing:0.5px;
 
 }
 
 
 
-.coin-card-grid{
+.intel-row{
 
-display:grid;
+display:flex;
 
-grid-template-columns:repeat(2,1fr);
+justify-content:space-between;
 
-gap:12px;
+align-items:center;
 
-}
+padding:10px 5px;
 
+border-bottom:
 
-
-.coin-card{
-
-background:#111;
-
-border:1px solid rgba(212,175,55,0.45);
-
-border-radius:20px;
-
-padding:15px;
-
-text-align:center;
-
-transition:0.3s;
+1px solid rgba(212,175,55,0.18);
 
 }
 
 
 
-.coin-card:hover{
+.intel-row:last-child{
 
-transform:translateY(-3px);
-
-box-shadow:0 0 15px rgba(212,175,55,0.35);
+border-bottom:none;
 
 }
 
 
 
-.coin-card .card-name{
+.intel-row span:first-child{
 
 color:#ffffff;
 
 font-weight:bold;
 
-font-size:16px;
-
 }
 
 
 
-.coin-card .card-info{
-
-color:#aaa;
-
-font-size:13px;
-
-margin-top:5px;
-
-}
-
-
-
-.coin-card .card-price{
-
-color:#ffd700;
-
-font-size:18px;
+.intel-row span:last-child{
 
 font-weight:bold;
 
-margin-top:10px;
+}
 
-direction:ltr;
+
+
+.pulse-active{
+
+color:#00ff88;
 
 }
 
 
 
-@media(max-width:450px){
+.pulse-warning{
 
-
-.coin-card-grid{
-
-grid-template-columns:1fr;
+color:#ffd700;
 
 }
 
+
+
+.pulse-danger{
+
+color:#ff5555;
+
+}
+
+
+
+/* جلوه ظریف هوشمندی */
+
+.intelligence-box:hover{
+
+box-shadow:
+
+0 0 40px rgba(212,175,55,0.45);
 
 }
 
 
 /* ==========================
- HASINEH MARKET V42
- COIN DISPLAY ENGINE
+ HASINEH MARKET V43
+ MARKET INTELLIGENCE ENGINE
 ========================== */
 
 
-const HASINEH_COIN_DISPLAY_V42 = {
+const HASINEH_INTELLIGENCE_V43 = {
 
 
-items:{
+pulse:"STABLE",
+
+trend:"WAITING",
+
+topRise:"---",
+
+topChange:"---",
+
+ai:"READY",
 
 
-emami:{
-price:"---"
-},
+
+analyze:function(){
 
 
-nim:{
-price:"---"
-},
+
+let pulse =
+document.getElementById(
+"market-pulse-v43"
+);
 
 
-rob:{
-price:"---"
-},
 
+if(pulse){
 
-gerami:{
-price:"---"
+pulse.innerHTML =
+"🟢 STABLE";
+
 }
 
 
-},
+
+
+let trend =
+document.getElementById(
+"market-trend-v43"
+);
+
+
+
+if(trend){
+
+trend.innerHTML =
+"WAITING DATA";
+
+}
 
 
 
 
-render:function(){
+let rise =
+document.getElementById(
+"top-rise-v43"
+);
 
 
 
-let coins = {
+if(rise){
 
+rise.innerHTML =
+"---";
 
-"emami-display-v42":
-this.items.emami.price,
-
-
-
-"nim-display-v42":
-this.items.nim.price,
+}
 
 
 
-"rob-display-v42":
-this.items.rob.price,
+
+let change =
+document.getElementById(
+"top-change-v43"
+);
 
 
 
-"gerami-display-v42":
-this.items.gerami.price
+if(change){
+
+change.innerHTML =
+"---";
+
+}
+
+
+
+
+let ai =
+document.getElementById(
+"ai-status-v43"
+);
+
+
+
+if(ai){
+
+ai.innerHTML =
+"🟢 READY";
+
+}
+
+
+
+}
+
 
 
 };
@@ -342,45 +361,15 @@ this.items.gerami.price
 
 
 
-for(let id in coins){
 
 
-let coin =
-document.getElementById(id);
-
-
-
-if(coin){
-
-coin.innerHTML =
-coins[id] + " تومان";
-
-}
-
-
-
-}
-
-
-
-}
-
-
-
-};
-
-
-
-
-
-
-function hasinehCoinDisplayMonitorV42(){
+function hasinehIntelligenceMonitorV43(){
 
 
 try{
 
 
-HASINEH_COIN_DISPLAY_V42.render();
+HASINEH_INTELLIGENCE_V43.analyze();
 
 
 
@@ -390,7 +379,7 @@ catch(error){
 
 
 console.log(
-"HASINEH COIN DISPLAY V42 ERROR"
+"HASINEH INTELLIGENCE V43 ERROR"
 );
 
 
@@ -406,7 +395,7 @@ console.log(
 
 setInterval(
 
-hasinehCoinDisplayMonitorV42,
+hasinehIntelligenceMonitorV43,
 
 15000
 
@@ -416,4 +405,4 @@ hasinehCoinDisplayMonitorV42,
 
 
 
-hasinehCoinDisplayMonitorV42();
+hasinehIntelligenceMonitorV43();
