@@ -23,7 +23,7 @@ font-family:Tahoma,Arial,sans-serif;
 .header{
 text-align:center;
 padding:25px 10px;
-background:linear-gradient(#111,#050505);
+background:linear-gradient(#151515,#050505);
 border-bottom:2px solid #d4af37;
 }
 
@@ -50,16 +50,30 @@ margin-top:8px;
 }
 
 
-.market-status{
+.status-box{
 
 margin:15px auto;
 max-width:320px;
-padding:12px;
+padding:14px;
 border-radius:18px;
-background:#111;
+background:#101010;
 border:1px solid #333;
+}
+
+
+.status-online{
+
 color:#00ff88;
 font-weight:bold;
+
+}
+
+
+.status-text{
+
+color:#aaa;
+font-size:13px;
+margin-top:8px;
 
 }
 
@@ -86,16 +100,16 @@ padding:15px;
 border-radius:18px;
 background:#0d0d0d;
 border:1px solid #333;
-color:#ccc;
 line-height:2;
+color:#ccc;
 
 }
 
 
 .market-pulse span{
 
-font-weight:bold;
 color:#fff;
+font-weight:bold;
 
 }
 
@@ -133,9 +147,7 @@ border:1px solid #333;
 color:#aaa;
 
 }
-
-
-.container{
+  .container{
 
 padding:15px;
 
@@ -218,7 +230,9 @@ font-weight:bold;
 color:#aaa;
 
 }
-  .qr{
+
+
+.qr{
 
 margin:25px 5px;
 padding:22px;
@@ -306,20 +320,32 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
-<div class="market-status">
+<div class="status-box">
 
-🟢 وضعیت بازار: آماده دریافت اطلاعات
+<div class="status-online">
+
+🟢 سیستم آنلاین
+
+</div>
+
+
+<div class="status-text">
+
+آماده دریافت و نمایش اطلاعات بازار
+
+</div>
+
 
 </div>
 
 
 <div class="notice-box">
 
-📢 پیام ویژه HASINEH MARKET
+📢 پیام HASINEH MARKET
 
 <br>
 
-به‌زودی آخرین اخبار و تغییرات بازار در این بخش نمایش داده می‌شود.
+تابلو هوشمند اعلام نرخ و خدمات بازار
 
 </div>
 
@@ -437,7 +463,7 @@ Digital Market Board | Bandar Hasineh
 
 خرید:
 
-<b class="price" id="gold-buy">
+<b class="price" id="gold18-buy">
 
 ---
 
@@ -450,7 +476,7 @@ Digital Market Board | Bandar Hasineh
 
 فروش:
 
-<b class="price" id="gold-sell">
+<b class="price" id="gold18-sell">
 
 ---
 
@@ -459,7 +485,7 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
-<span class="change-up">
+<span class="change-up" id="gold18-change">
 
 ▲ 0%
 
@@ -492,7 +518,7 @@ Digital Market Board | Bandar Hasineh
 
 خرید:
 
-<b class="price">
+<b class="price" id="mesghal-buy">
 
 ---
 
@@ -505,7 +531,7 @@ Digital Market Board | Bandar Hasineh
 
 فروش:
 
-<b class="price">
+<b class="price" id="mesghal-sell">
 
 ---
 
@@ -514,9 +540,9 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
-<span class="change-down">
+<span class="change-same">
 
-▼ 0%
+● 0%
 
 </span>
 
@@ -547,7 +573,7 @@ Digital Market Board | Bandar Hasineh
 
 خرید:
 
-<b class="price">
+<b class="price" id="gold24-buy">
 
 ---
 
@@ -560,7 +586,7 @@ Digital Market Board | Bandar Hasineh
 
 فروش:
 
-<b class="price">
+<b class="price" id="gold24-sell">
 
 ---
 
@@ -583,6 +609,7 @@ Digital Market Board | Bandar Hasineh
 
 
 </div>
+
 
 
 
@@ -617,7 +644,7 @@ USD دلار آمریکا
 
 خرید:
 
-<b class="price">
+<b class="price" id="usd-buy">
 
 ---
 
@@ -630,7 +657,7 @@ USD دلار آمریکا
 
 فروش:
 
-<b class="price">
+<b class="price" id="usd-sell">
 
 ---
 
@@ -672,7 +699,7 @@ EUR یورو
 
 خرید:
 
-<b class="price">
+<b class="price" id="eur-buy">
 
 ---
 
@@ -685,7 +712,7 @@ EUR یورو
 
 فروش:
 
-<b class="price">
+<b class="price" id="eur-sell">
 
 ---
 
@@ -727,7 +754,7 @@ AED درهم امارات
 
 خرید:
 
-<b class="price">
+<b class="price" id="aed-buy">
 
 ---
 
@@ -740,7 +767,7 @@ AED درهم امارات
 
 فروش:
 
-<b class="price">
+<b class="price" id="aed-sell">
 
 ---
 
@@ -777,7 +804,7 @@ GBP پوند انگلیس
 
 خرید:
 
-<b class="price">
+<b class="price" id="gbp-buy">
 
 ---
 
@@ -790,7 +817,7 @@ GBP پوند انگلیس
 
 فروش:
 
-<b class="price">
+<b class="price" id="gbp-sell">
 
 ---
 
@@ -832,7 +859,7 @@ CAD دلار کانادا
 
 خرید:
 
-<b class="price">
+<b class="price" id="cad-buy">
 
 ---
 
@@ -845,7 +872,7 @@ CAD دلار کانادا
 
 فروش:
 
-<b class="price">
+<b class="price" id="cad-sell">
 
 ---
 
@@ -887,7 +914,7 @@ TRY لیر ترکیه
 
 خرید:
 
-<b class="price">
+<b class="price" id="try-buy">
 
 ---
 
@@ -900,7 +927,7 @@ TRY لیر ترکیه
 
 فروش:
 
-<b class="price">
+<b class="price" id="try-sell">
 
 ---
 
@@ -942,7 +969,7 @@ CNY یوان چین
 
 خرید:
 
-<b class="price">
+<b class="price" id="cny-buy">
 
 ---
 
@@ -955,7 +982,7 @@ CNY یوان چین
 
 فروش:
 
-<b class="price">
+<b class="price" id="cny-sell">
 
 ---
 
@@ -977,7 +1004,10 @@ CNY یوان چین
 </div>
 
 
+
 </div>
+
+
 
 
 
@@ -1016,7 +1046,7 @@ CNY یوان چین
 
 <span>
 
-به زودی
+به‌زودی
 
 </span>
 
@@ -1028,6 +1058,7 @@ CNY یوان چین
 
 
 </div>
+
 
 
 
@@ -1066,7 +1097,7 @@ CNY یوان چین
 
 <span>
 
-به زودی
+به‌زودی
 
 </span>
 
@@ -1078,6 +1109,7 @@ CNY یوان چین
 
 
 </div>
+
 
 
 
@@ -1108,6 +1140,7 @@ CNY یوان چین
 
 
 
+
 <div class="creator">
 
 
@@ -1126,6 +1159,7 @@ Support: 09178649970
 
 
 </div>
+
 
 
 
@@ -1257,6 +1291,9 @@ updateTime();
 </script>
 
 
+</div>
+
+
 </body>
 
-  </html>
+</html>
