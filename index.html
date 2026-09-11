@@ -1,103 +1,37 @@
 <!-- ==========================
- HASINEH MARKET V55
- GOLD COIN PROFESSIONAL BOARD
+ HASINEH MARKET V56
+ PREMIUM CALENDAR EVENT PANEL
 ========================== -->
 
 
-<div class="box professional-market-box">
+<div class="box calendar-event-box">
 
 
-<div class="box-title professional-title">
+<div class="box-title calendar-event-title">
 
-🪙 HASINEH GOLD & COIN PREMIUM
-
-</div>
-
-
-
-<div class="professional-section">
-
-
-<div class="section-title">
-
-✨ طلا
-
-</div>
-
-
-
-<div class="professional-item">
-
-<span>
-طلای ۱۸ عیار
-</span>
-
-<span>
-عیار 750
-</span>
+📅 HASINEH MARKET CALENDAR V56
 
 </div>
 
 
 
 
-<div class="professional-item">
+<div class="calendar-row">
 
 <span>
-طلای ۲۴ عیار
+
+تاریخ شمسی:
+
 </span>
 
-<span>
-عیار 999
+
+<span 
+class="status-gold"
+id="persian-date-v56">
+
+---
+
 </span>
-
-</div>
-
-
-
-
-<div class="professional-item">
-
-<span>
-مثقال طلای ۱۸ عیار
-</span>
-
-<span>
-عیار 750
-</span>
-
-</div>
-
-
-
-
-<div class="professional-item">
-
-<span>
-مثقال طلای ۲۱ عیار
-</span>
-
-<span>
-عیار 875
-</span>
-
-</div>
-
-
-
-
-<div class="professional-item">
-
-<span>
-آبشده طلا
-</span>
-
-<span>
-مبنای 750
-</span>
-
-</div>
-
 
 
 </div>
@@ -106,71 +40,58 @@
 
 
 
-<div class="professional-section">
-
-
-<div class="section-title">
-
-🪙 سکه
-
-</div>
-
-
-
-<div class="professional-item">
+<div class="calendar-row">
 
 <span>
-سکه امامی
+
+روز هفته:
+
 </span>
 
-<span>
-تمام بهار آزادی
+
+<span 
+class="status-gold"
+id="week-day-v56">
+
+---
+
 </span>
 
-</div>
-
-
-
-
-<div class="professional-item">
-
-<span>
-نیم سکه
-</span>
-
-<span>
-بهار آزادی
-</span>
 
 </div>
 
 
 
 
-<div class="professional-item">
+
+<div class="calendar-row">
 
 <span>
-ربع سکه
+
+مناسبت امروز:
+
 </span>
 
-<span>
-بهار آزادی
+
+<span 
+class="status-gold"
+id="special-event-v56">
+
+بدون مناسبت
+
 </span>
+
 
 </div>
 
 
 
 
-<div class="professional-item">
 
-<span>
-سکه گرمی
-</span>
+<div class="event-message"
+id="event-message-v56">
 
-<span>
-بانک مرکزی
-</span>
+✨ به HASINEH MARKET خوش آمدید
 
 </div>
 
@@ -178,32 +99,29 @@
 
 </div>
 
-
-
-</div>
 
 
 /* ==========================
- HASINEH MARKET V55
- PROFESSIONAL GOLD COIN STYLE
+ HASINEH MARKET V56
+ CALENDAR EVENT STYLE
 ========================== */
 
 
-.professional-market-box{
+.calendar-event-box{
 
-margin:25px auto;
+margin:20px auto;
 
-max-width:520px;
+max-width:420px;
 
-padding:25px;
+padding:22px;
 
-border-radius:32px;
+border-radius:30px;
 
 background:
 
 linear-gradient(
 145deg,
-#050505,
+#070707,
 #151515
 );
 
@@ -211,16 +129,16 @@ border:1px solid #d4af37;
 
 box-shadow:
 
-0 0 45px rgba(212,175,55,0.35);
+0 0 35px rgba(212,175,55,0.30);
 
 }
 
 
 
 
-.professional-title{
+.calendar-event-title{
 
-font-size:21px;
+font-size:20px;
 
 font-weight:bold;
 
@@ -228,50 +146,15 @@ color:#ffd700;
 
 text-align:center;
 
-margin-bottom:22px;
+margin-bottom:18px;
 
 }
 
 
 
 
-.professional-section{
 
-margin-bottom:25px;
-
-background:#0c0c0c;
-
-border-radius:24px;
-
-padding:15px;
-
-border:
-
-1px solid rgba(212,175,55,0.25);
-
-}
-
-
-
-
-.section-title{
-
-text-align:center;
-
-font-size:18px;
-
-font-weight:bold;
-
-color:#ffd700;
-
-margin-bottom:15px;
-
-}
-
-
-
-
-.professional-item{
+.calendar-row{
 
 display:flex;
 
@@ -279,18 +162,18 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:12px 8px;
+padding:12px 5px;
 
 border-bottom:
 
-1px solid rgba(212,175,55,0.15);
+1px solid rgba(212,175,55,0.18);
 
 }
 
 
 
 
-.professional-item:last-child{
+.calendar-row:last-of-type{
 
 border-bottom:none;
 
@@ -299,7 +182,7 @@ border-bottom:none;
 
 
 
-.professional-item span:first-child{
+.calendar-row span:first-child{
 
 color:#ffffff;
 
@@ -310,123 +193,175 @@ font-weight:bold;
 
 
 
-.professional-item span:last-child{
+.calendar-row span:last-child{
 
-color:#999;
-
-font-size:13px;
+font-weight:bold;
 
 }
 
 
 
 
-/* جلوه لوکس */
+.event-message{
 
-.professional-section:hover{
+margin-top:18px;
+
+padding:15px;
+
+border-radius:20px;
+
+background:#101010;
+
+border:
+
+1px solid rgba(212,175,55,0.35);
+
+text-align:center;
+
+color:#ffd700;
+
+font-weight:bold;
+
+}
+
+
+
+
+/* مناسبت‌ها */
+
+
+.event-ramadan{
+
+color:#ffd700;
+
+}
+
+
+
+.event-eid-fitr{
+
+color:#ffd700;
+
+}
+
+
+
+.event-eid-ghorban{
+
+color:#ffd700;
+
+}
+
+
+
+.event-nowruz{
+
+color:#00ff88;
+
+}
+
+
+
+
+.calendar-event-box:hover{
 
 box-shadow:
 
-0 0 25px rgba(212,175,55,0.25);
+0 0 50px rgba(212,175,55,0.45);
 
 }
-
-
-
-
-@media(max-width:450px){
-
-
-.professional-market-box{
-
-padding:18px;
-
-}
-
-
-
-}
-
 
 
 /* ==========================
- HASINEH MARKET V55
- PROFESSIONAL GOLD COIN ENGINE
+ HASINEH MARKET V56
+ CALENDAR EVENT ENGINE
 ========================== */
 
 
-const HASINEH_GOLD_COIN_V55 = {
-
-
-items:{
-
-
-gold18:{
-name:"طلای ۱۸ عیار",
-karat:"750"
-},
-
-
-gold24:{
-name:"طلای ۲۴ عیار",
-karat:"999"
-},
-
-
-mesghal18:{
-name:"مثقال طلای ۱۸ عیار",
-karat:"750"
-},
-
-
-mesghal21:{
-name:"مثقال طلای ۲۱ عیار",
-karat:"875"
-},
-
-
-abshode:{
-name:"آبشده طلا",
-karat:"750"
-},
-
-
-
-emami:{
-name:"سکه امامی",
-info:"تمام بهار آزادی"
-},
-
-
-nim:{
-name:"نیم سکه",
-info:"بهار آزادی"
-},
-
-
-rob:{
-name:"ربع سکه",
-info:"بهار آزادی"
-},
-
-
-gerami:{
-name:"سکه گرمی",
-info:"بانک مرکزی"
-}
-
-
-},
-
+const HASINEH_CALENDAR_V56 = {
 
 
 update:function(){
 
 
 
-console.log(
-"HASINEH GOLD & COIN V55 READY"
+let now = new Date();
+
+
+
+
+let date =
+document.getElementById(
+"persian-date-v56"
 );
+
+
+
+if(date){
+
+date.innerHTML =
+now.toLocaleDateString(
+"fa-IR"
+);
+
+}
+
+
+
+
+let day =
+document.getElementById(
+"week-day-v56"
+);
+
+
+
+if(day){
+
+day.innerHTML =
+now.toLocaleDateString(
+"fa-IR",
+{
+weekday:"long"
+}
+);
+
+}
+
+
+
+
+let event =
+document.getElementById(
+"special-event-v56"
+);
+
+
+
+let message =
+document.getElementById(
+"event-message-v56"
+);
+
+
+
+
+
+if(event){
+
+event.innerHTML =
+"بدون مناسبت";
+
+}
+
+
+
+if(message){
+
+message.innerHTML =
+"✨ به HASINEH MARKET خوش آمدید";
+
+}
 
 
 
@@ -441,13 +376,13 @@ console.log(
 
 
 
-function hasinehGoldCoinMonitorV55(){
+function hasinehCalendarMonitorV56(){
 
 
 try{
 
 
-HASINEH_GOLD_COIN_V55.update();
+HASINEH_CALENDAR_V56.update();
 
 
 
@@ -457,7 +392,7 @@ catch(error){
 
 
 console.log(
-"HASINEH GOLD COIN V55 ERROR"
+"HASINEH CALENDAR V56 ERROR"
 );
 
 
@@ -474,9 +409,9 @@ console.log(
 
 setInterval(
 
-hasinehGoldCoinMonitorV55,
+hasinehCalendarMonitorV56,
 
-30000
+60000
 
 );
 
@@ -484,4 +419,4 @@ hasinehGoldCoinMonitorV55,
 
 
 
-hasinehGoldCoinMonitorV55();
+hasinehCalendarMonitorV56();
