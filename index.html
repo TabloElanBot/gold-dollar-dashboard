@@ -104,12 +104,12 @@ color:#aaa;
 
 
 
-.market-status{
+.system-box{
 
 margin:15px auto;
 max-width:300px;
-padding:15px;
-border-radius:18px;
+padding:12px;
+border-radius:15px;
 background:#111;
 border:1px solid #333;
 text-align:center;
@@ -118,26 +118,16 @@ text-align:center;
 
 
 
-.status-title{
-
-color:#ffd700;
-margin-bottom:10px;
-
-}
-
-
-
-.status-value{
+.system-ready{
 
 color:#00ff88;
-font-size:18px;
 font-weight:bold;
 
 }
 
 
 
-.news-box{
+.market-message{
 
 margin:15px auto;
 max-width:300px;
@@ -146,19 +136,6 @@ border-radius:18px;
 background:#111;
 border:1px solid #333;
 color:#ccc;
-
-}
-
-
-
-.holiday{
-
-display:none;
-margin:15px auto;
-padding:14px;
-border-radius:15px;
-background:#191919;
-color:#ffd700;
 
 }
 
@@ -224,15 +201,16 @@ font-size:13px;
 
 
 
-.change{
+.price{
 
-font-size:12px;
+font-size:16px;
+font-weight:bold;
 
 }
 
 
 
-.up{
+.change-up{
 
 color:#00ff88;
 
@@ -240,7 +218,7 @@ color:#00ff88;
 
 
 
-.down{
+.change-down{
 
 color:#ff4444;
 
@@ -248,7 +226,7 @@ color:#ff4444;
 
 
 
-.same{
+.change-same{
 
 color:#aaa;
 
@@ -319,6 +297,7 @@ color:#666;
 </style>
 
 
+
 </head>
 
 
@@ -326,30 +305,41 @@ color:#666;
 <body>
 
 
+
 <div class="header">
 
 
+
 <div class="logo">
+
 HASINEH MARKET
+
 </div>
 
 
 
 <div class="subtitle">
+
 Online Gold, Currency & Market Dashboard
+
 </div>
 
 
 
 <div class="brand">
+
 Real-Time Market Board
+
 </div>
 
 
 
 <div class="live">
+
 ● LIVE MARKET
+
 </div>
+
 
 
 
@@ -357,21 +347,28 @@ Real-Time Market Board
 
 
 <div id="solar">
+
 تاریخ شمسی
+
 </div>
 
 
 <div id="clock">
+
 ساعت ایران
+
 </div>
 
 
 <div id="lunar">
+
 تاریخ قمری
+
 </div>
 
 
 </div>
+
 
 
 
@@ -384,43 +381,36 @@ Real-Time Market Board
 
 
 
-<div class="market-status">
 
+<div class="system-box">
 
-<div class="status-title">
-وضعیت کلی بازار
+<div class="system-ready">
+
+🟢 سیستم آماده دریافت نرخ
+
 </div>
-
-
-<div class="status-value">
-🟢 در حال بررسی
-</div>
-
 
 </div>
 
 
 
 
-<div class="news-box">
 
-📰 آخرین وضعیت بازار:
+<div class="market-message">
+
+آخرین پیام بازار:
+
 <br><br>
-در انتظار اتصال اطلاعات لحظه‌ای
+
+در انتظار اتصال منبع اطلاعات
 
 </div>
 
 
 
 
-
-<div id="holiday" class="holiday">
-
 </div>
 
-
-
-</div>
 
 
 
@@ -436,6 +426,7 @@ Real-Time Market Board
 <div class="card">
 
 
+
 <div class="title">
 
 🟡 HASINEH GOLD
@@ -445,8 +436,12 @@ Real-Time Market Board
 
 
 
-<div class="item">
 
+<div id="gold-list">
+
+
+
+<div class="item">
 
 <div class="item-name">
 
@@ -455,26 +450,27 @@ Real-Time Market Board
 </div>
 
 
-
 <div class="price-line">
 
+<span>
+
+خرید: <b id="gold-buy">---</b>
+
+</span>
+
 
 <span>
-خرید: ---
-</span>
 
-
-<span>
-فروش: ---
-</span>
-
-
-<span class="change up">
-
-▲ +0%
+فروش: <b id="gold-sell">---</b>
 
 </span>
 
+
+<span class="change-up" id="gold-change">
+
+▲ 0%
+
+</span>
 
 
 </div>
@@ -488,7 +484,6 @@ Real-Time Market Board
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -497,23 +492,26 @@ Real-Time Market Board
 </div>
 
 
-
 <div class="price-line">
 
 
 <span>
+
 خرید: ---
+
 </span>
 
 
 <span>
+
 فروش: ---
+
 </span>
 
 
-<span class="change down">
+<span class="change-down">
 
-▼ -0%
+▼ 0%
 
 </span>
 
@@ -523,7 +521,6 @@ Real-Time Market Board
 
 
 </div>
-
 
 
 
@@ -532,7 +529,6 @@ Real-Time Market Board
 
 <div class="item">
 
-
 <div class="item-name">
 
 طلای ۲۴ عیار
@@ -540,21 +536,24 @@ Real-Time Market Board
 </div>
 
 
-
 <div class="price-line">
 
 
 <span>
+
 خرید: ---
+
 </span>
 
 
 <span>
+
 فروش: ---
+
 </span>
 
 
-<span class="change same">
+<span class="change-same">
 
 ● 0%
 
@@ -566,6 +565,12 @@ Real-Time Market Board
 
 
 </div>
+
+
+
+
+</div>
+
 
 
 </div>
@@ -589,8 +594,8 @@ Real-Time Market Board
 
 
 
-<div class="item">
 
+<div class="item">
 
 <div class="item-name">
 
@@ -599,25 +604,29 @@ USD دلار آمریکا
 </div>
 
 
-
 <div class="price-line">
 
 
 <span>
-خرید: ---
+
+خرید: <b id="usd-buy">---</b>
+
 </span>
 
 
 <span>
-فروش: ---
-</span>
 
-
-<span class="change up">
-
-▲ +0%
+فروش: <b id="usd-sell">---</b>
 
 </span>
+
+
+<span class="change-up">
+
+▲ 0%
+
+</span>
+
 
 
 </div>
@@ -631,7 +640,6 @@ USD دلار آمریکا
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -640,38 +648,42 @@ EUR یورو
 </div>
 
 
-
 <div class="price-line">
 
 
 <span>
+
 خرید: ---
+
 </span>
 
 
 <span>
+
 فروش: ---
-</span>
-
-
-<span class="change down">
-
-▼ -0%
 
 </span>
+
+
+<span class="change-same">
+
+● 0%
+
+</span>
+
 
 
 </div>
 
 
 </div>
+
 
 
 
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -680,25 +692,29 @@ AED درهم امارات
 </div>
 
 
-
 <div class="price-line">
 
 
 <span>
+
 خرید: ---
+
 </span>
 
 
 <span>
+
 فروش: ---
+
 </span>
 
 
-<span class="change same">
+<span class="change-same">
 
 ● 0%
 
 </span>
+
 
 
 </div>
@@ -710,7 +726,6 @@ AED درهم امارات
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -719,38 +734,40 @@ GBP پوند انگلیس
 </div>
 
 
-
 <div class="price-line">
 
 
 <span>
+
 خرید: ---
+
 </span>
 
 
 <span>
+
 فروش: ---
+
 </span>
 
 
-<span class="change same">
+<span class="change-same">
 
 ● 0%
 
 </span>
 
 
-</div>
-
 
 </div>
 
+
+</div>
 
 
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -759,38 +776,40 @@ CAD دلار کانادا
 </div>
 
 
-
 <div class="price-line">
 
 
 <span>
+
 خرید: ---
+
 </span>
 
 
 <span>
+
 فروش: ---
+
 </span>
 
 
-<span class="change same">
+<span class="change-same">
 
 ● 0%
 
 </span>
 
 
-</div>
-
 
 </div>
 
+
+</div>
 
 
 
 
 <div class="item">
-
 
 <div class="item-name">
 
@@ -799,25 +818,29 @@ TRY لیر ترکیه
 </div>
 
 
-
 <div class="price-line">
 
 
 <span>
+
 خرید: ---
+
 </span>
 
 
 <span>
+
 فروش: ---
+
 </span>
 
 
-<span class="change same">
+<span class="change-same">
 
 ● 0%
 
 </span>
+
 
 
 </div>
@@ -830,7 +853,6 @@ TRY لیر ترکیه
 
 <div class="item">
 
-
 <div class="item-name">
 
 CNY یوان چین
@@ -838,31 +860,36 @@ CNY یوان چین
 </div>
 
 
-
 <div class="price-line">
 
 
 <span>
+
 خرید: ---
+
 </span>
 
 
 <span>
+
 فروش: ---
+
 </span>
 
 
-<span class="change same">
+<span class="change-same">
 
 ● 0%
 
 </span>
 
 
+
 </div>
 
 
 </div>
+
 
 
 
@@ -894,14 +921,17 @@ CNY یوان چین
 
 
 <span>
+
 وضعیت:
+
 </span>
 
 
 <span>
-به زودی
-</span>
 
+به زودی
+
+</span>
 
 
 </div>
@@ -944,16 +974,19 @@ CNY یوان چین
 
 
 <span>
+
 وضعیت:
+
 </span>
 
 
 <span>
+
 به زودی
+
 </span>
 
 
-
 </div>
 
 
@@ -961,7 +994,6 @@ CNY یوان چین
 
 
 </div>
-
 
 
 
@@ -1004,7 +1036,6 @@ Created by Hassan Divanizadeh
 </div>
 
 
-
 <div class="support">
 
 Support: 09178649970
@@ -1028,6 +1059,7 @@ HASINEH MARKET © ۱۴۰۵
 
 
 
+
 </div>
 
 
@@ -1036,6 +1068,39 @@ HASINEH MARKET © ۱۴۰۵
 
 
 <script>
+
+
+// ساختار آماده نرخ‌ها برای اتصال آینده
+
+const marketData = {
+
+
+gold:{
+
+buy:"---",
+
+sell:"---",
+
+change:0
+
+},
+
+
+usd:{
+
+buy:"---",
+
+sell:"---",
+
+change:0
+
+}
+
+
+};
+
+
+
 
 
 
@@ -1050,14 +1115,19 @@ let now = new Date();
 let iran = new Date(
 
 now.toLocaleString(
+
 "en-US",
+
 {
+
 timeZone:"Asia/Tehran"
+
 }
 
 )
 
 );
+
 
 
 
@@ -1126,6 +1196,7 @@ day:"numeric"
 
 
 
+
 document.getElementById("update").innerHTML =
 
 "آخرین بروزرسانی: " +
@@ -1139,6 +1210,7 @@ iran.toLocaleTimeString("fa-IR");
 
 
 
+
 setInterval(updateTime,1000);
 
 
@@ -1147,7 +1219,6 @@ updateTime();
 
 
 </script>
-
 
 
 
