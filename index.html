@@ -5,6 +5,8 @@
 
 <meta charset="UTF-8">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>HASINEH MARKET</title>
 
 
@@ -30,32 +32,34 @@ border-bottom:2px solid gold;
 font-size:40px;
 font-weight:bold;
 color:#ffd700;
+letter-spacing:1px;
 }
 
 
 .subtitle{
 color:#ddd;
 margin-top:10px;
+font-size:14px;
 }
 
 
 .live{
 display:inline-block;
 margin-top:15px;
-padding:7px 20px;
-border-radius:20px;
+padding:7px 22px;
+border-radius:25px;
 background:#063b1c;
 color:#00ff88;
+font-size:14px;
 }
 
 
 
 .date-box{
-
 margin-top:15px;
 line-height:2;
 color:#bbb;
-
+font-size:14px;
 }
 
 
@@ -64,20 +68,18 @@ color:#bbb;
 
 display:none;
 margin:15px auto;
-padding:12px;
+max-width:300px;
+padding:14px;
 border-radius:15px;
 background:#191919;
 color:#ffd700;
 font-size:18px;
-
 }
 
 
 
 .container{
-
 padding:15px;
-
 }
 
 
@@ -98,7 +100,7 @@ margin-bottom:18px;
 
 text-align:center;
 color:#ffd700;
-font-size:25px;
+font-size:24px;
 margin-bottom:15px;
 
 }
@@ -126,49 +128,42 @@ font-size:17px;
 
 display:flex;
 justify-content:space-between;
+align-items:center;
 margin-top:10px;
-font-size:14px;
+font-size:13px;
 
 }
 
 
 
 .buy{
-
 color:#ddd;
-
 }
 
 
 
 .sell{
-
 color:#ddd;
-
 }
 
 
 
 .up{
-
 color:#00ff88;
-
+font-weight:bold;
 }
 
 
 
 .down{
-
 color:#ff4444;
-
+font-weight:bold;
 }
 
 
 
 .same{
-
 color:#aaa;
-
 }
 
 
@@ -190,7 +185,6 @@ color:#888;
 
 text-align:center;
 margin-top:25px;
-
 }
 
 
@@ -226,9 +220,7 @@ color:#777;
 
 </style>
 
-
 </head>
-
 
 
 <body>
@@ -252,16 +244,17 @@ Online Gold, Currency & Market Dashboard
 </div>
 
 
-
 <div class="date-box">
 
 <div id="solar">
 تاریخ شمسی
 </div>
 
+
 <div id="clock">
 ساعت ایران
 </div>
+
 
 <div id="lunar">
 تاریخ قمری
@@ -277,21 +270,16 @@ Online Gold, Currency & Market Dashboard
 </div>
 
 
-
 </div>
 
 
-
 <div class="container">
-
-
-
+  
 <div class="card">
 
 <div class="title">
 🟡 HASINEH GOLD
 </div>
-
 
 
 <div class="row">
@@ -328,11 +316,11 @@ Online Gold, Currency & Market Dashboard
 
 <div class="prices">
 
-<span>
+<span class="buy">
 خرید: ---
 </span>
 
-<span>
+<span class="sell">
 فروش: ---
 </span>
 
@@ -354,11 +342,11 @@ Online Gold, Currency & Market Dashboard
 
 <div class="prices">
 
-<span>
+<span class="buy">
 خرید: ---
 </span>
 
-<span>
+<span class="sell">
 فروش: ---
 </span>
 
@@ -372,3 +360,466 @@ Online Gold, Currency & Market Dashboard
 
 
 </div>
+
+
+
+
+
+<div class="card">
+
+<div class="title">
+💵 HASINEH CURRENCY
+</div>
+
+
+
+<div class="row">
+
+<div class="name">
+USD دلار آمریکا
+</div>
+
+<div class="prices">
+
+<span>
+خرید: ---
+</span>
+
+<span>
+فروش: ---
+</span>
+
+<span class="up">
+▲
+</span>
+
+</div>
+
+</div>
+
+
+
+
+<div class="row">
+
+<div class="name">
+EUR یورو
+</div>
+
+<div class="prices">
+
+<span>
+خرید: ---
+</span>
+
+<span>
+فروش: ---
+</span>
+
+<span class="down">
+▼
+</span>
+
+</div>
+
+</div>
+
+
+
+
+<div class="row">
+
+<div class="name">
+AED درهم امارات
+</div>
+
+<div class="prices">
+
+<span>
+خرید: ---
+</span>
+
+<span>
+فروش: ---
+</span>
+
+<span class="same">
+●
+</span>
+
+</div>
+
+</div>
+
+
+
+
+<div class="row">
+
+<div class="name">
+GBP پوند انگلیس
+</div>
+
+<div class="prices">
+
+<span>
+خرید: ---
+</span>
+
+<span>
+فروش: ---
+</span>
+
+<span class="same">
+●
+</span>
+
+</div>
+
+</div>
+
+
+
+
+<div class="row">
+
+<div class="name">
+CAD دلار کانادا
+</div>
+
+<div class="prices">
+
+<span>
+خرید: ---
+</span>
+
+<span>
+فروش: ---
+</span>
+
+<span class="same">
+●
+</span>
+
+</div>
+
+</div>
+
+
+
+
+<div class="row">
+
+<div class="name">
+TRY لیر ترکیه
+</div>
+
+<div class="prices">
+
+<span>
+خرید: ---
+</span>
+
+<span>
+فروش: ---
+</span>
+
+<span class="same">
+●
+</span>
+
+</div>
+
+</div>
+
+
+
+
+<div class="row">
+
+<div class="name">
+CNY یوان چین
+</div>
+
+<div class="prices">
+
+<span>
+خرید: ---
+</span>
+
+<span>
+فروش: ---
+</span>
+
+<span class="same">
+●
+</span>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<div class="title">
+🚗 HASINEH AUTO
+</div>
+
+
+<div class="row">
+
+<div class="name">
+بازار خودرو
+</div>
+
+<div class="prices">
+
+<span>
+وضعیت:
+</span>
+
+<span>
+به زودی
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<div class="title">
+🏠 HASINEH REAL ESTATE
+</div>
+
+
+<div class="row">
+
+<div class="name">
+بازار ملک
+</div>
+
+
+<div class="prices">
+
+<span>
+وضعیت:
+</span>
+
+<span>
+به زودی
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="qr">
+
+QR رسمی HASINEH MARKET
+
+<br><br>
+
+کانال روبیکا / ارتباطات آینده
+
+</div>
+
+
+
+
+
+<div class="creator">
+
+<div class="creator-name">
+
+Created by Hassan Divanizadeh
+
+</div>
+
+
+<div class="support">
+
+Support: 09178649970
+
+</div>
+
+
+</div>
+
+<div class="footer">
+
+HASINEH MARKET © ۱۴۰۵
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+
+function updateTime(){
+
+
+let now = new Date();
+
+
+let iran = new Date(
+now.toLocaleString(
+"en-US",
+{
+timeZone:"Asia/Tehran"
+}
+)
+);
+
+
+
+document.getElementById("clock").innerHTML =
+"ساعت ایران: " +
+iran.toLocaleTimeString("fa-IR");
+
+
+
+document.getElementById("solar").innerHTML =
+"تاریخ شمسی: " +
+iran.toLocaleDateString(
+"fa-IR",
+{
+year:"numeric",
+month:"long",
+day:"numeric",
+weekday:"long"
+}
+);
+
+
+
+document.getElementById("lunar").innerHTML =
+"تاریخ قمری: " +
+iran.toLocaleDateString(
+"fa-IR-u-ca-islamic",
+{
+year:"numeric",
+month:"long",
+day:"numeric"
+}
+);
+
+
+
+checkHoliday(iran);
+
+
+}
+
+
+
+
+function checkHoliday(date){
+
+
+let month = date.getMonth()+1;
+
+let day = date.getDate();
+
+
+
+let message="";
+
+
+// نوروز (شروع سال شمسی)
+
+if(month===3 && day===21){
+
+message =
+"🌱 نوروز مبارک 🌱<br>سال نو بر شما مبارک";
+
+}
+
+
+
+// نمونه مناسبت‌های اسلامی
+// آماده توسعه دقیق‌تر تقویمی
+
+if(message===""){
+
+let lunar =
+date.toLocaleDateString(
+"fa-IR-u-ca-islamic",
+{
+month:"numeric",
+day:"numeric"
+}
+);
+
+
+// عید فطر
+
+if(
+lunar.includes("10")
+){
+
+message =
+"🌙 عيد مبارك 🌙<br>كل عام وأنتم بخير";
+
+}
+
+
+}
+
+
+
+if(message!==""){
+
+let box=document.getElementById("holiday");
+
+box.style.display="block";
+
+box.innerHTML=message;
+
+
+}
+
+}
+
+
+
+setInterval(updateTime,1000);
+
+updateTime();
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
