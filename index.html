@@ -62,26 +62,18 @@ font-weight:bold;
 }
 
 
-.market-pulse{
+.notice-box{
 
 margin:15px auto;
 max-width:320px;
 padding:15px;
 border-radius:18px;
-background:#0d0d0d;
-border:1px solid #333;
+background:#111;
+border:1px solid #d4af37;
+color:#ffd700;
 line-height:2;
-color:#ccc;
 
 }
-
-
-.market-pulse span{
-
-font-weight:bold;
-
-}
-
 
 
 .live{
@@ -99,6 +91,21 @@ margin-top:15px;
 line-height:2;
 font-size:14px;
 color:#bbb;
+}
+
+
+.holiday-box{
+
+display:none;
+margin:15px auto;
+max-width:320px;
+padding:15px;
+border-radius:18px;
+background:#111;
+border:1px solid #d4af37;
+color:#ffd700;
+font-size:16px;
+
 }
 
 
@@ -211,6 +218,7 @@ color:#aaa;
 }
 
 
+
 .qr-title{
 
 font-size:18px;
@@ -220,12 +228,14 @@ margin-bottom:10px;
 }
 
 
+
 .creator{
 
 text-align:center;
 margin-top:30px;
 
 }
+
 
 
 .creator-name{
@@ -237,6 +247,7 @@ letter-spacing:1px;
 }
 
 
+
 .support{
 
 font-size:12px;
@@ -244,6 +255,7 @@ color:#555;
 margin-top:8px;
 
 }
+
 
 
 .footer{
@@ -292,7 +304,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
 <div class="market-status">
 
 🟢 وضعیت بازار: آماده دریافت اطلاعات
@@ -301,40 +312,15 @@ Digital Market Board | Bandar Hasineh
 
 
 
+<div class="notice-box">
 
-<div class="market-pulse">
-
-📊 نبض بازار
-
-<br>
-
-🟢 بیشترین رشد:
-<span id="top-up">
-
----
-
-</span>
+📢 پیام ویژه HASINEH MARKET
 
 <br>
 
-🔴 بیشترین کاهش:
-<span id="top-down">
-
----
-
-</span>
-
-<br>
-
-⏱ آخرین تغییر:
-<span id="last-change">
-
----
-
-</span>
+به‌زودی آخرین اخبار و تغییرات بازار در این بخش نمایش داده می‌شود.
 
 </div>
-
 
 
 
@@ -377,6 +363,15 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
+<div id="holiday" class="holiday-box">
+
+</div>
+
+
+
+
+
 <div id="update" class="update-box">
 
 آخرین بروزرسانی: ---
@@ -412,7 +407,6 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
 <div class="item">
 
 
@@ -421,7 +415,6 @@ Digital Market Board | Bandar Hasineh
 طلای ۱۸ عیار
 
 </div>
-
 
 
 <div class="price-line">
@@ -467,7 +460,6 @@ Digital Market Board | Bandar Hasineh
 
 
 </div>
-
 
 
 
@@ -584,12 +576,6 @@ Digital Market Board | Bandar Hasineh
 
 </div>
 
-
-
-
-
-
-
 <div class="card">
 
 
@@ -603,7 +589,6 @@ Digital Market Board | Bandar Hasineh
 
 <div class="item">
 
-
 <div class="item-name">
 
 USD دلار آمریکا
@@ -612,7 +597,6 @@ USD دلار آمریکا
 
 
 <div class="price-line">
-
 
 <span>
 
@@ -646,12 +630,12 @@ USD دلار آمریکا
 
 </span>
 
-
+</div>
 
 </div>
 
 
-</div>
+
 
 <div class="item">
 
@@ -663,7 +647,6 @@ EUR یورو
 
 
 <div class="price-line">
-
 
 <span>
 
@@ -697,12 +680,9 @@ EUR یورو
 
 </span>
 
-
 </div>
 
-
 </div>
-
 
 
 
@@ -718,7 +698,6 @@ AED درهم امارات
 
 <div class="price-line">
 
-
 <span>
 
 خرید:
@@ -751,13 +730,9 @@ AED درهم امارات
 
 </span>
 
-
 </div>
 
-
 </div>
-
-
 
 
 
@@ -772,7 +747,6 @@ GBP پوند انگلیس
 
 <div class="price-line">
 
-
 <span>
 
 خرید:
@@ -805,12 +779,9 @@ GBP پوند انگلیس
 
 </span>
 
-
 </div>
 
-
 </div>
-
 
 
 
@@ -826,7 +797,6 @@ CAD دلار کانادا
 
 <div class="price-line">
 
-
 <span>
 
 خرید:
@@ -859,12 +829,9 @@ CAD دلار کانادا
 
 </span>
 
-
 </div>
 
-
 </div>
-
 
 
 
@@ -880,7 +847,6 @@ TRY لیر ترکیه
 
 <div class="price-line">
 
-
 <span>
 
 خرید:
@@ -913,12 +879,9 @@ TRY لیر ترکیه
 
 </span>
 
-
 </div>
 
-
 </div>
-
 
 
 
@@ -934,7 +897,6 @@ CNY یوان چین
 
 <div class="price-line">
 
-
 <span>
 
 خرید:
@@ -967,15 +929,12 @@ CNY یوان چین
 
 </span>
 
+</div>
 
 </div>
 
 
 </div>
-
-
-</div>
-
 
 
 
@@ -983,7 +942,6 @@ CNY یوان چین
 
 
 <div class="card">
-
 
 <div class="title">
 
@@ -1016,15 +974,11 @@ CNY یوان چین
 
 </span>
 
+</div>
 
 </div>
 
-
 </div>
-
-
-</div>
-
 
 
 
@@ -1032,7 +986,6 @@ CNY یوان چین
 
 
 <div class="card">
-
 
 <div class="title">
 
@@ -1065,15 +1018,11 @@ CNY یوان چین
 
 </span>
 
+</div>
 
 </div>
 
-
 </div>
-
-
-</div>
-
 
 
 
@@ -1104,7 +1053,6 @@ CNY یوان چین
 
 
 
-
 <div class="creator">
 
 
@@ -1128,14 +1076,11 @@ Support: 09178649970
 
 
 
-
-
 <div class="footer">
 
 HASINEH MARKET © ۱۴۰۵
 
 </div>
-
 
 
 
@@ -1207,6 +1152,7 @@ weekday:"long"
 
 
 
+
 document.getElementById("lunar").innerHTML =
 
 "تاریخ قمری: " +
@@ -1229,6 +1175,10 @@ day:"numeric"
 
 
 
+checkHoliday(iran);
+
+
+
 document.getElementById("update").innerHTML =
 
 "آخرین بروزرسانی: " +
@@ -1236,20 +1186,87 @@ document.getElementById("update").innerHTML =
 iran.toLocaleTimeString("fa-IR");
 
 
+}
 
-document.getElementById("last-change").innerHTML =
 
-iran.toLocaleTimeString("fa-IR");
 
+
+function checkHoliday(date){
+
+
+let box=document.getElementById("holiday");
+
+let message="";
+
+
+let month=date.getMonth()+1;
+
+let day=date.getDate();
+
+
+
+// نوروز
+
+if(month===3 && day===21){
+
+message="🌱 نوروز مبارک 🌱<br>سال نو بر شما مبارک";
+
+}
+
+
+
+
+// رمضان
+
+let lunar=date.toLocaleDateString(
+
+"fa-IR-u-ca-islamic",
+
+{
+
+month:"numeric"
+
+}
+
+);
+
+
+
+if(message===""){
+
+if(lunar.includes("9")){
+
+message="🌙 رمضان کریم 🌙<br>قبول طاعات و عبادات";
+
+}
+
+}
+
+
+
+if(message!==""){
+
+box.style.display="block";
+
+box.innerHTML=message;
+
+}else{
+
+box.style.display="none";
+
+}
 
 
 }
 
 
 
+
+
 setInterval(updateTime,1000);
 
 updateTime();
+
 
 
 </script>
