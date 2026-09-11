@@ -1,29 +1,65 @@
 <!-- ==========================
- HASINEH MARKET V46
- PREMIUM MARKET SUMMARY
+ HASINEH MARKET V47
+ MARKET TREND VISUALIZER
 ========================== -->
 
 
-<div class="box summary-board-box">
+<div class="box trend-box">
 
 
-<div class="box-title summary-board-title">
+<div class="box-title trend-title">
 
-📊 HASINEH MARKET SUMMARY V46
+📈 HASINEH MARKET TREND V47
 
 </div>
 
 
 
-<div class="summary-row">
+<div class="trend-main">
 
-<span>
-ساعت ایران:
-</span>
+
+<div class="trend-icon" id="trend-icon-v47">
+
+⚖️
+
+</div>
+
+
+
+<div class="trend-text">
+
+
+<div id="trend-status-v47">
+
+بازار پایدار
+
+</div>
+
+
+<div id="trend-description-v47">
+
+WAITING DATA
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="trend-items">
+
+
+<div>
+
+طلا:
 
 <span 
-class="status-gold"
-id="iran-clock-v46">
+id="gold-trend-v47">
 
 ---
 
@@ -33,16 +69,12 @@ id="iran-clock-v46">
 
 
 
+<div>
 
-<div class="summary-row">
-
-<span>
-تاریخ شمسی:
-</span>
+سکه:
 
 <span 
-class="status-gold"
-id="solar-date-v46">
+id="coin-trend-v47">
 
 ---
 
@@ -52,35 +84,12 @@ id="solar-date-v46">
 
 
 
+<div>
 
-<div class="summary-row">
-
-<span>
-وضعیت بازار:
-</span>
+ارز:
 
 <span 
-class="status-green"
-id="market-live-v46">
-
-🟢 ACTIVE
-
-</span>
-
-</div>
-
-
-
-
-<div class="summary-row">
-
-<span>
-آخرین بروزرسانی:
-</span>
-
-<span 
-class="status-gold"
-id="last-update-v46">
+id="currency-trend-v47">
 
 ---
 
@@ -90,36 +99,19 @@ id="last-update-v46">
 
 
 
-
-<div class="summary-row">
-
-<span>
-سیستم:
-</span>
-
-<span 
-class="status-green"
-id="system-v46">
-
-🟢 ONLINE
-
-</span>
-
 </div>
 
 
-
 </div>
-
 
 
 /* ==========================
- HASINEH MARKET V46
- PREMIUM SUMMARY STYLE
+ HASINEH MARKET V47
+ MARKET TREND STYLE
 ========================== */
 
 
-.summary-board-box{
+.trend-box{
 
 margin:20px auto;
 
@@ -133,8 +125,8 @@ background:
 
 linear-gradient(
 145deg,
-#070707,
-#141414
+#080808,
+#151515
 );
 
 border:1px solid #d4af37;
@@ -147,7 +139,7 @@ box-shadow:
 
 
 
-.summary-board-title{
+.trend-title{
 
 font-size:20px;
 
@@ -157,39 +149,93 @@ color:#ffd700;
 
 text-align:center;
 
-margin-bottom:18px;
+margin-bottom:20px;
 
 }
 
 
 
-.summary-row{
+.trend-main{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:15px;
+
+padding:15px;
+
+border-radius:20px;
+
+background:#101010;
+
+border:1px solid rgba(212,175,55,0.25);
+
+}
+
+
+
+.trend-icon{
+
+font-size:35px;
+
+}
+
+
+
+.trend-text{
+
+text-align:right;
+
+}
+
+
+
+#trend-status-v47{
+
+color:#ffd700;
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+
+
+#trend-description-v47{
+
+color:#999;
+
+font-size:13px;
+
+margin-top:5px;
+
+}
+
+
+
+.trend-items{
+
+margin-top:18px;
+
+}
+
+
+
+.trend-items div{
 
 display:flex;
 
 justify-content:space-between;
 
-align-items:center;
-
-padding:11px 5px;
+padding:10px 5px;
 
 border-bottom:
 
-1px solid rgba(212,175,55,0.18);
-
-}
-
-
-
-.summary-row:last-child{
-
-border-bottom:none;
-
-}
-
-
-
-.summary-row span:first-child{
+1px solid rgba(212,175,55,0.15);
 
 color:#ffffff;
 
@@ -199,15 +245,15 @@ font-weight:bold;
 
 
 
-.summary-row span:last-child{
+.trend-items div:last-child{
 
-font-weight:bold;
+border-bottom:none;
 
 }
 
 
 
-.summary-live{
+.trend-up{
 
 color:#00ff88;
 
@@ -215,15 +261,7 @@ color:#00ff88;
 
 
 
-.summary-warning{
-
-color:#ffd700;
-
-}
-
-
-
-.summary-offline{
+.trend-down{
 
 color:#ff5555;
 
@@ -231,100 +269,82 @@ color:#ff5555;
 
 
 
-/* جلوه ظریف تابلو */
+.trend-stable{
 
-.summary-board-box:hover{
-
-box-shadow:
-
-0 0 45px rgba(212,175,55,0.45);
+color:#ffd700;
 
 }
-
 
 
 /* ==========================
- HASINEH MARKET V46
- PREMIUM SUMMARY ENGINE
+ HASINEH MARKET V47
+ MARKET TREND ENGINE
 ========================== */
 
 
-const HASINEH_SUMMARY_V46 = {
+const HASINEH_TREND_V47 = {
 
 
-status:"ACTIVE",
+market:"STABLE",
 
-system:"ONLINE",
+gold:"WAITING",
 
+coin:"WAITING",
 
-
-update:function(){
-
-
-
-let now = new Date();
+currency:"WAITING",
 
 
 
+analyze:function(){
 
-let clock =
+
+
+let icon =
 document.getElementById(
-"iran-clock-v46"
+"trend-icon-v47"
 );
 
 
 
-if(clock){
-
-clock.innerHTML =
-now.toLocaleTimeString(
-"fa-IR",
-{
-hour:"2-digit",
-minute:"2-digit",
-second:"2-digit"
-}
-);
-
-}
-
-
-
-
-
-let date =
+let status =
 document.getElementById(
-"solar-date-v46"
+"trend-status-v47"
 );
 
 
 
-if(date){
-
-date.innerHTML =
-now.toLocaleDateString(
-"fa-IR"
+let description =
+document.getElementById(
+"trend-description-v47"
 );
+
+
+
+
+if(icon){
+
+icon.innerHTML =
+"⚖️";
 
 }
 
 
 
 
+if(status){
 
-let update =
-document.getElementById(
-"last-update-v46"
-);
+status.innerHTML =
+"بازار پایدار";
+
+}
 
 
 
-if(update){
 
-update.innerHTML =
-now.toLocaleTimeString(
-"fa-IR"
-);
+if(description){
+
+description.innerHTML =
+"WAITING DATA";
 
 }
 
@@ -332,17 +352,17 @@ now.toLocaleTimeString(
 
 
 
-let live =
+let gold =
 document.getElementById(
-"market-live-v46"
+"gold-trend-v47"
 );
 
 
 
-if(live){
+if(gold){
 
-live.innerHTML =
-"🟢 ACTIVE";
+gold.innerHTML =
+"⚖️ STABLE";
 
 }
 
@@ -350,17 +370,35 @@ live.innerHTML =
 
 
 
-let system =
+let coin =
 document.getElementById(
-"system-v46"
+"coin-trend-v47"
 );
 
 
 
-if(system){
+if(coin){
 
-system.innerHTML =
-"🟢 ONLINE";
+coin.innerHTML =
+"⚖️ STABLE";
+
+}
+
+
+
+
+
+let currency =
+document.getElementById(
+"currency-trend-v47"
+);
+
+
+
+if(currency){
+
+currency.innerHTML =
+"⚖️ STABLE";
 
 }
 
@@ -377,13 +415,13 @@ system.innerHTML =
 
 
 
-function hasinehSummaryMonitorV46(){
+function hasinehTrendMonitorV47(){
 
 
 try{
 
 
-HASINEH_SUMMARY_V46.update();
+HASINEH_TREND_V47.analyze();
 
 
 
@@ -393,7 +431,7 @@ catch(error){
 
 
 console.log(
-"HASINEH SUMMARY V46 ERROR"
+"HASINEH TREND V47 ERROR"
 );
 
 
@@ -409,9 +447,9 @@ console.log(
 
 setInterval(
 
-hasinehSummaryMonitorV46,
+hasinehTrendMonitorV47,
 
-1000
+15000
 
 );
 
@@ -419,4 +457,4 @@ hasinehSummaryMonitorV46,
 
 
 
-hasinehSummaryMonitorV46();
+hasinehTrendMonitorV47();
