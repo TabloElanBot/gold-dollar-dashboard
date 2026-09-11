@@ -1,169 +1,309 @@
 <!-- ==========================
- HASINEH MARKET V44
- PREMIUM BRAND HEADER
+ HASINEH MARKET V45
+ CURRENCY DISPLAY CARDS
 ========================== -->
 
 
-<div class="box premium-header-box">
+<div class="box currency-display-box">
 
 
-<div class="brand-logo-v44">
+<div class="box-title currency-display-title">
 
-HASINEH MARKET
-
-</div>
-
-
-
-<div class="brand-subtitle-v44">
-
-SMART GOLD & CURRENCY BOARD
+💵 HASINEH CURRENCY MARKET V45
 
 </div>
 
 
 
-<div class="brand-location-v44">
+<div class="currency-card-grid">
 
-Bandar Hasineh
+
+
+<div class="currency-card">
+
+<div class="card-name">
+
+دلار آمریکا
+
+</div>
+
+<div class="card-info">
+
+USD 🇺🇸
+
+</div>
+
+<div class="card-price" id="usd-display-v45">
+
+---
+
+</div>
 
 </div>
 
 
 
-<div class="brand-line-v44"></div>
+
+<div class="currency-card">
+
+<div class="card-name">
+
+یورو
+
+</div>
+
+<div class="card-info">
+
+EUR 🇪🇺
+
+</div>
+
+<div class="card-price" id="eur-display-v45">
+
+---
+
+</div>
+
+</div>
 
 
 
-<div class="brand-status-v44">
 
-🟢 LIVE MARKET SYSTEM
+<div class="currency-card">
+
+<div class="card-name">
+
+درهم امارات
+
+</div>
+
+<div class="card-info">
+
+AED 🇦🇪
+
+</div>
+
+<div class="card-price" id="aed-display-v45">
+
+---
+
+</div>
+
+</div>
+
+
+
+
+<div class="currency-card">
+
+<div class="card-name">
+
+پوند انگلیس
+
+</div>
+
+<div class="card-info">
+
+GBP 🇬🇧
+
+</div>
+
+<div class="card-price" id="gbp-display-v45">
+
+---
+
+</div>
+
+</div>
+
+
+
+
+<div class="currency-card">
+
+<div class="card-name">
+
+لیر ترکیه
+
+</div>
+
+<div class="card-info">
+
+TRY 🇹🇷
+
+</div>
+
+<div class="card-price" id="try-display-v45">
+
+---
+
+</div>
+
+</div>
+
+
+
+
+<div class="currency-card">
+
+<div class="card-name">
+
+یوان چین
+
+</div>
+
+<div class="card-info">
+
+CNY 🇨🇳
+
+</div>
+
+<div class="card-price" id="cny-display-v45">
+
+---
+
+</div>
 
 </div>
 
 
 
 </div>
+
+
+</div>
+
 
 
 /* ==========================
- HASINEH MARKET V44
- PREMIUM HEADER STYLE
+ HASINEH MARKET V45
+ CURRENCY DISPLAY STYLE
 ========================== */
 
 
-.premium-header-box{
+.currency-display-box{
 
 margin:20px auto;
 
 max-width:520px;
 
-padding:30px 20px;
+padding:22px;
 
-border-radius:32px;
+border-radius:28px;
 
 background:
 
 linear-gradient(
 145deg,
-#050505,
-#151515
+#080808,
+#121212
 );
 
 border:1px solid #d4af37;
 
 box-shadow:
 
-0 0 35px rgba(212,175,55,0.35);
-
-text-align:center;
+0 0 30px rgba(212,175,55,0.30);
 
 }
 
 
 
-/* لوگوی اصلی */
+.currency-display-title{
 
-.brand-logo-v44{
+font-size:20px;
 
-font-size:32px;
-
-font-weight:700;
-
-letter-spacing:3px;
+font-weight:bold;
 
 color:#ffd700;
 
-text-shadow:
+text-align:center;
 
-0 0 15px rgba(212,175,55,0.45);
-
-font-family:
-
-"Georgia",
-serif;
+margin-bottom:18px;
 
 }
 
 
 
-/* زیر عنوان */
+.currency-card-grid{
 
-.brand-subtitle-v44{
+display:grid;
 
-margin-top:8px;
+grid-template-columns:repeat(2,1fr);
+
+gap:12px;
+
+}
+
+
+
+.currency-card{
+
+background:#101010;
+
+border:
+
+1px solid rgba(212,175,55,0.45);
+
+border-radius:20px;
+
+padding:15px;
+
+text-align:center;
+
+transition:0.3s;
+
+}
+
+
+
+.currency-card:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+
+0 0 18px rgba(212,175,55,0.35);
+
+}
+
+
+
+.currency-card .card-name{
+
+color:#ffffff;
+
+font-size:16px;
+
+font-weight:bold;
+
+}
+
+
+
+.currency-card .card-info{
+
+color:#999;
 
 font-size:13px;
 
-color:#dddddd;
-
-letter-spacing:1.5px;
+margin-top:5px;
 
 }
 
 
 
-/* موقعیت */
+.currency-card .card-price{
 
-.brand-location-v44{
+color:#ffd700;
+
+font-size:18px;
+
+font-weight:bold;
 
 margin-top:10px;
 
-font-size:14px;
-
-color:#b9b9b9;
-
-}
-
-
-
-/* خط جداکننده */
-
-.brand-line-v44{
-
-width:70%;
-
-height:1px;
-
-margin:18px auto;
-
-background:#d4af37;
-
-opacity:0.5;
-
-}
-
-
-
-/* وضعیت سیستم */
-
-.brand-status-v44{
-
-font-size:14px;
-
-color:#00ff88;
-
-font-weight:bold;
+direction:ltr;
 
 }
 
@@ -172,105 +312,178 @@ font-weight:bold;
 @media(max-width:450px){
 
 
-.brand-logo-v44{
+.currency-card-grid{
 
-font-size:25px;
-
-letter-spacing:2px;
+grid-template-columns:1fr;
 
 }
 
 
 }
+
 
 
 
 /* ==========================
- HASINEH MARKET V44
- CREATOR SIGNATURE STYLE
+ HASINEH MARKET V45
+ CURRENCY DISPLAY ENGINE
 ========================== */
 
 
-.brand-footer-v44{
+const HASINEH_CURRENCY_DISPLAY_V45 = {
 
-margin:25px auto 10px;
 
-max-width:520px;
+items:{
 
-padding:15px;
 
-display:flex;
+usd:{
+price:"---"
+},
 
-justify-content:space-between;
 
-align-items:center;
+eur:{
+price:"---"
+},
 
-background:#080808;
 
-border-top:1px solid rgba(212,175,55,0.3);
+aed:{
+price:"---"
+},
+
+
+gbp:{
+price:"---"
+},
+
+
+try:{
+price:"---"
+},
+
+
+cny:{
+price:"---"
+}
+
+
+},
+
+
+
+
+render:function(){
+
+
+
+let currencies = {
+
+
+"usd-display-v45":
+this.items.usd.price,
+
+
+
+"eur-display-v45":
+this.items.eur.price,
+
+
+
+"aed-display-v45":
+this.items.aed.price,
+
+
+
+"gbp-display-v45":
+this.items.gbp.price,
+
+
+
+"try-display-v45":
+this.items.try.price,
+
+
+
+"cny-display-v45":
+this.items.cny.price
+
+
+};
+
+
+
+
+for(let id in currencies){
+
+
+let item =
+document.getElementById(id);
+
+
+
+if(item){
+
+item.innerHTML =
+currencies[id] + " تومان";
 
 }
 
 
 
-.creator-signature-v44{
+}
 
-text-align:left;
 
-font-size:11px;
-
-color:#888;
-
-line-height:1.8;
 
 }
 
 
 
-.creator-signature-v44 span{
+};
 
-color:rgba(212,175,55,0.7);
 
-font-size:13px;
 
-font-weight:bold;
+
+
+
+function hasinehCurrencyDisplayMonitorV45(){
+
+
+try{
+
+
+HASINEH_CURRENCY_DISPLAY_V45.render();
+
+
+
+}
+
+catch(error){
+
+
+console.log(
+"HASINEH CURRENCY DISPLAY V45 ERROR"
+);
+
+
 
 }
 
 
 
-.qr-space-v44{
-
-width:55px;
-
-height:55px;
-
-border:1px solid rgba(212,175,55,0.5);
-
-border-radius:8px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:12px;
-
-color:#777;
-
 }
 
 
 
-.creator-info-v44{
 
-text-align:right;
+setInterval(
 
-font-size:10px;
+hasinehCurrencyDisplayMonitorV45,
 
-color:#777;
+15000
 
-line-height:1.7;
+);
 
-}
+
+
+
+
+hasinehCurrencyDisplayMonitorV45();
