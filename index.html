@@ -1,15 +1,15 @@
 <!-- ==========================
- HASINEH MARKET V33
- DATA STATUS PANEL
+ HASINEH MARKET V34
+ CORE DATA ENGINE PANEL
 ========================== -->
 
 
-<div class="box data-status-box">
+<div class="box data-core-box">
 
 
-<div class="box-title data-status-title">
+<div class="box-title data-core-title">
 
-📊 HASINEH DATA STATUS V33
+⚙️ HASINEH CORE DATA ENGINE V34
 
 </div>
 
@@ -17,11 +17,11 @@
 
 <div>
 
-وضعیت موتور داده:
+وضعیت هسته:
 
-<span class="status-green" id="engine-status-v33">
+<span class="status-green" id="core-engine-v34">
 
-🟢 ACTIVE
+🟢 ONLINE
 
 </span>
 
@@ -32,26 +32,11 @@
 
 <div>
 
-آخرین بروزرسانی:
+دریافت داده:
 
-<span class="status-gold" id="data-update-v33">
+<span class="status-gold" id="data-fetch-v34">
 
----
-
-</span>
-
-</div>
-
-
-
-
-<div>
-
-منبع داده:
-
-<span class="status-gold" id="source-v33">
-
-API CONNECTOR
+WAITING
 
 </span>
 
@@ -62,9 +47,24 @@ API CONNECTOR
 
 <div>
 
-وضعیت اتصال:
+تعداد ماژول فعال:
 
-<span class="status-green" id="connection-v33">
+<span class="status-gold" id="module-count-v34">
+
+4 MODULES
+
+</span>
+
+</div>
+
+
+
+
+<div>
+
+آمادگی API:
+
+<span class="status-green" id="api-ready-v34">
 
 READY
 
@@ -74,30 +74,15 @@ READY
 
 
 
-<div>
-
-نسخه موتور:
-
-<span class="status-gold">
-
-V33 DATA ENGINE
-
-</span>
-
 </div>
-
-
-
-</div>
-
 
 /* ==========================
- HASINEH MARKET V33
- DATA STATUS STYLE
+ HASINEH MARKET V34
+ CORE DATA ENGINE STYLE
 ========================== */
 
 
-.data-status-box{
+.data-core-box{
 
 margin:20px auto;
 
@@ -113,13 +98,13 @@ border:1px solid #d4af37;
 
 line-height:2;
 
-box-shadow:0 0 15px rgba(212,175,55,0.25);
+box-shadow:0 0 18px rgba(212,175,55,0.25);
 
 }
 
 
 
-.data-status-title{
+.data-core-title{
 
 font-size:18px;
 
@@ -129,13 +114,21 @@ color:#ffd700;
 
 text-align:center;
 
-margin-bottom:10px;
+margin-bottom:12px;
 
 }
 
 
 
-.status-green{
+.data-core-box div{
+
+margin:6px 0;
+
+}
+
+
+
+.core-online{
 
 color:#00ff88;
 
@@ -145,7 +138,7 @@ font-weight:bold;
 
 
 
-.status-gold{
+.core-waiting{
 
 color:#ffd700;
 
@@ -155,25 +148,7 @@ font-weight:bold;
 
 
 
-.status-gray{
-
-color:#aaa;
-
-}
-
-
-
-.data-status-box div{
-
-margin:6px 0;
-
-}
-
-
-
-/* وضعیت خطا یا قطع ارتباط */
-
-.api-error{
+.core-error{
 
 color:#ff5555;
 
@@ -181,101 +156,97 @@ font-weight:bold;
 
 }
 
-
 /* ==========================
- HASINEH MARKET V33
- LIVE DATA STATUS ENGINE
+ HASINEH MARKET V34
+ CORE DATA ENGINE
 ========================== */
 
 
-const HASINEH_STATUS_V33 = {
+const HASINEH_CORE_V34 = {
 
 
-engine:"ACTIVE",
+engine:"ONLINE",
 
-connection:"READY",
+fetchStatus:"WAITING",
 
-source:"API CONNECTOR",
+modules:4,
 
-lastUpdate:null,
-
-
-
-refresh:function(){
-
-
-this.lastUpdate = new Date();
+api:"READY",
 
 
 
-let update =
+start:function(){
+
+
+let engine =
 document.getElementById(
-"data-update-v33"
+"core-engine-v34"
 );
 
 
 
-if(update){
+if(engine){
 
-update.innerHTML =
-this.lastUpdate.toLocaleTimeString("fa-IR");
+engine.innerHTML =
+"🟢 ONLINE";
 
 }
 
 
 
 
-let status =
+let fetch =
 document.getElementById(
-"engine-status-v33"
+"data-fetch-v34"
 );
 
 
 
-if(status){
+if(fetch){
 
-status.innerHTML =
-"🟢 ACTIVE";
+fetch.innerHTML =
+"WAITING";
 
 }
 
 
 
 
-let connect =
+let modules =
 document.getElementById(
-"connection-v33"
+"module-count-v34"
 );
 
 
 
-if(connect){
+if(modules){
 
-connect.innerHTML =
+modules.innerHTML =
+this.modules + " MODULES";
+
+}
+
+
+
+
+let api =
+document.getElementById(
+"api-ready-v34"
+);
+
+
+
+if(api){
+
+api.innerHTML =
 "READY";
 
 }
 
 
 
-
-let source =
-document.getElementById(
-"source-v33"
-);
-
-
-
-if(source){
-
-source.innerHTML =
-"API CONNECTOR";
-
 }
 
-
-
-}
 
 
 
@@ -286,13 +257,13 @@ source.innerHTML =
 
 
 
-function hasinehV33Monitor(){
+function hasinehCoreMonitorV34(){
 
 
 try{
 
 
-HASINEH_STATUS_V33.refresh();
+HASINEH_CORE_V34.start();
 
 
 
@@ -302,7 +273,7 @@ catch(error){
 
 
 console.log(
-"HASINEH V33 MONITOR ERROR"
+"HASINEH CORE V34 ERROR"
 );
 
 
@@ -318,9 +289,9 @@ console.log(
 
 setInterval(
 
-hasinehV33Monitor,
+hasinehCoreMonitorV34,
 
-10000
+15000
 
 );
 
@@ -328,4 +299,4 @@ hasinehV33Monitor,
 
 
 
-hasinehV33Monitor();
+hasinehCoreMonitorV34();
