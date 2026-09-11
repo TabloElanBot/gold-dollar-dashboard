@@ -1,22 +1,35 @@
 <!-- ==========================
- HASINEH MARKET V37
- GOLD MARKET DATA MODEL
+ HASINEH MARKET V38
+ GOLD PRICE BOARD
 ========================== -->
 
 
-<div class="box gold-model-box">
+<div class="box gold-board-box">
 
 
-<div class="box-title gold-model-title">
+<div class="box-title gold-board-title">
 
-📈 HASINEH GOLD MARKET MODEL V37
+🪙 HASINEH GOLD PRICE BOARD V38
 
 </div>
 
 
 
 
-<div class="market-row">
+<div class="board-header">
+
+<span>عنوان</span>
+
+<span>قیمت</span>
+
+<span>تغییر</span>
+
+</div>
+
+
+
+
+<div class="board-row">
 
 <span>
 طلای ۱۸ عیار
@@ -24,14 +37,14 @@
 
 <span 
 class="status-gold"
-id="model-gold18-v37">
+id="board-gold18-v38">
 
 ---
 
 </span>
 
 <span
-id="change-gold18-v37">
+id="board-change-gold18-v38">
 
 ---
 
@@ -42,7 +55,7 @@ id="change-gold18-v37">
 
 
 
-<div class="market-row">
+<div class="board-row">
 
 <span>
 سکه امامی
@@ -50,14 +63,14 @@ id="change-gold18-v37">
 
 <span 
 class="status-gold"
-id="model-emami-v37">
+id="board-emami-v38">
 
 ---
 
 </span>
 
 <span
-id="change-emami-v37">
+id="board-change-emami-v38">
 
 ---
 
@@ -68,22 +81,22 @@ id="change-emami-v37">
 
 
 
-<div class="market-row">
+<div class="board-row">
 
 <span>
-آبشده
+نیم سکه
 </span>
 
 <span 
 class="status-gold"
-id="model-abshode-v37">
+id="board-nim-v38">
 
 ---
 
 </span>
 
 <span
-id="change-abshode-v37">
+id="board-change-nim-v38">
 
 ---
 
@@ -94,15 +107,24 @@ id="change-abshode-v37">
 
 
 
-<div>
+<div class="board-row">
 
-وضعیت بازار:
+<span>
+ربع سکه
+</span>
 
 <span 
-class="status-green"
-id="market-trend-v37">
+class="status-gold"
+id="board-rob-v38">
 
-🟢 STABLE
+---
+
+</span>
+
+<span
+id="board-change-rob-v38">
+
+---
 
 </span>
 
@@ -112,37 +134,38 @@ id="market-trend-v37">
 
 </div>
 
+
 /* ==========================
- HASINEH MARKET V37
- GOLD MARKET MODEL STYLE
+ HASINEH MARKET V38
+ GOLD PRICE BOARD STYLE
 ========================== */
 
 
-.gold-model-box{
+.gold-board-box{
 
 margin:20px auto;
 
-max-width:420px;
+max-width:460px;
 
 padding:20px;
 
 border-radius:25px;
 
-background:#090909;
+background:#080808;
 
 border:1px solid #d4af37;
 
-line-height:2;
+box-shadow:0 0 25px rgba(212,175,55,0.35);
 
-box-shadow:0 0 20px rgba(212,175,55,0.35);
+line-height:2;
 
 }
 
 
 
-.gold-model-title{
+.gold-board-title{
 
-font-size:19px;
+font-size:20px;
 
 font-weight:bold;
 
@@ -156,7 +179,25 @@ margin-bottom:15px;
 
 
 
-.market-row{
+.board-header{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:8px;
+
+border-bottom:1px solid #d4af37;
+
+color:#ffd700;
+
+font-weight:bold;
+
+}
+
+
+
+.board-row{
 
 display:flex;
 
@@ -164,23 +205,15 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:8px 0;
+padding:10px 8px;
 
-border-bottom:1px solid rgba(212,175,55,0.2);
-
-}
-
-
-
-.market-row:last-child{
-
-border-bottom:none;
+border-bottom:1px solid rgba(212,175,55,0.18);
 
 }
 
 
 
-.market-row span:first-child{
+.board-row span:first-child{
 
 color:#ffffff;
 
@@ -190,7 +223,17 @@ font-weight:bold;
 
 
 
-.market-up{
+.board-row span:nth-child(2){
+
+color:#ffd700;
+
+font-weight:bold;
+
+}
+
+
+
+.change-up{
 
 color:#00ff88;
 
@@ -200,7 +243,7 @@ font-weight:bold;
 
 
 
-.market-down{
+.change-down{
 
 color:#ff5555;
 
@@ -210,7 +253,7 @@ font-weight:bold;
 
 
 
-.market-neutral{
+.change-flat{
 
 color:#ffd700;
 
@@ -219,36 +262,40 @@ font-weight:bold;
 }
 
 
+
 /* ==========================
- HASINEH MARKET V37
- GOLD MARKET DATA ENGINE
+ HASINEH MARKET V38
+ GOLD PRICE BOARD ENGINE
 ========================== */
 
 
-const HASINEH_GOLD_MODEL_V37 = {
+const HASINEH_GOLD_BOARD_V38 = {
 
 
-data:{
+prices:{
 
 
 gold18:{
 price:"---",
-change:"---",
-trend:"STABLE"
+change:"---"
 },
 
 
 emami:{
 price:"---",
-change:"---",
-trend:"STABLE"
+change:"---"
 },
 
 
-abshode:{
+nim:{
 price:"---",
-change:"---",
-trend:"STABLE"
+change:"---"
+},
+
+
+rob:{
+price:"---",
+change:"---"
 }
 
 
@@ -256,37 +303,46 @@ trend:"STABLE"
 
 
 
-update:function(){
+render:function(){
 
 
 
-let items = {
+let board = {
 
 
-"model-gold18-v37":
-this.data.gold18.price,
+"board-gold18-v38":
+this.prices.gold18.price,
 
 
-"change-gold18-v37":
-this.data.gold18.change,
-
-
-
-"model-emami-v37":
-this.data.emami.price,
-
-
-"change-emami-v37":
-this.data.emami.change,
+"board-change-gold18-v38":
+this.prices.gold18.change,
 
 
 
-"model-abshode-v37":
-this.data.abshode.price,
+"board-emami-v38":
+this.prices.emami.price,
 
 
-"change-abshode-v37":
-this.data.abshode.change
+"board-change-emami-v38":
+this.prices.emami.change,
+
+
+
+"board-nim-v38":
+this.prices.nim.price,
+
+
+"board-change-nim-v38":
+this.prices.nim.change,
+
+
+
+"board-rob-v38":
+this.prices.rob.price,
+
+
+"board-change-rob-v38":
+this.prices.rob.change
 
 
 };
@@ -294,38 +350,22 @@ this.data.abshode.change
 
 
 
-for(let id in items){
+for(let id in board){
 
 
-let element =
+let item =
 document.getElementById(id);
 
 
 
-if(element){
+if(item){
 
-element.innerHTML =
-items[id];
-
-}
-
+item.innerHTML =
+board[id];
 
 }
 
 
-
-
-let trend =
-document.getElementById(
-"market-trend-v37"
-);
-
-
-
-if(trend){
-
-trend.innerHTML =
-"🟢 STABLE";
 
 }
 
@@ -342,13 +382,13 @@ trend.innerHTML =
 
 
 
-function hasinehGoldModelMonitorV37(){
+function hasinehGoldBoardMonitorV38(){
 
 
 try{
 
 
-HASINEH_GOLD_MODEL_V37.update();
+HASINEH_GOLD_BOARD_V38.render();
 
 
 
@@ -358,7 +398,7 @@ catch(error){
 
 
 console.log(
-"HASINEH GOLD MODEL V37 ERROR"
+"HASINEH GOLD BOARD V38 ERROR"
 );
 
 
@@ -374,7 +414,7 @@ console.log(
 
 setInterval(
 
-hasinehGoldModelMonitorV37,
+hasinehGoldBoardMonitorV38,
 
 15000
 
@@ -384,4 +424,4 @@ hasinehGoldModelMonitorV37,
 
 
 
-hasinehGoldModelMonitorV37();
+hasinehGoldBoardMonitorV38();
