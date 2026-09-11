@@ -14,7 +14,6 @@ color:white;
 font-family:Tahoma,Arial,sans-serif;
 }
 
-
 .header{
 text-align:center;
 padding:25px 10px;
@@ -22,43 +21,37 @@ background:#111;
 border-bottom:2px solid gold;
 }
 
-
 .logo{
 font-size:40px;
 font-weight:bold;
 color:#ffd700;
 }
 
-
 .subtitle{
-margin-top:10px;
 color:#ddd;
+margin-top:10px;
 }
 
-
 .live{
-margin:15px auto;
 display:inline-block;
+margin-top:15px;
 padding:6px 18px;
 border-radius:20px;
 background:#063b1c;
 color:#00ff88;
 }
 
-
 .date-box{
 margin-top:15px;
 line-height:2;
-color:#ccc;
+color:#bbb;
 font-size:14px;
 }
-
 
 
 .container{
 padding:15px;
 }
-
 
 
 .card{
@@ -70,14 +63,12 @@ margin-bottom:18px;
 }
 
 
-
 .title{
 text-align:center;
 color:#ffd700;
 font-size:25px;
 margin-bottom:15px;
 }
-
 
 
 .row{
@@ -89,29 +80,22 @@ border-bottom:1px solid #292929;
 }
 
 
-
 .up{
 color:#00ff88;
 }
 
-
-
 .down{
 color:#ff4444;
 }
-
-
 
 .same{
 color:#aaa;
 }
 
 
-
 .price{
 font-weight:bold;
 }
-
 
 
 .qr{
@@ -130,8 +114,26 @@ color:#888;
 .creator{
 
 text-align:center;
+margin-top:25px;
+margin-bottom:25px;
+}
+
+
+.creator-name{
+
+font-size:13px;
+letter-spacing:1px;
+color:#777;
+
+}
+
+
+.support{
+
 font-size:12px;
 color:#555;
+margin-top:8px;
+letter-spacing:1px;
 
 }
 
@@ -158,14 +160,13 @@ color:#777;
 
 <div class="header">
 
-
 <div class="logo">
 HASINEH MARKET
 </div>
 
 
 <div class="subtitle">
-تابلو آنلاین طلا، ارز و بازارهای مالی
+Online Gold, Currency & Market Dashboard
 </div>
 
 
@@ -174,21 +175,19 @@ HASINEH MARKET
 </div>
 
 
-
 <div class="date-box">
 
 <div id="solar">
-در حال دریافت تاریخ شمسی...
+تاریخ شمسی
 </div>
 
 <div id="clock">
-در حال دریافت ساعت ایران...
+ساعت ایران
 </div>
 
 <div id="lunar">
-در حال دریافت تاریخ قمری...
+تاریخ قمری
 </div>
-
 
 </div>
 
@@ -212,21 +211,21 @@ HASINEH MARKET
 
 <div class="row">
 <span>طلای ۱۸ عیار</span>
-<span class="price">---</span>
+<span>---</span>
 <span class="up">▲ ---</span>
 </div>
 
 
 <div class="row">
 <span>مثقال طلا</span>
-<span class="price">---</span>
+<span>---</span>
 <span class="down">▼ ---</span>
 </div>
 
 
 <div class="row">
 <span>طلای ۲۴ عیار</span>
-<span class="price">---</span>
+<span>---</span>
 <span class="same">● ---</span>
 </div>
 
@@ -245,56 +244,49 @@ HASINEH MARKET
 
 
 <div class="row">
-<span>دلار USD</span>
+<span>USD دلار</span>
 <span>---</span>
 <span class="up">▲</span>
 </div>
 
-
 <div class="row">
-<span>یورو EUR</span>
+<span>EUR یورو</span>
 <span>---</span>
 <span class="down">▼</span>
 </div>
 
-
 <div class="row">
-<span>درهم AED</span>
+<span>AED درهم</span>
 <span>---</span>
 <span class="same">●</span>
 </div>
 
-
 <div class="row">
-<span>پوند GBP</span>
+<span>GBP پوند</span>
 <span>---</span>
 <span class="same">●</span>
 </div>
 
-
 <div class="row">
-<span>دلار کانادا CAD</span>
+<span>CAD دلار کانادا</span>
 <span>---</span>
 <span class="same">●</span>
 </div>
 
-
 <div class="row">
-<span>دلار استرالیا AUD</span>
+<span>AUD دلار استرالیا</span>
 <span>---</span>
 <span class="same">●</span>
 </div>
 
-
 <div class="row">
-<span>لیر TRY</span>
+<span>TRY لیر ترکیه</span>
 <span>---</span>
 <span class="same">●</span>
 </div>
 
-
 <div class="row">
-<span>یوان CNY</span>
+<span>CNY یوان چین</span>
 <span>---</span>
 <span class="same">●</span>
 </div>
@@ -345,20 +337,31 @@ QR رسمی HASINEH MARKET
 
 <br><br>
 
-اتصال به کانال و خدمات رسمی
+Official Project Access
 
 </div>
+
 
 
 
 
 <div class="creator">
-Created by: Hassan Divanizadeh
+
+<div class="creator-name">
+Created by Hassan Divanizadeh
+</div>
+
+<div class="support">
+Support: 09178649970
+</div>
+
 </div>
 
 
 
+
 </div>
+
 
 
 
@@ -370,20 +373,17 @@ HASINEH MARKET © ۱۴۰۵
 
 
 
+
 <script>
 
-
-function iranTime(){
-
+function updateTime(){
 
 let now = new Date();
-
 
 let iran = new Date(
 now.toLocaleString("en-US",
 {timeZone:"Asia/Tehran"})
 );
-
 
 
 document.getElementById("clock").innerHTML =
@@ -402,7 +402,6 @@ day:"numeric"
 });
 
 
-
 document.getElementById("lunar").innerHTML =
 "تاریخ قمری: " +
 iran.toLocaleDateString("fa-IR-u-ca-islamic",
@@ -412,16 +411,14 @@ month:"long",
 day:"numeric"
 });
 
+
 }
 
+setInterval(updateTime,1000);
 
-setInterval(iranTime,1000);
-
-iranTime();
-
+updateTime();
 
 </script>
-
 
 
 </body>
