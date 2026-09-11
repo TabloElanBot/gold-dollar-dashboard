@@ -1,142 +1,134 @@
 <!-- ==========================
- HASINEH MARKET V41
- GOLD DISPLAY CARDS
+ HASINEH MARKET V42
+ COIN DISPLAY CARDS
 ========================== -->
 
 
-<div class="box gold-display-box">
+<div class="box coin-display-box">
 
 
-<div class="box-title gold-display-title">
+<div class="box-title coin-display-title">
 
-🪙 HASINEH GOLD MARKET V41
+🪙 HASINEH COIN MARKET V42
 
 </div>
 
 
 
-<div class="gold-card-grid">
+<div class="coin-card-grid">
 
 
-<div class="gold-card">
+
+<div class="coin-card">
+
 
 <div class="card-name">
 
-طلای ۱۸ عیار
+سکه امامی
 
 </div>
+
 
 <div class="card-info">
 
-عیار: 750
+تمام بهار آزادی
 
 </div>
 
-<div class="card-price" id="gold18-display-v41">
+
+<div class="card-price" id="emami-display-v42">
 
 ---
 
 </div>
 
+
 </div>
 
 
 
 
-<div class="gold-card">
+<div class="coin-card">
+
 
 <div class="card-name">
 
-طلای ۲۴ عیار
+نیم سکه
 
 </div>
+
 
 <div class="card-info">
 
-عیار: 999
+بهار آزادی
 
 </div>
 
-<div class="card-price" id="gold24-display-v41">
+
+<div class="card-price" id="nim-display-v42">
 
 ---
 
 </div>
 
+
 </div>
 
 
 
 
-<div class="gold-card">
+<div class="coin-card">
+
 
 <div class="card-name">
 
-مثقال طلای ۱۸ عیار
+ربع سکه
 
 </div>
+
 
 <div class="card-info">
 
-عیار: 750
+بهار آزادی
 
 </div>
 
-<div class="card-price" id="mesghal18-display-v41">
+
+<div class="card-price" id="rob-display-v42">
 
 ---
 
 </div>
 
+
 </div>
 
 
 
 
-<div class="gold-card">
+<div class="coin-card">
+
 
 <div class="card-name">
 
-مثقال طلای ۲۱ عیار
+سکه گرمی
 
 </div>
+
 
 <div class="card-info">
 
-عیار: 875
+بانک مرکزی
 
 </div>
 
-<div class="card-price" id="mesghal21-display-v41">
+
+<div class="card-price" id="gerami-display-v42">
 
 ---
 
 </div>
 
-</div>
-
-
-
-
-<div class="gold-card">
-
-<div class="card-name">
-
-آبشده طلا
-
-</div>
-
-<div class="card-info">
-
-مبنای عیار: ری‌گیری
-
-</div>
-
-<div class="card-price" id="abshode-display-v41">
-
----
-
-</div>
 
 </div>
 
@@ -146,15 +138,14 @@
 
 
 </div>
-
 
 /* ==========================
- HASINEH MARKET V41
- GOLD DISPLAY CARDS STYLE
+ HASINEH MARKET V42
+ COIN DISPLAY STYLE
 ========================== */
 
 
-.gold-display-box{
+.coin-display-box{
 
 margin:20px auto;
 
@@ -174,7 +165,7 @@ box-shadow:0 0 30px rgba(212,175,55,0.35);
 
 
 
-.gold-display-title{
+.coin-display-title{
 
 font-size:20px;
 
@@ -190,7 +181,7 @@ margin-bottom:18px;
 
 
 
-.gold-card-grid{
+.coin-card-grid{
 
 display:grid;
 
@@ -202,7 +193,7 @@ gap:12px;
 
 
 
-.gold-card{
+.coin-card{
 
 background:#111;
 
@@ -220,7 +211,7 @@ transition:0.3s;
 
 
 
-.gold-card:hover{
+.coin-card:hover{
 
 transform:translateY(-3px);
 
@@ -230,7 +221,7 @@ box-shadow:0 0 15px rgba(212,175,55,0.35);
 
 
 
-.card-name{
+.coin-card .card-name{
 
 color:#ffffff;
 
@@ -242,7 +233,7 @@ font-size:16px;
 
 
 
-.card-info{
+.coin-card .card-info{
 
 color:#aaa;
 
@@ -254,7 +245,7 @@ margin-top:5px;
 
 
 
-.card-price{
+.coin-card .card-price{
 
 color:#ffd700;
 
@@ -273,7 +264,7 @@ direction:ltr;
 @media(max-width:450px){
 
 
-.gold-card-grid{
+.coin-card-grid{
 
 grid-template-columns:1fr;
 
@@ -284,38 +275,33 @@ grid-template-columns:1fr;
 
 
 /* ==========================
- HASINEH MARKET V41
- GOLD DISPLAY ENGINE
+ HASINEH MARKET V42
+ COIN DISPLAY ENGINE
 ========================== */
 
 
-const HASINEH_GOLD_DISPLAY_V41 = {
+const HASINEH_COIN_DISPLAY_V42 = {
 
 
 items:{
 
 
-gold18:{
+emami:{
 price:"---"
 },
 
 
-gold24:{
+nim:{
 price:"---"
 },
 
 
-mesghal18:{
+rob:{
 price:"---"
 },
 
 
-mesghal21:{
-price:"---"
-},
-
-
-abshode:{
+gerami:{
 price:"---"
 }
 
@@ -329,31 +315,26 @@ render:function(){
 
 
 
-let cards = {
+let coins = {
 
 
-"gold18-display-v41":
-this.items.gold18.price,
-
-
-
-"gold24-display-v41":
-this.items.gold24.price,
+"emami-display-v42":
+this.items.emami.price,
 
 
 
-"mesghal18-display-v41":
-this.items.mesghal18.price,
+"nim-display-v42":
+this.items.nim.price,
 
 
 
-"mesghal21-display-v41":
-this.items.mesghal21.price,
+"rob-display-v42":
+this.items.rob.price,
 
 
 
-"abshode-display-v41":
-this.items.abshode.price
+"gerami-display-v42":
+this.items.gerami.price
 
 
 };
@@ -361,18 +342,18 @@ this.items.abshode.price
 
 
 
-for(let id in cards){
+for(let id in coins){
 
 
-let card =
+let coin =
 document.getElementById(id);
 
 
 
-if(card){
+if(coin){
 
-card.innerHTML =
-cards[id] + " تومان";
+coin.innerHTML =
+coins[id] + " تومان";
 
 }
 
@@ -393,13 +374,13 @@ cards[id] + " تومان";
 
 
 
-function hasinehGoldDisplayMonitorV41(){
+function hasinehCoinDisplayMonitorV42(){
 
 
 try{
 
 
-HASINEH_GOLD_DISPLAY_V41.render();
+HASINEH_COIN_DISPLAY_V42.render();
 
 
 
@@ -409,7 +390,7 @@ catch(error){
 
 
 console.log(
-"HASINEH GOLD DISPLAY V41 ERROR"
+"HASINEH COIN DISPLAY V42 ERROR"
 );
 
 
@@ -425,7 +406,7 @@ console.log(
 
 setInterval(
 
-hasinehGoldDisplayMonitorV41,
+hasinehCoinDisplayMonitorV42,
 
 15000
 
@@ -435,4 +416,4 @@ hasinehGoldDisplayMonitorV41,
 
 
 
-hasinehGoldDisplayMonitorV41();
+hasinehCoinDisplayMonitorV42();
