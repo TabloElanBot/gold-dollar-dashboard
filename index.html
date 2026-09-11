@@ -1,91 +1,51 @@
 <!-- ==========================
- HASINEH MARKET V70
- MARKET STATUS CENTER
+ HASINEH MARKET V71
+ CREATOR SIGNATURE
 ========================== -->
 
 
-<div class="box status-center-v70">
+<div class="box creator-signature-v71">
 
 
-<div class="box-title status-title-v70">
+<div class="creator-title-v71">
 
-📊 HASINEH MARKET STATUS
-
-</div>
-
-
-
-
-<div class="status-row-v70">
-
-<span>
-وضعیت سیستم:
-</span>
-
-
-<span id="system-status-v70">
-
-🟢 ONLINE
-
-</span>
-
+HASINEH MARKET
 
 </div>
 
 
 
 
-<div class="status-row-v70">
+<div class="creator-text-v71">
 
-<span>
-ساعت ایران:
-</span>
-
-
-<span id="iran-time-v70">
-
----
-
-</span>
-
+Created by
 
 </div>
 
 
 
 
-<div class="status-row-v70">
+<div class="creator-name-v71">
 
-<span>
-موتور داده:
-</span>
-
-
-<span id="data-status-v70">
-
-🟢 ACTIVE
-
-</span>
-
+Hassan Divanizadeh
 
 </div>
 
 
 
 
-<div class="status-row-v70">
+<div class="creator-location-v71">
 
-<span>
-آخرین بروزرسانی:
-</span>
+Bandar Hasineh
+
+</div>
 
 
-<span id="update-time-v70">
 
----
 
-</span>
+<div class="creator-qr-placeholder-v71">
 
+QR CODE
 
 </div>
 
@@ -96,36 +56,38 @@
 
 
 /* ==========================
- HASINEH MARKET V70
- STATUS CENTER STYLE
+ HASINEH MARKET V71
+ CREATOR SIGNATURE STYLE
 ========================== */
 
 
-.status-center-v70{
+.creator-signature-v71{
 
-margin:25px auto;
+margin:30px auto 20px;
 
 max-width:420px;
 
-padding:22px;
+padding:20px;
 
-border-radius:32px;
+text-align:center;
 
 background:
 
 linear-gradient(
 145deg,
-#070707,
-#151515
+#080808,
+#111111
 );
+
+border-radius:28px;
 
 border:
 
-1px solid rgba(212,175,55,0.60);
+1px solid rgba(212,175,55,0.25);
 
 box-shadow:
 
-0 0 40px rgba(212,175,55,0.30);
+0 0 25px rgba(212,175,55,0.15);
 
 }
 
@@ -133,81 +95,15 @@ box-shadow:
 
 
 
-.status-title-v70{
+.creator-title-v71{
 
-text-align:center;
+font-size:14px;
 
-font-size:21px;
-
-font-weight:bold;
-
-color:#ffd700;
-
-margin-bottom:18px;
-
-}
-
-
-
-
-
-.status-row-v70{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:12px 5px;
-
-border-bottom:
-
-1px solid rgba(212,175,55,0.18);
-
-}
-
-
-
-
-
-.status-row-v70:last-child{
-
-border-bottom:none;
-
-}
-
-
-
-
-
-.status-row-v70 span:first-child{
-
-color:#ffffff;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-.status-row-v70 span:last-child{
-
-font-weight:bold;
+letter-spacing:4px;
 
 color:#d4af37;
 
-}
-
-
-
-
-
-#system-status-v70{
-
-color:#00ff88;
+font-weight:bold;
 
 }
 
@@ -215,9 +111,15 @@ color:#00ff88;
 
 
 
-#data-status-v70{
+.creator-text-v71{
 
-color:#00ff88;
+margin-top:15px;
+
+font-size:11px;
+
+color:#777;
+
+letter-spacing:2px;
 
 }
 
@@ -225,31 +127,90 @@ color:#00ff88;
 
 
 
-.status-center-v70:hover{
+.creator-name-v71{
 
-box-shadow:
+margin-top:8px;
 
-0 0 55px rgba(212,175,55,0.45);
+font-size:16px;
+
+color:#c9a227;
+
+font-weight:bold;
+
+letter-spacing:2px;
+
+}
+
+
+
+
+
+.creator-location-v71{
+
+margin-top:6px;
+
+font-size:12px;
+
+color:#888;
+
+}
+
+
+
+
+
+.creator-qr-placeholder-v71{
+
+margin:18px auto 0;
+
+width:80px;
+
+height:80px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#ffffff;
+
+color:#111;
+
+font-size:10px;
+
+font-weight:bold;
+
+border-radius:8px;
 
 }
 
 
 
 /* ==========================
- HASINEH MARKET V70
- STATUS CENTER ENGINE
+ HASINEH MARKET V71
+ CREATOR SIGNATURE ENGINE
 ========================== */
 
 
-const HASINEH_STATUS_CENTER_V70 = {
+const HASINEH_CREATOR_V71 = {
 
 
-system:
-"ONLINE",
+brand:
+"HASINEH MARKET",
 
 
-data:
-"ACTIVE",
+creator:
+"Hassan Divanizadeh",
+
+
+location:
+"Bandar Hasineh",
+
+
+qrData:
+"HASINEH MARKET | Hassan Divanizadeh | Bandar Hasineh",
+
 
 
 
@@ -257,82 +218,51 @@ update:function(){
 
 
 
-let system =
-document.getElementById(
-"system-status-v70"
+let title =
+document.querySelector(
+".creator-title-v71"
 );
 
 
 
-if(system){
+if(title){
 
-system.innerHTML =
-"🟢 " + this.system;
+title.innerHTML =
+this.brand;
 
 }
 
 
 
 
-let data =
-document.getElementById(
-"data-status-v70"
+let name =
+document.querySelector(
+".creator-name-v71"
 );
 
 
 
-if(data){
+if(name){
 
-data.innerHTML =
-"🟢 " + this.data;
+name.innerHTML =
+this.creator;
 
 }
 
 
 
 
-let now = new Date();
-
-
-
-
-let iranTime =
-document.getElementById(
-"iran-time-v70"
+let location =
+document.querySelector(
+".creator-location-v71"
 );
 
 
 
-if(iranTime){
+if(location){
 
-iranTime.innerHTML =
-now.toLocaleTimeString(
-"fa-IR",
-{
-hour:"2-digit",
-minute:"2-digit",
-second:"2-digit"
-}
-);
-
-}
-
-
-
-
-let update =
-document.getElementById(
-"update-time-v70"
-);
-
-
-
-if(update){
-
-update.innerHTML =
-now.toLocaleTimeString(
-"fa-IR"
-);
+location.innerHTML =
+this.location;
 
 }
 
@@ -340,7 +270,7 @@ now.toLocaleTimeString(
 
 
 console.log(
-"HASINEH STATUS CENTER V70 READY"
+"HASINEH CREATOR V71 READY"
 );
 
 
@@ -356,13 +286,13 @@ console.log(
 
 
 
-function hasinehStatusCenterMonitorV70(){
+function hasinehCreatorMonitorV71(){
 
 
 try{
 
 
-HASINEH_STATUS_CENTER_V70.update();
+HASINEH_CREATOR_V71.update();
 
 
 
@@ -372,7 +302,7 @@ catch(error){
 
 
 console.log(
-"HASINEH STATUS CENTER V70 ERROR"
+"HASINEH CREATOR V71 ERROR"
 );
 
 
@@ -389,9 +319,9 @@ console.log(
 
 setInterval(
 
-hasinehStatusCenterMonitorV70,
+hasinehCreatorMonitorV71,
 
-1000
+30000
 
 );
 
@@ -399,4 +329,4 @@ hasinehStatusCenterMonitorV70,
 
 
 
-hasinehStatusCenterMonitorV70();
+hasinehCreatorMonitorV71();
