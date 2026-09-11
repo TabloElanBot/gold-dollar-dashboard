@@ -1,85 +1,68 @@
 <!-- ==========================
- HASINEH MARKET V56
- PREMIUM CALENDAR EVENT PANEL
+ HASINEH MARKET V57
+ QR CREATOR SIGNATURE
 ========================== -->
 
 
-<div class="box calendar-event-box">
+<div class="box creator-signature-box">
 
 
-<div class="box-title calendar-event-title">
+<div class="creator-brand">
 
-📅 HASINEH MARKET CALENDAR V56
+HASINEH MARKET
 
 </div>
 
 
 
 
-<div class="calendar-row">
+<div class="creator-line">
+
+Created by
 
 <span>
 
-تاریخ شمسی:
+Hassan Divanizadeh
 
 </span>
 
+</div>
 
-<span 
-class="status-gold"
-id="persian-date-v56">
+
+
+
+<div class="creator-line">
+
+📱
+
+<span id="creator-phone-v57">
 
 ---
 
 </span>
 
-
 </div>
 
 
 
 
-
-<div class="calendar-row">
-
-<span>
-
-روز هفته:
-
-</span>
+<div class="qr-area">
 
 
-<span 
-class="status-gold"
-id="week-day-v56">
+<div class="qr-placeholder">
 
----
-
-</span>
-
+QR
 
 </div>
 
 
 
+<div class="qr-text">
 
+Rubika
+Official Market Board
 
-<div class="calendar-row">
-
-<span>
-
-مناسبت امروز:
-
-</span>
-
-
-<span 
-class="status-gold"
-id="special-event-v56">
-
-بدون مناسبت
-
-</span>
+</div>
 
 
 </div>
@@ -87,29 +70,18 @@ id="special-event-v56">
 
 
 
-
-<div class="event-message"
-id="event-message-v56">
-
-✨ به HASINEH MARKET خوش آمدید
-
 </div>
-
-
-
-</div>
-
 
 
 /* ==========================
- HASINEH MARKET V56
- CALENDAR EVENT STYLE
+ HASINEH MARKET V57
+ QR CREATOR SIGNATURE STYLE
 ========================== */
 
 
-.calendar-event-box{
+.creator-signature-box{
 
-margin:20px auto;
+margin:25px auto;
 
 max-width:420px;
 
@@ -122,31 +94,33 @@ background:
 linear-gradient(
 145deg,
 #070707,
-#151515
+#141414
 );
 
-border:1px solid #d4af37;
+border:1px solid rgba(212,175,55,0.45);
 
 box-shadow:
 
-0 0 35px rgba(212,175,55,0.30);
-
-}
-
-
-
-
-.calendar-event-title{
-
-font-size:20px;
-
-font-weight:bold;
-
-color:#ffd700;
+0 0 30px rgba(212,175,55,0.25);
 
 text-align:center;
 
-margin-bottom:18px;
+}
+
+
+
+
+.creator-brand{
+
+font-size:22px;
+
+font-weight:bold;
+
+letter-spacing:3px;
+
+color:#d4af37;
+
+margin-bottom:12px;
 
 }
 
@@ -154,37 +128,22 @@ margin-bottom:18px;
 
 
 
-.calendar-row{
+.creator-line{
 
-display:flex;
+font-size:13px;
 
-justify-content:space-between;
+color:#777;
 
-align-items:center;
-
-padding:12px 5px;
-
-border-bottom:
-
-1px solid rgba(212,175,55,0.18);
+margin:8px 0;
 
 }
 
 
 
 
-.calendar-row:last-of-type{
+.creator-line span{
 
-border-bottom:none;
-
-}
-
-
-
-
-.calendar-row span:first-child{
-
-color:#ffffff;
+color:#bfa34a;
 
 font-weight:bold;
 
@@ -193,32 +152,46 @@ font-weight:bold;
 
 
 
-.calendar-row span:last-child{
-
-font-weight:bold;
-
-}
-
-
-
-
-.event-message{
+.qr-area{
 
 margin-top:18px;
 
-padding:15px;
+padding-top:18px;
 
-border-radius:20px;
+border-top:
 
-background:#101010;
+1px solid rgba(212,175,55,0.20);
+
+}
+
+
+
+
+.qr-placeholder{
+
+width:90px;
+
+height:90px;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#111;
 
 border:
 
-1px solid rgba(212,175,55,0.35);
+1px solid #d4af37;
 
-text-align:center;
+border-radius:15px;
 
 color:#ffd700;
+
+font-size:28px;
 
 font-weight:bold;
 
@@ -227,141 +200,69 @@ font-weight:bold;
 
 
 
-/* مناسبت‌ها */
+.qr-text{
 
+margin-top:10px;
 
-.event-ramadan{
+font-size:12px;
 
-color:#ffd700;
-
-}
-
-
-
-.event-eid-fitr{
-
-color:#ffd700;
-
-}
-
-
-
-.event-eid-ghorban{
-
-color:#ffd700;
-
-}
-
-
-
-.event-nowruz{
-
-color:#00ff88;
+color:#999;
 
 }
 
 
 
 
-.calendar-event-box:hover{
+.creator-signature-box:hover{
 
 box-shadow:
 
-0 0 50px rgba(212,175,55,0.45);
+0 0 45px rgba(212,175,55,0.40);
 
 }
 
 
 /* ==========================
- HASINEH MARKET V56
- CALENDAR EVENT ENGINE
+ HASINEH MARKET V57
+ QR CREATOR SIGNATURE ENGINE
 ========================== */
 
 
-const HASINEH_CALENDAR_V56 = {
+const HASINEH_SIGNATURE_V57 = {
+
+
+creator:
+"Hassan Divanizadeh",
+
+
+phone:
+"---",
 
 
 update:function(){
 
 
 
-let now = new Date();
-
-
-
-
-let date =
+let phone =
 document.getElementById(
-"persian-date-v56"
+"creator-phone-v57"
 );
 
 
 
-if(date){
+if(phone){
 
-date.innerHTML =
-now.toLocaleDateString(
-"fa-IR"
-);
+phone.innerHTML =
+this.phone;
 
 }
 
 
 
 
-let day =
-document.getElementById(
-"week-day-v56"
+console.log(
+"HASINEH SIGNATURE V57 READY"
 );
-
-
-
-if(day){
-
-day.innerHTML =
-now.toLocaleDateString(
-"fa-IR",
-{
-weekday:"long"
-}
-);
-
-}
-
-
-
-
-let event =
-document.getElementById(
-"special-event-v56"
-);
-
-
-
-let message =
-document.getElementById(
-"event-message-v56"
-);
-
-
-
-
-
-if(event){
-
-event.innerHTML =
-"بدون مناسبت";
-
-}
-
-
-
-if(message){
-
-message.innerHTML =
-"✨ به HASINEH MARKET خوش آمدید";
-
-}
 
 
 
@@ -376,13 +277,13 @@ message.innerHTML =
 
 
 
-function hasinehCalendarMonitorV56(){
+function hasinehSignatureMonitorV57(){
 
 
 try{
 
 
-HASINEH_CALENDAR_V56.update();
+HASINEH_SIGNATURE_V57.update();
 
 
 
@@ -392,7 +293,7 @@ catch(error){
 
 
 console.log(
-"HASINEH CALENDAR V56 ERROR"
+"HASINEH SIGNATURE V57 ERROR"
 );
 
 
@@ -409,9 +310,9 @@ console.log(
 
 setInterval(
 
-hasinehCalendarMonitorV56,
+hasinehSignatureMonitorV57,
 
-60000
+30000
 
 );
 
@@ -419,4 +320,4 @@ hasinehCalendarMonitorV56,
 
 
 
-hasinehCalendarMonitorV56();
+hasinehSignatureMonitorV57();
