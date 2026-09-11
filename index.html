@@ -12,87 +12,132 @@
 
 <style>
 
+
 body{
+
 margin:0;
+
 background:#020202;
+
 color:#fff;
+
 font-family:Tahoma,Arial,sans-serif;
+
 }
+
 
 
 .header{
 
 text-align:center;
+
 padding:25px 10px;
-background:linear-gradient(#171717,#050505);
+
+background:linear-gradient(#1a1a1a,#050505);
+
 border-bottom:2px solid #d4af37;
 
 }
 
 
+
+
 .logo{
 
 font-size:42px;
+
 font-weight:bold;
+
 color:#ffd700;
+
 letter-spacing:2px;
 
 }
 
 
+
+
 .subtitle{
 
 color:#ccc;
+
 font-size:14px;
+
 margin-top:8px;
 
 }
+
+
 
 
 .brand{
 
 color:#777;
+
 font-size:12px;
+
 margin-top:8px;
 
 }
+
+
 
 
 
 .status-box{
 
 margin:15px auto;
+
 max-width:320px;
+
 padding:15px;
+
 border-radius:18px;
+
 background:#101010;
+
 border:1px solid #333;
 
 }
 
 
+
+
+
 .status-title{
 
 font-size:16px;
+
 font-weight:bold;
+
 color:#ffd700;
 
 }
 
 
+
+
+
 .status-online{
 
 margin-top:8px;
+
 color:#00ff88;
+
 font-weight:bold;
 
 }
 
 
+
+
+
 .status-time{
 
 margin-top:8px;
+
 font-size:13px;
+
 color:#aaa;
 
 }
@@ -100,18 +145,63 @@ color:#aaa;
 
 
 
-.notice-box{
+
+.connection-box{
 
 margin:15px auto;
+
 max-width:320px;
-padding:15px;
+
+padding:14px;
+
 border-radius:18px;
-background:#111;
-border:1px solid #d4af37;
-color:#ffd700;
+
+background:#0d0d0d;
+
+border:1px solid #333;
+
+color:#aaa;
+
 line-height:2;
 
 }
+
+
+
+
+
+.connection-online{
+
+color:#00ff88;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+.notice-box{
+
+margin:15px auto;
+
+max-width:320px;
+
+padding:15px;
+
+border-radius:18px;
+
+background:#111;
+
+border:1px solid #d4af37;
+
+color:#ffd700;
+
+line-height:2;
+
+}
+
 
 
 
@@ -119,20 +209,30 @@ line-height:2;
 .market-pulse{
 
 margin:15px auto;
+
 max-width:320px;
+
 padding:15px;
+
 border-radius:18px;
+
 background:#0d0d0d;
+
 border:1px solid #333;
+
 line-height:2;
+
 color:#ccc;
 
 }
 
 
+
+
 .market-pulse span{
 
 font-weight:bold;
+
 color:#fff;
 
 }
@@ -143,10 +243,15 @@ color:#fff;
 .live{
 
 display:inline-block;
+
 margin-top:18px;
+
 padding:8px 25px;
+
 border-radius:30px;
+
 background:#063b1c;
+
 color:#00ff88;
 
 }
@@ -157,25 +262,38 @@ color:#00ff88;
 .date-box{
 
 margin-top:15px;
+
 line-height:2;
+
 font-size:14px;
+
 color:#bbb;
 
 }
 
 
 
+
+
 .update-box{
 
 margin:15px auto;
+
 max-width:300px;
+
 padding:12px;
+
 border-radius:15px;
+
 background:#0d0d0d;
+
 border:1px solid #333;
+
 color:#aaa;
 
 }
+
+
 
 
 .container{
@@ -185,75 +303,101 @@ padding:15px;
 }
 
 
+
+
 .card{
 
 background:#0c0c0c;
+
 border:1px solid #292929;
+
 border-radius:22px;
+
 padding:20px;
+
 margin-bottom:20px;
 
 }
 
 
+
+
 .title{
 
 text-align:center;
+
 color:#ffd700;
+
 font-size:25px;
+
 margin-bottom:18px;
 
 }
 
 
+
+
 .item{
 
 padding:15px 5px;
+
 border-bottom:1px solid #222;
 
 }
 
 
+
 .item-name{
 
 font-size:17px;
+
 margin-bottom:10px;
 
 }
-
-
-.price-line{
+  .price-line{
 
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
+
 font-size:13px;
 
 }
 
 
+
 .price{
 
 font-size:18px;
+
 font-weight:bold;
 
+color:#fff;
+
 }
+
 
 
 .change-up{
 
 color:#00ff88;
+
 font-weight:bold;
 
 }
+
 
 
 .change-down{
 
 color:#ff4444;
+
 font-weight:bold;
 
 }
+
 
 
 .change-same{
@@ -261,7 +405,148 @@ font-weight:bold;
 color:#aaa;
 
 }
-  </style>
+
+
+
+
+.live-price{
+
+font-size:20px;
+
+color:#ffd700;
+
+font-weight:bold;
+
+}
+
+
+
+
+.qr{
+
+margin:25px 5px;
+
+padding:22px;
+
+border-radius:20px;
+
+border:1px dashed #555;
+
+text-align:center;
+
+color:#aaa;
+
+}
+
+
+
+
+.qr-title{
+
+font-size:18px;
+
+color:#ffd700;
+
+margin-bottom:10px;
+
+}
+
+
+
+
+.creator{
+
+text-align:center;
+
+margin-top:30px;
+
+}
+
+
+
+.creator-name{
+
+font-size:13px;
+
+color:#777;
+
+letter-spacing:1px;
+
+}
+
+
+
+
+.support{
+
+font-size:12px;
+
+color:#555;
+
+margin-top:8px;
+
+}
+
+
+
+
+.footer{
+
+text-align:center;
+
+padding:20px;
+
+color:#666;
+
+}
+
+
+
+.badge{
+
+display:inline-block;
+
+padding:5px 12px;
+
+border-radius:20px;
+
+background:#222;
+
+color:#ffd700;
+
+font-size:12px;
+
+margin-top:10px;
+
+}
+
+
+
+.alert-green{
+
+color:#00ff88;
+
+}
+
+
+
+.alert-red{
+
+color:#ff4444;
+
+}
+
+
+
+.hidden{
+
+display:none;
+
+}
+
+
+
+</style>
 
 </head>
 
@@ -292,8 +577,6 @@ Digital Market Board | Bandar Hasineh
 
 </div>
 
-
-
 <div class="status-box">
 
 
@@ -304,11 +587,13 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
+
 <div class="status-online" id="market-state">
 
-🟢 بازار آماده دریافت اطلاعات
+🟢 سیستم آماده فعالیت
 
 </div>
+
 
 
 <div class="status-time" id="data-time">
@@ -324,15 +609,46 @@ Digital Market Board | Bandar Hasineh
 
 
 
+<div class="connection-box">
+
+
+<div class="connection-online">
+
+🟢 اتصال تابلو فعال
+
+</div>
+
+
+
+<div>
+
+آماده نمایش نرخ لحظه‌ای بازار
+
+</div>
+
+
+</div>
+
+
+
+
+
+
 <div class="notice-box">
+
 
 📢 پیام HASINEH MARKET
 
+
 <br>
 
-تابلو هوشمند اعلام نرخ طلا، ارز و بازار
+
+تابلو هوشمند اعلام نرخ طلا، ارز، خودرو و خدمات بازار
+
 
 </div>
+
+
 
 
 
@@ -343,10 +659,12 @@ Digital Market Board | Bandar Hasineh
 
 📊 نبض بازار
 
+
 <br>
 
 
 🟢 بیشترین رشد:
+
 
 <span id="top-up">
 
@@ -362,6 +680,7 @@ Digital Market Board | Bandar Hasineh
 
 🔴 بیشترین کاهش:
 
+
 <span id="top-down">
 
 ---
@@ -375,6 +694,7 @@ Digital Market Board | Bandar Hasineh
 
 
 ⏱ آخرین تغییر:
+
 
 <span id="last-change">
 
@@ -390,11 +710,15 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
+
 <div class="live">
 
 ● LIVE MARKET
 
 </div>
+
+
 
 
 
@@ -426,7 +750,10 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
+
 </div>
+
+
 
 
 
@@ -446,14 +773,8 @@ Digital Market Board | Bandar Hasineh
 
 
 
-
-
 <div class="container">
-
-
-
-
-
+  
 <div class="card">
 
 
@@ -495,6 +816,7 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
 <span>
 
 فروش:
@@ -509,12 +831,12 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
 <span class="change-up" id="gold18-change">
 
 ▲ 0%
 
 </span>
-
 
 
 </div>
@@ -539,6 +861,7 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
 <div class="price-line">
 
 
@@ -556,6 +879,7 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
 <span>
 
 فروش:
@@ -570,12 +894,12 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
 <span class="change-same">
 
 ● 0%
 
 </span>
-
 
 
 </div>
@@ -600,6 +924,7 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
 <div class="price-line">
 
 
@@ -617,6 +942,7 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
 <span>
 
 فروش:
@@ -631,6 +957,7 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -638,14 +965,22 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
-
 </div>
 
 
 </div>
 
 
+
 </div>
+
+
+
+
+
+
+
+
 <div class="card">
 
 
@@ -655,17 +990,16 @@ Digital Market Board | Bandar Hasineh
 
 </div>
 
-
-
-
-
 <div class="item">
+
 
 <div class="item-name">
 
 USD دلار آمریکا
 
 </div>
+
+
 
 
 <div class="price-line">
@@ -685,6 +1019,7 @@ USD دلار آمریکا
 
 
 
+
 <span>
 
 فروش:
@@ -699,6 +1034,7 @@ USD دلار آمریکا
 
 
 
+
 <span class="change-up">
 
 ▲ 0%
@@ -707,6 +1043,7 @@ USD دلار آمریکا
 
 
 </div>
+
 
 </div>
 
@@ -718,11 +1055,14 @@ USD دلار آمریکا
 
 <div class="item">
 
+
 <div class="item-name">
 
 EUR یورو
 
 </div>
+
+
 
 
 <div class="price-line">
@@ -742,6 +1082,7 @@ EUR یورو
 
 
 
+
 <span>
 
 فروش:
@@ -756,6 +1097,7 @@ EUR یورو
 
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -764,6 +1106,7 @@ EUR یورو
 
 
 </div>
+
 
 </div>
 
@@ -775,11 +1118,14 @@ EUR یورو
 
 <div class="item">
 
+
 <div class="item-name">
 
 AED درهم امارات
 
 </div>
+
+
 
 
 <div class="price-line">
@@ -799,6 +1145,7 @@ AED درهم امارات
 
 
 
+
 <span>
 
 فروش:
@@ -813,6 +1160,7 @@ AED درهم امارات
 
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -821,6 +1169,7 @@ AED درهم امارات
 
 
 </div>
+
 
 </div>
 
@@ -832,11 +1181,14 @@ AED درهم امارات
 
 <div class="item">
 
+
 <div class="item-name">
 
 GBP پوند انگلیس
 
 </div>
+
+
 
 
 <div class="price-line">
@@ -856,6 +1208,7 @@ GBP پوند انگلیس
 
 
 
+
 <span>
 
 فروش:
@@ -870,6 +1223,7 @@ GBP پوند انگلیس
 
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -879,21 +1233,19 @@ GBP پوند انگلیس
 
 </div>
 
+
 </div>
 
-
-
-
-
-
-
 <div class="item">
+
 
 <div class="item-name">
 
 CAD دلار کانادا
 
 </div>
+
+
 
 
 <div class="price-line">
@@ -913,6 +1265,7 @@ CAD دلار کانادا
 
 
 
+
 <span>
 
 فروش:
@@ -927,6 +1280,7 @@ CAD دلار کانادا
 
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -935,6 +1289,7 @@ CAD دلار کانادا
 
 
 </div>
+
 
 </div>
 
@@ -946,11 +1301,14 @@ CAD دلار کانادا
 
 <div class="item">
 
+
 <div class="item-name">
 
 TRY لیر ترکیه
 
 </div>
+
+
 
 
 <div class="price-line">
@@ -970,6 +1328,7 @@ TRY لیر ترکیه
 
 
 
+
 <span>
 
 فروش:
@@ -984,6 +1343,7 @@ TRY لیر ترکیه
 
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -992,6 +1352,7 @@ TRY لیر ترکیه
 
 
 </div>
+
 
 </div>
 
@@ -1003,11 +1364,14 @@ TRY لیر ترکیه
 
 <div class="item">
 
+
 <div class="item-name">
 
 CNY یوان چین
 
 </div>
+
+
 
 
 <div class="price-line">
@@ -1027,6 +1391,7 @@ CNY یوان چین
 
 
 
+
 <span>
 
 فروش:
@@ -1041,6 +1406,7 @@ CNY یوان چین
 
 
 
+
 <span class="change-same">
 
 ● 0%
@@ -1050,12 +1416,14 @@ CNY یوان چین
 
 </div>
 
-</div>
-
 
 </div>
 
 
+
+
+
+</div>
 
 
 
@@ -1073,6 +1441,8 @@ CNY یوان چین
 
 
 
+
+
 <div class="item">
 
 
@@ -1084,6 +1454,7 @@ CNY یوان چین
 
 
 
+
 <div class="price-line">
 
 
@@ -1092,6 +1463,8 @@ CNY یوان چین
 وضعیت:
 
 </span>
+
+
 
 
 <span>
@@ -1109,13 +1482,6 @@ CNY یوان چین
 
 </div>
 
-
-
-
-
-
-
-
 <div class="card">
 
 
@@ -1124,6 +1490,7 @@ CNY یوان چین
 🏠 HASINEH REAL ESTATE
 
 </div>
+
 
 
 
@@ -1138,6 +1505,7 @@ CNY یوان چین
 
 
 
+
 <div class="price-line">
 
 
@@ -1146,6 +1514,8 @@ CNY یوان چین
 وضعیت:
 
 </span>
+
+
 
 
 <span>
@@ -1180,14 +1550,19 @@ CNY یوان چین
 </div>
 
 
+
 اسکن کنید
 
+
 <br><br>
+
 
 ورود به کانال روبیکا و خدمات آینده
 
 
+
 </div>
+
 
 
 
@@ -1203,6 +1578,8 @@ CNY یوان چین
 Created by Hassan Divanizadeh
 
 </div>
+
+
 
 
 <div class="support">
@@ -1223,9 +1600,12 @@ Support: 09178649970
 
 <div class="footer">
 
+
 HASINEH MARKET © ۱۴۰۵
 
+
 </div>
+
 
 
 
@@ -1259,11 +1639,13 @@ timeZone:"Asia/Tehran"
 
 
 
+
 document.getElementById("clock").innerHTML =
 
 "ساعت ایران: " +
 
 iran.toLocaleTimeString("fa-IR");
+
 
 
 
@@ -1295,6 +1677,8 @@ weekday:"long"
 
 
 
+
+
 document.getElementById("lunar").innerHTML =
 
 "تاریخ قمری: " +
@@ -1319,11 +1703,17 @@ day:"numeric"
 
 
 
+
+
+
 document.getElementById("update").innerHTML =
 
 "آخرین بروزرسانی: " +
 
 iran.toLocaleTimeString("fa-IR");
+
+
+
 
 
 
@@ -1339,6 +1729,9 @@ iran.toLocaleTimeString("fa-IR");
 
 
 
+
+
+
 document.getElementById("last-change").innerHTML =
 
 iran.toLocaleTimeString("fa-IR");
@@ -1348,15 +1741,16 @@ iran.toLocaleTimeString("fa-IR");
 
 
 
+
+
 setInterval(updateTime,1000);
 
 updateTime();
 
 
+
 </script>
 
-
-</div>
 
 
 </body>
