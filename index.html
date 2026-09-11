@@ -1,15 +1,15 @@
 <!-- ==========================
- HASINEH MARKET V35
- HASINEH GOLD MODULE
+ HASINEH MARKET V36
+ GOLD LIVE PRICE CONNECTOR
 ========================== -->
 
 
-<div class="box gold-market-box">
+<div class="box live-connector-box">
 
 
-<div class="box-title gold-market-title">
+<div class="box-title live-connector-title">
 
-🪙 HASINEH GOLD V35
+📡 HASINEH GOLD LIVE CONNECTOR V36
 
 </div>
 
@@ -18,9 +18,39 @@
 
 <div>
 
-طلای ۱۸ عیار:
+وضعیت دریافت:
 
-<span class="status-gold" id="gold18-v35">
+<span class="status-green" id="live-status-v36">
+
+🟢 CONNECTING
+
+</span>
+
+</div>
+
+
+
+
+<div>
+
+منبع قیمت:
+
+<span class="status-gold" id="live-source-v36">
+
+PENDING API
+
+</span>
+
+</div>
+
+
+
+
+<div>
+
+آخرین بررسی:
+
+<span class="status-gold" id="live-check-v36">
 
 ---
 
@@ -33,71 +63,11 @@
 
 <div>
 
-سکه امامی:
+اتصال به GOLD ENGINE:
 
-<span class="status-gold" id="emami-v35">
+<span class="status-green" id="gold-engine-link-v36">
 
----
-
-</span>
-
-</div>
-
-
-
-
-<div>
-
-نیم سکه:
-
-<span class="status-gold" id="nim-v35">
-
----
-
-</span>
-
-</div>
-
-
-
-
-<div>
-
-ربع سکه:
-
-<span class="status-gold" id="rob-v35">
-
----
-
-</span>
-
-</div>
-
-
-
-
-<div>
-
-آبشده:
-
-<span class="status-gold" id="abshode-v35">
-
----
-
-</span>
-
-</div>
-
-
-
-
-<div>
-
-وضعیت بازار:
-
-<span class="status-green" id="gold-status-v35">
-
-🟢 READY
+CONNECTED
 
 </span>
 
@@ -109,12 +79,12 @@
 
 
 /* ==========================
- HASINEH MARKET V35
- HASINEH GOLD STYLE
+ HASINEH MARKET V36
+ GOLD LIVE CONNECTOR STYLE
 ========================== */
 
 
-.gold-market-box{
+.live-connector-box{
 
 margin:20px auto;
 
@@ -130,15 +100,15 @@ border:1px solid #d4af37;
 
 line-height:2;
 
-box-shadow:0 0 20px rgba(212,175,55,0.30);
+box-shadow:0 0 20px rgba(212,175,55,0.35);
 
 }
 
 
 
-.gold-market-title{
+.live-connector-title{
 
-font-size:19px;
+font-size:18px;
 
 font-weight:bold;
 
@@ -152,7 +122,7 @@ margin-bottom:12px;
 
 
 
-.gold-market-box div{
+.live-connector-box div{
 
 margin:7px 0;
 
@@ -160,17 +130,7 @@ margin:7px 0;
 
 
 
-.gold-price{
-
-color:#ffd700;
-
-font-weight:bold;
-
-}
-
-
-
-.gold-ready{
+.connector-active{
 
 color:#00ff88;
 
@@ -180,7 +140,17 @@ font-weight:bold;
 
 
 
-.gold-offline{
+.connector-waiting{
+
+color:#ffd700;
+
+font-weight:bold;
+
+}
+
+
+
+.connector-error{
 
 color:#ff5555;
 
@@ -190,87 +160,46 @@ font-weight:bold;
 
 
 
-/* جدا کننده آیتم‌های بازار */
+/* نمایش وضعیت اتصال */
 
-.gold-market-box span{
+.live-connector-box span{
 
-direction:ltr;
-
-display:inline-block;
-
-margin-right:5px;
+font-weight:bold;
 
 }
 
 
 /* ==========================
- HASINEH MARKET V35
- HASINEH GOLD DATA ENGINE
+ HASINEH MARKET V36
+ GOLD LIVE CONNECTOR ENGINE
 ========================== */
 
 
-const HASINEH_GOLD_V35 = {
+const HASINEH_LIVE_GOLD_V36 = {
 
 
-gold18:"---",
+status:"CONNECTING",
 
-emami:"---",
+source:"PENDING API",
 
-nim:"---",
+lastCheck:null,
 
-rob:"---",
-
-abshode:"---",
-
-status:"READY",
+link:"CONNECTED",
 
 
 
-load:function(){
+check:function(){
 
 
 
-let items = {
-
-
-"gold18-v35":this.gold18,
-
-"emami-v35":this.emami,
-
-"nim-v35":this.nim,
-
-"rob-v35":this.rob,
-
-"abshode-v35":this.abshode
-
-};
-
-
-
-for(let id in items){
-
-
-let element =
-document.getElementById(id);
-
-
-
-if(element){
-
-element.innerHTML =
-items[id];
-
-}
-
-
-}
+this.lastCheck = new Date();
 
 
 
 
 let status =
 document.getElementById(
-"gold-status-v35"
+"live-status-v36"
 );
 
 
@@ -278,7 +207,58 @@ document.getElementById(
 if(status){
 
 status.innerHTML =
-"🟢 READY";
+"🟢 CONNECTING";
+
+}
+
+
+
+
+let source =
+document.getElementById(
+"live-source-v36"
+);
+
+
+
+if(source){
+
+source.innerHTML =
+this.source;
+
+}
+
+
+
+
+let check =
+document.getElementById(
+"live-check-v36"
+);
+
+
+
+if(check){
+
+check.innerHTML =
+this.lastCheck.toLocaleTimeString("fa-IR");
+
+}
+
+
+
+
+let link =
+document.getElementById(
+"gold-engine-link-v36"
+);
+
+
+
+if(link){
+
+link.innerHTML =
+"CONNECTED";
 
 }
 
@@ -295,13 +275,13 @@ status.innerHTML =
 
 
 
-function hasinehGoldMonitorV35(){
+function hasinehLiveGoldMonitorV36(){
 
 
 try{
 
 
-HASINEH_GOLD_V35.load();
+HASINEH_LIVE_GOLD_V36.check();
 
 
 
@@ -311,7 +291,7 @@ catch(error){
 
 
 console.log(
-"HASINEH GOLD V35 ERROR"
+"HASINEH LIVE GOLD V36 ERROR"
 );
 
 
@@ -327,7 +307,7 @@ console.log(
 
 setInterval(
 
-hasinehGoldMonitorV35,
+hasinehLiveGoldMonitorV36,
 
 15000
 
@@ -337,4 +317,4 @@ hasinehGoldMonitorV35,
 
 
 
-hasinehGoldMonitorV35();
+hasinehLiveGoldMonitorV36();
