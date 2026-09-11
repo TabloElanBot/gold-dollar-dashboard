@@ -1,15 +1,15 @@
 <!-- ==========================
- HASINEH MARKET V39
- MARKET CLOCK PANEL
+ HASINEH MARKET V40
+ PRICE FORMAT PANEL
 ========================== -->
 
 
-<div class="box market-clock-box">
+<div class="box price-format-box">
 
 
-<div class="box-title market-clock-title">
+<div class="box-title price-format-title">
 
-🕒 HASINEH MARKET CLOCK V39
+💰 HASINEH PRICE FORMAT V40
 
 </div>
 
@@ -18,11 +18,11 @@
 
 <div>
 
-زمان ایران:
+واحد نمایش:
 
-<span class="status-gold" id="iran-time-v39">
+<span class="status-gold" id="price-unit-v40">
 
----
+تومان
 
 </span>
 
@@ -33,26 +33,11 @@
 
 <div>
 
-تاریخ شمسی:
+فرمت قیمت:
 
-<span class="status-gold" id="solar-date-v39">
+<span class="status-green" id="price-format-v40">
 
----
-
-</span>
-
-</div>
-
-
-
-
-<div>
-
-وضعیت بازار:
-
-<span class="status-green" id="market-status-v39">
-
-🟢 OPEN
+ACTIVE
 
 </span>
 
@@ -63,11 +48,26 @@
 
 <div>
 
-آخرین بروزرسانی تابلو:
+جداکننده اعداد:
 
-<span class="status-gold" id="board-update-v39">
+<span class="status-gold" id="number-format-v40">
 
----
+ENABLED
+
+</span>
+
+</div>
+
+
+
+
+<div>
+
+وضعیت موتور قیمت:
+
+<span class="status-green" id="price-engine-v40">
+
+🟢 READY
 
 </span>
 
@@ -76,16 +76,15 @@
 
 
 </div>
-
 
 
 /* ==========================
- HASINEH MARKET V39
- MARKET CLOCK STYLE
+ HASINEH MARKET V40
+ PRICE FORMAT STYLE
 ========================== */
 
 
-.market-clock-box{
+.price-format-box{
 
 margin:20px auto;
 
@@ -107,7 +106,7 @@ box-shadow:0 0 20px rgba(212,175,55,0.30);
 
 
 
-.market-clock-title{
+.price-format-title{
 
 font-size:19px;
 
@@ -123,7 +122,7 @@ margin-bottom:12px;
 
 
 
-.market-clock-box div{
+.price-format-box div{
 
 margin:7px 0;
 
@@ -131,7 +130,7 @@ margin:7px 0;
 
 
 
-.time-live{
+.price-active{
 
 color:#00ff88;
 
@@ -141,7 +140,7 @@ font-weight:bold;
 
 
 
-.date-solar{
+.price-unit{
 
 color:#ffd700;
 
@@ -151,17 +150,7 @@ font-weight:bold;
 
 
 
-.market-open{
-
-color:#00ff88;
-
-font-weight:bold;
-
-}
-
-
-
-.market-close{
+.price-error{
 
 color:#ff5555;
 
@@ -170,101 +159,110 @@ font-weight:bold;
 }
 
 
-
 /* ==========================
- HASINEH MARKET V39
- MARKET CLOCK ENGINE
+ HASINEH MARKET V40
+ PRICE FORMAT ENGINE
 ========================== */
 
 
-const HASINEH_CLOCK_V39 = {
+const HASINEH_PRICE_V40 = {
+
+
+unit:"تومان",
+
+formatStatus:"ACTIVE",
+
+
+
+formatNumber:function(number){
+
+
+
+if(number === "---" || number === null){
+
+return "---";
+
+}
+
+
+
+return Number(number).toLocaleString(
+"fa-IR"
+);
+
+
+
+},
+
+
 
 
 update:function(){
 
 
 
-let now = new Date();
-
-
-
-
-let time =
+let format =
 document.getElementById(
-"iran-time-v39"
+"price-format-v40"
 );
 
 
 
-if(time){
+if(format){
 
-time.innerHTML =
-now.toLocaleTimeString(
-"fa-IR",
-{
-hour:"2-digit",
-minute:"2-digit",
-second:"2-digit"
-}
-);
+format.innerHTML =
+"ACTIVE";
 
 }
 
 
 
 
-
-let date =
+let unit =
 document.getElementById(
-"solar-date-v39"
+"price-unit-v40"
 );
 
 
 
-if(date){
+if(unit){
 
-date.innerHTML =
-now.toLocaleDateString(
-"fa-IR"
-);
+unit.innerHTML =
+this.unit;
 
 }
 
 
 
 
-
-let update =
+let separator =
 document.getElementById(
-"board-update-v39"
+"number-format-v40"
 );
 
 
 
-if(update){
+if(separator){
 
-update.innerHTML =
-now.toLocaleTimeString(
-"fa-IR"
-);
+separator.innerHTML =
+"ENABLED";
 
 }
 
 
 
 
-
-let status =
+let engine =
 document.getElementById(
-"market-status-v39"
+"price-engine-v40"
 );
 
 
 
-if(status){
+if(engine){
 
-status.innerHTML =
-"🟢 OPEN";
+engine.innerHTML =
+"🟢 READY";
 
 }
 
@@ -281,13 +279,13 @@ status.innerHTML =
 
 
 
-function hasinehClockMonitorV39(){
+function hasinehPriceMonitorV40(){
 
 
 try{
 
 
-HASINEH_CLOCK_V39.update();
+HASINEH_PRICE_V40.update();
 
 
 
@@ -297,7 +295,7 @@ catch(error){
 
 
 console.log(
-"HASINEH CLOCK V39 ERROR"
+"HASINEH PRICE V40 ERROR"
 );
 
 
@@ -313,9 +311,9 @@ console.log(
 
 setInterval(
 
-hasinehClockMonitorV39,
+hasinehPriceMonitorV40,
 
-1000
+15000
 
 );
 
@@ -323,4 +321,4 @@ hasinehClockMonitorV39,
 
 
 
-hasinehClockMonitorV39();
+hasinehPriceMonitorV40();
