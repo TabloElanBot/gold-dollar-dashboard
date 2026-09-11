@@ -1,125 +1,81 @@
-<!-- ==========================
- HASINEH MARKET V48
- PREMIUM DATA UPDATE CENTER
-========================== -->
-
-
-<div class="box data-center-box">
-
-
-<div class="box-title data-center-title">
-
-📡 HASINEH DATA CENTER V48
-
-</div>
-
-
-
-
-<div class="data-row">
-
-<span>
-وضعیت سیستم:
-</span>
-
-<span 
-class="status-green"
-id="data-system-v48">
-
-🟢 ONLINE
-
-</span>
-
-</div>
-
-
-
-
-<div class="data-row">
-
-<span>
-منبع داده:
-</span>
-
-<span 
-class="status-gold"
-id="data-source-v48">
-
-API CONNECTOR
-
-</span>
-
-</div>
-
-
-
-
-<div class="data-row">
-
-<span>
-آخرین دریافت:
-</span>
-
-<span 
-class="status-gold"
-id="data-last-v48">
-
----
-
-</span>
-
-</div>
-
-
-
-
-<div class="data-row">
-
-<span>
-اتصال:
-</span>
-
-<span 
-class="status-green"
-id="data-connect-v48">
-
-READY
-
-</span>
-
-</div>
-
-
-
-
-<div class="data-row">
-
-<span>
-سلامت موتور:
-</span>
-
-<span 
-class="status-green"
-id="data-health-v48">
-
-100%
-
-</span>
-
-</div>
-
-
-
-</div>
-
-
 /* ==========================
- HASINEH MARKET V48
- DATA CENTER STYLE
+ HASINEH MARKET V49
+ PREMIUM MARKET ALERT SYSTEM
 ========================== */
 
 
-.data-center-box{
+<div class="box alert-box">
+
+
+<div class="box-title alert-title">
+
+🔔 HASINEH MARKET ALERT V49
+
+</div>
+
+
+
+
+<div class="alert-main">
+
+
+<span 
+id="alert-icon-v49">
+
+🟢
+
+</span>
+
+
+
+<span 
+id="alert-message-v49">
+
+بازار در وضعیت پایدار قرار دارد
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="alert-status-row">
+
+
+<span>
+
+وضعیت اعلان:
+
+</span>
+
+
+
+<span 
+class="status-green"
+id="alert-status-v49">
+
+ACTIVE
+
+</span>
+
+
+</div>
+
+
+
+</div>
+
+
+
+/* ==========================
+ HASINEH MARKET V49
+ ALERT PANEL STYLE
+========================== */
+
+
+.alert-box{
 
 margin:20px auto;
 
@@ -147,7 +103,7 @@ box-shadow:
 
 
 
-.data-center-title{
+.alert-title{
 
 font-size:20px;
 
@@ -163,33 +119,65 @@ margin-bottom:18px;
 
 
 
-.data-row{
+.alert-main{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:12px;
+
+padding:18px;
+
+border-radius:22px;
+
+background:#101010;
+
+border:
+
+1px solid rgba(212,175,55,0.25);
+
+}
+
+
+
+#alert-icon-v49{
+
+font-size:30px;
+
+}
+
+
+
+#alert-message-v49{
+
+color:#ffffff;
+
+font-weight:bold;
+
+font-size:15px;
+
+text-align:center;
+
+}
+
+
+
+.alert-status-row{
 
 display:flex;
 
 justify-content:space-between;
 
-align-items:center;
+margin-top:15px;
 
-padding:11px 5px;
+padding:10px 5px;
 
-border-bottom:
+border-top:
 
 1px solid rgba(212,175,55,0.18);
-
-}
-
-
-
-.data-row:last-child{
-
-border-bottom:none;
-
-}
-
-
-
-.data-row span:first-child{
 
 color:#ffffff;
 
@@ -199,17 +187,9 @@ font-weight:bold;
 
 
 
-.data-row span:last-child{
+/* حالت‌های هشدار */
 
-font-weight:bold;
-
-}
-
-
-
-/* وضعیت‌های موتور داده */
-
-.data-online{
+.alert-green{
 
 color:#00ff88;
 
@@ -217,7 +197,7 @@ color:#00ff88;
 
 
 
-.data-warning{
+.alert-yellow{
 
 color:#ffd700;
 
@@ -225,7 +205,7 @@ color:#ffd700;
 
 
 
-.data-error{
+.alert-red{
 
 color:#ff5555;
 
@@ -233,9 +213,9 @@ color:#ff5555;
 
 
 
-/* جلوه حرفه‌ای */
+/* افکت ظریف اعلان */
 
-.data-center-box:hover{
+.alert-box:hover{
 
 box-shadow:
 
@@ -246,21 +226,17 @@ box-shadow:
 
 
 /* ==========================
- HASINEH MARKET V48
- DATA CENTER ENGINE
+ HASINEH MARKET V49
+ ALERT ENGINE
 ========================== */
 
 
-const HASINEH_DATA_CENTER_V48 = {
+const HASINEH_ALERT_V49 = {
 
 
-system:"ONLINE",
+type:"STABLE",
 
-source:"API CONNECTOR",
-
-connection:"READY",
-
-health:"100%",
+message:"بازار در وضعیت پایدار قرار دارد",
 
 
 
@@ -268,92 +244,52 @@ update:function(){
 
 
 
-let now = new Date();
-
-
-
-
-let system =
+let icon =
 document.getElementById(
-"data-system-v48"
+"alert-icon-v49"
 );
 
 
 
-if(system){
+let message =
+document.getElementById(
+"alert-message-v49"
+);
 
-system.innerHTML =
-"🟢 ONLINE";
+
+
+let status =
+document.getElementById(
+"alert-status-v49"
+);
+
+
+
+
+if(icon){
+
+icon.innerHTML =
+"🟢";
 
 }
 
 
 
 
-let source =
-document.getElementById(
-"data-source-v48"
-);
+if(message){
 
-
-
-if(source){
-
-source.innerHTML =
-"API CONNECTOR";
+message.innerHTML =
+this.message;
 
 }
 
 
 
 
-let last =
-document.getElementById(
-"data-last-v48"
-);
+if(status){
 
-
-
-if(last){
-
-last.innerHTML =
-now.toLocaleTimeString(
-"fa-IR"
-);
-
-}
-
-
-
-
-let connect =
-document.getElementById(
-"data-connect-v48"
-);
-
-
-
-if(connect){
-
-connect.innerHTML =
-"🟢 READY";
-
-}
-
-
-
-
-let health =
-document.getElementById(
-"data-health-v48"
-);
-
-
-
-if(health){
-
-health.innerHTML =
-"100%";
+status.innerHTML =
+"ACTIVE";
 
 }
 
@@ -370,13 +306,13 @@ health.innerHTML =
 
 
 
-function hasinehDataCenterMonitorV48(){
+function hasinehAlertMonitorV49(){
 
 
 try{
 
 
-HASINEH_DATA_CENTER_V48.update();
+HASINEH_ALERT_V49.update();
 
 
 
@@ -386,7 +322,7 @@ catch(error){
 
 
 console.log(
-"HASINEH DATA CENTER V48 ERROR"
+"HASINEH ALERT V49 ERROR"
 );
 
 
@@ -402,9 +338,9 @@ console.log(
 
 setInterval(
 
-hasinehDataCenterMonitorV48,
+hasinehAlertMonitorV49,
 
-10000
+15000
 
 );
 
@@ -412,4 +348,4 @@ hasinehDataCenterMonitorV48,
 
 
 
-hasinehDataCenterMonitorV48();
+hasinehAlertMonitorV49();
