@@ -1,114 +1,182 @@
 <!-- ==========================
- HASINEH MARKET V40
- PRICE FORMAT PANEL
+ HASINEH MARKET V41
+ GOLD DISPLAY CARDS
 ========================== -->
 
 
-<div class="box price-format-box">
+<div class="box gold-display-box">
 
 
-<div class="box-title price-format-title">
+<div class="box-title gold-display-title">
 
-💰 HASINEH PRICE FORMAT V40
+🪙 HASINEH GOLD MARKET V41
+
+</div>
+
+
+
+<div class="gold-card-grid">
+
+
+<div class="gold-card">
+
+<div class="card-name">
+
+طلای ۱۸ عیار
+
+</div>
+
+<div class="card-info">
+
+عیار: 750
+
+</div>
+
+<div class="card-price" id="gold18-display-v41">
+
+---
+
+</div>
 
 </div>
 
 
 
 
-<div>
+<div class="gold-card">
 
-واحد نمایش:
+<div class="card-name">
 
-<span class="status-gold" id="price-unit-v40">
+طلای ۲۴ عیار
 
-تومان
+</div>
 
-</span>
+<div class="card-info">
+
+عیار: 999
+
+</div>
+
+<div class="card-price" id="gold24-display-v41">
+
+---
+
+</div>
 
 </div>
 
 
 
 
-<div>
+<div class="gold-card">
 
-فرمت قیمت:
+<div class="card-name">
 
-<span class="status-green" id="price-format-v40">
+مثقال طلای ۱۸ عیار
 
-ACTIVE
+</div>
 
-</span>
+<div class="card-info">
+
+عیار: 750
+
+</div>
+
+<div class="card-price" id="mesghal18-display-v41">
+
+---
+
+</div>
 
 </div>
 
 
 
 
-<div>
+<div class="gold-card">
 
-جداکننده اعداد:
+<div class="card-name">
 
-<span class="status-gold" id="number-format-v40">
+مثقال طلای ۲۱ عیار
 
-ENABLED
+</div>
 
-</span>
+<div class="card-info">
+
+عیار: 875
+
+</div>
+
+<div class="card-price" id="mesghal21-display-v41">
+
+---
+
+</div>
 
 </div>
 
 
 
 
-<div>
+<div class="gold-card">
 
-وضعیت موتور قیمت:
+<div class="card-name">
 
-<span class="status-green" id="price-engine-v40">
-
-🟢 READY
-
-</span>
+آبشده طلا
 
 </div>
 
+<div class="card-info">
+
+مبنای عیار: ری‌گیری
+
+</div>
+
+<div class="card-price" id="abshode-display-v41">
+
+---
+
+</div>
+
+</div>
+
+
+
+</div>
 
 
 </div>
 
 
 /* ==========================
- HASINEH MARKET V40
- PRICE FORMAT STYLE
+ HASINEH MARKET V41
+ GOLD DISPLAY CARDS STYLE
 ========================== */
 
 
-.price-format-box{
+.gold-display-box{
 
 margin:20px auto;
 
-max-width:360px;
+max-width:520px;
 
 padding:20px;
 
-border-radius:25px;
+border-radius:28px;
 
-background:#090909;
+background:#080808;
 
 border:1px solid #d4af37;
 
-line-height:2;
-
-box-shadow:0 0 20px rgba(212,175,55,0.30);
+box-shadow:0 0 30px rgba(212,175,55,0.35);
 
 }
 
 
 
-.price-format-title{
+.gold-display-title{
 
-font-size:19px;
+font-size:20px;
 
 font-weight:bold;
 
@@ -116,80 +184,140 @@ color:#ffd700;
 
 text-align:center;
 
-margin-bottom:12px;
+margin-bottom:18px;
 
 }
 
 
 
-.price-format-box div{
+.gold-card-grid{
 
-margin:7px 0;
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:12px;
 
 }
 
 
 
-.price-active{
+.gold-card{
 
-color:#00ff88;
+background:#111;
+
+border:1px solid rgba(212,175,55,0.45);
+
+border-radius:20px;
+
+padding:15px;
+
+text-align:center;
+
+transition:0.3s;
+
+}
+
+
+
+.gold-card:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 0 15px rgba(212,175,55,0.35);
+
+}
+
+
+
+.card-name{
+
+color:#ffffff;
 
 font-weight:bold;
 
+font-size:16px;
+
 }
 
 
 
-.price-unit{
+.card-info{
+
+color:#aaa;
+
+font-size:13px;
+
+margin-top:5px;
+
+}
+
+
+
+.card-price{
 
 color:#ffd700;
 
+font-size:18px;
+
 font-weight:bold;
+
+margin-top:10px;
+
+direction:ltr;
 
 }
 
 
 
-.price-error{
+@media(max-width:450px){
 
-color:#ff5555;
 
-font-weight:bold;
+.gold-card-grid{
+
+grid-template-columns:1fr;
+
+}
+
 
 }
 
 
 /* ==========================
- HASINEH MARKET V40
- PRICE FORMAT ENGINE
+ HASINEH MARKET V41
+ GOLD DISPLAY ENGINE
 ========================== */
 
 
-const HASINEH_PRICE_V40 = {
+const HASINEH_GOLD_DISPLAY_V41 = {
 
 
-unit:"تومان",
-
-formatStatus:"ACTIVE",
+items:{
 
 
+gold18:{
+price:"---"
+},
 
-formatNumber:function(number){
+
+gold24:{
+price:"---"
+},
 
 
+mesghal18:{
+price:"---"
+},
 
-if(number === "---" || number === null){
 
-return "---";
+mesghal21:{
+price:"---"
+},
 
+
+abshode:{
+price:"---"
 }
-
-
-
-return Number(number).toLocaleString(
-"fa-IR"
-);
-
 
 
 },
@@ -197,72 +325,58 @@ return Number(number).toLocaleString(
 
 
 
-update:function(){
+render:function(){
 
 
 
-let format =
-document.getElementById(
-"price-format-v40"
-);
+let cards = {
+
+
+"gold18-display-v41":
+this.items.gold18.price,
 
 
 
-if(format){
+"gold24-display-v41":
+this.items.gold24.price,
 
-format.innerHTML =
-"ACTIVE";
+
+
+"mesghal18-display-v41":
+this.items.mesghal18.price,
+
+
+
+"mesghal21-display-v41":
+this.items.mesghal21.price,
+
+
+
+"abshode-display-v41":
+this.items.abshode.price
+
+
+};
+
+
+
+
+for(let id in cards){
+
+
+let card =
+document.getElementById(id);
+
+
+
+if(card){
+
+card.innerHTML =
+cards[id] + " تومان";
 
 }
 
 
-
-
-let unit =
-document.getElementById(
-"price-unit-v40"
-);
-
-
-
-if(unit){
-
-unit.innerHTML =
-this.unit;
-
-}
-
-
-
-
-let separator =
-document.getElementById(
-"number-format-v40"
-);
-
-
-
-if(separator){
-
-separator.innerHTML =
-"ENABLED";
-
-}
-
-
-
-
-let engine =
-document.getElementById(
-"price-engine-v40"
-);
-
-
-
-if(engine){
-
-engine.innerHTML =
-"🟢 READY";
 
 }
 
@@ -279,13 +393,13 @@ engine.innerHTML =
 
 
 
-function hasinehPriceMonitorV40(){
+function hasinehGoldDisplayMonitorV41(){
 
 
 try{
 
 
-HASINEH_PRICE_V40.update();
+HASINEH_GOLD_DISPLAY_V41.render();
 
 
 
@@ -295,7 +409,7 @@ catch(error){
 
 
 console.log(
-"HASINEH PRICE V40 ERROR"
+"HASINEH GOLD DISPLAY V41 ERROR"
 );
 
 
@@ -311,7 +425,7 @@ console.log(
 
 setInterval(
 
-hasinehPriceMonitorV40,
+hasinehGoldDisplayMonitorV41,
 
 15000
 
@@ -321,4 +435,4 @@ hasinehPriceMonitorV40,
 
 
 
-hasinehPriceMonitorV40();
+hasinehGoldDisplayMonitorV41();
