@@ -1,105 +1,32 @@
 <!-- ==========================
- HASINEH MARKET V60
- FINAL SYSTEM CONTROL
+ HASINEH MARKET V61
+ MASTER PROJECT HEADER
 ========================== -->
 
 
-<div class="box final-control-box-v60">
+<div class="box master-header-v61">
 
 
-<div class="box-title final-control-title-v60">
+<div class="master-logo-v61">
 
-⚙️ HASINEH MARKET CONTROL CENTER
+HASINEH MARKET
+
+</div>
+
+
+
+<div class="master-desc-v61">
+
+Premium Digital Market Board
 
 </div>
 
 
 
 
-<div class="control-row-v60">
+<div class="master-version-v61">
 
-<span>
-
-نسخه سیستم:
-
-</span>
-
-
-<span id="system-version-v60">
-
-V60 PREMIUM
-
-</span>
-
-
-</div>
-
-
-
-
-<div class="control-row-v60">
-
-<span>
-
-وضعیت تابلو:
-
-</span>
-
-
-<span 
-class="online-v60"
-id="board-status-v60">
-
-🟢 ONLINE
-
-</span>
-
-
-</div>
-
-
-
-
-<div class="control-row-v60">
-
-<span>
-
-موتور نرخ:
-
-</span>
-
-
-<span 
-class="ready-v60"
-id="rate-engine-v60">
-
-🟢 READY
-
-</span>
-
-
-</div>
-
-
-
-
-<div class="control-row-v60">
-
-<span>
-
-آمادگی انتشار:
-
-</span>
-
-
-<span 
-class="ready-v60"
-id="launch-status-v60">
-
-🟢 READY
-
-</span>
-
+SYSTEM VERSION : V61
 
 </div>
 
@@ -109,27 +36,27 @@ id="launch-status-v60">
 
 
 /* ==========================
- HASINEH MARKET V60
- FINAL CONTROL STYLE
+ HASINEH MARKET V61
+ MASTER HEADER STYLE
 ========================== */
 
 
-.final-control-box-v60{
+.master-header-v61{
 
 margin:25px auto;
 
-max-width:420px;
+max-width:600px;
 
-padding:22px;
+padding:30px 20px;
 
-border-radius:30px;
+border-radius:35px;
 
 background:
 
 linear-gradient(
 145deg,
-#070707,
-#151515
+#050505,
+#161616
 );
 
 border:
@@ -138,25 +65,69 @@ border:
 
 box-shadow:
 
-0 0 35px rgba(212,175,55,0.25);
-
-}
-
-
-
-
-
-.final-control-title-v60{
+0 0 45px rgba(212,175,55,0.30);
 
 text-align:center;
 
-font-size:20px;
+}
+
+
+
+
+
+.master-logo-v61{
+
+font-size:34px;
 
 font-weight:bold;
+
+letter-spacing:8px;
+
+color:#d4af37;
+
+text-shadow:
+
+0 0 20px rgba(212,175,55,0.55);
+
+}
+
+
+
+
+
+.master-desc-v61{
+
+margin-top:12px;
+
+font-size:14px;
+
+letter-spacing:3px;
+
+color:#aaaaaa;
+
+}
+
+
+
+
+
+.master-version-v61{
+
+margin-top:18px;
+
+font-size:12px;
 
 color:#ffd700;
 
-margin-bottom:18px;
+letter-spacing:2px;
+
+padding:8px;
+
+border-radius:15px;
+
+background:#101010;
+
+display:inline-block;
 
 }
 
@@ -164,111 +135,34 @@ margin-bottom:18px;
 
 
 
-.control-row-v60{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:12px 5px;
-
-border-bottom:
-
-1px solid rgba(212,175,55,0.18);
-
-}
-
-
-
-
-
-.control-row-v60:last-child{
-
-border-bottom:none;
-
-}
-
-
-
-
-
-.control-row-v60 span:first-child{
-
-color:#ffffff;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-.control-row-v60 span:last-child{
-
-font-weight:bold;
-
-}
-
-
-
-
-
-.online-v60{
-
-color:#00ff88;
-
-}
-
-
-
-
-
-.ready-v60{
-
-color:#ffd700;
-
-}
-
-
-
-
-
-.final-control-box-v60:hover{
+.master-header-v61:hover{
 
 box-shadow:
 
-0 0 50px rgba(212,175,55,0.45);
+0 0 60px rgba(212,175,55,0.45);
 
 }
 
 
-
 /* ==========================
- HASINEH MARKET V60
- FINAL CONTROL ENGINE
+ HASINEH MARKET V61
+ MASTER SYSTEM ENGINE
 ========================== */
 
 
-const HASINEH_CONTROL_V60 = {
+const HASINEH_MASTER_V61 = {
+
+
+brand:
+"HASINEH MARKET",
+
+
+description:
+"Premium Digital Market Board",
 
 
 version:
-"V60 PREMIUM",
-
-
-board:
-"ONLINE",
-
-
-rate:
-"READY",
-
-
-launch:
-"READY",
+"V61",
 
 
 
@@ -276,17 +170,17 @@ update:function(){
 
 
 
-let version =
-document.getElementById(
-"system-version-v60"
+let logo =
+document.querySelector(
+".master-logo-v61"
 );
 
 
 
-if(version){
+if(logo){
 
-version.innerHTML =
-this.version;
+logo.innerHTML =
+this.brand;
 
 }
 
@@ -294,17 +188,17 @@ this.version;
 
 
 
-let board =
-document.getElementById(
-"board-status-v60"
+let desc =
+document.querySelector(
+".master-desc-v61"
 );
 
 
 
-if(board){
+if(desc){
 
-board.innerHTML =
-"🟢 " + this.board;
+desc.innerHTML =
+this.description;
 
 }
 
@@ -312,43 +206,26 @@ board.innerHTML =
 
 
 
-let rate =
-document.getElementById(
-"rate-engine-v60"
+let ver =
+document.querySelector(
+".master-version-v61"
 );
 
 
 
-if(rate){
+if(ver){
 
-rate.innerHTML =
-"🟢 " + this.rate;
-
-}
-
-
-
-
-
-let launch =
-document.getElementById(
-"launch-status-v60"
-);
-
-
-
-if(launch){
-
-launch.innerHTML =
-"🟢 " + this.launch;
+ver.innerHTML =
+"SYSTEM VERSION : " + this.version;
 
 }
+
 
 
 
 
 console.log(
-"HASINEH MARKET V60 FINAL CONTROL READY"
+"HASINEH MASTER SYSTEM V61 READY"
 );
 
 
@@ -364,13 +241,13 @@ console.log(
 
 
 
-function hasinehControlMonitorV60(){
+function hasinehMasterMonitorV61(){
 
 
 try{
 
 
-HASINEH_CONTROL_V60.update();
+HASINEH_MASTER_V61.update();
 
 
 
@@ -380,7 +257,7 @@ catch(error){
 
 
 console.log(
-"HASINEH CONTROL V60 ERROR"
+"HASINEH MASTER V61 ERROR"
 );
 
 
@@ -397,7 +274,7 @@ console.log(
 
 setInterval(
 
-hasinehControlMonitorV60,
+hasinehMasterMonitorV61,
 
 30000
 
@@ -407,4 +284,4 @@ hasinehControlMonitorV60,
 
 
 
-hasinehControlMonitorV60();
+hasinehMasterMonitorV61();
