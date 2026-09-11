@@ -33,7 +33,7 @@ text-align:center;
 
 padding:25px 10px;
 
-background:linear-gradient(#1a1a1a,#050505);
+background:linear-gradient(#202020,#050505);
 
 border-bottom:2px solid #d4af37;
 
@@ -160,8 +160,6 @@ background:#0d0d0d;
 
 border:1px solid #333;
 
-color:#aaa;
-
 line-height:2;
 
 }
@@ -173,6 +171,52 @@ line-height:2;
 .connection-online{
 
 color:#00ff88;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+.market-mode{
+
+margin:15px auto;
+
+max-width:320px;
+
+padding:12px;
+
+border-radius:18px;
+
+background:#111;
+
+border:1px solid #444;
+
+text-align:center;
+
+}
+
+
+
+
+
+.mode-open{
+
+color:#00ff88;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+.mode-close{
+
+color:#ff4444;
 
 font-weight:bold;
 
@@ -229,6 +273,7 @@ color:#ccc;
 
 
 
+
 .market-pulse span{
 
 font-weight:bold;
@@ -258,7 +303,6 @@ color:#00ff88;
 
 
 
-
 .date-box{
 
 margin-top:15px;
@@ -270,7 +314,6 @@ font-size:14px;
 color:#bbb;
 
 }
-
 
 
 
@@ -295,13 +338,11 @@ color:#aaa;
 
 
 
-
 .container{
 
 padding:15px;
 
 }
-
 
 
 
@@ -321,7 +362,6 @@ margin-bottom:20px;
 
 
 
-
 .title{
 
 text-align:center;
@@ -333,11 +373,7 @@ font-size:25px;
 margin-bottom:18px;
 
 }
-
-
-
-
-.item{
+  .item{
 
 padding:15px 5px;
 
@@ -354,7 +390,11 @@ font-size:17px;
 margin-bottom:10px;
 
 }
-  .price-line{
+
+
+
+
+.price-line{
 
 display:flex;
 
@@ -365,6 +405,7 @@ align-items:center;
 font-size:13px;
 
 }
+
 
 
 
@@ -380,6 +421,7 @@ color:#fff;
 
 
 
+
 .change-up{
 
 color:#00ff88;
@@ -390,6 +432,7 @@ font-weight:bold;
 
 
 
+
 .change-down{
 
 color:#ff4444;
@@ -397,6 +440,7 @@ color:#ff4444;
 font-weight:bold;
 
 }
+
 
 
 
@@ -418,6 +462,66 @@ color:#ffd700;
 font-weight:bold;
 
 }
+
+
+
+
+.price-alert{
+
+margin-top:10px;
+
+padding:8px;
+
+border-radius:12px;
+
+background:#111;
+
+text-align:center;
+
+font-size:13px;
+
+}
+
+
+
+
+
+.alert-green{
+
+color:#00ff88;
+
+}
+
+
+
+
+.alert-red{
+
+color:#ff4444;
+
+}
+
+
+
+
+.badge{
+
+display:inline-block;
+
+padding:5px 12px;
+
+border-radius:20px;
+
+background:#222;
+
+color:#ffd700;
+
+font-size:12px;
+
+margin-top:10px;
+
+}
+
 
 
 
@@ -454,6 +558,7 @@ margin-bottom:10px;
 
 
 
+
 .creator{
 
 text-align:center;
@@ -461,6 +566,8 @@ text-align:center;
 margin-top:30px;
 
 }
+
+
 
 
 
@@ -473,6 +580,7 @@ color:#777;
 letter-spacing:1px;
 
 }
+
 
 
 
@@ -502,47 +610,13 @@ color:#666;
 
 
 
-.badge{
-
-display:inline-block;
-
-padding:5px 12px;
-
-border-radius:20px;
-
-background:#222;
-
-color:#ffd700;
-
-font-size:12px;
-
-margin-top:10px;
-
-}
-
-
-
-.alert-green{
-
-color:#00ff88;
-
-}
-
-
-
-.alert-red{
-
-color:#ff4444;
-
-}
-
-
 
 .hidden{
 
 display:none;
 
 }
+
 
 
 
@@ -576,7 +650,6 @@ Online Gold, Currency & Market Dashboard
 Digital Market Board | Bandar Hasineh
 
 </div>
-
 <div class="status-box">
 
 
@@ -628,6 +701,34 @@ Digital Market Board | Bandar Hasineh
 
 
 </div>
+
+
+
+
+
+
+<div class="market-mode">
+
+
+<div class="badge">
+
+وضعیت معاملات
+
+</div>
+
+
+<br>
+
+
+<span class="mode-open" id="market-mode">
+
+🟢 بازار باز
+
+</span>
+
+
+</div>
+
 
 
 
@@ -774,7 +875,10 @@ Digital Market Board | Bandar Hasineh
 
 
 <div class="container">
-  
+
+
+
+
 <div class="card">
 
 
@@ -783,10 +887,6 @@ Digital Market Board | Bandar Hasineh
 🟡 HASINEH GOLD
 
 </div>
-
-
-
-
 
 <div class="item">
 
@@ -972,7 +1072,10 @@ Digital Market Board | Bandar Hasineh
 
 
 
+
+
 </div>
+
 
 
 
@@ -990,6 +1093,7 @@ Digital Market Board | Bandar Hasineh
 
 </div>
 
+
 <div class="item">
 
 
@@ -998,7 +1102,6 @@ Digital Market Board | Bandar Hasineh
 USD دلار آمریکا
 
 </div>
-
 
 
 
@@ -1047,12 +1150,6 @@ USD دلار آمریکا
 
 </div>
 
-
-
-
-
-
-
 <div class="item">
 
 
@@ -1061,7 +1158,6 @@ USD دلار آمریکا
 EUR یورو
 
 </div>
-
 
 
 
@@ -1127,7 +1223,6 @@ AED درهم امارات
 
 
 
-
 <div class="price-line">
 
 
@@ -1190,7 +1285,6 @@ GBP پوند انگلیس
 
 
 
-
 <div class="price-line">
 
 
@@ -1236,6 +1330,12 @@ GBP پوند انگلیس
 
 </div>
 
+
+
+
+
+
+
 <div class="item">
 
 
@@ -1244,7 +1344,6 @@ GBP پوند انگلیس
 CAD دلار کانادا
 
 </div>
-
 
 
 
@@ -1293,12 +1392,6 @@ CAD دلار کانادا
 
 </div>
 
-
-
-
-
-
-
 <div class="item">
 
 
@@ -1307,7 +1400,6 @@ CAD دلار کانادا
 TRY لیر ترکیه
 
 </div>
-
 
 
 
@@ -1373,7 +1465,6 @@ CNY یوان چین
 
 
 
-
 <div class="price-line">
 
 
@@ -1424,6 +1515,9 @@ CNY یوان چین
 
 
 </div>
+
+
+
 
 
 
@@ -1482,6 +1576,12 @@ CNY یوان چین
 
 </div>
 
+
+
+
+
+
+
 <div class="card">
 
 
@@ -1490,6 +1590,7 @@ CNY یوان چین
 🏠 HASINEH REAL ESTATE
 
 </div>
+
 
 
 
@@ -1532,13 +1633,6 @@ CNY یوان چین
 
 
 </div>
-
-
-
-
-
-
-
 
 <div class="qr">
 
@@ -1640,6 +1734,7 @@ timeZone:"Asia/Tehran"
 
 
 
+
 document.getElementById("clock").innerHTML =
 
 "ساعت ایران: " +
@@ -1705,7 +1800,6 @@ day:"numeric"
 
 
 
-
 document.getElementById("update").innerHTML =
 
 "آخرین بروزرسانی: " +
@@ -1717,14 +1811,11 @@ iran.toLocaleTimeString("fa-IR");
 
 
 
-
-
 document.getElementById("data-time").innerHTML =
 
 "آخرین دریافت اطلاعات: " +
 
 iran.toLocaleTimeString("fa-IR");
-
 
 
 
@@ -1751,6 +1842,8 @@ updateTime();
 
 </script>
 
+
+</div>
 
 
 </body>
