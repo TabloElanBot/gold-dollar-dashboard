@@ -1,54 +1,39 @@
 <!-- ==========================
- HASINEH MARKET V54
- REAL DATA CONNECTOR
+ HASINEH MARKET V55
+ GOLD COIN PROFESSIONAL BOARD
 ========================== -->
 
 
-<div class="box real-data-box">
+<div class="box professional-market-box">
 
 
-<div class="box-title real-data-title">
+<div class="box-title professional-title">
 
-📡 HASINEH REAL DATA CONNECTOR V54
-
-</div>
-
-
-
-
-<div class="data-line">
-
-<span>
-وضعیت اتصال:
-</span>
-
-
-<span 
-class="status-green"
-id="real-status-v54">
-
-🟢 READY
-
-</span>
+🪙 HASINEH GOLD & COIN PREMIUM
 
 </div>
 
 
 
+<div class="professional-section">
 
-<div class="data-line">
+
+<div class="section-title">
+
+✨ طلا
+
+</div>
+
+
+
+<div class="professional-item">
 
 <span>
-منبع نرخ:
+طلای ۱۸ عیار
 </span>
 
-
-<span 
-class="status-gold"
-id="real-source-v54">
-
-PENDING API
-
+<span>
+عیار 750
 </span>
 
 </div>
@@ -56,19 +41,14 @@ PENDING API
 
 
 
-<div class="data-line">
+<div class="professional-item">
 
 <span>
-آخرین دریافت:
+طلای ۲۴ عیار
 </span>
 
-
-<span 
-class="status-gold"
-id="real-update-v54">
-
----
-
+<span>
+عیار 999
 </span>
 
 </div>
@@ -76,20 +56,125 @@ id="real-update-v54">
 
 
 
-<div class="data-line">
+<div class="professional-item">
 
 <span>
-سلامت موتور:
+مثقال طلای ۱۸ عیار
 </span>
 
-
-<span 
-class="status-green"
-id="real-health-v54">
-
-100%
-
+<span>
+عیار 750
 </span>
+
+</div>
+
+
+
+
+<div class="professional-item">
+
+<span>
+مثقال طلای ۲۱ عیار
+</span>
+
+<span>
+عیار 875
+</span>
+
+</div>
+
+
+
+
+<div class="professional-item">
+
+<span>
+آبشده طلا
+</span>
+
+<span>
+مبنای 750
+</span>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="professional-section">
+
+
+<div class="section-title">
+
+🪙 سکه
+
+</div>
+
+
+
+<div class="professional-item">
+
+<span>
+سکه امامی
+</span>
+
+<span>
+تمام بهار آزادی
+</span>
+
+</div>
+
+
+
+
+<div class="professional-item">
+
+<span>
+نیم سکه
+</span>
+
+<span>
+بهار آزادی
+</span>
+
+</div>
+
+
+
+
+<div class="professional-item">
+
+<span>
+ربع سکه
+</span>
+
+<span>
+بهار آزادی
+</span>
+
+</div>
+
+
+
+
+<div class="professional-item">
+
+<span>
+سکه گرمی
+</span>
+
+<span>
+بانک مرکزی
+</span>
+
+</div>
+
+
 
 </div>
 
@@ -99,42 +184,43 @@ id="real-health-v54">
 
 
 /* ==========================
- HASINEH MARKET V54
- REAL DATA CONNECTOR STYLE
+ HASINEH MARKET V55
+ PROFESSIONAL GOLD COIN STYLE
 ========================== */
 
 
-.real-data-box{
+.professional-market-box{
 
-margin:20px auto;
+margin:25px auto;
 
-max-width:420px;
+max-width:520px;
 
-padding:22px;
+padding:25px;
 
-border-radius:30px;
+border-radius:32px;
 
 background:
 
 linear-gradient(
 145deg,
-#070707,
-#141414
+#050505,
+#151515
 );
 
 border:1px solid #d4af37;
 
 box-shadow:
 
-0 0 35px rgba(212,175,55,0.30);
+0 0 45px rgba(212,175,55,0.35);
 
 }
 
 
 
-.real-data-title{
 
-font-size:20px;
+.professional-title{
+
+font-size:21px;
 
 font-weight:bold;
 
@@ -142,13 +228,50 @@ color:#ffd700;
 
 text-align:center;
 
-margin-bottom:18px;
+margin-bottom:22px;
 
 }
 
 
 
-.data-line{
+
+.professional-section{
+
+margin-bottom:25px;
+
+background:#0c0c0c;
+
+border-radius:24px;
+
+padding:15px;
+
+border:
+
+1px solid rgba(212,175,55,0.25);
+
+}
+
+
+
+
+.section-title{
+
+text-align:center;
+
+font-size:18px;
+
+font-weight:bold;
+
+color:#ffd700;
+
+margin-bottom:15px;
+
+}
+
+
+
+
+.professional-item{
 
 display:flex;
 
@@ -156,17 +279,18 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:12px 5px;
+padding:12px 8px;
 
 border-bottom:
 
-1px solid rgba(212,175,55,0.18);
+1px solid rgba(212,175,55,0.15);
 
 }
 
 
 
-.data-line:last-child{
+
+.professional-item:last-child{
 
 border-bottom:none;
 
@@ -174,7 +298,8 @@ border-bottom:none;
 
 
 
-.data-line span:first-child{
+
+.professional-item span:first-child{
 
 color:#ffffff;
 
@@ -184,65 +309,114 @@ font-weight:bold;
 
 
 
-.data-line span:last-child{
 
-font-weight:bold;
+.professional-item span:last-child{
 
-}
+color:#999;
 
-
-
-/* وضعیت اتصال */
-
-.connector-ready{
-
-color:#00ff88;
+font-size:13px;
 
 }
 
 
 
-.connector-waiting{
 
-color:#ffd700;
+/* جلوه لوکس */
 
-}
-
-
-
-.connector-error{
-
-color:#ff5555;
-
-}
-
-
-
-/* افکت اعتماد */
-
-.real-data-box:hover{
+.professional-section:hover{
 
 box-shadow:
 
-0 0 50px rgba(212,175,55,0.45);
+0 0 25px rgba(212,175,55,0.25);
 
 }
 
 
+
+
+@media(max-width:450px){
+
+
+.professional-market-box{
+
+padding:18px;
+
+}
+
+
+
+}
+
+
+
 /* ==========================
- HASINEH MARKET V54
- REAL DATA CONNECTOR ENGINE
+ HASINEH MARKET V55
+ PROFESSIONAL GOLD COIN ENGINE
 ========================== */
 
 
-const HASINEH_REAL_DATA_V54 = {
+const HASINEH_GOLD_COIN_V55 = {
 
 
-status:"READY",
+items:{
 
-source:"PENDING API",
 
-health:"100%",
+gold18:{
+name:"طلای ۱۸ عیار",
+karat:"750"
+},
+
+
+gold24:{
+name:"طلای ۲۴ عیار",
+karat:"999"
+},
+
+
+mesghal18:{
+name:"مثقال طلای ۱۸ عیار",
+karat:"750"
+},
+
+
+mesghal21:{
+name:"مثقال طلای ۲۱ عیار",
+karat:"875"
+},
+
+
+abshode:{
+name:"آبشده طلا",
+karat:"750"
+},
+
+
+
+emami:{
+name:"سکه امامی",
+info:"تمام بهار آزادی"
+},
+
+
+nim:{
+name:"نیم سکه",
+info:"بهار آزادی"
+},
+
+
+rob:{
+name:"ربع سکه",
+info:"بهار آزادی"
+},
+
+
+gerami:{
+name:"سکه گرمی",
+info:"بانک مرکزی"
+}
+
+
+},
 
 
 
@@ -250,77 +424,9 @@ update:function(){
 
 
 
-let now = new Date();
-
-
-
-
-let status =
-document.getElementById(
-"real-status-v54"
+console.log(
+"HASINEH GOLD & COIN V55 READY"
 );
-
-
-
-if(status){
-
-status.innerHTML =
-"🟢 READY";
-
-}
-
-
-
-
-let source =
-document.getElementById(
-"real-source-v54"
-);
-
-
-
-if(source){
-
-source.innerHTML =
-this.source;
-
-}
-
-
-
-
-let update =
-document.getElementById(
-"real-update-v54"
-);
-
-
-
-if(update){
-
-update.innerHTML =
-now.toLocaleTimeString(
-"fa-IR"
-);
-
-}
-
-
-
-
-let health =
-document.getElementById(
-"real-health-v54"
-);
-
-
-
-if(health){
-
-health.innerHTML =
-this.health;
-
-}
 
 
 
@@ -335,13 +441,13 @@ this.health;
 
 
 
-function hasinehRealDataMonitorV54(){
+function hasinehGoldCoinMonitorV55(){
 
 
 try{
 
 
-HASINEH_REAL_DATA_V54.update();
+HASINEH_GOLD_COIN_V55.update();
 
 
 
@@ -351,7 +457,7 @@ catch(error){
 
 
 console.log(
-"HASINEH REAL DATA V54 ERROR"
+"HASINEH GOLD COIN V55 ERROR"
 );
 
 
@@ -361,15 +467,16 @@ console.log(
 
 
 }
+
 
 
 
 
 setInterval(
 
-hasinehRealDataMonitorV54,
+hasinehGoldCoinMonitorV55,
 
-10000
+30000
 
 );
 
@@ -377,4 +484,4 @@ hasinehRealDataMonitorV54,
 
 
 
-hasinehRealDataMonitorV54();
+hasinehGoldCoinMonitorV55();
