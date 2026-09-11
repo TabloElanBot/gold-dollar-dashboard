@@ -76,6 +76,28 @@ line-height:2;
 }
 
 
+.market-pulse{
+
+margin:15px auto;
+max-width:320px;
+padding:15px;
+border-radius:18px;
+background:#0d0d0d;
+border:1px solid #333;
+color:#ccc;
+line-height:2;
+
+}
+
+
+.market-pulse span{
+
+font-weight:bold;
+color:#fff;
+
+}
+
+
 .live{
 display:inline-block;
 margin-top:18px;
@@ -91,21 +113,6 @@ margin-top:15px;
 line-height:2;
 font-size:14px;
 color:#bbb;
-}
-
-
-.holiday-box{
-
-display:none;
-margin:15px auto;
-max-width:320px;
-padding:15px;
-border-radius:18px;
-background:#111;
-border:1px solid #d4af37;
-color:#ffd700;
-font-size:16px;
-
 }
 
 
@@ -205,76 +212,14 @@ font-weight:bold;
 color:#aaa;
 
 }
-  
-.qr{
-
-margin:25px 5px;
-padding:22px;
-border-radius:20px;
-border:1px dashed #555;
-text-align:center;
-color:#aaa;
-
-}
-
-
-
-.qr-title{
-
-font-size:18px;
-color:#ffd700;
-margin-bottom:10px;
-
-}
-
-
-
-.creator{
-
-text-align:center;
-margin-top:30px;
-
-}
-
-
-
-.creator-name{
-
-font-size:13px;
-color:#777;
-letter-spacing:1px;
-
-}
-
-
-
-.support{
-
-font-size:12px;
-color:#555;
-margin-top:8px;
-
-}
-
-
-
-.footer{
-
-text-align:center;
-padding:20px;
-color:#666;
-
-}
 
 
 </style>
-
 
 </head>
 
 
 <body>
-
 
 
 <div class="header">
@@ -287,13 +232,11 @@ HASINEH MARKET
 </div>
 
 
-
 <div class="subtitle">
 
 Online Gold, Currency & Market Dashboard
 
 </div>
-
 
 
 <div class="brand">
@@ -303,13 +246,11 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
-
 <div class="market-status">
 
 🟢 وضعیت بازار: آماده دریافت اطلاعات
 
 </div>
-
 
 
 <div class="notice-box">
@@ -323,6 +264,26 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
+<div class="market-pulse">
+
+📊 نبض بازار
+
+<br>
+
+🟢 بیشترین رشد:
+<span id="top-up">---</span>
+
+<br>
+
+🔴 بیشترین کاهش:
+<span id="top-down">---</span>
+
+<br>
+
+⏱ آخرین تغییر:
+<span id="last-change">---</span>
+
+</div>
 
 
 <div class="live">
@@ -332,10 +293,7 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
-
-
 <div class="date-box">
-
 
 <div id="solar">
 
@@ -357,19 +315,7 @@ Digital Market Board | Bandar Hasineh
 
 </div>
 
-
 </div>
-
-
-
-
-
-<div id="holiday" class="holiday-box">
-
-</div>
-
-
-
 
 
 <div id="update" class="update-box">
@@ -379,20 +325,8 @@ Digital Market Board | Bandar Hasineh
 </div>
 
 
-
-
 </div>
-
-
-
-
-
-
-
 <div class="container">
-
-
-
 
 
 <div class="card">
@@ -403,7 +337,6 @@ Digital Market Board | Bandar Hasineh
 🟡 HASINEH GOLD
 
 </div>
-
 
 
 
@@ -433,7 +366,6 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
-
 <span>
 
 فروش:
@@ -447,13 +379,11 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
-
 <span class="change-up">
 
 ▲ 0%
 
 </span>
-
 
 
 </div>
@@ -511,7 +441,6 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
-
 </div>
 
 
@@ -567,7 +496,6 @@ Digital Market Board | Bandar Hasineh
 </span>
 
 
-
 </div>
 
 
@@ -575,6 +503,10 @@ Digital Market Board | Bandar Hasineh
 
 
 </div>
+
+
+
+
 
 <div class="card">
 
@@ -584,6 +516,7 @@ Digital Market Board | Bandar Hasineh
 💵 HASINEH CURRENCY
 
 </div>
+
 
 
 
@@ -597,6 +530,7 @@ USD دلار آمریکا
 
 
 <div class="price-line">
+
 
 <span>
 
@@ -630,9 +564,11 @@ USD دلار آمریکا
 
 </span>
 
+
 </div>
 
 </div>
+
 
 
 
@@ -648,6 +584,7 @@ EUR یورو
 
 <div class="price-line">
 
+
 <span>
 
 خرید:
@@ -680,9 +617,11 @@ EUR یورو
 
 </span>
 
+
 </div>
 
 </div>
+
 
 
 
@@ -698,6 +637,7 @@ AED درهم امارات
 
 <div class="price-line">
 
+
 <span>
 
 خرید:
@@ -730,9 +670,12 @@ AED درهم امارات
 
 </span>
 
+
 </div>
 
 </div>
+
+
 
 
 
@@ -747,6 +690,7 @@ GBP پوند انگلیس
 
 <div class="price-line">
 
+
 <span>
 
 خرید:
@@ -779,9 +723,11 @@ GBP پوند انگلیس
 
 </span>
 
+
 </div>
 
 </div>
+
 
 
 
@@ -797,6 +743,7 @@ CAD دلار کانادا
 
 <div class="price-line">
 
+
 <span>
 
 خرید:
@@ -829,9 +776,11 @@ CAD دلار کانادا
 
 </span>
 
+
 </div>
 
 </div>
+
 
 
 
@@ -847,6 +796,7 @@ TRY لیر ترکیه
 
 <div class="price-line">
 
+
 <span>
 
 خرید:
@@ -879,9 +829,11 @@ TRY لیر ترکیه
 
 </span>
 
+
 </div>
 
 </div>
+
 
 
 
@@ -897,6 +849,7 @@ CNY یوان چین
 
 <div class="price-line">
 
+
 <span>
 
 خرید:
@@ -929,19 +882,15 @@ CNY یوان چین
 
 </span>
 
-</div>
 
 </div>
 
-
 </div>
 
 
+  </div>
+  <div class="card">
 
-
-
-
-<div class="card">
 
 <div class="title">
 
@@ -952,6 +901,7 @@ CNY یوان چین
 
 <div class="item">
 
+
 <div class="item-name">
 
 بازار خودرو
@@ -960,6 +910,7 @@ CNY یوان چین
 
 
 <div class="price-line">
+
 
 <span>
 
@@ -974,9 +925,12 @@ CNY یوان چین
 
 </span>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </div>
 
@@ -987,6 +941,7 @@ CNY یوان چین
 
 <div class="card">
 
+
 <div class="title">
 
 🏠 HASINEH REAL ESTATE
@@ -996,6 +951,7 @@ CNY یوان چین
 
 <div class="item">
 
+
 <div class="item-name">
 
 بازار ملک
@@ -1004,6 +960,7 @@ CNY یوان چین
 
 
 <div class="price-line">
+
 
 <span>
 
@@ -1018,9 +975,12 @@ CNY یوان چین
 
 </span>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </div>
 
@@ -1071,6 +1031,7 @@ Support: 09178649970
 
 
 </div>
+
 
 
 
@@ -1128,6 +1089,7 @@ iran.toLocaleTimeString("fa-IR");
 
 
 
+
 document.getElementById("solar").innerHTML =
 
 "تاریخ شمسی: " +
@@ -1149,6 +1111,7 @@ weekday:"long"
 }
 
 );
+
 
 
 
@@ -1175,8 +1138,6 @@ day:"numeric"
 
 
 
-checkHoliday(iran);
-
 
 
 document.getElementById("update").innerHTML =
@@ -1186,79 +1147,15 @@ document.getElementById("update").innerHTML =
 iran.toLocaleTimeString("fa-IR");
 
 
-}
 
 
 
+document.getElementById("last-change").innerHTML =
 
-function checkHoliday(date){
-
-
-let box=document.getElementById("holiday");
-
-let message="";
-
-
-let month=date.getMonth()+1;
-
-let day=date.getDate();
-
-
-
-// نوروز
-
-if(month===3 && day===21){
-
-message="🌱 نوروز مبارک 🌱<br>سال نو بر شما مبارک";
-
-}
-
-
-
-
-// رمضان
-
-let lunar=date.toLocaleDateString(
-
-"fa-IR-u-ca-islamic",
-
-{
-
-month:"numeric"
-
-}
-
-);
-
-
-
-if(message===""){
-
-if(lunar.includes("9")){
-
-message="🌙 رمضان کریم 🌙<br>قبول طاعات و عبادات";
-
-}
-
-}
-
-
-
-if(message!==""){
-
-box.style.display="block";
-
-box.innerHTML=message;
-
-}else{
-
-box.style.display="none";
-
-}
+iran.toLocaleTimeString("fa-IR");
 
 
 }
-
 
 
 
@@ -1268,11 +1165,10 @@ setInterval(updateTime,1000);
 updateTime();
 
 
-
 </script>
 
 
 
 </body>
 
-  </html>
+</html>
