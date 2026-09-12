@@ -1,76 +1,84 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 3 — IRAN TIME & DATE ENGINE
+     SECTION 4 — SYSTEM STATUS ENGINE
 ========================================= -->
 
 <script>
 
-const HASINEH_TIME_ENGINE_V81 = {
+const HASINEH_STATUS_ENGINE_V81 = {
 
   update:function(){
 
-    const now = new Date();
+    /* ---------- SYSTEM ---------- */
 
-    /* ---------- IRAN TIME ---------- */
+    const system =
+      document.getElementById("system-status-v81");
 
-    const iranTime =
-      now.toLocaleTimeString(
-        "fa-IR",
-        {
-          timeZone:"Asia/Tehran",
-          hour:"2-digit",
-          minute:"2-digit",
-          second:"2-digit"
-        }
-      );
-
-    const timeElement =
-      document.getElementById("iran-time-v81");
-
-    if(timeElement){
-      timeElement.textContent = iranTime;
+    if(system){
+      system.textContent = "🟢 ACTIVE";
+      system.className =
+        "control-value-v81 green-v81";
     }
 
 
-    /* ---------- SOLAR DATE ---------- */
+    /* ---------- DATA ENGINE ---------- */
 
-    const solarDate =
-      now.toLocaleDateString(
-        "fa-IR-u-ca-persian",
-        {
-          timeZone:"Asia/Tehran",
-          year:"numeric",
-          month:"long",
-          day:"numeric"
-        }
-      );
+    const engine =
+      document.getElementById("data-engine-v81");
 
-    const solarElement =
-      document.getElementById("solar-date-v81");
-
-    if(solarElement){
-      solarElement.textContent = solarDate;
+    if(engine){
+      engine.textContent = "🟡 READY";
+      engine.className =
+        "control-value-v81 yellow-v81";
     }
 
 
-    /* ---------- LUNAR DATE ---------- */
+    /* ---------- MARKET CONNECTION ---------- */
 
-    const lunarDate =
-      now.toLocaleDateString(
-        "ar-SA-u-ca-islamic",
-        {
-          timeZone:"Asia/Tehran",
-          year:"numeric",
-          month:"long",
-          day:"numeric"
-        }
-      );
+    const connection =
+      document.getElementById("market-connection-v81");
 
-    const lunarElement =
-      document.getElementById("lunar-date-v81");
+    if(connection){
 
-    if(lunarElement){
-      lunarElement.textContent = lunarDate;
+      /*
+       بازار هنوز به API واقعی متصل نیست.
+       بنابراین وضعیت اتصال عمداً NOT CONNECTED است.
+      */
+
+      connection.textContent =
+        "⚪ NOT CONNECTED";
+
+      connection.className =
+        "control-value-v81 gray-v81";
+    }
+
+
+    /* ---------- DATA SOURCE ---------- */
+
+    const source =
+      document.getElementById("data-source-v81");
+
+    if(source){
+
+      source.textContent =
+        "هنوز متصل نشده";
+
+      source.className =
+        "control-value-v81 gray-v81";
+    }
+
+
+    /* ---------- LAST REAL DATA ---------- */
+
+    const lastUpdate =
+      document.getElementById("last-data-update-v81");
+
+    if(lastUpdate){
+
+      lastUpdate.textContent = "---";
+
+      lastUpdate.className =
+        "control-value-v81 gold-v81";
     }
 
   }
@@ -78,17 +86,8 @@ const HASINEH_TIME_ENGINE_V81 = {
 };
 
 
-/* ---------- START ENGINE ---------- */
+/* ---------- START STATUS ENGINE ---------- */
 
-HASINEH_TIME_ENGINE_V81.update();
-
-
-/* ---------- LIVE CLOCK ---------- */
-
-setInterval(function(){
-
-  HASINEH_TIME_ENGINE_V81.update();
-
-},1000);
+HASINEH_STATUS_ENGINE_V81.update();
 
 </script>
