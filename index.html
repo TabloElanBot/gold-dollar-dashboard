@@ -1,121 +1,123 @@
+<!-- ==========================
+ HASINEH MARKET V80
+ DATA CONNECTION STATUS
+========================== -->
+
+
+<div class="box data-status-board-v80">
+
+
+<div class="data-status-title-v80">
+
+📡 HASINEH DATA CENTER
+
+</div>
+
+
+
+
+<div class="data-status-row-v80">
+
+<span>
+وضعیت موتور داده
+</span>
+
+<span id="data-engine-v80">
+
+🟢 ACTIVE
+
+</span>
+
+</div>
+
+
+
+
+
+<div class="data-status-row-v80">
+
+<span>
+اتصال بازار
+</span>
+
+<span id="market-connection-v80">
+
+🟢 ONLINE
+
+</span>
+
+</div>
+
+
+
+
+
+<div class="data-status-row-v80">
+
+<span>
+آخرین دریافت قیمت
+</span>
+
+<span id="last-data-update-v80">
+
+---
+
+</span>
+
+</div>
+
+
+
+
+
+<div class="data-status-row-v80">
+
+<span>
+منبع داده
+</span>
+
+<span id="data-source-v80">
+
+آماده اتصال
+
+</span>
+
+</div>
+
+
+
+</div>
 /* ==========================
- HASINEH MARKET V79
- IRAN TIME & DATE SYSTEM
+ HASINEH MARKET V80
+ DATA STATUS STYLE
 ========================== */
 
 
-<div class="box iran-time-board-v79">
-
-
-<div class="iran-time-title-v79">
-
-🕒 HASINEH MARKET TIME
-
-</div>
-
-
-
-
-<div class="iran-time-row-v79">
-
-
-<span>
-
-📅 تاریخ شمسی
-
-</span>
-
-
-<span id="solar-date-v79">
-
----
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="iran-time-row-v79">
-
-
-<span>
-
-🌙 تاریخ قمری
-
-</span>
-
-
-<span id="lunar-date-v79">
-
----
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="iran-time-row-v79">
-
-
-<span>
-
-⏰ ساعت ایران
-
-</span>
-
-
-<span id="iran-clock-v79">
-
----
-
-</span>
-
-
-</div>
-
-
-
-
-</div>
-/* ==========================
- HASINEH MARKET V79
- IRAN TIME BOARD STYLE
-========================== */
-
-
-.iran-time-board-v79{
+.data-status-board-v80{
 
 margin:30px auto;
 
-max-width:550px;
+max-width:580px;
 
-padding:25px;
+padding:28px;
 
-border-radius:35px;
+border-radius:38px;
 
 background:
 
 linear-gradient(
 145deg,
 #050505,
-#151515
+#161616
 );
 
 border:
 
-1px solid rgba(212,175,55,0.65);
+1px solid rgba(212,175,55,0.70);
 
 box-shadow:
 
-0 0 55px rgba(212,175,55,0.30);
+0 0 60px rgba(212,175,55,0.35);
 
 }
 
@@ -123,11 +125,11 @@ box-shadow:
 
 
 
-.iran-time-title-v79{
+.data-status-title-v80{
 
 text-align:center;
 
-font-size:24px;
+font-size:25px;
 
 font-weight:bold;
 
@@ -143,7 +145,7 @@ margin-bottom:25px;
 
 
 
-.iran-time-row-v79{
+.data-status-row-v80{
 
 display:flex;
 
@@ -163,7 +165,7 @@ border-bottom:
 
 
 
-.iran-time-row-v79:last-child{
+.data-status-row-v80:last-child{
 
 border-bottom:none;
 
@@ -173,7 +175,7 @@ border-bottom:none;
 
 
 
-.iran-time-row-v79 span:first-child{
+.data-status-row-v80 span:first-child{
 
 color:#ffffff;
 
@@ -185,15 +187,13 @@ font-weight:bold;
 
 
 
-.iran-time-row-v79 span:last-child{
+.data-status-row-v80 span:last-child{
 
-color:#ffd700;
+color:#00ff88;
 
 font-weight:bold;
 
-font-size:16px;
-
-direction:rtl;
+font-size:15px;
 
 }
 
@@ -201,9 +201,9 @@ direction:rtl;
 
 
 
-#iran-clock-v79{
+#last-data-update-v80{
 
-direction:ltr;
+color:#ffd700;
 
 }
 
@@ -211,11 +211,21 @@ direction:ltr;
 
 
 
-.iran-time-board-v79:hover{
+#data-source-v80{
+
+color:#cccccc;
+
+}
+
+
+
+
+
+.data-status-board-v80:hover{
 
 box-shadow:
 
-0 0 70px rgba(212,175,55,0.45);
+0 0 75px rgba(212,175,55,0.45);
 
 }
 
@@ -226,7 +236,7 @@ box-shadow:
 @media(max-width:450px){
 
 
-.iran-time-board-v79{
+.data-status-board-v80{
 
 padding:20px;
 
@@ -234,15 +244,15 @@ padding:20px;
 
 
 
-.iran-time-title-v79{
+.data-status-title-v80{
 
-font-size:20px;
+font-size:21px;
 
 }
 
 
 
-.iran-time-row-v79{
+.data-status-row-v80{
 
 font-size:14px;
 
@@ -252,15 +262,73 @@ font-size:14px;
 
 }
 /* ==========================
- HASINEH MARKET V79
- IRAN TIME ENGINE
+ HASINEH MARKET V80
+ DATA STATUS ENGINE
 ========================== */
 
 
-const HASINEH_TIME_SYSTEM_V79 = {
+const HASINEH_DATA_CENTER_V80 = {
+
+
+version:
+
+"V80 DATA CENTER",
+
+
+
+status:
+
+"ACTIVE",
+
+
 
 
 update:function(){
+
+
+
+let engine =
+document.getElementById(
+"data-engine-v80"
+);
+
+
+
+let connection =
+document.getElementById(
+"market-connection-v80"
+);
+
+
+
+let updateTime =
+document.getElementById(
+"last-data-update-v80"
+);
+
+
+
+
+
+if(engine){
+
+engine.innerHTML =
+"🟢 ACTIVE";
+
+}
+
+
+
+
+
+if(connection){
+
+connection.innerHTML =
+"🟢 ONLINE";
+
+}
+
+
 
 
 
@@ -271,89 +339,19 @@ new Date();
 
 
 
-let clock =
+let time =
 now.toLocaleTimeString(
-"fa-IR",
-{
-timeZone:
-"Asia/Tehran"
-}
+"fa-IR"
 );
 
 
 
 
 
-let solar =
-now.toLocaleDateString(
-"fa-IR-u-ca-persian",
-{
-timeZone:
-"Asia/Tehran"
-}
-);
+if(updateTime){
 
-
-
-
-
-let lunar =
-"در حال آماده‌سازی";
-
-
-
-
-
-
-let clockBox =
-document.getElementById(
-"iran-clock-v79"
-);
-
-
-
-let solarBox =
-document.getElementById(
-"solar-date-v79"
-);
-
-
-
-let lunarBox =
-document.getElementById(
-"lunar-date-v79"
-);
-
-
-
-
-
-if(clockBox){
-
-clockBox.innerHTML =
-clock;
-
-}
-
-
-
-
-
-if(solarBox){
-
-solarBox.innerHTML =
-solar;
-
-}
-
-
-
-
-
-if(lunarBox){
-
-lunarBox.innerHTML =
-lunar;
+updateTime.innerHTML =
+time;
 
 }
 
@@ -363,7 +361,7 @@ lunar;
 
 console.log(
 
-"HASINEH IRAN TIME SYSTEM V79 READY"
+"HASINEH DATA CENTER V80 READY"
 
 );
 
@@ -380,13 +378,13 @@ console.log(
 
 
 
-function hasinehTimeMonitorV79(){
+function hasinehDataMonitorV80(){
 
 
 try{
 
 
-HASINEH_TIME_SYSTEM_V79.update();
+HASINEH_DATA_CENTER_V80.update();
 
 
 
@@ -397,7 +395,7 @@ catch(error){
 
 console.log(
 
-"HASINEH TIME V79 ERROR"
+"HASINEH DATA CENTER V80 ERROR"
 
 );
 
@@ -415,9 +413,9 @@ console.log(
 
 setInterval(
 
-hasinehTimeMonitorV79,
+hasinehDataMonitorV80,
 
-1000
+15000
 
 );
 
@@ -425,4 +423,4 @@ hasinehTimeMonitorV79,
 
 
 
-hasinehTimeMonitorV79();
+hasinehDataMonitorV80();
