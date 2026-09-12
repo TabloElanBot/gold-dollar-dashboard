@@ -1,66 +1,94 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 5 — ENGINE SYNCHRONIZATION
+     SECTION 6 — SYSTEM HEALTH MONITOR
 ========================================= -->
 
 <script>
 
-const HASINEH_V81_CORE = {
+const HASINEH_HEALTH_MONITOR_V81 = {
 
-  start:function(){
+  check:function(){
 
-    /* ---------- RUN TIME ENGINE ---------- */
-
-    if(
-      typeof HASINEH_TIME_ENGINE_V81 !== "undefined" &&
-      HASINEH_TIME_ENGINE_V81.update
-    ){
-      HASINEH_TIME_ENGINE_V81.update();
-    }
+    let systemOK = true;
 
 
-    /* ---------- RUN STATUS ENGINE ---------- */
+    /* ---------- CHECK CONTROL CENTER ---------- */
 
-    if(
-      typeof HASINEH_STATUS_ENGINE_V81 !== "undefined" &&
-      HASINEH_STATUS_ENGINE_V81.update
-    ){
-      HASINEH_STATUS_ENGINE_V81.update();
-    }
+    const requiredElements = [
+
+      "system-status-v81",
+      "data-engine-v81",
+      "market-connection-v81",
+      "last-data-update-v81",
+      "data-source-v81",
+      "iran-time-v81",
+      "solar-date-v81",
+      "lunar-date-v81"
+
+    ];
 
 
-    /* ---------- SYSTEM READY ---------- */
+    requiredElements.forEach(function(id){
+
+      const element =
+        document.getElementById(id);
+
+      if(!element){
+
+        systemOK = false;
+
+        console.warn(
+          "HASINEH V81 missing element:",
+          id
+        );
+
+      }
+
+    });
+
+
+    /* ---------- UPDATE SYSTEM STATUS ---------- */
 
     const system =
       document.getElementById("system-status-v81");
 
     if(system){
 
-      system.textContent = "🟢 ACTIVE";
-      system.className =
-        "control-value-v81 green-v81";
+      if(systemOK){
+
+        system.textContent = "🟢 ACTIVE";
+        system.className =
+          "control-value-v81 green-v81";
+
+      }else{
+
+        system.textContent = "🟡 PARTIAL";
+        system.className =
+          "control-value-v81 yellow-v81";
+
+      }
+
     }
+
+
+    return systemOK;
 
   }
 
 };
 
 
-/* ---------- SAFE START ---------- */
+/* ---------- START HEALTH MONITOR ---------- */
 
-if(document.readyState === "loading"){
+HASINEH_HEALTH_MONITOR_V81.check();
 
-  document.addEventListener(
-    "DOMContentLoaded",
-    function(){
-      HASINEH_V81_CORE.start();
-    }
-  );
 
-}else{
+/* ---------- PERIODIC CHECK ---------- */
 
-  HASINEH_V81_CORE.start();
+setInterval(function(){
 
-}
+  HASINEH_HEALTH_MONITOR_V81.check();
+
+},10000);
 
 </script>
