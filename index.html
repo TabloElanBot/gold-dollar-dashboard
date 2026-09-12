@@ -1,24 +1,24 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 13 — DATA SOURCE MONITOR
+     SECTION 14 — SYSTEM CONTROL SUMMARY
 ========================================= -->
 
 <script>
 
-const HASINEH_DATA_SOURCE_V81 = {
+const HASINEH_CONTROL_SUMMARY_V81 = {
 
   update:function(){
 
     const target =
       document.getElementById(
-        "data-source-v81"
+        "system-summary-v81"
       );
 
 
     if(!target){
 
       console.warn(
-        "HASINEH V81 data source element missing"
+        "HASINEH V81 system summary missing"
       );
 
       return;
@@ -26,14 +26,8 @@ const HASINEH_DATA_SOURCE_V81 = {
     }
 
 
-    /* ---------- SOURCE STATUS ---------- */
-
-    const source =
-      "HASINEH MARKET CORE";
-
-
     target.textContent =
-      "🟢 " + source;
+      "🟢 SYSTEM READY | DATA ENGINE ACTIVE";
 
 
     target.className =
@@ -45,18 +39,18 @@ const HASINEH_DATA_SOURCE_V81 = {
 };
 
 
-/* ---------- INITIAL CHECK ---------- */
+/* ---------- INITIAL RUN ---------- */
 
-HASINEH_DATA_SOURCE_V81.update();
+HASINEH_CONTROL_SUMMARY_V81.update();
 
 
-/* ---------- AUTO CHECK ---------- */
+/* ---------- REFRESH ---------- */
 
 setInterval(function(){
 
-  HASINEH_DATA_SOURCE_V81.update();
+  HASINEH_CONTROL_SUMMARY_V81.update();
 
-},30000);
+},15000);
 
 
 </script>
