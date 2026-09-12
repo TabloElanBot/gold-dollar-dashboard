@@ -1,84 +1,44 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 4 — SYSTEM STATUS ENGINE
+     SECTION 5 — ENGINE SYNCHRONIZATION
 ========================================= -->
 
 <script>
 
-const HASINEH_STATUS_ENGINE_V81 = {
+const HASINEH_V81_CORE = {
 
-  update:function(){
+  start:function(){
 
-    /* ---------- SYSTEM ---------- */
+    /* ---------- RUN TIME ENGINE ---------- */
+
+    if(
+      typeof HASINEH_TIME_ENGINE_V81 !== "undefined" &&
+      HASINEH_TIME_ENGINE_V81.update
+    ){
+      HASINEH_TIME_ENGINE_V81.update();
+    }
+
+
+    /* ---------- RUN STATUS ENGINE ---------- */
+
+    if(
+      typeof HASINEH_STATUS_ENGINE_V81 !== "undefined" &&
+      HASINEH_STATUS_ENGINE_V81.update
+    ){
+      HASINEH_STATUS_ENGINE_V81.update();
+    }
+
+
+    /* ---------- SYSTEM READY ---------- */
 
     const system =
       document.getElementById("system-status-v81");
 
     if(system){
+
       system.textContent = "🟢 ACTIVE";
       system.className =
         "control-value-v81 green-v81";
-    }
-
-
-    /* ---------- DATA ENGINE ---------- */
-
-    const engine =
-      document.getElementById("data-engine-v81");
-
-    if(engine){
-      engine.textContent = "🟡 READY";
-      engine.className =
-        "control-value-v81 yellow-v81";
-    }
-
-
-    /* ---------- MARKET CONNECTION ---------- */
-
-    const connection =
-      document.getElementById("market-connection-v81");
-
-    if(connection){
-
-      /*
-       بازار هنوز به API واقعی متصل نیست.
-       بنابراین وضعیت اتصال عمداً NOT CONNECTED است.
-      */
-
-      connection.textContent =
-        "⚪ NOT CONNECTED";
-
-      connection.className =
-        "control-value-v81 gray-v81";
-    }
-
-
-    /* ---------- DATA SOURCE ---------- */
-
-    const source =
-      document.getElementById("data-source-v81");
-
-    if(source){
-
-      source.textContent =
-        "هنوز متصل نشده";
-
-      source.className =
-        "control-value-v81 gray-v81";
-    }
-
-
-    /* ---------- LAST REAL DATA ---------- */
-
-    const lastUpdate =
-      document.getElementById("last-data-update-v81");
-
-    if(lastUpdate){
-
-      lastUpdate.textContent = "---";
-
-      lastUpdate.className =
-        "control-value-v81 gold-v81";
     }
 
   }
@@ -86,8 +46,21 @@ const HASINEH_STATUS_ENGINE_V81 = {
 };
 
 
-/* ---------- START STATUS ENGINE ---------- */
+/* ---------- SAFE START ---------- */
 
-HASINEH_STATUS_ENGINE_V81.update();
+if(document.readyState === "loading"){
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+      HASINEH_V81_CORE.start();
+    }
+  );
+
+}else{
+
+  HASINEH_V81_CORE.start();
+
+}
 
 </script>
