@@ -7,14 +7,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <meta name="theme-color" content="#050505">
-
 
 
 <title>
 
-HASINEH MARKET V99 CURRENCY ENGINE
+HASINEH MARKET V100 PREMIUM PLATFORM
 
 </title>
 
@@ -33,12 +31,9 @@ box-sizing:border-box;
 
 body{
 
-
 margin:0;
 
-
 padding:0;
-
 
 
 background:
@@ -55,18 +50,14 @@ circle at top,
 color:white;
 
 
-
 font-family:
-
 
 Tahoma,
 Arial,
 sans-serif;
 
 
-
 min-height:100vh;
-
 
 }
 
@@ -74,16 +65,13 @@ min-height:100vh;
 
 
 
-
-
-.header-v99{
+.header-v100{
 
 
 text-align:center;
 
 
-
-padding:60px 15px;
+padding:65px 15px;
 
 
 
@@ -95,8 +83,6 @@ linear-gradient(
 #050505,
 #292929
 );
-
-
 
 
 
@@ -120,21 +106,16 @@ box-shadow:
 
 
 
+.brand-v100{
 
 
-.brand-v99{
-
-
-font-size:46px;
-
+font-size:48px;
 
 
 font-weight:bold;
 
 
-
 letter-spacing:6px;
-
 
 
 color:#ffd700;
@@ -147,17 +128,13 @@ color:#ffd700;
 
 
 
-
-
-.subtitle-v99{
+.subtitle-v100{
 
 
 margin-top:18px;
 
 
-
 font-size:18px;
-
 
 
 }
@@ -166,17 +143,13 @@ font-size:18px;
 
 
 
-
-
-.city-v99{
+.city-v100{
 
 
 margin-top:12px;
 
 
-
 color:#d4af37;
-
 
 
 }
@@ -185,26 +158,20 @@ color:#d4af37;
 
 
 
-
-
-.badge-v99{
+.badge-v100{
 
 
 display:inline-block;
 
 
-
 margin-top:20px;
 
 
-
-padding:12px 30px;
-
+padding:12px 32px;
 
 
 
 border-radius:35px;
-
 
 
 
@@ -215,14 +182,10 @@ border:
 
 
 
-
-
 background:
 
 
 rgba(255,215,0,0.08);
-
-
 
 
 
@@ -236,21 +199,16 @@ color:#ffd700;
 
 
 
-
-
-.container-v99{
+.container-v100{
 
 
 width:92%;
 
 
-
-max-width:1100px;
-
+max-width:1150px;
 
 
 margin:40px auto;
-
 
 
 }
@@ -259,9 +217,7 @@ margin:40px auto;
 
 
 
-
-
-.box-v99{
+.box-v100{
 
 
 background:
@@ -275,8 +231,6 @@ linear-gradient(
 
 
 
-
-
 border:
 
 
@@ -284,10 +238,7 @@ border:
 
 
 
-
-
 border-radius:30px;
-
 
 
 
@@ -295,11 +246,7 @@ padding:28px;
 
 
 
-
-
 margin-bottom:30px;
-
-
 
 
 
@@ -316,21 +263,16 @@ box-shadow:
 
 
 
-
-
-.title-v99{
+.title-v100{
 
 
 text-align:center;
 
 
-
 font-size:25px;
 
 
-
 font-weight:bold;
-
 
 
 color:#ffd700;
@@ -342,14 +284,37 @@ margin-bottom:25px;
 
 
 }
-     
-.currency-panel-v99{
+.platform-grid-v100{
 
 
-text-align:center;
+display:grid;
 
 
-padding:25px;
+grid-template-columns:repeat(
+3,
+1fr
+);
+
+
+
+gap:15px;
+
+
+
+}
+
+
+
+
+
+.platform-card-v100{
+
+
+padding:22px;
+
+
+
+border-radius:22px;
 
 
 
@@ -367,173 +332,6 @@ border:
 
 
 
-border-radius:25px;
-
-
-
-}
-
-
-
-
-
-.currency-buttons-v99{
-
-
-display:flex;
-
-
-justify-content:center;
-
-
-gap:12px;
-
-
-flex-wrap:wrap;
-
-
-
-}
-
-
-
-
-
-.currency-btn-v99{
-
-
-padding:12px 22px;
-
-
-
-border-radius:30px;
-
-
-
-background:
-
-
-rgba(255,215,0,0.08);
-
-
-
-border:
-
-
-1px solid rgba(255,215,0,0.35);
-
-
-
-color:#ffd700;
-
-
-
-cursor:pointer;
-
-
-
-font-weight:bold;
-
-
-
-transition:0.3s;
-
-
-
-}
-
-
-
-
-
-.currency-btn-v99:hover{
-
-
-transform:translateY(-3px);
-
-
-
-}
-
-
-
-
-
-.active-currency-v99{
-
-
-background:
-
-
-rgba(0,255,136,0.12);
-
-
-
-border-color:
-
-
-rgba(0,255,136,0.5);
-
-
-
-color:#00ff88;
-
-
-
-}
-
-
-
-
-
-.convert-grid-v99{
-
-
-display:grid;
-
-
-grid-template-columns:repeat(
-4,
-1fr
-);
-
-
-
-gap:15px;
-
-
-
-}
-
-
-
-
-
-.convert-card-v99{
-
-
-padding:18px;
-
-
-
-border-radius:20px;
-
-
-
-background:
-
-
-rgba(255,255,255,0.04);
-
-
-
-border:
-
-
-1px solid rgba(212,175,55,0.2);
-
-
-
 text-align:center;
 
 
@@ -544,13 +342,16 @@ text-align:center;
 
 
 
-.convert-title-v99{
+.platform-title-v100{
 
 
 color:#ffd700;
 
 
 font-weight:bold;
+
+
+font-size:18px;
 
 
 
@@ -560,7 +361,10 @@ font-weight:bold;
 
 
 
-.convert-value-v99{
+.platform-value-v100{
+
+
+margin-top:10px;
 
 
 font-size:14px;
@@ -573,7 +377,7 @@ font-size:14px;
 
 
 
-.info-row-v99{
+.status-row-v100{
 
 
 display:flex;
@@ -603,7 +407,7 @@ border-bottom:
 
 
 
-.info-row-v99:last-child{
+.status-row-v100:last-child{
 
 
 border-bottom:none;
@@ -615,7 +419,7 @@ border-bottom:none;
 
 
 
-.gold-v99{
+.gold-v100{
 
 
 color:#ffd700;
@@ -631,10 +435,26 @@ font-weight:bold;
 
 
 
-.green-v99{
+.green-v100{
 
 
 color:#00ff88;
+
+
+font-weight:bold;
+
+
+
+}
+
+
+
+
+
+.blue-v100{
+
+
+color:#66ccff;
 
 
 font-weight:bold;
@@ -659,10 +479,10 @@ font-weight:bold;
 <body>
 
 
-<header class="header-v99">
+<header class="header-v100">
 
 
-<div class="brand-v99">
+<div class="brand-v100">
 
 HASINEH MARKET
 
@@ -670,15 +490,15 @@ HASINEH MARKET
 
 
 
-<div class="subtitle-v99">
+<div class="subtitle-v100">
 
-Smart Currency Conversion Platform
+Premium Smart Market Platform
 
 </div>
 
 
 
-<div class="city-v99">
+<div class="city-v100">
 
 Bandar Hasineh
 
@@ -686,9 +506,9 @@ Bandar Hasineh
 
 
 
-<div class="badge-v99">
+<div class="badge-v100">
 
-V99 CURRENCY ENGINE
+V100 PLATFORM ARCHITECTURE
 
 </div>
 
@@ -698,144 +518,39 @@ V99 CURRENCY ENGINE
 
 
 
-<div class="container-v99">
+
+<div class="container-v100">
      
-<div class="box-v99">
+<div class="box-v100">
 
 
-<div class="title-v99">
+<div class="title-v100">
 
-💱 CURRENCY CONVERTER
-
-</div>
-
-
-
-
-
-<div class="currency-panel-v99">
-
-
-
-<div class="currency-buttons-v99">
-
-
-
-<button class="currency-btn-v99 active-currency-v99">
-
-🇮🇷 تومان
-
-</button>
-
-
-
-
-<button class="currency-btn-v99">
-
-🇦🇪 AED
-
-</button>
-
-
-
-
-<button class="currency-btn-v99">
-
-🇶🇦 QAR
-
-</button>
-
-
-
-
-<button class="currency-btn-v99">
-
-🇺🇸 USD
-
-</button>
-
-
-
-
-<button class="currency-btn-v99">
-
-🇪🇺 EUR
-
-</button>
-
-
+🚀 HASINEH PLATFORM MODULES
 
 </div>
 
 
 
-<br>
+
+
+<div class="platform-grid-v100">
 
 
 
-
-<div>
-
-واحد فعال:
-
-<br>
+<div class="platform-card-v100">
 
 
-<span id="currency-name-v99" class="gold-v99">
+<div class="platform-title-v100">
 
-IRR / تومان
-
-</span>
-
+🌐 Website
 
 </div>
 
 
+<div class="platform-value-v100">
 
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="box-v99">
-
-
-<div class="title-v99">
-
-🪙 GOLD GLOBAL DISPLAY
-
-</div>
-
-
-
-
-
-<div class="convert-grid-v99">
-
-
-
-<div class="convert-card-v99">
-
-
-<div class="convert-title-v99">
-
-طلای ۱۸ عیار
-
-</div>
-
-
-<div class="convert-value-v99">
-
-Toman
+READY FOUNDATION
 
 </div>
 
@@ -848,44 +563,19 @@ Toman
 
 
 
-<div class="convert-card-v99">
+<div class="platform-card-v100">
 
 
-<div class="convert-title-v99">
+<div class="platform-title-v100">
 
-Gold 24K
-
-</div>
-
-
-<div class="convert-value-v99">
-
-USD
+📱 Application
 
 </div>
 
 
-</div>
+<div class="platform-value-v100">
 
-
-
-
-
-
-
-<div class="convert-card-v99">
-
-
-<div class="convert-title-v99">
-
-Coin
-
-</div>
-
-
-<div class="convert-value-v99">
-
-Local
+APP READY
 
 </div>
 
@@ -898,19 +588,19 @@ Local
 
 
 
-<div class="convert-card-v99">
+<div class="platform-card-v100">
 
 
-<div class="convert-title-v99">
+<div class="platform-title-v100">
 
-Silver
+📢 Channel
 
 </div>
 
 
-<div class="convert-value-v99">
+<div class="platform-value-v100">
 
-Global
+CONNECTED READY
 
 </div>
 
@@ -933,12 +623,12 @@ Global
 
 
 
-<div class="box-v99">
+<div class="box-v100">
 
 
-<div class="title-v99">
+<div class="title-v100">
 
-🧠 CURRENCY ENGINE STATUS
+🧩 HASINEH BUSINESS MODULES
 
 </div>
 
@@ -946,17 +636,119 @@ Global
 
 
 
-<div class="info-row-v99">
+<div class="platform-grid-v100">
+
+
+
+<div class="platform-card-v100">
+
+
+<div class="platform-title-v100">
+
+🪙 HASINEH GOLD
+
+</div>
+
+
+<div class="platform-value-v100">
+
+ACTIVE FOUNDATION
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="platform-card-v100">
+
+
+<div class="platform-title-v100">
+
+🚗 HASINEH AUTO
+
+</div>
+
+
+<div class="platform-value-v100">
+
+FUTURE MODULE
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="platform-card-v100">
+
+
+<div class="platform-title-v100">
+
+🏠 HASINEH REAL ESTATE
+
+</div>
+
+
+<div class="platform-value-v100">
+
+FUTURE MODULE
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="box-v100">
+
+
+<div class="title-v100">
+
+⚙️ PLATFORM ENGINE STATUS
+
+</div>
+
+
+
+
+
+<div class="status-row-v100">
 
 
 <span>
 
-Currency Core
+Core Platform
 
 </span>
 
 
-<span class="green-v99">
+<span class="green-v100">
 
 🟢 READY
 
@@ -969,19 +761,19 @@ Currency Core
 
 
 
-<div class="info-row-v99">
+<div class="status-row-v100">
 
 
 <span>
 
-Region Connection
+Module System
 
 </span>
 
 
-<span class="gold-v99">
+<span class="gold-v100">
 
-CONNECTED
+SUPPORTED
 
 </span>
 
@@ -992,19 +784,19 @@ CONNECTED
 
 
 
-<div class="info-row-v99">
+<div class="status-row-v100">
 
 
 <span>
 
-Global Conversion
+Future Expansion
 
 </span>
 
 
-<span class="gold-v99">
+<span class="blue-v100">
 
-FOUNDATION
+OPEN
 
 </span>
 
@@ -1014,12 +806,13 @@ FOUNDATION
 
 
 </div>
-<div class="box-v99">
+     
+<div class="box-v100">
 
 
-<div class="title-v99">
+<div class="title-v100">
 
-⚙️ CURRENCY PLATFORM STATUS
+🌍 HASINEH GLOBAL PLATFORM
 
 </div>
 
@@ -1027,17 +820,17 @@ FOUNDATION
 
 
 
-<div class="info-row-v99">
+<div class="status-row-v100">
 
 
 <span>
 
-Data Source
+Language Engine
 
 </span>
 
 
-<span class="green-v99">
+<span class="green-v100">
 
 READY
 
@@ -1050,19 +843,19 @@ READY
 
 
 
-<div class="info-row-v99">
+<div class="status-row-v100">
 
 
 <span>
 
-Live Exchange API
+Region Engine
 
 </span>
 
 
-<span class="gold-v99">
+<span class="green-v100">
 
-FUTURE
+READY
 
 </span>
 
@@ -1073,17 +866,40 @@ FUTURE
 
 
 
-<div class="info-row-v99">
+<div class="status-row-v100">
 
 
 <span>
 
-User Currency Selection
+Currency Engine
 
 </span>
 
 
-<span class="green-v99">
+<span class="green-v100">
+
+READY
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="status-row-v100">
+
+
+<span>
+
+Offline Protection
+
+</span>
+
+
+<span class="gold-v100">
 
 ACTIVE
 
@@ -1094,6 +910,56 @@ ACTIVE
 
 
 
+</div>
+
+
+
+
+
+
+
+
+
+<div class="box-v100">
+
+
+<div class="title-v100">
+
+📦 APP FOUNDATION
+
+</div>
+
+
+
+
+
+<div style="text-align:center;line-height:2.2;">
+
+
+Android Ready
+
+<br>
+
+iOS Ready
+
+<br>
+
+Web App Ready
+
+<br><br>
+
+
+<span class="gold-v100">
+
+Future Packaging Supported
+
+</span>
+
+
+
+</div>
+
+
 
 </div>
 
@@ -1105,15 +971,14 @@ ACTIVE
 
 
 
-<div class="box-v99">
+<div class="box-v100">
 
 
-<div class="title-v99">
+<div class="title-v100">
 
-🌍 GLOBAL MARKET READY
+🏆 HASINEH MARKET
 
 </div>
-
 
 
 
@@ -1121,13 +986,13 @@ ACTIVE
 <div style="text-align:center;padding:25px;color:#d4af37;">
 
 
-Multi Currency Smart Market
+Digital Smart Market Platform
 
 
 <br><br>
 
 
-<span class="gold-v99">
+<span class="gold-v100">
 
 Creator : Hassan Divanizadeh
 
@@ -1165,102 +1030,8 @@ HASINEH MARKET © ۱۴۰۵
 
 
 
-<script>
-
-
-(function(){
-
-
-"use strict";
-
-
-
-const buttons =
-
-document.querySelectorAll(
-".currency-btn-v99"
-);
-
-
-
-
-const name =
-
-document.getElementById(
-"currency-name-v99"
-);
-
-
-
-
-
-buttons.forEach(function(btn){
-
-
-
-btn.addEventListener(
-"click",
-function(){
-
-
-
-buttons.forEach(function(item){
-
-
-item.classList.remove(
-"active-currency-v99"
-);
-
-
-});
-
-
-
-
-
-btn.classList.add(
-"active-currency-v99"
-);
-
-
-
-
-
-if(name){
-
-
-name.textContent =
-
-btn.textContent.trim();
-
-
-
-}
-
-
-
-}
-
-);
-
-
-
-});
-
-
-
-})();
-
-
-
-</script>
-
-
-
-
-
-
 </body>
 
 
 </html>
+     
