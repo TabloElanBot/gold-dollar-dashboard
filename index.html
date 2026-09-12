@@ -1,189 +1,94 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 2 — PREMIUM CSS
+     SECTION 3 — IRAN TIME & DATE ENGINE
 ========================================= -->
 
-<style>
+<script>
 
-.hasineh-control-center-v81{
-  width:100%;
-  max-width:900px;
-  margin:25px auto;
-  padding:22px;
-  box-sizing:border-box;
+const HASINEH_TIME_ENGINE_V81 = {
 
-  background:
-    linear-gradient(145deg,#080808,#15110a,#080808);
+  update:function(){
 
-  border:1px solid rgba(212,175,55,.55);
-  border-radius:18px;
+    const now = new Date();
 
-  box-shadow:
-    0 0 25px rgba(212,175,55,.12),
-    inset 0 0 20px rgba(212,175,55,.035);
+    /* ---------- IRAN TIME ---------- */
 
-  color:#fff;
-  direction:rtl;
-  font-family:Tahoma,Arial,sans-serif;
-}
+    const iranTime =
+      now.toLocaleTimeString(
+        "fa-IR",
+        {
+          timeZone:"Asia/Tehran",
+          hour:"2-digit",
+          minute:"2-digit",
+          second:"2-digit"
+        }
+      );
 
+    const timeElement =
+      document.getElementById("iran-time-v81");
 
-.control-title-v81{
-  text-align:center;
-  font-size:22px;
-  font-weight:900;
-  color:#d4af37;
-  letter-spacing:.5px;
-  margin-bottom:7px;
-}
+    if(timeElement){
+      timeElement.textContent = iranTime;
+    }
 
 
-.control-title-v81 span{
-  display:block;
-  margin-top:5px;
-  font-size:13px;
-  color:#aaa;
-  letter-spacing:2px;
-  direction:ltr;
-}
+    /* ---------- SOLAR DATE ---------- */
+
+    const solarDate =
+      now.toLocaleDateString(
+        "fa-IR-u-ca-persian",
+        {
+          timeZone:"Asia/Tehran",
+          year:"numeric",
+          month:"long",
+          day:"numeric"
+        }
+      );
+
+    const solarElement =
+      document.getElementById("solar-date-v81");
+
+    if(solarElement){
+      solarElement.textContent = solarDate;
+    }
 
 
-.control-subtitle-v81{
-  text-align:center;
-  color:#ddd;
-  font-size:13px;
-  margin-bottom:22px;
-}
+    /* ---------- LUNAR DATE ---------- */
 
+    const lunarDate =
+      now.toLocaleDateString(
+        "ar-SA-u-ca-islamic",
+        {
+          timeZone:"Asia/Tehran",
+          year:"numeric",
+          month:"long",
+          day:"numeric"
+        }
+      );
 
-.control-grid-v81{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-}
+    const lunarElement =
+      document.getElementById("lunar-date-v81");
 
+    if(lunarElement){
+      lunarElement.textContent = lunarDate;
+    }
 
-.control-item-v81{
-  min-height:76px;
-  padding:13px 15px;
-  box-sizing:border-box;
-
-  background:rgba(255,255,255,.035);
-  border:1px solid rgba(212,175,55,.16);
-  border-radius:12px;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-
-  transition:.25s ease;
-}
-
-
-.control-item-v81:hover{
-  border-color:rgba(212,175,55,.48);
-  box-shadow:0 0 14px rgba(212,175,55,.08);
-  transform:translateY(-1px);
-}
-
-
-.control-label-v81{
-  color:#999;
-  font-size:11px;
-  margin-bottom:7px;
-}
-
-
-.control-value-v81{
-  font-size:14px;
-  font-weight:800;
-  line-height:1.5;
-}
-
-
-.green-v81{
-  color:#39d98a;
-}
-
-
-.yellow-v81{
-  color:#e5c04b;
-}
-
-
-.gray-v81{
-  color:#aaa;
-}
-
-
-.gold-v81{
-  color:#d4af37;
-}
-
-
-.control-footer-v81{
-  margin-top:18px;
-  padding-top:14px;
-
-  border-top:1px solid rgba(212,175,55,.12);
-
-  text-align:center;
-  direction:ltr;
-
-  color:#777;
-  font-size:9px;
-  letter-spacing:1.2px;
-}
-
-
-/* ---------- MOBILE ---------- */
-
-@media(max-width:600px){
-
-  .hasineh-control-center-v81{
-    margin:15px auto;
-    padding:15px;
-    border-radius:15px;
   }
 
-
-  .control-title-v81{
-    font-size:18px;
-  }
+};
 
 
-  .control-title-v81 span{
-    font-size:10px;
-    letter-spacing:1.5px;
-  }
+/* ---------- START ENGINE ---------- */
+
+HASINEH_TIME_ENGINE_V81.update();
 
 
-  .control-subtitle-v81{
-    font-size:12px;
-  }
+/* ---------- LIVE CLOCK ---------- */
 
+setInterval(function(){
 
-  .control-grid-v81{
-    grid-template-columns:1fr;
-    gap:9px;
-  }
+  HASINEH_TIME_ENGINE_V81.update();
 
+},1000);
 
-  .control-item-v81{
-    min-height:68px;
-    padding:11px 13px;
-  }
-
-
-  .control-value-v81{
-    font-size:13px;
-  }
-
-
-  .control-footer-v81{
-    font-size:8px;
-  }
-
-}
-
-     </style>
+</script>
