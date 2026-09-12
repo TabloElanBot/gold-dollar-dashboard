@@ -1,130 +1,223 @@
-<!-- ==========================
- HASINEH MARKET V75
- PRICE CHANGE INDICATOR
-========================== -->
+/* ==========================
+ HASINEH MARKET V76
+ FULL GOLD BOARD
+========================== */
 
 
-<div class="box change-indicator-board-v75">
+<div class="box full-gold-board-v76">
 
 
-<div class="change-title-v75">
+<div class="full-gold-title-v76">
 
-📈 MARKET PRICE MOVEMENT
+🪙 HASINEH GOLD MARKET
 
 </div>
 
 
 
-<div class="change-row-v75">
+<div class="gold-category-title-v76">
+
+✨ طلا
+
+</div>
+
+
+
+
+<div class="full-gold-row-v76">
 
 <span>
 طلای ۱۸ عیار
 </span>
 
+<span id="v76-gold18">
 
-<span id="gold18-change-v75">
-
-➖ بدون تغییر
+---
 
 </span>
-
 
 </div>
 
 
 
 
-<div class="change-row-v75">
+<div class="full-gold-row-v76">
+
+<span>
+طلای ۲۴ عیار
+</span>
+
+<span id="v76-gold24">
+
+---
+
+</span>
+
+</div>
+
+
+
+
+<div class="full-gold-row-v76">
+
+<span>
+مثقال ۱۸ عیار
+</span>
+
+<span id="v76-mesghal18">
+
+---
+
+</span>
+
+</div>
+
+
+
+
+<div class="full-gold-row-v76">
+
+<span>
+مثقال ۲۱ عیار
+</span>
+
+<span id="v76-mesghal21">
+
+---
+
+</span>
+
+</div>
+
+
+
+
+<div class="full-gold-row-v76">
+
+<span>
+آبشده طلا
+</span>
+
+<span id="v76-abshode">
+
+---
+
+</span>
+
+</div>
+
+
+
+
+
+<div class="gold-category-title-v76">
+
+🪙 سکه
+
+</div>
+
+
+
+
+<div class="full-gold-row-v76">
 
 <span>
 سکه امامی
 </span>
 
+<span id="v76-emami">
 
-<span id="emami-change-v75">
-
-➖ بدون تغییر
+---
 
 </span>
-
 
 </div>
 
 
 
 
-<div class="change-row-v75">
+<div class="full-gold-row-v76">
 
 <span>
-دلار آمریکا
+نیم سکه
 </span>
 
+<span id="v76-nim">
 
-<span id="usd-change-v75">
-
-➖ بدون تغییر
+---
 
 </span>
-
 
 </div>
 
 
 
 
-<div class="change-row-v75">
+<div class="full-gold-row-v76">
 
 <span>
-یورو
+ربع سکه
 </span>
 
+<span id="v76-rob">
 
-<span id="eur-change-v75">
-
-➖ بدون تغییر
+---
 
 </span>
 
+</div>
+
+
+
+
+<div class="full-gold-row-v76">
+
+<span>
+سکه گرمی
+</span>
+
+<span id="v76-gerami">
+
+---
+
+</span>
 
 </div>
 
 
 
 </div>
-
-
-
 /* ==========================
- HASINEH MARKET V75
- PRICE CHANGE STYLE
+ HASINEH MARKET V76
+ FULL GOLD BOARD STYLE
 ========================== */
 
 
-.change-indicator-board-v75{
+.full-gold-board-v76{
 
-margin:25px auto;
+margin:30px auto;
 
-max-width:500px;
+max-width:600px;
 
-padding:25px;
+padding:28px;
 
-border-radius:35px;
+border-radius:38px;
 
 background:
 
 linear-gradient(
 145deg,
 #050505,
-#151515
+#161616
 );
 
 border:
 
-1px solid rgba(212,175,55,0.60);
+1px solid rgba(212,175,55,0.75);
 
 box-shadow:
 
-0 0 45px rgba(212,175,55,0.30);
+0 0 60px rgba(212,175,55,0.35);
 
 }
 
@@ -132,17 +225,19 @@ box-shadow:
 
 
 
-.change-title-v75{
+.full-gold-title-v76{
 
 text-align:center;
 
-font-size:22px;
+font-size:25px;
 
 font-weight:bold;
 
 color:#ffd700;
 
-margin-bottom:20px;
+letter-spacing:2px;
+
+margin-bottom:25px;
 
 }
 
@@ -150,7 +245,37 @@ margin-bottom:20px;
 
 
 
-.change-row-v75{
+.gold-category-title-v76{
+
+margin-top:20px;
+
+margin-bottom:12px;
+
+padding:10px;
+
+text-align:center;
+
+font-size:18px;
+
+font-weight:bold;
+
+color:#d4af37;
+
+background:#0c0c0c;
+
+border-radius:20px;
+
+border:
+
+1px solid rgba(212,175,55,0.25);
+
+}
+
+
+
+
+
+.full-gold-row-v76{
 
 display:flex;
 
@@ -158,7 +283,7 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:14px 8px;
+padding:14px 10px;
 
 border-bottom:
 
@@ -170,7 +295,7 @@ border-bottom:
 
 
 
-.change-row-v75:last-child{
+.full-gold-row-v76:last-child{
 
 border-bottom:none;
 
@@ -180,25 +305,29 @@ border-bottom:none;
 
 
 
-.change-row-v75 span:first-child{
+.full-gold-row-v76 span:first-child{
 
 color:#ffffff;
 
 font-weight:bold;
 
+font-size:16px;
+
 }
 
 
 
 
 
-.change-row-v75 span:last-child{
+.full-gold-row-v76 span:last-child{
+
+color:#ffd700;
+
+font-size:17px;
 
 font-weight:bold;
 
-font-size:15px;
-
-color:#cccccc;
+direction:ltr;
 
 }
 
@@ -206,41 +335,11 @@ color:#cccccc;
 
 
 
-.change-up-v75{
-
-color:#00ff88 !important;
-
-}
-
-
-
-
-
-.change-down-v75{
-
-color:#ff4444 !important;
-
-}
-
-
-
-
-
-.change-stable-v75{
-
-color:#ffd700 !important;
-
-}
-
-
-
-
-
-.change-indicator-board-v75:hover{
+.full-gold-board-v76:hover{
 
 box-shadow:
 
-0 0 60px rgba(212,175,55,0.45);
+0 0 75px rgba(212,175,55,0.45);
 
 }
 
@@ -251,15 +350,15 @@ box-shadow:
 @media(max-width:450px){
 
 
-.change-indicator-board-v75{
+.full-gold-board-v76{
 
-padding:18px;
+padding:20px;
 
 }
 
 
 
-.change-row-v75 span:first-child{
+.full-gold-row-v76 span:first-child{
 
 font-size:14px;
 
@@ -267,45 +366,44 @@ font-size:14px;
 
 
 
+.full-gold-row-v76 span:last-child{
+
+font-size:15px;
+
 }
 
 
 
+}
 /* ==========================
- HASINEH MARKET V75
- CHANGE INDICATOR ENGINE
+ HASINEH MARKET V76
+ FULL GOLD BOARD ENGINE
 ========================== */
 
 
-const HASINEH_CHANGE_ENGINE_V75 = {
+const HASINEH_GOLD_FULL_V76 = {
 
 
-status:{
+prices:{
 
 
-gold18:"stable",
+gold18:"---",
 
-emami:"stable",
+gold24:"---",
 
-usd:"stable",
+mesghal18:"---",
 
-eur:"stable"
+mesghal21:"---",
 
+abshode:"---",
 
+emami:"---",
 
-},
+nim:"---",
 
+rob:"---",
 
-
-
-messages:{
-
-
-up:"🟢 ▲ افزایش",
-
-down:"🔴 ▼ کاهش",
-
-stable:"🟡 ➖ بدون تغییر"
+gerami:"---"
 
 
 
@@ -318,23 +416,43 @@ update:function(){
 
 
 
-let items = {
+let goldList = {
 
 
-"gold18-change-v75":
-this.status.gold18,
+"v76-gold18":
+this.prices.gold18,
 
 
-"emami-change-v75":
-this.status.emami,
+"v76-gold24":
+this.prices.gold24,
 
 
-"usd-change-v75":
-this.status.usd,
+"v76-mesghal18":
+this.prices.mesghal18,
 
 
-"eur-change-v75":
-this.status.eur
+"v76-mesghal21":
+this.prices.mesghal21,
+
+
+"v76-abshode":
+this.prices.abshode,
+
+
+"v76-emami":
+this.prices.emami,
+
+
+"v76-nim":
+this.prices.nim,
+
+
+"v76-rob":
+this.prices.rob,
+
+
+"v76-gerami":
+this.prices.gerami
 
 
 
@@ -344,7 +462,7 @@ this.status.eur
 
 
 
-for(let id in items){
+for(let id in goldList){
 
 
 
@@ -355,75 +473,20 @@ document.getElementById(id);
 
 if(element){
 
-
-
-let state =
-items[id];
-
-
-
-element.className =
-"";
-
-
-
-if(state==="up"){
-
-
 element.innerHTML =
-this.messages.up;
-
-element.classList.add(
-"change-up-v75"
-);
-
-
-}
-
-
-
-else if(state==="down"){
-
-
-element.innerHTML =
-this.messages.down;
-
-element.classList.add(
-"change-down-v75"
-);
-
-
-}
-
-
-
-else{
-
-
-element.innerHTML =
-this.messages.stable;
-
-element.classList.add(
-"change-stable-v75"
-);
-
+goldList[id] + " تومان";
 
 }
 
 
 
 }
-
-
-
-}
-
 
 
 
 
 console.log(
-"HASINEH CHANGE ENGINE V75 READY"
+"HASINEH FULL GOLD BOARD V76 READY"
 );
 
 
@@ -439,13 +502,13 @@ console.log(
 
 
 
-function hasinehChangeMonitorV75(){
+function hasinehGoldFullMonitorV76(){
 
 
 try{
 
 
-HASINEH_CHANGE_ENGINE_V75.update();
+HASINEH_GOLD_FULL_V76.update();
 
 
 
@@ -455,7 +518,7 @@ catch(error){
 
 
 console.log(
-"HASINEH CHANGE ENGINE V75 ERROR"
+"HASINEH GOLD FULL V76 ERROR"
 );
 
 
@@ -472,7 +535,7 @@ console.log(
 
 setInterval(
 
-hasinehChangeMonitorV75,
+hasinehGoldFullMonitorV76,
 
 15000
 
@@ -482,4 +545,4 @@ hasinehChangeMonitorV75,
 
 
 
-hasinehChangeMonitorV75();
+hasinehGoldFullMonitorV76();
