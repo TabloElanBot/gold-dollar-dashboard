@@ -1,150 +1,125 @@
-<!-- ==========================
- HASINEH MARKET V77
- SMART PRICE CARD SYSTEM
-========================== -->
+/* ==========================
+ HASINEH MARKET V78
+ MARKET STATUS CENTER
+========================== */
 
 
-<div class="box smart-price-board-v77">
+<div class="box market-status-center-v78">
 
 
-<div class="smart-board-title-v77">
+<div class="status-title-v78">
 
-📊 HASINEH SMART PRICE BOARD
+📊 HASINEH MARKET STATUS
+
+</div>
+
+
+
+
+<div class="status-item-v78">
+
+<span>
+وضعیت سیستم
+</span>
+
+
+<span id="system-status-v78">
+
+🟢 ONLINE
+
+</span>
 
 </div>
 
 
 
 
-<div class="price-card-grid-v77">
+<div class="status-item-v78">
+
+<span>
+موتور داده
+</span>
 
 
+<span id="data-engine-v78">
 
-<div class="price-card-v77">
+🟢 READY
 
-
-<div class="price-name-v77">
-
-🪙 طلای ۱۸ عیار
+</span>
 
 </div>
 
 
-<div class="price-value-v77" id="v77-gold18">
+
+
+<div class="status-item-v78">
+
+<span>
+آخرین بروزرسانی
+</span>
+
+
+<span id="last-update-v78">
 
 ---
 
-</div>
-
-
-<div class="price-status-v77">
-
-🟢 آماده بازار
-
-</div>
-
+</span>
 
 </div>
 
 
 
 
+<div class="status-item-v78">
 
-<div class="price-card-v77">
-
-
-<div class="price-name-v77">
-
-🪙 سکه امامی
-
-</div>
+<span>
+زمان ایران
+</span>
 
 
-<div class="price-value-v77" id="v77-emami">
+<span id="iran-time-v78">
 
 ---
 
-</div>
-
-
-<div class="price-status-v77">
-
-🟢 آماده بازار
+</span>
 
 </div>
 
-
-</div>
-
-
-
-
-
-<div class="price-card-v77">
-
-
-<div class="price-name-v77">
-
-💵 دلار آمریکا
-
-</div>
-
-
-<div class="price-value-v77" id="v77-usd">
-
----
-
-</div>
-
-
-<div class="price-status-v77">
-
-🟢 آماده بازار
-
-</div>
-
-
-</div>
-
-
-
-
-</div>
 
 
 
 </div>
 /* ==========================
- HASINEH MARKET V77
- SMART PRICE CARD STYLE
+ HASINEH MARKET V78
+ MARKET STATUS STYLE
 ========================== */
 
 
-.smart-price-board-v77{
+.market-status-center-v78{
 
 margin:30px auto;
 
-max-width:650px;
+max-width:550px;
 
-padding:28px;
+padding:25px;
 
-border-radius:40px;
+border-radius:35px;
 
 background:
 
 linear-gradient(
 145deg,
 #050505,
-#161616
+#151515
 );
 
 border:
 
-1px solid rgba(212,175,55,0.75);
+1px solid rgba(212,175,55,0.65);
 
 box-shadow:
 
-0 0 65px rgba(212,175,55,0.35);
+0 0 55px rgba(212,175,55,0.30);
 
 }
 
@@ -152,11 +127,11 @@ box-shadow:
 
 
 
-.smart-board-title-v77{
+.status-title-v78{
 
 text-align:center;
 
-font-size:26px;
+font-size:24px;
 
 font-weight:bold;
 
@@ -164,7 +139,7 @@ color:#ffd700;
 
 letter-spacing:2px;
 
-margin-bottom:30px;
+margin-bottom:25px;
 
 }
 
@@ -172,37 +147,19 @@ margin-bottom:30px;
 
 
 
-.price-card-grid-v77{
+.status-item-v78{
 
-display:grid;
+display:flex;
 
-grid-template-columns:
+justify-content:space-between;
 
-repeat(3,1fr);
+align-items:center;
 
-gap:15px;
+padding:14px 10px;
 
-}
+border-bottom:
 
-
-
-
-
-.price-card-v77{
-
-padding:22px 12px;
-
-border-radius:28px;
-
-background:#0c0c0c;
-
-border:
-
-1px solid rgba(212,175,55,0.30);
-
-text-align:center;
-
-transition:0.3s ease;
+1px solid rgba(212,175,55,0.15);
 
 }
 
@@ -210,15 +167,9 @@ transition:0.3s ease;
 
 
 
-.price-card-v77:hover{
+.status-item-v78:last-child{
 
-transform:
-
-translateY(-5px);
-
-box-shadow:
-
-0 0 30px rgba(212,175,55,0.35);
+border-bottom:none;
 
 }
 
@@ -226,66 +177,59 @@ box-shadow:
 
 
 
-.price-name-v77{
-
-font-size:16px;
-
-font-weight:bold;
+.status-item-v78 span:first-child{
 
 color:#ffffff;
 
-}
-
-
-
-
-
-.price-value-v77{
-
-margin-top:18px;
-
-font-size:25px;
-
 font-weight:bold;
 
-color:#ffd700;
-
-direction:ltr;
-
 }
 
 
 
 
 
-.price-status-v77{
-
-margin-top:12px;
-
-font-size:12px;
+.status-item-v78 span:last-child{
 
 color:#00ff88;
 
+font-weight:bold;
+
+font-size:15px;
+
+}
+
+
+
+
+
+#last-update-v78,
+#iran-time-v78{
+
+color:#ffd700;
+
 }
 
 
 
 
 
-@media(max-width:600px){
+.market-status-center-v78:hover{
 
+box-shadow:
 
-.price-card-grid-v77{
-
-grid-template-columns:
-
-1fr;
+0 0 70px rgba(212,175,55,0.45);
 
 }
 
 
 
-.smart-price-board-v77{
+
+
+@media(max-width:450px){
+
+
+.market-status-center-v78{
 
 padding:20px;
 
@@ -293,9 +237,17 @@ padding:20px;
 
 
 
-.price-value-v77{
+.status-title-v78{
 
-font-size:22px;
+font-size:20px;
+
+}
+
+
+
+.status-item-v78{
+
+font-size:14px;
 
 }
 
@@ -303,31 +255,17 @@ font-size:22px;
 
 }
 /* ==========================
- HASINEH MARKET V77
- SMART PRICE ENGINE
+ HASINEH MARKET V78
+ MARKET STATUS ENGINE
 ========================== */
 
 
-const HASINEH_SMART_PRICE_V77 = {
+const HASINEH_STATUS_CENTER_V78 = {
 
 
-prices:{
+version:
 
-
-gold18:"---",
-
-emami:"---",
-
-usd:"---"
-
-
-
-},
-
-
-
-status:"READY",
-
+"V78 STATUS CENTER",
 
 
 
@@ -335,58 +273,99 @@ update:function(){
 
 
 
-let cards = {
-
-
-"v77-gold18":
-this.prices.gold18,
-
-
-"v77-emami":
-this.prices.emami,
-
-
-"v77-usd":
-this.prices.usd
+let status =
+document.getElementById(
+"system-status-v78"
+);
 
 
 
-};
+if(status){
 
-
-
-
-
-for(let id in cards){
-
-
-
-let item =
-document.getElementById(id);
-
-
-
-if(item){
-
-
-
-item.innerHTML =
-cards[id] + " تومان";
-
-
+status.innerHTML =
+"🟢 ONLINE";
 
 }
 
 
 
+
+
+let engine =
+document.getElementById(
+"data-engine-v78"
+);
+
+
+
+if(engine){
+
+engine.innerHTML =
+"🟢 READY";
+
 }
+
+
+
+
+
+let updateTime =
+document.getElementById(
+"last-update-v78"
+);
+
+
+
+let iranTime =
+document.getElementById(
+"iran-time-v78"
+);
+
+
+
+
+
+let now =
+new Date();
+
+
+
+
+
+let time =
+now.toLocaleTimeString(
+"fa-IR"
+);
+
+
+
+
+
+if(updateTime){
+
+updateTime.innerHTML =
+time;
+
+}
+
+
+
+
+
+if(iranTime){
+
+iranTime.innerHTML =
+time;
+
+}
+
 
 
 
 
 console.log(
 
-"HASINEH SMART PRICE SYSTEM V77 READY"
+"HASINEH MARKET STATUS V78 READY"
 
 );
 
@@ -403,13 +382,13 @@ console.log(
 
 
 
-function hasinehSmartPriceMonitorV77(){
+function hasinehStatusMonitorV78(){
 
 
 try{
 
 
-HASINEH_SMART_PRICE_V77.update();
+HASINEH_STATUS_CENTER_V78.update();
 
 
 
@@ -420,7 +399,7 @@ catch(error){
 
 console.log(
 
-"HASINEH SMART PRICE V77 ERROR"
+"HASINEH STATUS V78 ERROR"
 
 );
 
@@ -438,9 +417,9 @@ console.log(
 
 setInterval(
 
-hasinehSmartPriceMonitorV77,
+hasinehStatusMonitorV78,
 
-15000
+1000
 
 );
 
@@ -448,4 +427,4 @@ hasinehSmartPriceMonitorV77,
 
 
 
-hasinehSmartPriceMonitorV77();
+hasinehStatusMonitorV78();
