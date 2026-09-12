@@ -1,24 +1,24 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 9 — MARKET CONNECTION MONITOR
+     SECTION 10 — IRAN MARKET CLOCK ENGINE
 ========================================= -->
 
 <script>
 
-const HASINEH_CONNECTION_MONITOR_V81 = {
+const HASINEH_IRAN_CLOCK_V81 = {
 
-  status:function(){
+  update:function(){
 
-    const target =
+    const clock =
       document.getElementById(
-        "market-connection-v81"
+        "iran-time-v81"
       );
 
 
-    if(!target){
+    if(!clock){
 
       console.warn(
-        "HASINEH V81 connection element missing"
+        "HASINEH V81 Iran clock element missing"
       );
 
       return;
@@ -26,47 +26,38 @@ const HASINEH_CONNECTION_MONITOR_V81 = {
     }
 
 
-    /* ---------- CONNECTION STATUS ---------- */
-
-    let connected = true;
-
-
-    if(connected){
-
-      target.textContent =
-        "🟢 CONNECTED";
-
-      target.className =
-        "control-value-v81 green-v81";
+    const now =
+      new Date();
 
 
-    }else{
+    clock.textContent =
+      now.toLocaleTimeString(
+        "fa-IR",
+        {
+          hour:"2-digit",
+          minute:"2-digit",
+          second:"2-digit"
+        }
+      );
 
-      target.textContent =
-        "🔴 DISCONNECTED";
-
-      target.className =
-        "control-value-v81 red-v81";
-
-    }
 
   }
 
 };
 
 
-/* ---------- INITIAL CHECK ---------- */
+/* ---------- INITIAL START ---------- */
 
-HASINEH_CONNECTION_MONITOR_V81.status();
+HASINEH_IRAN_CLOCK_V81.update();
 
 
-/* ---------- AUTO CHECK ---------- */
+/* ---------- LIVE CLOCK ---------- */
 
 setInterval(function(){
 
-  HASINEH_CONNECTION_MONITOR_V81.status();
+  HASINEH_IRAN_CLOCK_V81.update();
 
-},15000);
+},1000);
 
 
 </script>
