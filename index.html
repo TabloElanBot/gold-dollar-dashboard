@@ -1,44 +1,52 @@
 <!-- ==========================
- HASINEH MARKET V73
- FINAL DASHBOARD MERGE
+ HASINEH MARKET V74
+ REAL MARKET BOARD
 ========================== -->
 
 
-<div class="box final-dashboard-v73">
+<div class="box real-market-board-v74">
 
 
-<div class="final-brand-v73">
+<div class="real-board-title-v74">
 
-HASINEH MARKET
-
-</div>
-
-
-
-<div class="final-tagline-v73">
-
-Premium Digital Market Board
+📊 HASINEH LIVE MARKET BOARD
 
 </div>
 
 
 
 
-<div class="final-grid-v73">
+<div class="real-board-status-v74">
+
+🟢 LIVE
+
+</div>
 
 
-<div class="final-module-v73">
 
-🪙
 
-<br>
+<div class="market-group-v74">
 
-HASINEH GOLD
 
-<br>
+<div class="market-group-title-v74">
+
+🪙 HASINEH GOLD
+
+</div>
+
+
+
+
+<div class="market-price-row-v74">
 
 <span>
-ACTIVE
+طلای ۱۸ عیار
+</span>
+
+<span id="live-gold18-v74">
+
+---
+
 </span>
 
 </div>
@@ -46,18 +54,50 @@ ACTIVE
 
 
 
-<div class="final-module-v73">
-
-💵
-
-<br>
-
-HASINEH CURRENCY
-
-<br>
+<div class="market-price-row-v74">
 
 <span>
-ACTIVE
+سکه امامی
+</span>
+
+<span id="live-emami-v74">
+
+---
+
+</span>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="market-group-v74">
+
+
+<div class="market-group-title-v74">
+
+💵 HASINEH CURRENCY
+
+</div>
+
+
+
+
+<div class="market-price-row-v74">
+
+<span>
+دلار آمریکا
+</span>
+
+<span id="live-usd-v74">
+
+---
+
 </span>
 
 </div>
@@ -65,18 +105,16 @@ ACTIVE
 
 
 
-<div class="final-module-v73">
-
-📊
-
-<br>
-
-MARKET STATUS
-
-<br>
+<div class="market-price-row-v74">
 
 <span>
-ONLINE
+یورو
+</span>
+
+<span id="live-eur-v74">
+
+---
+
 </span>
 
 </div>
@@ -90,20 +128,20 @@ ONLINE
 </div>
 
 /* ==========================
- HASINEH MARKET V73
- FINAL DASHBOARD STYLE
+ HASINEH MARKET V74
+ REAL MARKET BOARD STYLE
 ========================== */
 
 
-.final-dashboard-v73{
+.real-market-board-v74{
 
 margin:30px auto;
 
-max-width:620px;
+max-width:600px;
 
-padding:30px;
+padding:28px;
 
-border-radius:40px;
+border-radius:38px;
 
 background:
 
@@ -121,27 +159,23 @@ box-shadow:
 
 0 0 65px rgba(212,175,55,0.35);
 
-text-align:center;
-
 }
 
 
 
 
 
-.final-brand-v73{
+.real-board-title-v74{
 
-font-size:34px;
+text-align:center;
+
+font-size:24px;
 
 font-weight:bold;
 
-letter-spacing:7px;
+color:#ffd700;
 
-color:#d4af37;
-
-text-shadow:
-
-0 0 20px rgba(212,175,55,0.55);
+letter-spacing:2px;
 
 }
 
@@ -149,33 +183,15 @@ text-shadow:
 
 
 
-.final-tagline-v73{
+.real-board-status-v74{
 
-margin-top:12px;
+text-align:center;
 
-font-size:14px;
+margin-top:10px;
 
-letter-spacing:3px;
+color:#00ff88;
 
-color:#999;
-
-}
-
-
-
-
-
-.final-grid-v73{
-
-display:grid;
-
-grid-template-columns:
-
-repeat(3,1fr);
-
-gap:15px;
-
-margin-top:30px;
+font-weight:bold;
 
 }
 
@@ -183,9 +199,11 @@ margin-top:30px;
 
 
 
-.final-module-v73{
+.market-group-v74{
 
-padding:22px 10px;
+margin-top:25px;
+
+padding:18px;
 
 border-radius:25px;
 
@@ -193,15 +211,83 @@ background:#0c0c0c;
 
 border:
 
-1px solid rgba(212,175,55,0.35);
+1px solid rgba(212,175,55,0.25);
+
+}
+
+
+
+
+
+.market-group-title-v74{
+
+text-align:center;
+
+font-size:18px;
+
+font-weight:bold;
+
+color:#d4af37;
+
+margin-bottom:15px;
+
+}
+
+
+
+
+
+.market-price-row-v74{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:14px 8px;
+
+border-bottom:
+
+1px solid rgba(212,175,55,0.15);
+
+}
+
+
+
+
+
+.market-price-row-v74:last-child{
+
+border-bottom:none;
+
+}
+
+
+
+
+
+.market-price-row-v74 span:first-child{
 
 color:#ffffff;
 
 font-weight:bold;
 
-font-size:16px;
+}
 
-transition:0.3s;
+
+
+
+
+.market-price-row-v74 span:last-child{
+
+color:#ffd700;
+
+font-size:18px;
+
+font-weight:bold;
+
+direction:ltr;
 
 }
 
@@ -209,31 +295,11 @@ transition:0.3s;
 
 
 
-.final-module-v73 span{
-
-display:block;
-
-margin-top:10px;
-
-font-size:12px;
-
-color:#00ff88;
-
-}
-
-
-
-
-
-.final-module-v73:hover{
-
-transform:
-
-translateY(-5px);
+.real-market-board-v74:hover{
 
 box-shadow:
 
-0 0 30px rgba(212,175,55,0.35);
+0 0 75px rgba(212,175,55,0.45);
 
 }
 
@@ -241,53 +307,58 @@ box-shadow:
 
 
 
-@media(max-width:600px){
+@media(max-width:450px){
 
 
-.final-dashboard-v73{
+.real-market-board-v74{
 
-padding:22px;
-
-}
-
-
-
-.final-brand-v73{
-
-font-size:25px;
-
-letter-spacing:4px;
+padding:20px;
 
 }
 
 
 
-.final-grid-v73{
+.market-price-row-v74 span:last-child{
 
-grid-template-columns:
-
-1fr;
+font-size:16px;
 
 }
+
 
 
 }
 
 /* ==========================
- HASINEH MARKET V73
- FINAL DASHBOARD ENGINE
+ HASINEH MARKET V74
+ REAL MARKET BOARD ENGINE
 ========================== */
 
 
-const HASINEH_FINAL_DASHBOARD_V73 = {
+const HASINEH_REAL_BOARD_V74 = {
 
 
-brand:
-"HASINEH MARKET",
+prices:{
 
 
-tagline:
-"Premium Digital Market Board",
+gold18:
+"---",
+
+
+emami:
+"---",
+
+
+usd:
+"---",
+
+
+eur:
+"---"
+
+
+
+},
+
 
 
 
@@ -295,44 +366,57 @@ update:function(){
 
 
 
-let brand =
-document.querySelector(
-".final-brand-v73"
-);
+let boardItems = {
+
+
+"live-gold18-v74":
+this.prices.gold18,
+
+
+"live-emami-v74":
+this.prices.emami,
+
+
+"live-usd-v74":
+this.prices.usd,
+
+
+"live-eur-v74":
+this.prices.eur
 
 
 
-if(brand){
+};
 
-brand.innerHTML =
-this.brand;
+
+
+
+
+for(let id in boardItems){
+
+
+
+let item =
+document.getElementById(id);
+
+
+
+if(item){
+
+item.innerHTML =
+boardItems[id] + " تومان";
 
 }
 
 
 
-
-
-let tagline =
-document.querySelector(
-".final-tagline-v73"
-);
-
-
-
-if(tagline){
-
-tagline.innerHTML =
-this.tagline;
-
 }
-
 
 
 
 
 console.log(
-"HASINEH FINAL DASHBOARD V73 READY"
+"HASINEH REAL MARKET BOARD V74 READY"
 );
 
 
@@ -348,13 +432,13 @@ console.log(
 
 
 
-function hasinehFinalDashboardMonitorV73(){
+function hasinehRealBoardMonitorV74(){
 
 
 try{
 
 
-HASINEH_FINAL_DASHBOARD_V73.update();
+HASINEH_REAL_BOARD_V74.update();
 
 
 
@@ -364,7 +448,7 @@ catch(error){
 
 
 console.log(
-"HASINEH FINAL DASHBOARD V73 ERROR"
+"HASINEH REAL BOARD V74 ERROR"
 );
 
 
@@ -381,9 +465,9 @@ console.log(
 
 setInterval(
 
-hasinehFinalDashboardMonitorV73,
+hasinehRealBoardMonitorV74,
 
-30000
+15000
 
 );
 
@@ -391,4 +475,4 @@ hasinehFinalDashboardMonitorV73,
 
 
 
-hasinehFinalDashboardMonitorV73();
+hasinehRealBoardMonitorV74();
