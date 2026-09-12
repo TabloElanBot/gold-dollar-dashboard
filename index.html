@@ -11,19 +11,22 @@
 <meta name="theme-color" content="#050505">
 
 
+<meta name="mobile-web-app-capable" content="yes">
+
+
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 
-<meta name="apple-mobile-web-app-title" content="HASINEH MARKET">
+<link rel="manifest" href="manifest.json">
 
 
 
 <title>
 
-HASINEH MARKET V92 APP
+HASINEH MARKET V93 PWA
 
 </title>
 
@@ -49,7 +52,6 @@ padding:0;
 
 background:
 
-
 radial-gradient(
 circle at top,
 #383838,
@@ -70,12 +72,12 @@ sans-serif;
 
 min-height:100vh;
 
-
 }
 
 
 
-.header-v92{
+
+.header-v93{
 
 
 text-align:center;
@@ -109,13 +111,13 @@ box-shadow:
 0 20px 70px rgba(255,215,0,0.25);
 
 
+
 }
 
 
 
 
-
-.brand-v92{
+.brand-v93{
 
 
 font-size:48px;
@@ -134,7 +136,7 @@ color:#ffd700;
 text-shadow:
 
 
-0 0 40px rgba(255,215,0,0.5);
+0 0 40px rgba(255,215,0,0.55);
 
 
 
@@ -143,8 +145,7 @@ text-shadow:
 
 
 
-
-.subtitle-v92{
+.subtitle-v93{
 
 
 margin-top:18px;
@@ -157,7 +158,8 @@ font-size:19px;
 
 
 
-.city-v92{
+
+.city-v93{
 
 
 margin-top:12px;
@@ -170,7 +172,8 @@ color:#d4af37;
 
 
 
-.badge-v92{
+
+.badge-v93{
 
 
 display:inline-block;
@@ -180,6 +183,7 @@ margin-top:20px;
 
 
 padding:12px 30px;
+
 
 
 border-radius:35px;
@@ -210,7 +214,7 @@ color:#ffd700;
 
 
 
-.container-v92{
+.container-v93{
 
 
 width:92%;
@@ -227,8 +231,7 @@ margin:40px auto;
 
 
 
-
-.box-v92{
+.box-v93{
 
 
 background:
@@ -273,8 +276,7 @@ box-shadow:
 
 
 
-
-.title-v92{
+.title-v93{
 
 
 text-align:center;
@@ -296,7 +298,7 @@ margin-bottom:28px;
 
 }
      
-.app-panel-v92{
+.pwa-panel-v93{
 
 
 text-align:center;
@@ -328,13 +330,14 @@ border-radius:25px;
 
 
 
-.app-icon-v92{
+
+.pwa-icon-v93{
 
 
-width:100px;
+width:110px;
 
 
-height:100px;
+height:110px;
 
 
 
@@ -342,14 +345,16 @@ margin:20px auto;
 
 
 
-border-radius:25px;
+border-radius:28px;
 
 
 
 display:flex;
 
 
+
 align-items:center;
+
 
 
 justify-content:center;
@@ -374,7 +379,7 @@ color:#ffd700;
 
 
 
-font-size:18px;
+font-size:20px;
 
 
 
@@ -388,7 +393,7 @@ font-weight:bold;
 
 
 
-.app-text-v92{
+.pwa-text-v93{
 
 
 line-height:2;
@@ -397,30 +402,12 @@ line-height:2;
 font-size:16px;
 
 
-color:#eeeeee;
-
-
 }
 
 
 
 
-
-.highlight-v92{
-
-
-color:#ffd700;
-
-
-font-weight:bold;
-
-
-}
-
-
-
-
-.feature-grid-v92{
+.feature-grid-v93{
 
 
 display:grid;
@@ -442,7 +429,8 @@ gap:15px;
 
 
 
-.feature-v92{
+
+.feature-v93{
 
 
 padding:18px;
@@ -476,7 +464,8 @@ text-align:center;
 
 
 
-.feature-title-v92{
+
+.feature-title-v93{
 
 
 color:#ffd700;
@@ -485,8 +474,6 @@ color:#ffd700;
 font-weight:bold;
 
 
-margin-bottom:8px;
-
 
 }
 
@@ -494,19 +481,20 @@ margin-bottom:8px;
 
 
 
-.feature-value-v92{
+.feature-value-v93{
 
 
 font-size:14px;
 
 
+
 }
 
 
 
 
 
-.info-row-v92{
+.info-row-v93{
 
 
 display:flex;
@@ -535,8 +523,7 @@ border-bottom:
 
 
 
-
-.info-row-v92:last-child{
+.info-row-v93:last-child{
 
 
 border-bottom:none;
@@ -547,7 +534,7 @@ border-bottom:none;
 
 
 
-.gold-v92{
+.gold-v93{
 
 
 color:#ffd700;
@@ -561,8 +548,7 @@ font-weight:bold;
 
 
 
-
-.green-v92{
+.green-v93{
 
 
 color:#00ff88;
@@ -576,8 +562,7 @@ font-weight:bold;
 
 
 
-
-.footer-v92{
+.footer-v93{
 
 
 text-align:center;
@@ -609,10 +594,10 @@ font-size:14px;
 <body>
 
 
-<header class="header-v92">
+<header class="header-v93">
 
 
-<div class="brand-v92">
+<div class="brand-v93">
 
 HASINEH MARKET
 
@@ -620,7 +605,8 @@ HASINEH MARKET
 
 
 
-<div class="subtitle-v92">
+
+<div class="subtitle-v93">
 
 تابلو آنلاین هوشمند طلا، ارز و بازار
 
@@ -628,7 +614,8 @@ HASINEH MARKET
 
 
 
-<div class="city-v92">
+
+<div class="city-v93">
 
 Bandar Hasineh
 
@@ -636,11 +623,13 @@ Bandar Hasineh
 
 
 
-<div class="badge-v92">
 
-V92 APP FOUNDATION
+<div class="badge-v93">
+
+V93 PWA INSTALL EDITION
 
 </div>
+
 
 
 </header>
@@ -648,25 +637,25 @@ V92 APP FOUNDATION
 
 
 
-<div class="container-v92">
+<div class="container-v93">
      
-<div class="box-v92">
+<div class="box-v93">
 
 
-<div class="title-v92">
+<div class="title-v93">
 
-📱 HASINEH MARKET APP
+📱 HASINEH MARKET APP MODE
 
 </div>
 
 
 
 
-<div class="app-panel-v92">
+<div class="pwa-panel-v93">
 
 
 
-<div class="app-icon-v92">
+<div class="pwa-icon-v93">
 
 HM
 
@@ -676,167 +665,38 @@ HM
 
 
 
-<div class="app-text-v92">
+<div class="pwa-text-v93">
 
 
-<span class="highlight-v92">
+<span style="color:#ffd700;font-weight:bold;">
 
 HASINEH MARKET
 
 </span>
 
 
-<br>
+<br><br>
 
 
-نسخه آماده‌سازی اپلیکیشن هوشمند بازار
+نسخه PWA آماده نصب روی موبایل
 
 
 <br><br>
 
 
-قابل توسعه برای:
+پشتیبانی آینده:
 
 <br>
-
 
 🤖 Android
 
 <br>
 
-
 🍎 iOS
 
 <br>
 
-
-💻 Web App
-
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="box-v92">
-
-
-<div class="title-v92">
-
-💎 HASINEH ECOSYSTEM
-
-</div>
-
-
-
-
-
-<div class="feature-grid-v92">
-
-
-
-<div class="feature-v92">
-
-
-<div class="feature-title-v92">
-
-🪙 HASINEH GOLD
-
-</div>
-
-
-<div class="feature-value-v92">
-
-طلا و سکه
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="feature-v92">
-
-
-<div class="feature-title-v92">
-
-💵 HASINEH CURRENCY
-
-</div>
-
-
-<div class="feature-value-v92">
-
-ارز و تتر
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="feature-v92">
-
-
-<div class="feature-title-v92">
-
-🚗 HASINEH AUTO
-
-</div>
-
-
-<div class="feature-value-v92">
-
-خودرو
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="feature-v92">
-
-
-<div class="feature-title-v92">
-
-🏠 HASINEH REAL ESTATE
-
-</div>
-
-
-<div class="feature-value-v92">
-
-مسکن
-
-</div>
+💻 Web
 
 
 </div>
@@ -856,29 +716,155 @@ HASINEH MARKET
 
 
 
-<div class="box-v92">
+<div class="box-v93">
 
 
-<div class="title-v92">
+<div class="title-v93">
 
-⚡ APP FEATURES
+⚡ PWA FEATURES
 
 </div>
 
 
 
 
-<div class="info-row-v92">
+
+<div class="feature-grid-v93">
+
+
+
+<div class="feature-v93">
+
+
+<div class="feature-title-v93">
+
+📲 نصب
+
+</div>
+
+
+<div class="feature-value-v93">
+
+Home Screen
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feature-v93">
+
+
+<div class="feature-title-v93">
+
+⚡ سرعت
+
+</div>
+
+
+<div class="feature-value-v93">
+
+Fast Load
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feature-v93">
+
+
+<div class="feature-title-v93">
+
+🔄 آفلاین
+
+</div>
+
+
+<div class="feature-value-v93">
+
+Ready
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feature-v93">
+
+
+<div class="feature-title-v93">
+
+🔐 امنیت
+
+</div>
+
+
+<div class="feature-value-v93">
+
+Foundation
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="box-v93">
+
+
+<div class="title-v93">
+
+⚙️ APP SYSTEM
+
+</div>
+
+
+
+
+<div class="info-row-v93">
 
 
 <span>
 
-نصب روی موبایل
+وضعیت PWA
 
 </span>
 
 
-<span class="green-v92">
+<span class="green-v93">
 
 🟢 READY
 
@@ -891,19 +877,19 @@ HASINEH MARKET
 
 
 
-<div class="info-row-v92">
+<div class="info-row-v93">
 
 
 <span>
 
-حالت تمام صفحه
+Manifest
 
 </span>
 
 
-<span class="green-v92">
+<span class="gold-v93">
 
-🟢 ACTIVE
+CONNECTED
 
 </span>
 
@@ -914,97 +900,19 @@ HASINEH MARKET
 
 
 
-<div class="info-row-v92">
+<div class="info-row-v93">
 
 
 <span>
 
-آماده خروجی اپ
+Service Worker
 
 </span>
 
 
-<span class="gold-v92">
+<span class="gold-v93">
 
-PWA FOUNDATION
-
-</span>
-
-
-</div>
-
-
-
-</div>
-     
-<div class="box-v92">
-
-
-<div class="title-v92">
-
-⚙️ HASINEH APP SYSTEM
-
-</div>
-
-
-
-
-<div class="info-row-v92">
-
-<span>
-
-وضعیت اپ
-
-</span>
-
-
-<span class="green-v92">
-
-🟢 READY
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="info-row-v92">
-
-<span>
-
-نسخه
-
-</span>
-
-
-<span class="gold-v92">
-
-V92 APP FOUNDATION
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="info-row-v92">
-
-<span>
-
-پلتفرم
-
-</span>
-
-
-<span class="gold-v92">
-
-Android + iOS
+NEXT STEP
 
 </span>
 
@@ -1014,17 +922,10 @@ Android + iOS
 
 
 </div>
+<div class="box-v93">
 
 
-
-
-
-
-
-<div class="box-v92">
-
-
-<div class="title-v92">
+<div class="title-v93">
 
 🕒 HASINEH MARKET TIME
 
@@ -1033,7 +934,7 @@ Android + iOS
 
 
 
-<div class="info-row-v92">
+<div class="info-row-v93">
 
 <span>
 
@@ -1042,7 +943,7 @@ Android + iOS
 </span>
 
 
-<span id="solar-v92" class="gold-v92">
+<span id="solar-v93" class="gold-v93">
 
 ---
 
@@ -1055,7 +956,7 @@ Android + iOS
 
 
 
-<div class="info-row-v92">
+<div class="info-row-v93">
 
 <span>
 
@@ -1064,7 +965,7 @@ Android + iOS
 </span>
 
 
-<span class="gold-v92">
+<span class="gold-v93">
 
 آماده سازی
 
@@ -1077,7 +978,7 @@ Android + iOS
 
 
 
-<div class="info-row-v92">
+<div class="info-row-v93">
 
 <span>
 
@@ -1086,7 +987,7 @@ Android + iOS
 </span>
 
 
-<span id="clock-v92" class="gold-v92">
+<span id="clock-v93" class="gold-v93">
 
 ---
 
@@ -1099,7 +1000,7 @@ Android + iOS
 
 
 
-<div class="info-row-v92">
+<div class="info-row-v93">
 
 <span>
 
@@ -1108,7 +1009,7 @@ Android + iOS
 </span>
 
 
-<span id="update-v92" class="gold-v92">
+<span id="update-v93" class="gold-v93">
 
 ---
 
@@ -1127,10 +1028,11 @@ Android + iOS
 
 
 
-<div class="box-v92">
+
+<div class="box-v93">
 
 
-<div class="title-v92">
+<div class="title-v93">
 
 🏆 HASINEH MARKET
 
@@ -1139,7 +1041,7 @@ Android + iOS
 
 
 
-<div class="footer-v92">
+<div class="footer-v93">
 
 
 Digital Smart Market Board
@@ -1148,7 +1050,7 @@ Digital Smart Market Board
 <br><br>
 
 
-<span class="gold-v92">
+<span class="gold-v93">
 
 Creator : Hassan Divanizadeh
 
@@ -1177,6 +1079,7 @@ HASINEH MARKET © ۱۴۰۵
 
 
 
+
 </div>
 
 
@@ -1193,7 +1096,7 @@ HASINEH MARKET © ۱۴۰۵
 
 
 
-function updateV92(){
+function updateV93(){
 
 
 
@@ -1203,7 +1106,7 @@ const now = new Date();
 
 
 const clock = document.getElementById(
-"clock-v92"
+"clock-v93"
 );
 
 
@@ -1226,7 +1129,7 @@ timeZone:"Asia/Tehran"
 
 
 const solar = document.getElementById(
-"solar-v92"
+"solar-v93"
 );
 
 
@@ -1249,7 +1152,7 @@ timeZone:"Asia/Tehran"
 
 
 const update = document.getElementById(
-"update-v92"
+"update-v93"
 );
 
 
@@ -1270,14 +1173,43 @@ now.toLocaleTimeString(
 
 
 
-updateV92();
+updateV93();
 
 
 
 setInterval(
-updateV92,
+updateV93,
 1000
 );
+
+
+
+
+/* PWA SERVICE WORKER READY */
+
+
+if(
+"serviceWorker" in navigator
+){
+
+
+window.addEventListener(
+"load",
+function(){
+
+
+navigator.serviceWorker.register(
+"service-worker.js"
+);
+
+
+
+}
+
+);
+
+
+}
 
 
 
