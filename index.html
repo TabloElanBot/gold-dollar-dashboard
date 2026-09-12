@@ -1,24 +1,24 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 8 — DATA TIMESTAMP ENGINE
+     SECTION 9 — MARKET CONNECTION MONITOR
 ========================================= -->
 
 <script>
 
-const HASINEH_TIMESTAMP_ENGINE_V81 = {
+const HASINEH_CONNECTION_MONITOR_V81 = {
 
-  update:function(){
+  status:function(){
 
     const target =
       document.getElementById(
-        "last-data-update-v81"
+        "market-connection-v81"
       );
 
 
     if(!target){
 
       console.warn(
-        "HASINEH V81 timestamp element missing"
+        "HASINEH V81 connection element missing"
       );
 
       return;
@@ -26,38 +26,47 @@ const HASINEH_TIMESTAMP_ENGINE_V81 = {
     }
 
 
-    const now = new Date();
+    /* ---------- CONNECTION STATUS ---------- */
+
+    let connected = true;
 
 
-    target.textContent =
-      now.toLocaleString("fa-IR",{
+    if(connected){
 
-        year:"numeric",
-        month:"2-digit",
-        day:"2-digit",
-        hour:"2-digit",
-        minute:"2-digit",
-        second:"2-digit"
+      target.textContent =
+        "🟢 CONNECTED";
 
-      });
+      target.className =
+        "control-value-v81 green-v81";
+
+
+    }else{
+
+      target.textContent =
+        "🔴 DISCONNECTED";
+
+      target.className =
+        "control-value-v81 red-v81";
+
+    }
 
   }
 
 };
 
 
-/* ---------- INITIAL RUN ---------- */
+/* ---------- INITIAL CHECK ---------- */
 
-HASINEH_TIMESTAMP_ENGINE_V81.update();
+HASINEH_CONNECTION_MONITOR_V81.status();
 
 
-/* ---------- AUTO REFRESH ---------- */
+/* ---------- AUTO CHECK ---------- */
 
 setInterval(function(){
 
-  HASINEH_TIMESTAMP_ENGINE_V81.update();
+  HASINEH_CONNECTION_MONITOR_V81.status();
 
-},1000);
+},15000);
 
 
 </script>
