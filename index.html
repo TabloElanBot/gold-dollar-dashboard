@@ -7,44 +7,65 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <meta name="theme-color" content="#050505">
 
 
 <title>
-HASINEH MARKET V109 DATA SOURCE ENGINE
+
+HASINEH MARKET V110 HISTORY ENGINE
+
 </title>
+
 
 
 <style>
 
 
 *{
+
 box-sizing:border-box;
+
 }
 
 
 
 body{
 
+
 margin:0;
+
 
 padding:0;
 
+
+
 background:
+
+
 radial-gradient(
 circle at top,
 #333333,
 #050505 65%
 );
 
+
+
 color:white;
 
+
+
 font-family:
+
+
 Tahoma,
 Arial,
 sans-serif;
 
+
+
 min-height:100vh;
+
 
 }
 
@@ -52,24 +73,40 @@ min-height:100vh;
 
 
 
-.header-v109{
+.header-v110{
+
 
 text-align:center;
 
+
 padding:65px 15px;
 
+
+
 background:
+
+
 linear-gradient(
 145deg,
 #050505,
 #292929
 );
 
+
+
 border-bottom:
+
+
 1px solid rgba(255,215,0,0.8);
 
+
+
 box-shadow:
+
+
 0 20px 70px rgba(255,215,0,0.25);
+
+
 
 }
 
@@ -77,15 +114,24 @@ box-shadow:
 
 
 
-.brand-v109{
+.brand-v110{
+
 
 font-size:48px;
 
+
+
 font-weight:bold;
+
+
 
 letter-spacing:6px;
 
+
+
 color:#ffd700;
+
+
 
 }
 
@@ -93,11 +139,16 @@ color:#ffd700;
 
 
 
-.subtitle-v109{
+.subtitle-v110{
+
 
 margin-top:18px;
 
+
+
 font-size:18px;
+
+
 
 }
 
@@ -105,11 +156,16 @@ font-size:18px;
 
 
 
-.city-v109{
+.city-v110{
+
 
 margin-top:12px;
 
+
+
 color:#d4af37;
+
+
 
 }
 
@@ -117,37 +173,60 @@ color:#d4af37;
 
 
 
-.badge-v109{
+.badge-v110{
+
 
 display:inline-block;
 
+
+
 margin-top:20px;
+
+
 
 padding:12px 32px;
 
+
+
 border-radius:35px;
 
+
+
 border:
+
+
 1px solid rgba(255,215,0,0.55);
 
+
+
 background:
+
+
 rgba(255,215,0,0.08);
+
+
 
 color:#ffd700;
 
+
+
 }
 
 
 
 
 
-.container-v109{
+.container-v110{
+
 
 width:92%;
 
+
 max-width:1150px;
 
+
 margin:40px auto;
+
 
 }
 
@@ -155,26 +234,45 @@ margin:40px auto;
 
 
 
-.box-v109{
+.box-v110{
+
 
 background:
+
+
 linear-gradient(
 145deg,
 #090909,
 #1d1d1d
 );
 
+
+
 border:
+
+
 1px solid rgba(212,175,55,0.45);
+
+
 
 border-radius:30px;
 
+
+
 padding:28px;
+
+
 
 margin-bottom:30px;
 
+
+
 box-shadow:
+
+
 0 0 55px rgba(212,175,55,0.15);
+
+
 
 }
 
@@ -182,21 +280,29 @@ box-shadow:
 
 
 
-.title-v109{
+.title-v110{
+
 
 text-align:center;
 
+
 font-size:25px;
+
 
 font-weight:bold;
 
+
 color:#ffd700;
+
+
 
 margin-bottom:25px;
 
+
+
 }
      
-.data-grid-v109{
+.history-grid-v110{
 
 
 display:grid;
@@ -219,7 +325,7 @@ gap:15px;
 
 
 
-.data-card-v109{
+.history-card-v110{
 
 
 padding:22px;
@@ -254,7 +360,7 @@ text-align:center;
 
 
 
-.data-title-v109{
+.history-title-v110{
 
 
 color:#ffd700;
@@ -273,7 +379,7 @@ font-size:18px;
 
 
 
-.data-value-v109{
+.history-value-v110{
 
 
 margin-top:10px;
@@ -289,7 +395,7 @@ font-size:14px;
 
 
 
-.status-row-v109{
+.status-row-v110{
 
 
 display:flex;
@@ -319,7 +425,7 @@ border-bottom:
 
 
 
-.status-row-v109:last-child{
+.status-row-v110:last-child{
 
 
 border-bottom:none;
@@ -331,7 +437,7 @@ border-bottom:none;
 
 
 
-.gold-v109{
+.gold-v110{
 
 
 color:#ffd700;
@@ -347,7 +453,7 @@ font-weight:bold;
 
 
 
-.green-v109{
+.green-v110{
 
 
 color:#00ff88;
@@ -363,7 +469,7 @@ font-weight:bold;
 
 
 
-.blue-v109{
+.blue-v110{
 
 
 color:#66ccff;
@@ -391,10 +497,10 @@ font-weight:bold;
 <body>
 
 
-<header class="header-v109">
+<header class="header-v110">
 
 
-<div class="brand-v109">
+<div class="brand-v110">
 
 HASINEH MARKET
 
@@ -402,15 +508,15 @@ HASINEH MARKET
 
 
 
-<div class="subtitle-v109">
+<div class="subtitle-v110">
 
-Smart Data Source Platform
+Market History & Chart Platform
 
 </div>
 
 
 
-<div class="city-v109">
+<div class="city-v110">
 
 Bandar Hasineh
 
@@ -418,9 +524,9 @@ Bandar Hasineh
 
 
 
-<div class="badge-v109">
+<div class="badge-v110">
 
-V109 DATA SOURCE ENGINE
+V110 HISTORY ENGINE
 
 </div>
 
@@ -431,41 +537,14 @@ V109 DATA SOURCE ENGINE
 
 
 
-<div class="container-v109">
+<div class="container-v110">
      
-<div class="box-v109">
+<div class="box-v110">
 
 
-<div class="title-v109">
+<div class="title-v110">
 
-🌐 DATA SOURCE MANAGER
-
-</div>
-
-
-
-
-
-<div class="data-grid-v109">
-
-
-
-<div class="data-card-v109">
-
-
-<div class="data-title-v109">
-
-📡 API CORE
-
-</div>
-
-
-<div class="data-value-v109">
-
-Connection Foundation
-
-</div>
-
+📈 PRICE HISTORY CENTER
 
 </div>
 
@@ -473,21 +552,23 @@ Connection Foundation
 
 
 
+<div class="history-grid-v110">
 
 
-<div class="data-card-v109">
+
+<div class="history-card-v110">
 
 
-<div class="data-title-v109">
+<div class="history-title-v110">
 
-🏦 Market Sources
+🪙 Gold History
 
 </div>
 
 
-<div class="data-value-v109">
+<div class="history-value-v110">
 
-Source Manager
+Gold Trend Data
 
 </div>
 
@@ -500,29 +581,21 @@ Source Manager
 
 
 
-<div class="data-card-v109">
+<div class="history-card-v110">
 
 
-<div class="data-title-v109">
+<div class="history-title-v110">
 
-🔄 Update Control
-
-</div>
-
-
-<div class="data-value-v109">
-
-Refresh System
+💱 Currency History
 
 </div>
 
 
+<div class="history-value-v110">
+
+Currency Trend Data
+
 </div>
-
-
-
-</div>
-
 
 
 </div>
@@ -533,14 +606,30 @@ Refresh System
 
 
 
+<div class="history-card-v110">
 
 
-<div class="box-v109">
+<div class="history-title-v110">
+
+📊 Chart System
+
+</div>
 
 
-<div class="title-v109">
+<div class="history-value-v110">
 
-📊 DATA CONNECTION STATUS
+Graph Foundation
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
 
 </div>
 
@@ -548,17 +637,34 @@ Refresh System
 
 
 
-<div class="status-row-v109">
+
+
+
+
+<div class="box-v110">
+
+
+<div class="title-v110">
+
+🕒 TIME RANGE ANALYSIS
+
+</div>
+
+
+
+
+
+<div class="status-row-v110">
 
 
 <span>
 
-Primary Data Source
+Daily Chart
 
 </span>
 
 
-<span class="green-v109">
+<span class="green-v110">
 
 READY
 
@@ -571,17 +677,17 @@ READY
 
 
 
-<div class="status-row-v109">
+<div class="status-row-v110">
 
 
 <span>
 
-Backup Source
+Weekly Chart
 
 </span>
 
 
-<span class="gold-v109">
+<span class="gold-v110">
 
 SUPPORTED
 
@@ -594,17 +700,17 @@ SUPPORTED
 
 
 
-<div class="status-row-v109">
+<div class="status-row-v110">
 
 
 <span>
 
-API Security Layer
+Monthly Chart
 
 </span>
 
 
-<span class="blue-v109">
+<span class="blue-v110">
 
 FOUNDATION
 
@@ -625,12 +731,12 @@ FOUNDATION
 
 
 
-<div class="box-v109">
+<div class="box-v110">
 
 
-<div class="title-v109">
+<div class="title-v110">
 
-⚙️ UPDATE MANAGEMENT
+🧠 SMART COMPARISON
 
 </div>
 
@@ -638,17 +744,17 @@ FOUNDATION
 
 
 
-<div class="status-row-v109">
+<div class="status-row-v110">
 
 
 <span>
 
-Automatic Refresh
+Today vs Previous Data
 
 </span>
 
 
-<span class="green-v109">
+<span class="green-v110">
 
 READY
 
@@ -661,17 +767,17 @@ READY
 
 
 
-<div class="status-row-v109">
+<div class="status-row-v110">
 
 
 <span>
 
-Data Validation
+Market Trend Analysis
 
 </span>
 
 
-<span class="gold-v109">
+<span class="gold-v110">
 
 SUPPORTED
 
@@ -684,17 +790,17 @@ SUPPORTED
 
 
 
-<div class="status-row-v109">
+<div class="status-row-v110">
 
 
 <span>
 
-Multiple Source Support
+Future Prediction Engine
 
 </span>
 
 
-<span class="blue-v109">
+<span class="blue-v110">
 
 PLANNED
 
@@ -707,12 +813,12 @@ PLANNED
 
 </div>
      
-<div class="box-v109">
+<div class="box-v110">
 
 
-<div class="title-v109">
+<div class="title-v110">
 
-🚀 DATA INTELLIGENCE CENTER
+🚀 HISTORY INTELLIGENCE CENTER
 
 </div>
 
@@ -720,17 +826,17 @@ PLANNED
 
 
 
-<div class="status-row-v109">
+<div class="status-row-v110">
 
 
 <span>
 
-Smart Data Engine
+History Data Engine
 
 </span>
 
 
-<span class="green-v109">
+<span class="green-v110">
 
 READY
 
@@ -743,17 +849,17 @@ READY
 
 
 
-<div class="status-row-v109">
+<div class="status-row-v110">
 
 
 <span>
 
-API Connection Layer
+Chart Visualization
 
 </span>
 
 
-<span class="gold-v109">
+<span class="gold-v110">
 
 SUPPORTED
 
@@ -766,19 +872,19 @@ SUPPORTED
 
 
 
-<div class="status-row-v109">
+<div class="status-row-v110">
 
 
 <span>
 
-Future Live Market Data
+Advanced Market Forecast
 
 </span>
 
 
-<span class="blue-v109">
+<span class="blue-v110">
 
-PLANNED
+FUTURE
 
 </span>
 
@@ -797,12 +903,12 @@ PLANNED
 
 
 
-<div class="box-v109">
+<div class="box-v110">
 
 
-<div class="title-v109">
+<div class="title-v110">
 
-🔄 DATA FLOW SYSTEM
+📊 MARKET TREND SYSTEM
 
 </div>
 
@@ -813,27 +919,27 @@ PLANNED
 <div style="text-align:center;line-height:2.2;">
 
 
-Source Collection
+Historical Price Tracking
 
 
 <br>
 
 
-Data Verification
+Trend Comparison
 
 
 <br>
 
 
-Market Display
+Smart Market Overview
 
 
 <br><br>
 
 
-<span class="gold-v109">
+<span class="gold-v110">
 
-HASINEH DATA ENGINE
+HASINEH HISTORY ENGINE
 
 </span>
 
@@ -853,10 +959,10 @@ HASINEH DATA ENGINE
 
 
 
-<div class="box-v109">
+<div class="box-v110">
 
 
-<div class="title-v109">
+<div class="title-v110">
 
 🏆 HASINEH MARKET
 
@@ -874,7 +980,7 @@ Digital Smart Market Platform
 <br><br>
 
 
-<span class="gold-v109">
+<span class="gold-v110">
 
 Creator : Hassan Divanizadeh
 
