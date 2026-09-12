@@ -1,24 +1,24 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 11 — SOLAR DATE ENGINE
+     SECTION 12 — LUNAR DATE ENGINE
 ========================================= -->
 
 <script>
 
-const HASINEH_SOLAR_DATE_V81 = {
+const HASINEH_LUNAR_DATE_V81 = {
 
   update:function(){
 
     const target =
       document.getElementById(
-        "solar-date-v81"
+        "lunar-date-v81"
       );
 
 
     if(!target){
 
       console.warn(
-        "HASINEH V81 solar date element missing"
+        "HASINEH V81 lunar date element missing"
       );
 
       return;
@@ -26,21 +26,30 @@ const HASINEH_SOLAR_DATE_V81 = {
     }
 
 
+    /*
+      Lunar placeholder engine
+      Ready for advanced Hijri API connection
+    */
+
+
     const now =
       new Date();
 
 
+    const day =
+      now.getDate();
+
+
+    const month =
+      now.getMonth()+1;
+
+
+    const year =
+      now.getFullYear();
+
+
     target.textContent =
-      now.toLocaleDateString(
-        "fa-IR",
-        {
-
-          year:"numeric",
-          month:"long",
-          day:"numeric"
-
-        }
-      );
+      "🌙 تاریخ قمری آماده اتصال";
 
 
   }
@@ -50,14 +59,14 @@ const HASINEH_SOLAR_DATE_V81 = {
 
 /* ---------- INITIAL UPDATE ---------- */
 
-HASINEH_SOLAR_DATE_V81.update();
+HASINEH_LUNAR_DATE_V81.update();
 
 
-/* ---------- DAILY REFRESH ---------- */
+/* ---------- REFRESH ---------- */
 
 setInterval(function(){
 
-  HASINEH_SOLAR_DATE_V81.update();
+  HASINEH_LUNAR_DATE_V81.update();
 
 },60000);
 
