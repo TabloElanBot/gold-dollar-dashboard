@@ -1,93 +1,83 @@
-<!-- ==========================
- HASINEH MARKET V71
- CREATOR SIGNATURE
-========================== -->
-
-
-<div class="box creator-signature-v71">
-
-
-<div class="creator-title-v71">
-
-HASINEH MARKET
-
-</div>
-
-
-
-
-<div class="creator-text-v71">
-
-Created by
-
-</div>
-
-
-
-
-<div class="creator-name-v71">
-
-Hassan Divanizadeh
-
-</div>
-
-
-
-
-<div class="creator-location-v71">
-
-Bandar Hasineh
-
-</div>
-
-
-
-
-<div class="creator-qr-placeholder-v71">
-
-QR CODE
-
-</div>
-
-
-
-</div>
-
-
-
 /* ==========================
- HASINEH MARKET V71
- CREATOR SIGNATURE STYLE
+ HASINEH MARKET V72
+ FINAL LUXURY FOUNDATION
 ========================== */
 
 
-.creator-signature-v71{
+:root{
 
-margin:30px auto 20px;
+--hasineh-gold:#d4af37;
 
-max-width:420px;
+--hasineh-dark:#080808;
 
-padding:20px;
+--hasineh-panel:#111111;
 
-text-align:center;
+--hasineh-green:#00ff88;
+
+}
+
+
+
+
+
+.box{
+
+transition:
+
+0.3s ease;
+
+}
+
+
+
+
+
+.box:hover{
+
+transform:
+
+translateY(-2px);
+
+}
+
+
+
+
+
+.box-title{
+
+letter-spacing:
+
+1px;
+
+}
+
+
+
+
+
+body{
 
 background:
 
-linear-gradient(
-145deg,
-#080808,
-#111111
+radial-gradient(
+circle at top,
+#181818,
+#050505
 );
 
-border-radius:28px;
+}
 
-border:
 
-1px solid rgba(212,175,55,0.25);
 
-box-shadow:
 
-0 0 25px rgba(212,175,55,0.15);
+*{
+
+font-family:
+
+Tahoma,
+Arial,
+sans-serif;
 
 }
 
@@ -95,15 +85,11 @@ box-shadow:
 
 
 
-.creator-title-v71{
+.status-gold{
 
-font-size:14px;
+color:
 
-letter-spacing:4px;
-
-color:#d4af37;
-
-font-weight:bold;
+var(--hasineh-gold);
 
 }
 
@@ -111,33 +97,134 @@ font-weight:bold;
 
 
 
-.creator-text-v71{
+.status-green{
 
-margin-top:15px;
+color:
 
-font-size:11px;
-
-color:#777;
-
-letter-spacing:2px;
+var(--hasineh-green);
 
 }
 
 
+/* ==========================
+ HASINEH MARKET V72
+ PREMIUM MOBILE POLISH
+========================== */
+
+
+.box{
+
+backdrop-filter:
+
+blur(6px);
+
+}
+
+
+
+
+
+.price-card-v66,
+.gold-master-board-v67,
+.currency-master-board-v68,
+.status-center-v70,
+.creator-signature-v71{
+
+animation:
+
+hasinehFade 0.8s ease;
+
+}
+
+
+
+
+
+@keyframes hasinehFade{
+
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(15px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:
+
+translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+@media(max-width:600px){
+
+
+
+.box{
+
+width:
+
+calc(100% - 24px);
+
+}
+
+
+
+.box-title{
+
+font-size:
+
+18px;
+
+}
+
+
+
+.price-value-v66{
+
+font-size:
+
+24px;
+
+}
+
+
+
+.gold-item-v67 span:last-child,
+.currency-item-v68 span:last-child{
+
+font-size:
+
+15px;
+
+}
 
 
 
 .creator-name-v71{
 
-margin-top:8px;
+font-size:
 
-font-size:16px;
+14px;
 
-color:#c9a227;
+}
 
-font-weight:bold;
 
-letter-spacing:2px;
 
 }
 
@@ -145,72 +232,44 @@ letter-spacing:2px;
 
 
 
-.creator-location-v71{
+@media(max-width:380px){
 
-margin-top:6px;
 
-font-size:12px;
 
-color:#888;
+.home-brand-v69,
+.master-logo-v61{
+
+letter-spacing:
+
+3px;
+
+font-size:
+
+22px;
 
 }
 
 
-
-
-
-.creator-qr-placeholder-v71{
-
-margin:18px auto 0;
-
-width:80px;
-
-height:80px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-background:#ffffff;
-
-color:#111;
-
-font-size:10px;
-
-font-weight:bold;
-
-border-radius:8px;
 
 }
 
 
 
 /* ==========================
- HASINEH MARKET V71
- CREATOR SIGNATURE ENGINE
+ HASINEH MARKET V72
+ FINAL VISUAL CONTROL ENGINE
 ========================== */
 
 
-const HASINEH_CREATOR_V71 = {
+const HASINEH_VISUAL_CONTROL_V72 = {
 
 
-brand:
-"HASINEH MARKET",
+version:
+"V72 PREMIUM",
 
 
-creator:
-"Hassan Divanizadeh",
-
-
-location:
-"Bandar Hasineh",
-
-
-qrData:
-"HASINEH MARKET | Hassan Divanizadeh | Bandar Hasineh",
-
+status:
+"FINAL POLISH",
 
 
 
@@ -218,60 +277,33 @@ update:function(){
 
 
 
-let title =
-document.querySelector(
-".creator-title-v71"
-);
-
-
-
-if(title){
-
-title.innerHTML =
-this.brand;
-
-}
-
-
-
-
-let name =
-document.querySelector(
-".creator-name-v71"
-);
-
-
-
-if(name){
-
-name.innerHTML =
-this.creator;
-
-}
-
-
-
-
-let location =
-document.querySelector(
-".creator-location-v71"
-);
-
-
-
-if(location){
-
-location.innerHTML =
-this.location;
-
-}
-
-
-
-
 console.log(
-"HASINEH CREATOR V71 READY"
+"HASINEH MARKET " 
++ this.version 
++ " | "
++ this.status
++ " READY"
 );
+
+
+
+
+
+let boxes =
+document.querySelectorAll(
+".box"
+);
+
+
+
+boxes.forEach(function(box){
+
+
+box.style.transition =
+"0.3s ease";
+
+
+});
 
 
 
@@ -286,13 +318,13 @@ console.log(
 
 
 
-function hasinehCreatorMonitorV71(){
+function hasinehVisualMonitorV72(){
 
 
 try{
 
 
-HASINEH_CREATOR_V71.update();
+HASINEH_VISUAL_CONTROL_V72.update();
 
 
 
@@ -302,7 +334,7 @@ catch(error){
 
 
 console.log(
-"HASINEH CREATOR V71 ERROR"
+"HASINEH VISUAL CONTROL V72 ERROR"
 );
 
 
@@ -319,9 +351,9 @@ console.log(
 
 setInterval(
 
-hasinehCreatorMonitorV71,
+hasinehVisualMonitorV72,
 
-30000
+60000
 
 );
 
@@ -329,4 +361,4 @@ hasinehCreatorMonitorV71,
 
 
 
-hasinehCreatorMonitorV71();
+hasinehVisualMonitorV72();
