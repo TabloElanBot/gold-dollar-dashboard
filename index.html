@@ -1,121 +1,189 @@
 <!-- =========================================
      HASINEH MARKET V81
-     FINAL MERGE SYSTEM
-     SECTION 1
+     SECTION 2 — PREMIUM CSS
 ========================================= -->
 
-<section class="hasineh-control-center-v81">
+<style>
 
-  <div class="control-title-v81">
-    📡 HASINEH MARKET
-    <span>CONTROL CENTER</span>
-  </div>
+.hasineh-control-center-v81{
+  width:100%;
+  max-width:900px;
+  margin:25px auto;
+  padding:22px;
+  box-sizing:border-box;
 
-  <div class="control-subtitle-v81">
-    مرکز کنترل هوشمند بازار
-  </div>
+  background:
+    linear-gradient(145deg,#080808,#15110a,#080808);
 
-  <div class="control-grid-v81">
+  border:1px solid rgba(212,175,55,.55);
+  border-radius:18px;
 
-    <div class="control-item-v81">
-      <div class="control-label-v81">
-        وضعیت سیستم
-      </div>
+  box-shadow:
+    0 0 25px rgba(212,175,55,.12),
+    inset 0 0 20px rgba(212,175,55,.035);
 
-      <div class="control-value-v81 green-v81"
-           id="system-status-v81">
-        🟢 ACTIVE
-      </div>
-    </div>
-
-
-    <div class="control-item-v81">
-      <div class="control-label-v81">
-        موتور داده
-      </div>
-
-      <div class="control-value-v81 yellow-v81"
-           id="data-engine-v81">
-        🟡 READY
-      </div>
-    </div>
+  color:#fff;
+  direction:rtl;
+  font-family:Tahoma,Arial,sans-serif;
+}
 
 
-    <div class="control-item-v81">
-      <div class="control-label-v81">
-        اتصال بازار
-      </div>
-
-      <div class="control-value-v81 gray-v81"
-           id="market-connection-v81">
-        ⚪ NOT CONNECTED
-      </div>
-    </div>
+.control-title-v81{
+  text-align:center;
+  font-size:22px;
+  font-weight:900;
+  color:#d4af37;
+  letter-spacing:.5px;
+  margin-bottom:7px;
+}
 
 
-    <div class="control-item-v81">
-      <div class="control-label-v81">
-        آخرین دریافت واقعی قیمت
-      </div>
-
-      <div class="control-value-v81 gold-v81"
-           id="last-data-update-v81">
-        ---
-      </div>
-    </div>
+.control-title-v81 span{
+  display:block;
+  margin-top:5px;
+  font-size:13px;
+  color:#aaa;
+  letter-spacing:2px;
+  direction:ltr;
+}
 
 
-    <div class="control-item-v81">
-      <div class="control-label-v81">
-        منبع داده
-      </div>
-
-      <div class="control-value-v81 gray-v81"
-           id="data-source-v81">
-        هنوز متصل نشده
-      </div>
-    </div>
+.control-subtitle-v81{
+  text-align:center;
+  color:#ddd;
+  font-size:13px;
+  margin-bottom:22px;
+}
 
 
-    <div class="control-item-v81">
-      <div class="control-label-v81">
-        ساعت ایران
-      </div>
-
-      <div class="control-value-v81 gold-v81"
-           id="iran-time-v81">
-        ---
-      </div>
-    </div>
+.control-grid-v81{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
 
 
-    <div class="control-item-v81">
-      <div class="control-label-v81">
-        تاریخ شمسی
-      </div>
+.control-item-v81{
+  min-height:76px;
+  padding:13px 15px;
+  box-sizing:border-box;
 
-      <div class="control-value-v81 gold-v81"
-           id="solar-date-v81">
-        ---
-      </div>
-    </div>
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(212,175,55,.16);
+  border-radius:12px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  transition:.25s ease;
+}
 
 
-    <div class="control-item-v81">
-      <div class="control-label-v81">
-        تاریخ قمری
-      </div>
+.control-item-v81:hover{
+  border-color:rgba(212,175,55,.48);
+  box-shadow:0 0 14px rgba(212,175,55,.08);
+  transform:translateY(-1px);
+}
 
-      <div class="control-value-v81 gold-v81"
-           id="lunar-date-v81">
-        ---
-      </div>
-    </div>
 
-  </div>
+.control-label-v81{
+  color:#999;
+  font-size:11px;
+  margin-bottom:7px;
+}
 
-  <div class="control-footer-v81">
-    HASINEH MARKET • DIGITAL SMART MARKET BOARD
-  </div>
 
-</section>
+.control-value-v81{
+  font-size:14px;
+  font-weight:800;
+  line-height:1.5;
+}
+
+
+.green-v81{
+  color:#39d98a;
+}
+
+
+.yellow-v81{
+  color:#e5c04b;
+}
+
+
+.gray-v81{
+  color:#aaa;
+}
+
+
+.gold-v81{
+  color:#d4af37;
+}
+
+
+.control-footer-v81{
+  margin-top:18px;
+  padding-top:14px;
+
+  border-top:1px solid rgba(212,175,55,.12);
+
+  text-align:center;
+  direction:ltr;
+
+  color:#777;
+  font-size:9px;
+  letter-spacing:1.2px;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:600px){
+
+  .hasineh-control-center-v81{
+    margin:15px auto;
+    padding:15px;
+    border-radius:15px;
+  }
+
+
+  .control-title-v81{
+    font-size:18px;
+  }
+
+
+  .control-title-v81 span{
+    font-size:10px;
+    letter-spacing:1.5px;
+  }
+
+
+  .control-subtitle-v81{
+    font-size:12px;
+  }
+
+
+  .control-grid-v81{
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+
+
+  .control-item-v81{
+    min-height:68px;
+    padding:11px 13px;
+  }
+
+
+  .control-value-v81{
+    font-size:13px;
+  }
+
+
+  .control-footer-v81{
+    font-size:8px;
+  }
+
+}
+
+     </style>
