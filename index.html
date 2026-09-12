@@ -13,7 +13,7 @@
 
 <title>
 
-HASINEH MARKET V94 CORE PLATFORM
+HASINEH MARKET V95 DATA ENGINE
 
 </title>
 
@@ -42,7 +42,7 @@ background:
 
 radial-gradient(
 circle at top,
-#3a3a3a,
+#333333,
 #050505 65%
 );
 
@@ -60,13 +60,14 @@ sans-serif;
 
 min-height:100vh;
 
+
 }
 
 
 
 
 
-.header-v94{
+.header-v95{
 
 
 text-align:center;
@@ -107,7 +108,7 @@ box-shadow:
 
 
 
-.brand-v94{
+.brand-v95{
 
 
 font-size:46px;
@@ -119,15 +120,7 @@ font-weight:bold;
 letter-spacing:6px;
 
 
-
 color:#ffd700;
-
-
-
-text-shadow:
-
-
-0 0 40px rgba(255,215,0,0.55);
 
 
 
@@ -137,7 +130,7 @@ text-shadow:
 
 
 
-.subtitle-v94{
+.subtitle-v95{
 
 
 margin-top:18px;
@@ -151,8 +144,7 @@ font-size:18px;
 
 
 
-
-.city-v94{
+.city-v95{
 
 
 margin-top:12px;
@@ -167,7 +159,7 @@ color:#d4af37;
 
 
 
-.badge-v94{
+.badge-v95{
 
 
 display:inline-block;
@@ -208,7 +200,7 @@ color:#ffd700;
 
 
 
-.container-v94{
+.container-v95{
 
 
 width:92%;
@@ -226,7 +218,7 @@ margin:40px auto;
 
 
 
-.box-v94{
+.box-v95{
 
 
 background:
@@ -272,7 +264,7 @@ box-shadow:
 
 
 
-.title-v94{
+.title-v95{
 
 
 text-align:center;
@@ -294,7 +286,7 @@ margin-bottom:25px;
 
 }
      
-.status-panel-v94{
+.data-panel-v95{
 
 
 text-align:center;
@@ -328,7 +320,7 @@ border-radius:25px;
 
 
 
-.online-box-v94{
+.live-badge-v95{
 
 
 display:inline-block;
@@ -359,6 +351,7 @@ border:
 color:#00ff88;
 
 
+
 font-weight:bold;
 
 
@@ -369,7 +362,49 @@ font-weight:bold;
 
 
 
-.offline-box-v94{
+.saved-badge-v95{
+
+
+display:inline-block;
+
+
+padding:12px 25px;
+
+
+
+border-radius:30px;
+
+
+
+background:
+
+
+rgba(255,215,0,0.08);
+
+
+
+border:
+
+
+1px solid rgba(255,215,0,0.35);
+
+
+
+color:#ffd700;
+
+
+
+font-weight:bold;
+
+
+
+}
+
+
+
+
+
+.offline-badge-v95{
 
 
 display:inline-block;
@@ -407,7 +442,8 @@ font-weight:bold;
 
 animation:
 
-offlineBlink-v94 1s infinite;
+
+blink-v95 1s infinite;
 
 
 
@@ -416,7 +452,8 @@ offlineBlink-v94 1s infinite;
 
 
 
-@keyframes offlineBlink-v94{
+
+@keyframes blink-v95{
 
 
 0%{
@@ -449,54 +486,7 @@ opacity:1;
 
 
 
-.warning-v94{
-
-
-margin-top:20px;
-
-
-
-padding:18px;
-
-
-
-border-radius:20px;
-
-
-
-background:
-
-
-rgba(255,0,0,0.08);
-
-
-
-border:
-
-
-1px solid rgba(255,80,80,0.35);
-
-
-
-color:#ff7777;
-
-
-
-line-height:2;
-
-
-
-display:none;
-
-
-
-}
-
-
-
-
-
-.price-card-v94{
+.price-card-v95{
 
 
 display:flex;
@@ -541,7 +531,7 @@ border:
 
 
 
-.price-name-v94{
+.price-name-v95{
 
 
 font-size:17px;
@@ -553,10 +543,8 @@ font-size:17px;
 
 
 
-.price-value-v94{
 
-
-color:#ffd700;
+.price-value-v95{
 
 
 font-size:18px;
@@ -566,19 +554,23 @@ font-weight:bold;
 
 
 
+color:#ffd700;
+
+
+
 }
 
 
 
 
-.saved-time-v94{
+
+.time-tag-v95{
 
 
 font-size:13px;
 
 
-
-color:#ff7777;
+color:#ffcc66;
 
 
 
@@ -588,7 +580,7 @@ color:#ff7777;
 
 
 
-.info-row-v94{
+.info-row-v95{
 
 
 display:flex;
@@ -617,7 +609,8 @@ border-bottom:
 
 
 
-.info-row-v94:last-child{
+
+.info-row-v95:last-child{
 
 
 border-bottom:none;
@@ -629,7 +622,7 @@ border-bottom:none;
 
 
 
-.gold-v94{
+.gold-v95{
 
 
 color:#ffd700;
@@ -643,7 +636,7 @@ font-weight:bold;
 
 
 
-.green-v94{
+.green-v95{
 
 
 color:#00ff88;
@@ -658,7 +651,7 @@ font-weight:bold;
 
 
 
-.red-v94{
+.red-v95{
 
 
 color:#ff5555;
@@ -671,6 +664,8 @@ font-weight:bold;
 
 
 
+
+
 </style>
 
 
@@ -679,13 +674,14 @@ font-weight:bold;
 
 
 
+
 <body>
 
 
-<header class="header-v94">
+<header class="header-v95">
 
 
-<div class="brand-v94">
+<div class="brand-v95">
 
 HASINEH MARKET
 
@@ -693,15 +689,15 @@ HASINEH MARKET
 
 
 
-<div class="subtitle-v94">
+<div class="subtitle-v95">
 
-تابلو هوشمند بازار طلا، ارز و دارایی
+تابلو هوشمند داده و بازار
 
 </div>
 
 
 
-<div class="city-v94">
+<div class="city-v95">
 
 Bandar Hasineh
 
@@ -709,9 +705,9 @@ Bandar Hasineh
 
 
 
-<div class="badge-v94">
+<div class="badge-v95">
 
-V94 CORE PLATFORM
+V95 DATA ENGINE FOUNDATION
 
 </div>
 
@@ -722,14 +718,14 @@ V94 CORE PLATFORM
 
 
 
-<div class="container-v94">
+<div class="container-v95">
      
-<div class="box-v94">
+<div class="box-v95">
 
 
-<div class="title-v94">
+<div class="title-v95">
 
-📊 HASINEH MARKET BOARD
+📊 HASINEH DATA MARKET BOARD
 
 </div>
 
@@ -737,34 +733,31 @@ V94 CORE PLATFORM
 
 
 
-<div id="offline-warning-v94" class="warning-v94">
+<div class="data-panel-v95">
 
 
-⚠️ توجه:
+
+<div id="data-status-v95" class="live-badge-v95">
+
+🟢 LIVE DATA
+
+</div>
 
 
-<br>
-
-
-اتصال اینترنت قطع است.
-
-
-<br>
-
-
-نرخ‌های نمایش داده شده مربوط به آخرین بروزرسانی ذخیره شده هستند.
 
 
 <br><br>
 
 
-زمان آخرین دریافت:
+آخرین بروزرسانی داده:
 
 
 <br>
 
 
-📅 <span id="saved-date-v94">
+📅
+
+<span id="data-date-v95" class="gold-v95">
 
 ---
 
@@ -774,7 +767,9 @@ V94 CORE PLATFORM
 <br>
 
 
-⏰ <span id="saved-time-v94">
+⏰
+
+<span id="data-time-v95" class="gold-v95">
 
 ---
 
@@ -790,27 +785,36 @@ V94 CORE PLATFORM
 
 
 
+<br>
 
-<div class="price-card-v94">
 
 
-<span class="price-name-v94">
+
+
+
+<div class="price-card-v95">
+
+
+<span class="price-name-v95">
 
 🪙 طلای ۱۸ عیار
 
 </span>
 
 
-<span class="price-value-v94">
+
+<span class="price-value-v95">
 
 ---
 
 </span>
 
 
-<span class="saved-time-v94">
 
-SAVED
+
+<span class="time-tag-v95">
+
+DATA READY
 
 </span>
 
@@ -823,26 +827,29 @@ SAVED
 
 
 
-<div class="price-card-v94">
+<div class="price-card-v95">
 
 
-<span class="price-name-v94">
+<span class="price-name-v95">
 
 🪙 طلای ۲۴ عیار
 
 </span>
 
 
-<span class="price-value-v94">
+
+<span class="price-value-v95">
 
 ---
 
 </span>
 
 
-<span class="saved-time-v94">
 
-SAVED
+
+<span class="time-tag-v95">
+
+DATA READY
 
 </span>
 
@@ -855,26 +862,29 @@ SAVED
 
 
 
-<div class="price-card-v94">
+<div class="price-card-v95">
 
 
-<span class="price-name-v94">
+<span class="price-name-v95">
 
 🪙 سکه امامی
 
 </span>
 
 
-<span class="price-value-v94">
+
+<span class="price-value-v95">
 
 ---
 
 </span>
 
 
-<span class="saved-time-v94">
 
-SAVED
+
+<span class="time-tag-v95">
+
+DATA READY
 
 </span>
 
@@ -887,27 +897,29 @@ SAVED
 
 
 
+<div class="price-card-v95">
 
-<div class="price-card-v94">
 
-
-<span class="price-name-v94">
+<span class="price-name-v95">
 
 💵 دلار آمریکا
 
 </span>
 
 
-<span class="price-value-v94">
+
+<span class="price-value-v95">
 
 ---
 
 </span>
 
 
-<span class="saved-time-v94">
 
-SAVED
+
+<span class="time-tag-v95">
+
+DATA READY
 
 </span>
 
@@ -920,26 +932,29 @@ SAVED
 
 
 
-<div class="price-card-v94">
+<div class="price-card-v95">
 
 
-<span class="price-name-v94">
+<span class="price-name-v95">
 
 💶 یورو
 
 </span>
 
 
-<span class="price-value-v94">
+
+<span class="price-value-v95">
 
 ---
 
 </span>
 
 
-<span class="saved-time-v94">
 
-SAVED
+
+<span class="time-tag-v95">
+
+DATA READY
 
 </span>
 
@@ -949,10 +964,6 @@ SAVED
 
 
 
-
-
-
-
 </div>
 
 
@@ -963,29 +974,30 @@ SAVED
 
 
 
-<div class="box-v94">
+<div class="box-v95">
 
 
-<div class="title-v94">
+<div class="title-v95">
 
-🧠 CORE PLATFORM
+🧠 HASINEH CORE ENGINE
 
 </div>
 
 
 
 
-<div class="info-row-v94">
+
+<div class="info-row-v95">
 
 
 <span>
 
-هسته مشترک
+ذخیره داده
 
 </span>
 
 
-<span class="green-v94">
+<span class="green-v95">
 
 READY
 
@@ -998,19 +1010,19 @@ READY
 
 
 
-<div class="info-row-v94">
+<div class="info-row-v95">
 
 
 <span>
 
-Website
+آخرین زمان دریافت
 
 </span>
 
 
-<span class="gold-v94">
+<span id="last-save-v95" class="gold-v95">
 
-SUPPORTED
+---
 
 </span>
 
@@ -1021,120 +1033,17 @@ SUPPORTED
 
 
 
-<div class="info-row-v94">
+<div class="info-row-v95">
 
 
 <span>
 
-Application
+آمادگی اتصال API
 
 </span>
 
 
-<span class="gold-v94">
-
-SUPPORTED
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="info-row-v94">
-
-
-<span>
-
-Channel
-
-</span>
-
-
-<span class="gold-v94">
-
-SUPPORTED
-
-</span>
-
-
-</div>
-
-
-
-</div>
-<div class="box-v94">
-
-
-<div class="title-v94">
-
-⚙️ HASINEH SYSTEM
-
-</div>
-
-
-
-
-<div class="info-row-v94">
-
-
-<span>
-
-وضعیت اتصال
-
-</span>
-
-
-<span id="connection-v94" class="green-v94">
-
-🟢 ONLINE
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="info-row-v94">
-
-
-<span>
-
-نسخه
-
-</span>
-
-
-<span class="gold-v94">
-
-V94 CORE PLATFORM
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="info-row-v94">
-
-
-<span>
-
-آخرین ذخیره
-
-</span>
-
-
-<span class="gold-v94">
+<span class="gold-v95">
 
 READY
 
@@ -1145,6 +1054,90 @@ READY
 
 
 
+
+</div>
+     
+<div class="box-v95">
+
+
+<div class="title-v95">
+
+⚙️ HASINEH SYSTEM ENGINE
+
+</div>
+
+
+
+
+
+<div class="info-row-v95">
+
+
+<span>
+
+وضعیت موتور داده
+
+</span>
+
+
+<span class="green-v95">
+
+🟢 ACTIVE
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="info-row-v95">
+
+
+<span>
+
+حالت ذخیره سازی
+
+</span>
+
+
+<span class="gold-v95">
+
+READY
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="info-row-v95">
+
+
+<span>
+
+نسخه هسته
+
+</span>
+
+
+<span class="gold-v95">
+
+V95 DATA ENGINE
+
+</span>
+
+
+</div>
+
+
+
+
 </div>
 
 
@@ -1153,10 +1146,12 @@ READY
 
 
 
-<div class="box-v94">
 
 
-<div class="title-v94">
+<div class="box-v95">
+
+
+<div class="title-v95">
 
 🕒 HASINEH MARKET TIME
 
@@ -1165,7 +1160,9 @@ READY
 
 
 
-<div class="info-row-v94">
+
+<div class="info-row-v95">
+
 
 <span>
 
@@ -1174,7 +1171,7 @@ READY
 </span>
 
 
-<span id="solar-v94" class="gold-v94">
+<span id="solar-v95" class="gold-v95">
 
 ---
 
@@ -1187,7 +1184,8 @@ READY
 
 
 
-<div class="info-row-v94">
+<div class="info-row-v95">
+
 
 <span>
 
@@ -1196,7 +1194,7 @@ READY
 </span>
 
 
-<span id="clock-v94" class="gold-v94">
+<span id="clock-v95" class="gold-v95">
 
 ---
 
@@ -1209,16 +1207,17 @@ READY
 
 
 
-<div class="info-row-v94">
+<div class="info-row-v95">
+
 
 <span>
 
-🔄 آخرین بررسی
+🔄 بررسی سیستم
 
 </span>
 
 
-<span id="update-v94" class="gold-v94">
+<span id="update-v95" class="gold-v95">
 
 ---
 
@@ -1237,14 +1236,17 @@ READY
 
 
 
-<div class="box-v94">
 
 
-<div class="title-v94">
+<div class="box-v95">
+
+
+<div class="title-v95">
 
 🏆 HASINEH MARKET
 
 </div>
+
 
 
 
@@ -1258,7 +1260,7 @@ Digital Smart Market Platform
 <br><br>
 
 
-<span class="gold-v94">
+<span class="gold-v95">
 
 Creator : Hassan Divanizadeh
 
@@ -1288,7 +1290,10 @@ HASINEH MARKET © ۱۴۰۵
 
 
 
+
 </div>
+
+
 
 
 
@@ -1304,7 +1309,7 @@ HASINEH MARKET © ۱۴۰۵
 
 
 
-function updateCoreV94(){
+function updateV95(){
 
 
 
@@ -1313,13 +1318,15 @@ const now = new Date();
 
 
 
+
 const clock = document.getElementById(
-"clock-v94"
+"clock-v95"
 );
 
 
 
 if(clock){
+
 
 clock.textContent =
 
@@ -1330,19 +1337,23 @@ timeZone:"Asia/Tehran"
 }
 );
 
+
+
 }
 
 
 
 
 
+
 const solar = document.getElementById(
-"solar-v94"
+"solar-v95"
 );
 
 
 
 if(solar){
+
 
 solar.textContent =
 
@@ -1353,19 +1364,23 @@ timeZone:"Asia/Tehran"
 }
 );
 
+
+
 }
 
 
 
 
 
+
 const update = document.getElementById(
-"update-v94"
+"update-v95"
 );
 
 
 
 if(update){
+
 
 update.textContent =
 
@@ -1373,85 +1388,46 @@ now.toLocaleTimeString(
 "fa-IR"
 );
 
+
+
 }
 
 
 
-}
 
 
 
-
-
-function checkConnectionV94(){
-
-
-
-const status = document.getElementById(
-"connection-v94"
+const dataDate = document.getElementById(
+"data-date-v95"
 );
 
 
 
-const warning = document.getElementById(
-"offline-warning-v94"
+const dataTime = document.getElementById(
+"data-time-v95"
 );
 
 
 
-if(navigator.onLine){
+const lastSave = document.getElementById(
+"last-save-v95"
+);
 
 
 
-if(status){
 
-status.textContent =
-"🟢 ONLINE";
 
-status.className =
-"green-v94";
+if(dataDate){
 
+
+dataDate.textContent =
+
+now.toLocaleDateString(
+"fa-IR-u-ca-persian",
+{
+timeZone:"Asia/Tehran"
 }
-
-
-
-if(warning){
-
-warning.style.display =
-"none";
-
-}
-
-
-
-}
-
-else{
-
-
-if(status){
-
-status.textContent =
-"🔴 OFFLINE";
-
-status.className =
-"red-v94";
-
-}
-
-
-
-if(warning){
-
-warning.style.display =
-"block";
-
-}
-
-
-
-}
-
+);
 
 
 
@@ -1461,30 +1437,56 @@ warning.style.display =
 
 
 
-updateCoreV94();
+
+if(dataTime){
 
 
-checkConnectionV94();
+dataTime.textContent =
 
+now.toLocaleTimeString(
+"fa-IR",
+{
+timeZone:"Asia/Tehran"
+}
+);
+
+
+
+}
+
+
+
+
+
+
+if(lastSave){
+
+
+lastSave.textContent =
+
+now.toLocaleTimeString(
+"fa-IR"
+);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+updateV95();
 
 
 setInterval(
-updateCoreV94,
+updateV95,
 1000
-);
-
-
-
-window.addEventListener(
-"online",
-checkConnectionV94
-);
-
-
-
-window.addEventListener(
-"offline",
-checkConnectionV94
 );
 
 
@@ -1494,6 +1496,8 @@ checkConnectionV94
 
 
 </script>
+
+
 
 
 
