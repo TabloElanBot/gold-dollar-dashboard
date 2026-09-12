@@ -1,24 +1,24 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 14 — SYSTEM CONTROL SUMMARY
+     SECTION 15 — MARKET ACTIVITY INDICATOR
 ========================================= -->
 
 <script>
 
-const HASINEH_CONTROL_SUMMARY_V81 = {
+const HASINEH_ACTIVITY_INDICATOR_V81 = {
 
   update:function(){
 
     const target =
       document.getElementById(
-        "system-summary-v81"
+        "market-activity-v81"
       );
 
 
     if(!target){
 
       console.warn(
-        "HASINEH V81 system summary missing"
+        "HASINEH V81 market activity element missing"
       );
 
       return;
@@ -26,12 +26,35 @@ const HASINEH_CONTROL_SUMMARY_V81 = {
     }
 
 
+    const hour =
+      new Date().getHours();
+
+
+    let status =
+      "🟢 ACTIVE";
+
+
+    let className =
+      "green-v81";
+
+
+    if(hour < 7 || hour > 23){
+
+      status =
+        "🟡 LOW ACTIVITY";
+
+      className =
+        "yellow-v81";
+
+    }
+
+
     target.textContent =
-      "🟢 SYSTEM READY | DATA ENGINE ACTIVE";
+      status;
 
 
     target.className =
-      "control-value-v81 green-v81";
+      "control-value-v81 " + className;
 
 
   }
@@ -39,18 +62,18 @@ const HASINEH_CONTROL_SUMMARY_V81 = {
 };
 
 
-/* ---------- INITIAL RUN ---------- */
+/* ---------- INITIAL UPDATE ---------- */
 
-HASINEH_CONTROL_SUMMARY_V81.update();
+HASINEH_ACTIVITY_INDICATOR_V81.update();
 
 
-/* ---------- REFRESH ---------- */
+/* ---------- AUTO UPDATE ---------- */
 
 setInterval(function(){
 
-  HASINEH_CONTROL_SUMMARY_V81.update();
+  HASINEH_ACTIVITY_INDICATOR_V81.update();
 
-},15000);
+},60000);
 
 
 </script>
