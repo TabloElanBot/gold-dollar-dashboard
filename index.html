@@ -1,93 +1,89 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 6 — SYSTEM HEALTH MONITOR
+     SECTION 7 — LIVE MARKET PULSE
 ========================================= -->
 
 <script>
 
-const HASINEH_HEALTH_MONITOR_V81 = {
+const HASINEH_MARKET_PULSE_V81 = {
 
-  check:function(){
+  lastSnapshot: null,
 
-    let systemOK = true;
+  update:function(){
 
+    const pulse =
+      document.getElementById("market-pulse-v81");
 
-    /* ---------- CHECK CONTROL CENTER ---------- */
+    if(!pulse){
 
-    const requiredElements = [
+      console.warn(
+        "HASINEH V81: market-pulse-v81 not found"
+      );
 
-      "system-status-v81",
-      "data-engine-v81",
-      "market-connection-v81",
-      "last-data-update-v81",
-      "data-source-v81",
-      "iran-time-v81",
-      "solar-date-v81",
-      "lunar-date-v81"
-
-    ];
-
-
-    requiredElements.forEach(function(id){
-
-      const element =
-        document.getElementById(id);
-
-      if(!element){
-
-        systemOK = false;
-
-        console.warn(
-          "HASINEH V81 missing element:",
-          id
-        );
-
-      }
-
-    });
-
-
-    /* ---------- UPDATE SYSTEM STATUS ---------- */
-
-    const system =
-      document.getElementById("system-status-v81");
-
-    if(system){
-
-      if(systemOK){
-
-        system.textContent = "🟢 ACTIVE";
-        system.className =
-          "control-value-v81 green-v81";
-
-      }else{
-
-        system.textContent = "🟡 PARTIAL";
-        system.className =
-          "control-value-v81 yellow-v81";
-
-      }
+      return;
 
     }
 
 
-    return systemOK;
+    const now = new Date();
+
+
+    /* ---------- MARKET PULSE ---------- */
+
+    const snapshot = {
+
+      time:
+        now.toLocaleTimeString("fa-IR",{
+          hour:"2-digit",
+          minute:"2-digit",
+          second:"2-digit"
+        }),
+
+      timestamp:
+        now.getTime()
+
+    };
+
+
+    /* ---------- DETECT MARKET ACTIVITY ---------- */
+
+    let status = "🟢 MARKET ACTIVE";
+    let statusClass = "green-v81";
+
+
+    if(
+      this.lastSnapshot &&
+      snapshot.timestamp === this.lastSnapshot.timestamp
+    ){
+
+      status = "🟡 STABLE";
+      statusClass = "yellow-v81";
+
+    }
+
+
+    pulse.textContent = status;
+    pulse.className =
+      "control-value-v81 " + statusClass;
+
+
+    this.lastSnapshot = snapshot;
 
   }
 
 };
 
 
-/* ---------- START HEALTH MONITOR ---------- */
+/* ---------- INITIAL UPDATE ---------- */
 
-HASINEH_HEALTH_MONITOR_V81.check();
+HASINEH_MARKET_PULSE_V81.update();
 
 
-/* ---------- PERIODIC CHECK ---------- */
+/* ---------- PERIODIC UPDATE ---------- */
 
 setInterval(function(){
 
-  HASINEH_HEALTH_MONITOR_V81.check();
+  HASINEH_MARKET_PULSE_V81.update();
 
 },10000);
 
