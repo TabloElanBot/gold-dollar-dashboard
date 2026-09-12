@@ -1,79 +1,103 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 15 — MARKET ACTIVITY INDICATOR
+     SECTION 15 — FINAL CONTROL UPGRADE
 ========================================= -->
 
 <script>
 
-const HASINEH_ACTIVITY_INDICATOR_V81 = {
+const HASINEH_FINAL_CONTROL_V81 = {
 
-  update:function(){
+ update:function(){
 
-    const target =
-      document.getElementById(
-        "market-activity-v81"
-      );
-
-
-    if(!target){
-
-      console.warn(
-        "HASINEH V81 market activity element missing"
-      );
-
-      return;
-
-    }
+   const activity =
+     document.getElementById(
+       "market-activity-v81"
+     );
 
 
-    const hour =
-      new Date().getHours();
+   if(activity){
+
+     const hour =
+       new Date().getHours();
 
 
-    let status =
-      "🟢 ACTIVE";
+     if(hour >= 7 && hour <= 23){
+
+       activity.textContent =
+         "🟢 MARKET ACTIVE";
+
+       activity.className =
+         "control-value-v81 green-v81";
+
+     }else{
+
+       activity.textContent =
+         "🟡 LOW ACTIVITY";
+
+       activity.className =
+         "control-value-v81 yellow-v81";
+
+     }
+
+   }
 
 
-    let className =
-      "green-v81";
+
+   const summary =
+     document.getElementById(
+       "system-summary-v81"
+     );
 
 
-    if(hour < 7 || hour > 23){
+   if(summary){
 
-      status =
-        "🟡 LOW ACTIVITY";
+     summary.textContent =
+       "🟢 HASINEH MARKET V81 READY";
 
-      className =
-        "yellow-v81";
+     summary.className =
+       "control-value-v81 green-v81";
 
-    }
-
-
-    target.textContent =
-      status;
+   }
 
 
-    target.className =
-      "control-value-v81 " + className;
+
+   const status =
+     document.getElementById(
+       "system-status-v81"
+     );
 
 
-  }
+   if(status){
+
+     status.textContent =
+       "🟢 ACTIVE";
+
+     status.className =
+       "control-value-v81 green-v81";
+
+   }
+
+
+ }
+
 
 };
 
 
-/* ---------- INITIAL UPDATE ---------- */
 
-HASINEH_ACTIVITY_INDICATOR_V81.update();
+/* ---------- START ---------- */
+
+HASINEH_FINAL_CONTROL_V81.update();
 
 
-/* ---------- AUTO UPDATE ---------- */
+
+/* ---------- AUTO CHECK ---------- */
 
 setInterval(function(){
 
-  HASINEH_ACTIVITY_INDICATOR_V81.update();
+ HASINEH_FINAL_CONTROL_V81.update();
 
-},60000);
+},30000);
 
 
 </script>
