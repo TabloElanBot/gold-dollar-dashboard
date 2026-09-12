@@ -1,23 +1,24 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 7 — LIVE MARKET PULSE
+     SECTION 8 — DATA TIMESTAMP ENGINE
 ========================================= -->
 
 <script>
 
-const HASINEH_MARKET_PULSE_V81 = {
-
-  lastSnapshot: null,
+const HASINEH_TIMESTAMP_ENGINE_V81 = {
 
   update:function(){
 
-    const pulse =
-      document.getElementById("market-pulse-v81");
+    const target =
+      document.getElementById(
+        "last-data-update-v81"
+      );
 
-    if(!pulse){
+
+    if(!target){
 
       console.warn(
-        "HASINEH V81: market-pulse-v81 not found"
+        "HASINEH V81 timestamp element missing"
       );
 
       return;
@@ -28,63 +29,35 @@ const HASINEH_MARKET_PULSE_V81 = {
     const now = new Date();
 
 
-    /* ---------- MARKET PULSE ---------- */
+    target.textContent =
+      now.toLocaleString("fa-IR",{
 
-    const snapshot = {
+        year:"numeric",
+        month:"2-digit",
+        day:"2-digit",
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit"
 
-      time:
-        now.toLocaleTimeString("fa-IR",{
-          hour:"2-digit",
-          minute:"2-digit",
-          second:"2-digit"
-        }),
-
-      timestamp:
-        now.getTime()
-
-    };
-
-
-    /* ---------- DETECT MARKET ACTIVITY ---------- */
-
-    let status = "🟢 MARKET ACTIVE";
-    let statusClass = "green-v81";
-
-
-    if(
-      this.lastSnapshot &&
-      snapshot.timestamp === this.lastSnapshot.timestamp
-    ){
-
-      status = "🟡 STABLE";
-      statusClass = "yellow-v81";
-
-    }
-
-
-    pulse.textContent = status;
-    pulse.className =
-      "control-value-v81 " + statusClass;
-
-
-    this.lastSnapshot = snapshot;
+      });
 
   }
 
 };
 
 
-/* ---------- INITIAL UPDATE ---------- */
+/* ---------- INITIAL RUN ---------- */
 
-HASINEH_MARKET_PULSE_V81.update();
+HASINEH_TIMESTAMP_ENGINE_V81.update();
 
 
-/* ---------- PERIODIC UPDATE ---------- */
+/* ---------- AUTO REFRESH ---------- */
 
 setInterval(function(){
 
-  HASINEH_MARKET_PULSE_V81.update();
+  HASINEH_TIMESTAMP_ENGINE_V81.update();
 
-},10000);
+},1000);
+
 
 </script>
