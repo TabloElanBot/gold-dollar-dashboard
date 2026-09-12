@@ -1,163 +1,130 @@
 <!-- ==========================
- HASINEH MARKET V74
- REAL MARKET BOARD
+ HASINEH MARKET V75
+ PRICE CHANGE INDICATOR
 ========================== -->
 
 
-<div class="box real-market-board-v74">
+<div class="box change-indicator-board-v75">
 
 
-<div class="real-board-title-v74">
+<div class="change-title-v75">
 
-📊 HASINEH LIVE MARKET BOARD
-
-</div>
-
-
-
-
-<div class="real-board-status-v74">
-
-🟢 LIVE
+📈 MARKET PRICE MOVEMENT
 
 </div>
 
 
 
-
-<div class="market-group-v74">
-
-
-<div class="market-group-title-v74">
-
-🪙 HASINEH GOLD
-
-</div>
-
-
-
-
-<div class="market-price-row-v74">
+<div class="change-row-v75">
 
 <span>
 طلای ۱۸ عیار
 </span>
 
-<span id="live-gold18-v74">
 
----
+<span id="gold18-change-v75">
+
+➖ بدون تغییر
 
 </span>
+
 
 </div>
 
 
 
 
-<div class="market-price-row-v74">
+<div class="change-row-v75">
 
 <span>
 سکه امامی
 </span>
 
-<span id="live-emami-v74">
 
----
+<span id="emami-change-v75">
+
+➖ بدون تغییر
 
 </span>
 
-</div>
-
-
 
 </div>
 
 
 
 
-
-<div class="market-group-v74">
-
-
-<div class="market-group-title-v74">
-
-💵 HASINEH CURRENCY
-
-</div>
-
-
-
-
-<div class="market-price-row-v74">
+<div class="change-row-v75">
 
 <span>
 دلار آمریکا
 </span>
 
-<span id="live-usd-v74">
 
----
+<span id="usd-change-v75">
+
+➖ بدون تغییر
 
 </span>
+
 
 </div>
 
 
 
 
-<div class="market-price-row-v74">
+<div class="change-row-v75">
 
 <span>
 یورو
 </span>
 
-<span id="live-eur-v74">
 
----
+<span id="eur-change-v75">
+
+➖ بدون تغییر
 
 </span>
 
-</div>
-
-
 
 </div>
 
 
 
 </div>
+
+
 
 /* ==========================
- HASINEH MARKET V74
- REAL MARKET BOARD STYLE
+ HASINEH MARKET V75
+ PRICE CHANGE STYLE
 ========================== */
 
 
-.real-market-board-v74{
+.change-indicator-board-v75{
 
-margin:30px auto;
+margin:25px auto;
 
-max-width:600px;
+max-width:500px;
 
-padding:28px;
+padding:25px;
 
-border-radius:38px;
+border-radius:35px;
 
 background:
 
 linear-gradient(
 145deg,
 #050505,
-#161616
+#151515
 );
 
 border:
 
-1px solid rgba(212,175,55,0.75);
+1px solid rgba(212,175,55,0.60);
 
 box-shadow:
 
-0 0 65px rgba(212,175,55,0.35);
+0 0 45px rgba(212,175,55,0.30);
 
 }
 
@@ -165,17 +132,17 @@ box-shadow:
 
 
 
-.real-board-title-v74{
+.change-title-v75{
 
 text-align:center;
 
-font-size:24px;
+font-size:22px;
 
 font-weight:bold;
 
 color:#ffd700;
 
-letter-spacing:2px;
+margin-bottom:20px;
 
 }
 
@@ -183,61 +150,7 @@ letter-spacing:2px;
 
 
 
-.real-board-status-v74{
-
-text-align:center;
-
-margin-top:10px;
-
-color:#00ff88;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-.market-group-v74{
-
-margin-top:25px;
-
-padding:18px;
-
-border-radius:25px;
-
-background:#0c0c0c;
-
-border:
-
-1px solid rgba(212,175,55,0.25);
-
-}
-
-
-
-
-
-.market-group-title-v74{
-
-text-align:center;
-
-font-size:18px;
-
-font-weight:bold;
-
-color:#d4af37;
-
-margin-bottom:15px;
-
-}
-
-
-
-
-
-.market-price-row-v74{
+.change-row-v75{
 
 display:flex;
 
@@ -257,7 +170,7 @@ border-bottom:
 
 
 
-.market-price-row-v74:last-child{
+.change-row-v75:last-child{
 
 border-bottom:none;
 
@@ -267,7 +180,7 @@ border-bottom:none;
 
 
 
-.market-price-row-v74 span:first-child{
+.change-row-v75 span:first-child{
 
 color:#ffffff;
 
@@ -279,15 +192,13 @@ font-weight:bold;
 
 
 
-.market-price-row-v74 span:last-child{
-
-color:#ffd700;
-
-font-size:18px;
+.change-row-v75 span:last-child{
 
 font-weight:bold;
 
-direction:ltr;
+font-size:15px;
+
+color:#cccccc;
 
 }
 
@@ -295,11 +206,41 @@ direction:ltr;
 
 
 
-.real-market-board-v74:hover{
+.change-up-v75{
+
+color:#00ff88 !important;
+
+}
+
+
+
+
+
+.change-down-v75{
+
+color:#ff4444 !important;
+
+}
+
+
+
+
+
+.change-stable-v75{
+
+color:#ffd700 !important;
+
+}
+
+
+
+
+
+.change-indicator-board-v75:hover{
 
 box-shadow:
 
-0 0 75px rgba(212,175,55,0.45);
+0 0 60px rgba(212,175,55,0.45);
 
 }
 
@@ -310,50 +251,61 @@ box-shadow:
 @media(max-width:450px){
 
 
-.real-market-board-v74{
+.change-indicator-board-v75{
 
-padding:20px;
-
-}
-
-
-
-.market-price-row-v74 span:last-child{
-
-font-size:16px;
+padding:18px;
 
 }
 
 
 
+.change-row-v75 span:first-child{
+
+font-size:14px;
+
 }
+
+
+
+}
+
+
 
 /* ==========================
- HASINEH MARKET V74
- REAL MARKET BOARD ENGINE
+ HASINEH MARKET V75
+ CHANGE INDICATOR ENGINE
 ========================== */
 
 
-const HASINEH_REAL_BOARD_V74 = {
+const HASINEH_CHANGE_ENGINE_V75 = {
 
 
-prices:{
+status:{
 
 
-gold18:
-"---",
+gold18:"stable",
+
+emami:"stable",
+
+usd:"stable",
+
+eur:"stable"
 
 
-emami:
-"---",
+
+},
 
 
-usd:
-"---",
 
 
-eur:
-"---"
+messages:{
+
+
+up:"🟢 ▲ افزایش",
+
+down:"🔴 ▼ کاهش",
+
+stable:"🟡 ➖ بدون تغییر"
 
 
 
@@ -366,23 +318,23 @@ update:function(){
 
 
 
-let boardItems = {
+let items = {
 
 
-"live-gold18-v74":
-this.prices.gold18,
+"gold18-change-v75":
+this.status.gold18,
 
 
-"live-emami-v74":
-this.prices.emami,
+"emami-change-v75":
+this.status.emami,
 
 
-"live-usd-v74":
-this.prices.usd,
+"usd-change-v75":
+this.status.usd,
 
 
-"live-eur-v74":
-this.prices.eur
+"eur-change-v75":
+this.status.eur
 
 
 
@@ -392,31 +344,86 @@ this.prices.eur
 
 
 
-for(let id in boardItems){
+for(let id in items){
 
 
 
-let item =
+let element =
 document.getElementById(id);
 
 
 
-if(item){
+if(element){
 
-item.innerHTML =
-boardItems[id] + " تومان";
+
+
+let state =
+items[id];
+
+
+
+element.className =
+"";
+
+
+
+if(state==="up"){
+
+
+element.innerHTML =
+this.messages.up;
+
+element.classList.add(
+"change-up-v75"
+);
+
+
+}
+
+
+
+else if(state==="down"){
+
+
+element.innerHTML =
+this.messages.down;
+
+element.classList.add(
+"change-down-v75"
+);
+
+
+}
+
+
+
+else{
+
+
+element.innerHTML =
+this.messages.stable;
+
+element.classList.add(
+"change-stable-v75"
+);
+
 
 }
 
 
 
 }
+
+
+
+}
+
 
 
 
 
 console.log(
-"HASINEH REAL MARKET BOARD V74 READY"
+"HASINEH CHANGE ENGINE V75 READY"
 );
 
 
@@ -432,13 +439,13 @@ console.log(
 
 
 
-function hasinehRealBoardMonitorV74(){
+function hasinehChangeMonitorV75(){
 
 
 try{
 
 
-HASINEH_REAL_BOARD_V74.update();
+HASINEH_CHANGE_ENGINE_V75.update();
 
 
 
@@ -448,7 +455,7 @@ catch(error){
 
 
 console.log(
-"HASINEH REAL BOARD V74 ERROR"
+"HASINEH CHANGE ENGINE V75 ERROR"
 );
 
 
@@ -465,7 +472,7 @@ console.log(
 
 setInterval(
 
-hasinehRealBoardMonitorV74,
+hasinehChangeMonitorV75,
 
 15000
 
@@ -475,4 +482,4 @@ hasinehRealBoardMonitorV74,
 
 
 
-hasinehRealBoardMonitorV74();
+hasinehChangeMonitorV75();
