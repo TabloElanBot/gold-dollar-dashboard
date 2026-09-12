@@ -1,186 +1,113 @@
-/* ==========================
- HASINEH MARKET V76
- FULL GOLD BOARD
-========================== */
+<!-- ==========================
+ HASINEH MARKET V77
+ SMART PRICE CARD SYSTEM
+========================== -->
 
 
-<div class="box full-gold-board-v76">
+<div class="box smart-price-board-v77">
 
 
-<div class="full-gold-title-v76">
+<div class="smart-board-title-v77">
 
-🪙 HASINEH GOLD MARKET
-
-</div>
-
-
-
-<div class="gold-category-title-v76">
-
-✨ طلا
+📊 HASINEH SMART PRICE BOARD
 
 </div>
 
 
 
 
-<div class="full-gold-row-v76">
+<div class="price-card-grid-v77">
 
-<span>
-طلای ۱۸ عیار
-</span>
 
-<span id="v76-gold18">
+
+<div class="price-card-v77">
+
+
+<div class="price-name-v77">
+
+🪙 طلای ۱۸ عیار
+
+</div>
+
+
+<div class="price-value-v77" id="v77-gold18">
 
 ---
 
-</span>
+</div>
+
+
+<div class="price-status-v77">
+
+🟢 آماده بازار
+
+</div>
+
 
 </div>
 
 
 
 
-<div class="full-gold-row-v76">
 
-<span>
-طلای ۲۴ عیار
-</span>
+<div class="price-card-v77">
 
-<span id="v76-gold24">
+
+<div class="price-name-v77">
+
+🪙 سکه امامی
+
+</div>
+
+
+<div class="price-value-v77" id="v77-emami">
 
 ---
 
-</span>
+</div>
+
+
+<div class="price-status-v77">
+
+🟢 آماده بازار
+
+</div>
+
 
 </div>
 
 
 
 
-<div class="full-gold-row-v76">
 
-<span>
-مثقال ۱۸ عیار
-</span>
+<div class="price-card-v77">
 
-<span id="v76-mesghal18">
+
+<div class="price-name-v77">
+
+💵 دلار آمریکا
+
+</div>
+
+
+<div class="price-value-v77" id="v77-usd">
 
 ---
 
-</span>
+</div>
+
+
+<div class="price-status-v77">
+
+🟢 آماده بازار
+
+</div>
+
 
 </div>
 
 
 
-
-<div class="full-gold-row-v76">
-
-<span>
-مثقال ۲۱ عیار
-</span>
-
-<span id="v76-mesghal21">
-
----
-
-</span>
-
-</div>
-
-
-
-
-<div class="full-gold-row-v76">
-
-<span>
-آبشده طلا
-</span>
-
-<span id="v76-abshode">
-
----
-
-</span>
-
-</div>
-
-
-
-
-
-<div class="gold-category-title-v76">
-
-🪙 سکه
-
-</div>
-
-
-
-
-<div class="full-gold-row-v76">
-
-<span>
-سکه امامی
-</span>
-
-<span id="v76-emami">
-
----
-
-</span>
-
-</div>
-
-
-
-
-<div class="full-gold-row-v76">
-
-<span>
-نیم سکه
-</span>
-
-<span id="v76-nim">
-
----
-
-</span>
-
-</div>
-
-
-
-
-<div class="full-gold-row-v76">
-
-<span>
-ربع سکه
-</span>
-
-<span id="v76-rob">
-
----
-
-</span>
-
-</div>
-
-
-
-
-<div class="full-gold-row-v76">
-
-<span>
-سکه گرمی
-</span>
-
-<span id="v76-gerami">
-
----
-
-</span>
 
 </div>
 
@@ -188,20 +115,20 @@
 
 </div>
 /* ==========================
- HASINEH MARKET V76
- FULL GOLD BOARD STYLE
+ HASINEH MARKET V77
+ SMART PRICE CARD STYLE
 ========================== */
 
 
-.full-gold-board-v76{
+.smart-price-board-v77{
 
 margin:30px auto;
 
-max-width:600px;
+max-width:650px;
 
 padding:28px;
 
-border-radius:38px;
+border-radius:40px;
 
 background:
 
@@ -217,7 +144,7 @@ border:
 
 box-shadow:
 
-0 0 60px rgba(212,175,55,0.35);
+0 0 65px rgba(212,175,55,0.35);
 
 }
 
@@ -225,11 +152,11 @@ box-shadow:
 
 
 
-.full-gold-title-v76{
+.smart-board-title-v77{
 
 text-align:center;
 
-font-size:25px;
+font-size:26px;
 
 font-weight:bold;
 
@@ -237,7 +164,7 @@ color:#ffd700;
 
 letter-spacing:2px;
 
-margin-bottom:25px;
+margin-bottom:30px;
 
 }
 
@@ -245,29 +172,37 @@ margin-bottom:25px;
 
 
 
-.gold-category-title-v76{
+.price-card-grid-v77{
 
-margin-top:20px;
+display:grid;
 
-margin-bottom:12px;
+grid-template-columns:
 
-padding:10px;
+repeat(3,1fr);
 
-text-align:center;
+gap:15px;
 
-font-size:18px;
+}
 
-font-weight:bold;
 
-color:#d4af37;
+
+
+
+.price-card-v77{
+
+padding:22px 12px;
+
+border-radius:28px;
 
 background:#0c0c0c;
 
-border-radius:20px;
-
 border:
 
-1px solid rgba(212,175,55,0.25);
+1px solid rgba(212,175,55,0.30);
+
+text-align:center;
+
+transition:0.3s ease;
 
 }
 
@@ -275,19 +210,15 @@ border:
 
 
 
-.full-gold-row-v76{
+.price-card-v77:hover{
 
-display:flex;
+transform:
 
-justify-content:space-between;
+translateY(-5px);
 
-align-items:center;
+box-shadow:
 
-padding:14px 10px;
-
-border-bottom:
-
-1px solid rgba(212,175,55,0.15);
+0 0 30px rgba(212,175,55,0.35);
 
 }
 
@@ -295,37 +226,29 @@ border-bottom:
 
 
 
-.full-gold-row-v76:last-child{
-
-border-bottom:none;
-
-}
-
-
-
-
-
-.full-gold-row-v76 span:first-child{
-
-color:#ffffff;
-
-font-weight:bold;
+.price-name-v77{
 
 font-size:16px;
 
+font-weight:bold;
+
+color:#ffffff;
+
 }
 
 
 
 
 
-.full-gold-row-v76 span:last-child{
+.price-value-v77{
 
-color:#ffd700;
+margin-top:18px;
 
-font-size:17px;
+font-size:25px;
 
 font-weight:bold;
+
+color:#ffd700;
 
 direction:ltr;
 
@@ -335,11 +258,13 @@ direction:ltr;
 
 
 
-.full-gold-board-v76:hover{
+.price-status-v77{
 
-box-shadow:
+margin-top:12px;
 
-0 0 75px rgba(212,175,55,0.45);
+font-size:12px;
+
+color:#00ff88;
 
 }
 
@@ -347,10 +272,20 @@ box-shadow:
 
 
 
-@media(max-width:450px){
+@media(max-width:600px){
 
 
-.full-gold-board-v76{
+.price-card-grid-v77{
+
+grid-template-columns:
+
+1fr;
+
+}
+
+
+
+.smart-price-board-v77{
 
 padding:20px;
 
@@ -358,17 +293,9 @@ padding:20px;
 
 
 
-.full-gold-row-v76 span:first-child{
+.price-value-v77{
 
-font-size:14px;
-
-}
-
-
-
-.full-gold-row-v76 span:last-child{
-
-font-size:15px;
+font-size:22px;
 
 }
 
@@ -376,12 +303,12 @@ font-size:15px;
 
 }
 /* ==========================
- HASINEH MARKET V76
- FULL GOLD BOARD ENGINE
+ HASINEH MARKET V77
+ SMART PRICE ENGINE
 ========================== */
 
 
-const HASINEH_GOLD_FULL_V76 = {
+const HASINEH_SMART_PRICE_V77 = {
 
 
 prices:{
@@ -389,25 +316,17 @@ prices:{
 
 gold18:"---",
 
-gold24:"---",
-
-mesghal18:"---",
-
-mesghal21:"---",
-
-abshode:"---",
-
 emami:"---",
 
-nim:"---",
-
-rob:"---",
-
-gerami:"---"
+usd:"---"
 
 
 
 },
+
+
+
+status:"READY",
 
 
 
@@ -416,43 +335,19 @@ update:function(){
 
 
 
-let goldList = {
+let cards = {
 
 
-"v76-gold18":
+"v77-gold18":
 this.prices.gold18,
 
 
-"v76-gold24":
-this.prices.gold24,
-
-
-"v76-mesghal18":
-this.prices.mesghal18,
-
-
-"v76-mesghal21":
-this.prices.mesghal21,
-
-
-"v76-abshode":
-this.prices.abshode,
-
-
-"v76-emami":
+"v77-emami":
 this.prices.emami,
 
 
-"v76-nim":
-this.prices.nim,
-
-
-"v76-rob":
-this.prices.rob,
-
-
-"v76-gerami":
-this.prices.gerami
+"v77-usd":
+this.prices.usd
 
 
 
@@ -462,19 +357,23 @@ this.prices.gerami
 
 
 
-for(let id in goldList){
+for(let id in cards){
 
 
 
-let element =
+let item =
 document.getElementById(id);
 
 
 
-if(element){
+if(item){
 
-element.innerHTML =
-goldList[id] + " تومان";
+
+
+item.innerHTML =
+cards[id] + " تومان";
+
+
 
 }
 
@@ -486,7 +385,9 @@ goldList[id] + " تومان";
 
 
 console.log(
-"HASINEH FULL GOLD BOARD V76 READY"
+
+"HASINEH SMART PRICE SYSTEM V77 READY"
+
 );
 
 
@@ -502,13 +403,13 @@ console.log(
 
 
 
-function hasinehGoldFullMonitorV76(){
+function hasinehSmartPriceMonitorV77(){
 
 
 try{
 
 
-HASINEH_GOLD_FULL_V76.update();
+HASINEH_SMART_PRICE_V77.update();
 
 
 
@@ -518,7 +419,9 @@ catch(error){
 
 
 console.log(
-"HASINEH GOLD FULL V76 ERROR"
+
+"HASINEH SMART PRICE V77 ERROR"
+
 );
 
 
@@ -535,7 +438,7 @@ console.log(
 
 setInterval(
 
-hasinehGoldFullMonitorV76,
+hasinehSmartPriceMonitorV77,
 
 15000
 
@@ -545,4 +448,4 @@ hasinehGoldFullMonitorV76,
 
 
 
-hasinehGoldFullMonitorV76();
+hasinehSmartPriceMonitorV77();
