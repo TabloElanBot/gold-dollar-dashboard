@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -8,14 +7,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <meta name="theme-color" content="#050505">
+
 
 
 <title>
 
-HASINEH MARKET V98 GLOBAL MARKET MODE
+HASINEH MARKET V99 CURRENCY ENGINE
 
 </title>
+
 
 
 <style>
@@ -31,9 +33,12 @@ box-sizing:border-box;
 
 body{
 
+
 margin:0;
 
+
 padding:0;
+
 
 
 background:
@@ -46,14 +51,18 @@ circle at top,
 );
 
 
+
 color:white;
+
 
 
 font-family:
 
+
 Tahoma,
 Arial,
 sans-serif;
+
 
 
 min-height:100vh;
@@ -65,13 +74,17 @@ min-height:100vh;
 
 
 
-.header-v98{
+
+
+.header-v99{
 
 
 text-align:center;
 
 
+
 padding:60px 15px;
+
 
 
 background:
@@ -82,6 +95,8 @@ linear-gradient(
 #050505,
 #292929
 );
+
+
 
 
 
@@ -105,16 +120,21 @@ box-shadow:
 
 
 
-.brand-v98{
+
+
+.brand-v99{
 
 
 font-size:46px;
 
 
+
 font-weight:bold;
 
 
+
 letter-spacing:6px;
+
 
 
 color:#ffd700;
@@ -127,13 +147,17 @@ color:#ffd700;
 
 
 
-.subtitle-v98{
+
+
+.subtitle-v99{
 
 
 margin-top:18px;
 
 
+
 font-size:18px;
+
 
 
 }
@@ -142,13 +166,17 @@ font-size:18px;
 
 
 
-.city-v98{
+
+
+.city-v99{
 
 
 margin-top:12px;
 
 
+
 color:#d4af37;
+
 
 
 }
@@ -157,20 +185,26 @@ color:#d4af37;
 
 
 
-.badge-v98{
+
+
+.badge-v99{
 
 
 display:inline-block;
 
 
+
 margin-top:20px;
+
 
 
 padding:12px 30px;
 
 
 
+
 border-radius:35px;
+
 
 
 
@@ -181,10 +215,14 @@ border:
 
 
 
+
+
 background:
 
 
 rgba(255,215,0,0.08);
+
+
 
 
 
@@ -198,16 +236,21 @@ color:#ffd700;
 
 
 
-.container-v98{
+
+
+.container-v99{
 
 
 width:92%;
 
 
+
 max-width:1100px;
 
 
+
 margin:40px auto;
+
 
 
 }
@@ -216,7 +259,9 @@ margin:40px auto;
 
 
 
-.box-v98{
+
+
+.box-v99{
 
 
 background:
@@ -230,6 +275,8 @@ linear-gradient(
 
 
 
+
+
 border:
 
 
@@ -237,7 +284,10 @@ border:
 
 
 
+
+
 border-radius:30px;
+
 
 
 
@@ -245,7 +295,11 @@ padding:28px;
 
 
 
+
+
 margin-bottom:30px;
+
+
 
 
 
@@ -262,16 +316,21 @@ box-shadow:
 
 
 
-.title-v98{
+
+
+.title-v99{
 
 
 text-align:center;
 
 
+
 font-size:25px;
 
 
+
 font-weight:bold;
+
 
 
 color:#ffd700;
@@ -284,7 +343,7 @@ margin-bottom:25px;
 
 }
      
-.global-panel-v98{
+.currency-panel-v99{
 
 
 text-align:center;
@@ -318,7 +377,7 @@ border-radius:25px;
 
 
 
-.global-buttons-v98{
+.currency-buttons-v99{
 
 
 display:flex;
@@ -340,7 +399,7 @@ flex-wrap:wrap;
 
 
 
-.global-btn-v98{
+.currency-btn-v99{
 
 
 padding:12px 22px;
@@ -387,7 +446,7 @@ transition:0.3s;
 
 
 
-.global-btn-v98:hover{
+.currency-btn-v99:hover{
 
 
 transform:translateY(-3px);
@@ -400,7 +459,7 @@ transform:translateY(-3px);
 
 
 
-.active-global-v98{
+.active-currency-v99{
 
 
 background:
@@ -427,14 +486,14 @@ color:#00ff88;
 
 
 
-.market-grid-v98{
+.convert-grid-v99{
 
 
 display:grid;
 
 
 grid-template-columns:repeat(
-3,
+4,
 1fr
 );
 
@@ -450,10 +509,11 @@ gap:15px;
 
 
 
-.market-card-v98{
+.convert-card-v99{
 
 
 padding:18px;
+
 
 
 border-radius:20px;
@@ -484,7 +544,7 @@ text-align:center;
 
 
 
-.market-title-v98{
+.convert-title-v99{
 
 
 color:#ffd700;
@@ -500,7 +560,7 @@ font-weight:bold;
 
 
 
-.market-value-v98{
+.convert-value-v99{
 
 
 font-size:14px;
@@ -513,7 +573,7 @@ font-size:14px;
 
 
 
-.info-row-v98{
+.info-row-v99{
 
 
 display:flex;
@@ -543,7 +603,7 @@ border-bottom:
 
 
 
-.info-row-v98:last-child{
+.info-row-v99:last-child{
 
 
 border-bottom:none;
@@ -555,7 +615,7 @@ border-bottom:none;
 
 
 
-.gold-v98{
+.gold-v99{
 
 
 color:#ffd700;
@@ -571,7 +631,7 @@ font-weight:bold;
 
 
 
-.green-v98{
+.green-v99{
 
 
 color:#00ff88;
@@ -599,10 +659,10 @@ font-weight:bold;
 <body>
 
 
-<header class="header-v98">
+<header class="header-v99">
 
 
-<div class="brand-v98">
+<div class="brand-v99">
 
 HASINEH MARKET
 
@@ -610,15 +670,15 @@ HASINEH MARKET
 
 
 
-<div class="subtitle-v98">
+<div class="subtitle-v99">
 
-Global Smart Market Platform
+Smart Currency Conversion Platform
 
 </div>
 
 
 
-<div class="city-v98">
+<div class="city-v99">
 
 Bandar Hasineh
 
@@ -626,9 +686,9 @@ Bandar Hasineh
 
 
 
-<div class="badge-v98">
+<div class="badge-v99">
 
-V98 GLOBAL MARKET MODE
+V99 CURRENCY ENGINE
 
 </div>
 
@@ -638,14 +698,14 @@ V98 GLOBAL MARKET MODE
 
 
 
-<div class="container-v98">
+<div class="container-v99">
      
-<div class="box-v98">
+<div class="box-v99">
 
 
-<div class="title-v98">
+<div class="title-v99">
 
-🌍 GLOBAL MARKET SELECTOR
+💱 CURRENCY CONVERTER
 
 </div>
 
@@ -653,44 +713,53 @@ V98 GLOBAL MARKET MODE
 
 
 
-<div class="global-panel-v98">
+<div class="currency-panel-v99">
 
 
 
-<div class="global-buttons-v98">
+<div class="currency-buttons-v99">
 
 
 
-<button class="global-btn-v98 active-global-v98">
+<button class="currency-btn-v99 active-currency-v99">
 
-🇮🇷 Iran Market
-
-</button>
-
-
-
-
-<button class="global-btn-v98">
-
-🇦🇪 UAE Market
+🇮🇷 تومان
 
 </button>
 
 
 
 
-<button class="global-btn-v98">
+<button class="currency-btn-v99">
 
-🇶🇦 Qatar Market
+🇦🇪 AED
 
 </button>
 
 
 
 
-<button class="global-btn-v98">
+<button class="currency-btn-v99">
 
-🌐 Global Market
+🇶🇦 QAR
+
+</button>
+
+
+
+
+<button class="currency-btn-v99">
+
+🇺🇸 USD
+
+</button>
+
+
+
+
+<button class="currency-btn-v99">
+
+🇪🇺 EUR
 
 </button>
 
@@ -701,19 +770,20 @@ V98 GLOBAL MARKET MODE
 
 
 <br>
+
 
 
 
 <div>
 
-Market Mode:
+واحد فعال:
 
 <br>
 
 
-<span id="market-mode-v98" class="gold-v98">
+<span id="currency-name-v99" class="gold-v99">
 
-Iran Market
+IRR / تومان
 
 </span>
 
@@ -736,39 +806,12 @@ Iran Market
 
 
 
-<div class="box-v98">
+<div class="box-v99">
 
 
-<div class="title-v98">
+<div class="title-v99">
 
-💱 GLOBAL CURRENCY ENGINE
-
-</div>
-
-
-
-
-
-<div class="market-grid-v98">
-
-
-
-<div class="market-card-v98">
-
-
-<div class="market-title-v98">
-
-Gold
-
-</div>
-
-
-<div class="market-value-v98">
-
-Global Ready
-
-</div>
-
+🪙 GOLD GLOBAL DISPLAY
 
 </div>
 
@@ -776,21 +819,23 @@ Global Ready
 
 
 
+<div class="convert-grid-v99">
 
 
-<div class="market-card-v98">
+
+<div class="convert-card-v99">
 
 
-<div class="market-title-v98">
+<div class="convert-title-v99">
 
-Currency
+طلای ۱۸ عیار
 
 </div>
 
 
-<div class="market-value-v98">
+<div class="convert-value-v99">
 
-Multi Currency
+Toman
 
 </div>
 
@@ -803,29 +848,21 @@ Multi Currency
 
 
 
-<div class="market-card-v98">
+<div class="convert-card-v99">
 
 
-<div class="market-title-v98">
+<div class="convert-title-v99">
 
-Time
-
-</div>
-
-
-<div class="market-value-v98">
-
-Local Time
+Gold 24K
 
 </div>
 
 
+<div class="convert-value-v99">
+
+USD
+
 </div>
-
-
-
-</div>
-
 
 
 </div>
@@ -836,14 +873,22 @@ Local Time
 
 
 
+<div class="convert-card-v99">
 
 
-<div class="box-v98">
+<div class="convert-title-v99">
+
+Coin
+
+</div>
 
 
-<div class="title-v98">
+<div class="convert-value-v99">
 
-🧠 GLOBAL ENGINE STATUS
+Local
+
+</div>
+
 
 </div>
 
@@ -851,17 +896,67 @@ Local Time
 
 
 
-<div class="info-row-v98">
+
+
+<div class="convert-card-v99">
+
+
+<div class="convert-title-v99">
+
+Silver
+
+</div>
+
+
+<div class="convert-value-v99">
+
+Global
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="box-v99">
+
+
+<div class="title-v99">
+
+🧠 CURRENCY ENGINE STATUS
+
+</div>
+
+
+
+
+
+<div class="info-row-v99">
 
 
 <span>
 
-Global Core
+Currency Core
 
 </span>
 
 
-<span class="green-v98">
+<span class="green-v99">
 
 🟢 READY
 
@@ -874,17 +969,17 @@ Global Core
 
 
 
-<div class="info-row-v98">
+<div class="info-row-v99">
 
 
 <span>
 
-Language Integration
+Region Connection
 
 </span>
 
 
-<span class="gold-v98">
+<span class="gold-v99">
 
 CONNECTED
 
@@ -897,19 +992,19 @@ CONNECTED
 
 
 
-<div class="info-row-v98">
+<div class="info-row-v99">
 
 
 <span>
 
-Region Integration
+Global Conversion
 
 </span>
 
 
-<span class="gold-v98">
+<span class="gold-v99">
 
-CONNECTED
+FOUNDATION
 
 </span>
 
@@ -918,32 +1013,31 @@ CONNECTED
 
 
 
+</div>
+<div class="box-v99">
+
+
+<div class="title-v99">
+
+⚙️ CURRENCY PLATFORM STATUS
 
 </div>
-<div class="box-v98">
-
-
-<div class="title-v98">
-
-⚙️ GLOBAL PLATFORM STATUS
-
-</div>
 
 
 
 
 
-<div class="info-row-v98">
+<div class="info-row-v99">
 
 
 <span>
 
-Data Engine
+Data Source
 
 </span>
 
 
-<span class="green-v98">
+<span class="green-v99">
 
 READY
 
@@ -956,19 +1050,19 @@ READY
 
 
 
-<div class="info-row-v98">
+<div class="info-row-v99">
 
 
 <span>
 
-Language Engine
+Live Exchange API
 
 </span>
 
 
-<span class="green-v98">
+<span class="gold-v99">
 
-READY
+FUTURE
 
 </span>
 
@@ -979,47 +1073,25 @@ READY
 
 
 
-<div class="info-row-v98">
+<div class="info-row-v99">
 
 
 <span>
 
-Region Engine
+User Currency Selection
 
 </span>
 
 
-<span class="green-v98">
+<span class="green-v99">
 
-READY
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="info-row-v98">
-
-
-<span>
-
-VPN Impact
-
-</span>
-
-
-<span class="gold-v98">
-
-NONE
+ACTIVE
 
 </span>
 
 
 </div>
+
 
 
 
@@ -1033,14 +1105,15 @@ NONE
 
 
 
-<div class="box-v98">
+<div class="box-v99">
 
 
-<div class="title-v98">
+<div class="title-v99">
 
-🏆 HASINEH MARKET
+🌍 GLOBAL MARKET READY
 
 </div>
+
 
 
 
@@ -1048,13 +1121,13 @@ NONE
 <div style="text-align:center;padding:25px;color:#d4af37;">
 
 
-Digital Smart Market Platform
+Multi Currency Smart Market
 
 
 <br><br>
 
 
-<span class="gold-v98">
+<span class="gold-v99">
 
 Creator : Hassan Divanizadeh
 
@@ -1105,16 +1178,16 @@ HASINEH MARKET © ۱۴۰۵
 const buttons =
 
 document.querySelectorAll(
-".global-btn-v98"
+".currency-btn-v99"
 );
 
 
 
 
-const mode =
+const name =
 
 document.getElementById(
-"market-mode-v98"
+"currency-name-v99"
 );
 
 
@@ -1135,7 +1208,7 @@ buttons.forEach(function(item){
 
 
 item.classList.remove(
-"active-global-v98"
+"active-currency-v99"
 );
 
 
@@ -1146,17 +1219,17 @@ item.classList.remove(
 
 
 btn.classList.add(
-"active-global-v98"
+"active-currency-v99"
 );
 
 
 
 
 
-if(mode){
+if(name){
 
 
-mode.textContent =
+name.textContent =
 
 btn.textContent.trim();
 
