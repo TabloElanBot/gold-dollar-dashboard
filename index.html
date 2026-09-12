@@ -7,27 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <meta name="theme-color" content="#050505">
 
-
 <title>
-
-HASINEH MARKET V95 DATA ENGINE
-
+HASINEH MARKET V96 LANGUAGE ENGINE
 </title>
-
 
 
 <style>
 
 
 *{
-
 box-sizing:border-box;
-
 }
-
 
 
 body{
@@ -36,16 +28,13 @@ margin:0;
 
 padding:0;
 
-
 background:
-
 
 radial-gradient(
 circle at top,
 #333333,
 #050505 65%
 );
-
 
 
 color:white;
@@ -60,25 +49,18 @@ sans-serif;
 
 min-height:100vh;
 
-
 }
 
 
 
-
-
-.header-v95{
-
+.header-v96{
 
 text-align:center;
-
 
 padding:60px 15px;
 
 
-
 background:
-
 
 linear-gradient(
 145deg,
@@ -90,139 +72,94 @@ linear-gradient(
 
 border-bottom:
 
-
 1px solid rgba(255,215,0,0.8);
 
 
 
 box-shadow:
 
-
 0 20px 70px rgba(255,215,0,0.25);
-
-
 
 }
 
 
 
-
-
-.brand-v95{
-
+.brand-v96{
 
 font-size:46px;
 
-
 font-weight:bold;
-
 
 letter-spacing:6px;
 
-
 color:#ffd700;
-
-
 
 }
 
 
 
-
-
-.subtitle-v95{
-
+.subtitle-v96{
 
 margin-top:18px;
 
-
 font-size:18px;
-
 
 }
 
 
 
-
-.city-v95{
-
+.city-v96{
 
 margin-top:12px;
 
-
 color:#d4af37;
-
 
 }
 
 
 
-
-
-.badge-v95{
-
+.badge-v96{
 
 display:inline-block;
 
-
 margin-top:20px;
 
-
 padding:12px 30px;
-
-
 
 border-radius:35px;
 
 
-
 border:
-
 
 1px solid rgba(255,215,0,0.55);
 
 
-
 background:
-
 
 rgba(255,215,0,0.08);
 
 
-
 color:#ffd700;
-
-
 
 }
 
 
 
-
-
-.container-v95{
-
+.container-v96{
 
 width:92%;
 
-
 max-width:1100px;
 
-
 margin:40px auto;
-
 
 }
 
 
 
-
-
-.box-v95{
-
+.box-v96{
 
 background:
-
 
 linear-gradient(
 145deg,
@@ -231,62 +168,44 @@ linear-gradient(
 );
 
 
-
 border:
 
-
 1px solid rgba(212,175,55,0.45);
-
 
 
 border-radius:30px;
 
 
-
 padding:28px;
-
 
 
 margin-bottom:30px;
 
 
-
 box-shadow:
-
 
 0 0 55px rgba(212,175,55,0.15);
 
-
-
 }
 
 
 
-
-
-.title-v95{
-
+.title-v96{
 
 text-align:center;
 
-
 font-size:25px;
-
 
 font-weight:bold;
 
-
 color:#ffd700;
-
-
 
 margin-bottom:25px;
 
-
-
 }
+
      
-.data-panel-v95{
+.language-panel-v96{
 
 
 text-align:center;
@@ -320,39 +239,19 @@ border-radius:25px;
 
 
 
-.live-badge-v95{
+.language-buttons-v96{
 
 
-display:inline-block;
+display:flex;
 
 
-padding:12px 25px;
+justify-content:center;
 
 
-
-border-radius:30px;
-
+gap:12px;
 
 
-background:
-
-
-rgba(0,255,136,0.08);
-
-
-
-border:
-
-
-1px solid rgba(0,255,136,0.35);
-
-
-
-color:#00ff88;
-
-
-
-font-weight:bold;
+flex-wrap:wrap;
 
 
 
@@ -362,10 +261,7 @@ font-weight:bold;
 
 
 
-.saved-badge-v95{
-
-
-display:inline-block;
+.lang-btn-v96{
 
 
 padding:12px 25px;
@@ -394,7 +290,15 @@ color:#ffd700;
 
 
 
+cursor:pointer;
+
+
+
 font-weight:bold;
+
+
+
+transition:0.3s;
 
 
 
@@ -404,46 +308,36 @@ font-weight:bold;
 
 
 
-.offline-badge-v95{
+.lang-btn-v96:hover{
 
 
-display:inline-block;
+transform:translateY(-3px);
 
 
-padding:12px 25px;
+}
 
 
 
-border-radius:30px;
 
+
+.active-lang-v96{
 
 
 background:
 
 
-rgba(255,0,0,0.12);
+rgba(0,255,136,0.12);
 
 
 
-border:
+border-color:
 
 
-1px solid rgba(255,80,80,0.5);
-
-
-
-color:#ff5555;
+rgba(0,255,136,0.5);
 
 
 
-font-weight:bold;
-
-
-
-animation:
-
-
-blink-v95 1s infinite;
+color:#00ff88;
 
 
 
@@ -453,30 +347,13 @@ blink-v95 1s infinite;
 
 
 
-@keyframes blink-v95{
+.text-center-v96{
 
 
-0%{
-
-opacity:1;
-
-}
+text-align:center;
 
 
-
-50%{
-
-opacity:0.25;
-
-}
-
-
-
-100%{
-
-opacity:1;
-
-}
+line-height:2;
 
 
 
@@ -486,24 +363,33 @@ opacity:1;
 
 
 
-.price-card-v95{
+.feature-grid-v96{
 
 
-display:flex;
+display:grid;
 
 
-justify-content:space-between;
+grid-template-columns:repeat(
+3,
+1fr
+);
 
 
-align-items:center;
 
+gap:15px;
+
+
+
+}
+
+
+
+
+
+.feature-v96{
 
 
 padding:18px;
-
-
-
-margin-bottom:15px;
 
 
 
@@ -525,16 +411,7 @@ border:
 
 
 
-}
-
-
-
-
-
-.price-name-v95{
-
-
-font-size:17px;
+text-align:center;
 
 
 
@@ -544,17 +421,26 @@ font-size:17px;
 
 
 
-.price-value-v95{
+.feature-title-v96{
 
 
-font-size:18px;
+color:#ffd700;
 
 
 font-weight:bold;
 
 
 
-color:#ffd700;
+}
+
+
+
+
+
+.feature-value-v96{
+
+
+font-size:14px;
 
 
 
@@ -564,23 +450,7 @@ color:#ffd700;
 
 
 
-.time-tag-v95{
-
-
-font-size:13px;
-
-
-color:#ffcc66;
-
-
-
-}
-
-
-
-
-
-.info-row-v95{
+.info-row-v96{
 
 
 display:flex;
@@ -610,7 +480,7 @@ border-bottom:
 
 
 
-.info-row-v95:last-child{
+.info-row-v96:last-child{
 
 
 border-bottom:none;
@@ -622,7 +492,7 @@ border-bottom:none;
 
 
 
-.gold-v95{
+.gold-v96{
 
 
 color:#ffd700;
@@ -631,12 +501,14 @@ color:#ffd700;
 font-weight:bold;
 
 
+
 }
 
 
 
 
-.green-v95{
+
+.green-v96{
 
 
 color:#00ff88;
@@ -644,20 +516,6 @@ color:#00ff88;
 
 font-weight:bold;
 
-
-}
-
-
-
-
-
-.red-v95{
-
-
-color:#ff5555;
-
-
-font-weight:bold;
 
 
 }
@@ -678,10 +536,10 @@ font-weight:bold;
 <body>
 
 
-<header class="header-v95">
+<header class="header-v96">
 
 
-<div class="brand-v95">
+<div class="brand-v96">
 
 HASINEH MARKET
 
@@ -689,15 +547,15 @@ HASINEH MARKET
 
 
 
-<div class="subtitle-v95">
+<div class="subtitle-v96">
 
-تابلو هوشمند داده و بازار
+Smart Global Market Platform
 
 </div>
 
 
 
-<div class="city-v95">
+<div class="city-v96">
 
 Bandar Hasineh
 
@@ -705,12 +563,11 @@ Bandar Hasineh
 
 
 
-<div class="badge-v95">
+<div class="badge-v96">
 
-V95 DATA ENGINE FOUNDATION
+V96 LANGUAGE ENGINE
 
 </div>
-
 
 
 </header>
@@ -718,70 +575,55 @@ V95 DATA ENGINE FOUNDATION
 
 
 
-<div class="container-v95">
      
-<div class="box-v95">
+<div class="box-v96">
 
 
-<div class="title-v95">
+<div class="title-v96">
 
-📊 HASINEH DATA MARKET BOARD
-
-</div>
-
-
-
-
-
-<div class="data-panel-v95">
-
-
-
-<div id="data-status-v95" class="live-badge-v95">
-
-🟢 LIVE DATA
+🌐 LANGUAGE SELECTOR
 
 </div>
 
 
 
 
-<br><br>
+
+<div class="language-panel-v96">
 
 
-آخرین بروزرسانی داده:
+
+<div class="language-buttons-v96">
 
 
-<br>
+
+<button class="lang-btn-v96 active-lang-v96">
+
+🇮🇷 فارسی
+
+</button>
 
 
-📅
-
-<span id="data-date-v95" class="gold-v95">
-
----
-
-</span>
 
 
-<br>
+<button class="lang-btn-v96">
+
+🇸🇦 العربية
+
+</button>
 
 
-⏰
 
-<span id="data-time-v95" class="gold-v95">
 
----
+<button class="lang-btn-v96">
 
-</span>
+🇬🇧 English
+
+</button>
 
 
 
 </div>
-
-
-
-
 
 
 
@@ -790,177 +632,30 @@ V95 DATA ENGINE FOUNDATION
 
 
 
+<div class="text-center-v96">
 
 
-<div class="price-card-v95">
+انتخاب زبان پلتفرم
 
 
-<span class="price-name-v95">
-
-🪙 طلای ۱۸ عیار
-
-</span>
+<br>
 
 
-
-<span class="price-value-v95">
-
----
-
-</span>
+Platform Language Selection
 
 
+<br>
 
 
-<span class="time-tag-v95">
+اختيار لغة المنصة
 
-DATA READY
-
-</span>
 
 
 </div>
 
 
 
-
-
-
-
-<div class="price-card-v95">
-
-
-<span class="price-name-v95">
-
-🪙 طلای ۲۴ عیار
-
-</span>
-
-
-
-<span class="price-value-v95">
-
----
-
-</span>
-
-
-
-
-<span class="time-tag-v95">
-
-DATA READY
-
-</span>
-
-
 </div>
-
-
-
-
-
-
-
-<div class="price-card-v95">
-
-
-<span class="price-name-v95">
-
-🪙 سکه امامی
-
-</span>
-
-
-
-<span class="price-value-v95">
-
----
-
-</span>
-
-
-
-
-<span class="time-tag-v95">
-
-DATA READY
-
-</span>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="price-card-v95">
-
-
-<span class="price-name-v95">
-
-💵 دلار آمریکا
-
-</span>
-
-
-
-<span class="price-value-v95">
-
----
-
-</span>
-
-
-
-
-<span class="time-tag-v95">
-
-DATA READY
-
-</span>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="price-card-v95">
-
-
-<span class="price-name-v95">
-
-💶 یورو
-
-</span>
-
-
-
-<span class="price-value-v95">
-
----
-
-</span>
-
-
-
-
-<span class="time-tag-v95">
-
-DATA READY
-
-</span>
-
-
-</div>
-
 
 
 
@@ -974,12 +669,12 @@ DATA READY
 
 
 
-<div class="box-v95">
+<div class="box-v96">
 
 
-<div class="title-v95">
+<div class="title-v96">
 
-🧠 HASINEH CORE ENGINE
+🧠 LANGUAGE ENGINE CORE
 
 </div>
 
@@ -987,42 +682,120 @@ DATA READY
 
 
 
-<div class="info-row-v95">
+<div class="feature-grid-v96">
+
+
+
+<div class="feature-v96">
+
+
+<div class="feature-title-v96">
+
+FA
+
+</div>
+
+
+<div class="feature-value-v96">
+
+Persian
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feature-v96">
+
+
+<div class="feature-title-v96">
+
+AR
+
+</div>
+
+
+<div class="feature-value-v96">
+
+Arabic
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feature-v96">
+
+
+<div class="feature-title-v96">
+
+EN
+
+</div>
+
+
+<div class="feature-value-v96">
+
+English
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="box-v96">
+
+
+<div class="title-v96">
+
+⚙️ ENGINE STATUS
+
+</div>
+
+
+
+
+<div class="info-row-v96">
 
 
 <span>
 
-ذخیره داده
+Language Core
 
 </span>
 
 
-<span class="green-v95">
+<span class="green-v96">
 
-READY
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="info-row-v95">
-
-
-<span>
-
-آخرین زمان دریافت
-
-</span>
-
-
-<span id="last-save-v95" class="gold-v95">
-
----
+🟢 READY
 
 </span>
 
@@ -1033,19 +806,42 @@ READY
 
 
 
-<div class="info-row-v95">
+<div class="info-row-v96">
 
 
 <span>
 
-آمادگی اتصال API
+Translation System
 
 </span>
 
 
-<span class="gold-v95">
+<span class="gold-v96">
 
-READY
+FOUNDATION
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="info-row-v96">
+
+
+<span>
+
+Future Languages
+
+</span>
+
+
+<span class="gold-v96">
+
+SUPPORTED
 
 </span>
 
@@ -1057,191 +853,10 @@ READY
 
 </div>
      
-<div class="box-v95">
+<div class="box-v96">
 
 
-<div class="title-v95">
-
-⚙️ HASINEH SYSTEM ENGINE
-
-</div>
-
-
-
-
-
-<div class="info-row-v95">
-
-
-<span>
-
-وضعیت موتور داده
-
-</span>
-
-
-<span class="green-v95">
-
-🟢 ACTIVE
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="info-row-v95">
-
-
-<span>
-
-حالت ذخیره سازی
-
-</span>
-
-
-<span class="gold-v95">
-
-READY
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="info-row-v95">
-
-
-<span>
-
-نسخه هسته
-
-</span>
-
-
-<span class="gold-v95">
-
-V95 DATA ENGINE
-
-</span>
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="box-v95">
-
-
-<div class="title-v95">
-
-🕒 HASINEH MARKET TIME
-
-</div>
-
-
-
-
-
-<div class="info-row-v95">
-
-
-<span>
-
-📅 تاریخ شمسی
-
-</span>
-
-
-<span id="solar-v95" class="gold-v95">
-
----
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="info-row-v95">
-
-
-<span>
-
-⏰ ساعت ایران
-
-</span>
-
-
-<span id="clock-v95" class="gold-v95">
-
----
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="info-row-v95">
-
-
-<span>
-
-🔄 بررسی سیستم
-
-</span>
-
-
-<span id="update-v95" class="gold-v95">
-
----
-
-</span>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="box-v95">
-
-
-<div class="title-v95">
+<div class="title-v96">
 
 🏆 HASINEH MARKET
 
@@ -1249,9 +864,7 @@ V95 DATA ENGINE
 
 
 
-
-
-<div style="text-align:center;padding:25px;color:#d4af37;">
+<div class="text-center-v96">
 
 
 Digital Smart Market Platform
@@ -1260,7 +873,7 @@ Digital Smart Market Platform
 <br><br>
 
 
-<span class="gold-v95">
+<span class="gold-v96">
 
 Creator : Hassan Divanizadeh
 
@@ -1290,7 +903,6 @@ HASINEH MARKET © ۱۴۰۵
 
 
 
-
 </div>
 
 
@@ -1309,185 +921,53 @@ HASINEH MARKET © ۱۴۰۵
 
 
 
-function updateV95(){
+const buttons =
 
-
-
-const now = new Date();
-
-
-
-
-
-const clock = document.getElementById(
-"clock-v95"
+document.querySelectorAll(
+".lang-btn-v96"
 );
 
 
 
-if(clock){
 
 
-clock.textContent =
+buttons.forEach(function(button){
 
-now.toLocaleTimeString(
-"fa-IR",
-{
-timeZone:"Asia/Tehran"
-}
+
+
+button.addEventListener(
+"click",
+function(){
+
+
+
+buttons.forEach(function(item){
+
+
+item.classList.remove(
+"active-lang-v96"
 );
 
 
-
-}
-
+});
 
 
 
 
 
-const solar = document.getElementById(
-"solar-v95"
-);
-
-
-
-if(solar){
-
-
-solar.textContent =
-
-now.toLocaleDateString(
-"fa-IR-u-ca-persian",
-{
-timeZone:"Asia/Tehran"
-}
+button.classList.add(
+"active-lang-v96"
 );
 
 
 
 }
 
-
-
-
-
-
-const update = document.getElementById(
-"update-v95"
 );
 
 
 
-if(update){
-
-
-update.textContent =
-
-now.toLocaleTimeString(
-"fa-IR"
-);
-
-
-
-}
-
-
-
-
-
-
-const dataDate = document.getElementById(
-"data-date-v95"
-);
-
-
-
-const dataTime = document.getElementById(
-"data-time-v95"
-);
-
-
-
-const lastSave = document.getElementById(
-"last-save-v95"
-);
-
-
-
-
-
-if(dataDate){
-
-
-dataDate.textContent =
-
-now.toLocaleDateString(
-"fa-IR-u-ca-persian",
-{
-timeZone:"Asia/Tehran"
-}
-);
-
-
-
-}
-
-
-
-
-
-
-if(dataTime){
-
-
-dataTime.textContent =
-
-now.toLocaleTimeString(
-"fa-IR",
-{
-timeZone:"Asia/Tehran"
-}
-);
-
-
-
-}
-
-
-
-
-
-
-if(lastSave){
-
-
-lastSave.textContent =
-
-now.toLocaleTimeString(
-"fa-IR"
-);
-
-
-
-}
-
-
-
-}
-
-
-
-
-
-
-updateV95();
-
-
-setInterval(
-updateV95,
-1000
-);
+});
 
 
 
@@ -1501,7 +981,9 @@ updateV95,
 
 
 
+
 </body>
 
 
 </html>
+<div class="container-v96">
