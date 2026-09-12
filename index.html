@@ -1,426 +1,121 @@
-<!-- ==========================
- HASINEH MARKET V80
- DATA CONNECTION STATUS
-========================== -->
+<!-- =========================================
+     HASINEH MARKET V81
+     FINAL MERGE SYSTEM
+     SECTION 1
+========================================= -->
+
+<section class="hasineh-control-center-v81">
+
+  <div class="control-title-v81">
+    📡 HASINEH MARKET
+    <span>CONTROL CENTER</span>
+  </div>
+
+  <div class="control-subtitle-v81">
+    مرکز کنترل هوشمند بازار
+  </div>
 
+  <div class="control-grid-v81">
+
+    <div class="control-item-v81">
+      <div class="control-label-v81">
+        وضعیت سیستم
+      </div>
+
+      <div class="control-value-v81 green-v81"
+           id="system-status-v81">
+        🟢 ACTIVE
+      </div>
+    </div>
+
+
+    <div class="control-item-v81">
+      <div class="control-label-v81">
+        موتور داده
+      </div>
+
+      <div class="control-value-v81 yellow-v81"
+           id="data-engine-v81">
+        🟡 READY
+      </div>
+    </div>
+
+
+    <div class="control-item-v81">
+      <div class="control-label-v81">
+        اتصال بازار
+      </div>
+
+      <div class="control-value-v81 gray-v81"
+           id="market-connection-v81">
+        ⚪ NOT CONNECTED
+      </div>
+    </div>
+
+
+    <div class="control-item-v81">
+      <div class="control-label-v81">
+        آخرین دریافت واقعی قیمت
+      </div>
+
+      <div class="control-value-v81 gold-v81"
+           id="last-data-update-v81">
+        ---
+      </div>
+    </div>
+
+
+    <div class="control-item-v81">
+      <div class="control-label-v81">
+        منبع داده
+      </div>
+
+      <div class="control-value-v81 gray-v81"
+           id="data-source-v81">
+        هنوز متصل نشده
+      </div>
+    </div>
+
+
+    <div class="control-item-v81">
+      <div class="control-label-v81">
+        ساعت ایران
+      </div>
+
+      <div class="control-value-v81 gold-v81"
+           id="iran-time-v81">
+        ---
+      </div>
+    </div>
+
+
+    <div class="control-item-v81">
+      <div class="control-label-v81">
+        تاریخ شمسی
+      </div>
+
+      <div class="control-value-v81 gold-v81"
+           id="solar-date-v81">
+        ---
+      </div>
+    </div>
 
-<div class="box data-status-board-v80">
 
+    <div class="control-item-v81">
+      <div class="control-label-v81">
+        تاریخ قمری
+      </div>
 
-<div class="data-status-title-v80">
+      <div class="control-value-v81 gold-v81"
+           id="lunar-date-v81">
+        ---
+      </div>
+    </div>
 
-📡 HASINEH DATA CENTER
+  </div>
 
-</div>
+  <div class="control-footer-v81">
+    HASINEH MARKET • DIGITAL SMART MARKET BOARD
+  </div>
 
-
-
-
-<div class="data-status-row-v80">
-
-<span>
-وضعیت موتور داده
-</span>
-
-<span id="data-engine-v80">
-
-🟢 ACTIVE
-
-</span>
-
-</div>
-
-
-
-
-
-<div class="data-status-row-v80">
-
-<span>
-اتصال بازار
-</span>
-
-<span id="market-connection-v80">
-
-🟢 ONLINE
-
-</span>
-
-</div>
-
-
-
-
-
-<div class="data-status-row-v80">
-
-<span>
-آخرین دریافت قیمت
-</span>
-
-<span id="last-data-update-v80">
-
----
-
-</span>
-
-</div>
-
-
-
-
-
-<div class="data-status-row-v80">
-
-<span>
-منبع داده
-</span>
-
-<span id="data-source-v80">
-
-آماده اتصال
-
-</span>
-
-</div>
-
-
-
-</div>
-/* ==========================
- HASINEH MARKET V80
- DATA STATUS STYLE
-========================== */
-
-
-.data-status-board-v80{
-
-margin:30px auto;
-
-max-width:580px;
-
-padding:28px;
-
-border-radius:38px;
-
-background:
-
-linear-gradient(
-145deg,
-#050505,
-#161616
-);
-
-border:
-
-1px solid rgba(212,175,55,0.70);
-
-box-shadow:
-
-0 0 60px rgba(212,175,55,0.35);
-
-}
-
-
-
-
-
-.data-status-title-v80{
-
-text-align:center;
-
-font-size:25px;
-
-font-weight:bold;
-
-color:#ffd700;
-
-letter-spacing:2px;
-
-margin-bottom:25px;
-
-}
-
-
-
-
-
-.data-status-row-v80{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:15px 10px;
-
-border-bottom:
-
-1px solid rgba(212,175,55,0.15);
-
-}
-
-
-
-
-
-.data-status-row-v80:last-child{
-
-border-bottom:none;
-
-}
-
-
-
-
-
-.data-status-row-v80 span:first-child{
-
-color:#ffffff;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-.data-status-row-v80 span:last-child{
-
-color:#00ff88;
-
-font-weight:bold;
-
-font-size:15px;
-
-}
-
-
-
-
-
-#last-data-update-v80{
-
-color:#ffd700;
-
-}
-
-
-
-
-
-#data-source-v80{
-
-color:#cccccc;
-
-}
-
-
-
-
-
-.data-status-board-v80:hover{
-
-box-shadow:
-
-0 0 75px rgba(212,175,55,0.45);
-
-}
-
-
-
-
-
-@media(max-width:450px){
-
-
-.data-status-board-v80{
-
-padding:20px;
-
-}
-
-
-
-.data-status-title-v80{
-
-font-size:21px;
-
-}
-
-
-
-.data-status-row-v80{
-
-font-size:14px;
-
-}
-
-
-
-}
-/* ==========================
- HASINEH MARKET V80
- DATA STATUS ENGINE
-========================== */
-
-
-const HASINEH_DATA_CENTER_V80 = {
-
-
-version:
-
-"V80 DATA CENTER",
-
-
-
-status:
-
-"ACTIVE",
-
-
-
-
-update:function(){
-
-
-
-let engine =
-document.getElementById(
-"data-engine-v80"
-);
-
-
-
-let connection =
-document.getElementById(
-"market-connection-v80"
-);
-
-
-
-let updateTime =
-document.getElementById(
-"last-data-update-v80"
-);
-
-
-
-
-
-if(engine){
-
-engine.innerHTML =
-"🟢 ACTIVE";
-
-}
-
-
-
-
-
-if(connection){
-
-connection.innerHTML =
-"🟢 ONLINE";
-
-}
-
-
-
-
-
-let now =
-new Date();
-
-
-
-
-
-let time =
-now.toLocaleTimeString(
-"fa-IR"
-);
-
-
-
-
-
-if(updateTime){
-
-updateTime.innerHTML =
-time;
-
-}
-
-
-
-
-
-console.log(
-
-"HASINEH DATA CENTER V80 READY"
-
-);
-
-
-
-}
-
-
-
-};
-
-
-
-
-
-
-function hasinehDataMonitorV80(){
-
-
-try{
-
-
-HASINEH_DATA_CENTER_V80.update();
-
-
-
-}
-
-catch(error){
-
-
-console.log(
-
-"HASINEH DATA CENTER V80 ERROR"
-
-);
-
-
-
-}
-
-
-
-}
-
-
-
-
-
-setInterval(
-
-hasinehDataMonitorV80,
-
-15000
-
-);
-
-
-
-
-
-hasinehDataMonitorV80();
+</section>
