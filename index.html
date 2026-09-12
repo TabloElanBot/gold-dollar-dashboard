@@ -1,24 +1,24 @@
 <!-- =========================================
      HASINEH MARKET V81
-     SECTION 10 — IRAN MARKET CLOCK ENGINE
+     SECTION 11 — SOLAR DATE ENGINE
 ========================================= -->
 
 <script>
 
-const HASINEH_IRAN_CLOCK_V81 = {
+const HASINEH_SOLAR_DATE_V81 = {
 
   update:function(){
 
-    const clock =
+    const target =
       document.getElementById(
-        "iran-time-v81"
+        "solar-date-v81"
       );
 
 
-    if(!clock){
+    if(!target){
 
       console.warn(
-        "HASINEH V81 Iran clock element missing"
+        "HASINEH V81 solar date element missing"
       );
 
       return;
@@ -30,13 +30,15 @@ const HASINEH_IRAN_CLOCK_V81 = {
       new Date();
 
 
-    clock.textContent =
-      now.toLocaleTimeString(
+    target.textContent =
+      now.toLocaleDateString(
         "fa-IR",
         {
-          hour:"2-digit",
-          minute:"2-digit",
-          second:"2-digit"
+
+          year:"numeric",
+          month:"long",
+          day:"numeric"
+
         }
       );
 
@@ -46,18 +48,18 @@ const HASINEH_IRAN_CLOCK_V81 = {
 };
 
 
-/* ---------- INITIAL START ---------- */
+/* ---------- INITIAL UPDATE ---------- */
 
-HASINEH_IRAN_CLOCK_V81.update();
+HASINEH_SOLAR_DATE_V81.update();
 
 
-/* ---------- LIVE CLOCK ---------- */
+/* ---------- DAILY REFRESH ---------- */
 
 setInterval(function(){
 
-  HASINEH_IRAN_CLOCK_V81.update();
+  HASINEH_SOLAR_DATE_V81.update();
 
-},1000);
+},60000);
 
 
 </script>
