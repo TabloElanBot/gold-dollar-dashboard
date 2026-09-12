@@ -1,83 +1,127 @@
+<!-- ==========================
+ HASINEH MARKET V73
+ FINAL DASHBOARD MERGE
+========================== -->
+
+
+<div class="box final-dashboard-v73">
+
+
+<div class="final-brand-v73">
+
+HASINEH MARKET
+
+</div>
+
+
+
+<div class="final-tagline-v73">
+
+Premium Digital Market Board
+
+</div>
+
+
+
+
+<div class="final-grid-v73">
+
+
+<div class="final-module-v73">
+
+🪙
+
+<br>
+
+HASINEH GOLD
+
+<br>
+
+<span>
+ACTIVE
+</span>
+
+</div>
+
+
+
+
+<div class="final-module-v73">
+
+💵
+
+<br>
+
+HASINEH CURRENCY
+
+<br>
+
+<span>
+ACTIVE
+</span>
+
+</div>
+
+
+
+
+<div class="final-module-v73">
+
+📊
+
+<br>
+
+MARKET STATUS
+
+<br>
+
+<span>
+ONLINE
+</span>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
 /* ==========================
- HASINEH MARKET V72
- FINAL LUXURY FOUNDATION
+ HASINEH MARKET V73
+ FINAL DASHBOARD STYLE
 ========================== */
 
 
-:root{
+.final-dashboard-v73{
 
---hasineh-gold:#d4af37;
+margin:30px auto;
 
---hasineh-dark:#080808;
+max-width:620px;
 
---hasineh-panel:#111111;
+padding:30px;
 
---hasineh-green:#00ff88;
-
-}
-
-
-
-
-
-.box{
-
-transition:
-
-0.3s ease;
-
-}
-
-
-
-
-
-.box:hover{
-
-transform:
-
-translateY(-2px);
-
-}
-
-
-
-
-
-.box-title{
-
-letter-spacing:
-
-1px;
-
-}
-
-
-
-
-
-body{
+border-radius:40px;
 
 background:
 
-radial-gradient(
-circle at top,
-#181818,
-#050505
+linear-gradient(
+145deg,
+#050505,
+#161616
 );
 
-}
+border:
 
+1px solid rgba(212,175,55,0.75);
 
+box-shadow:
 
+0 0 65px rgba(212,175,55,0.35);
 
-*{
-
-font-family:
-
-Tahoma,
-Arial,
-sans-serif;
+text-align:center;
 
 }
 
@@ -85,38 +129,19 @@ sans-serif;
 
 
 
-.status-gold{
+.final-brand-v73{
 
-color:
+font-size:34px;
 
-var(--hasineh-gold);
+font-weight:bold;
 
-}
+letter-spacing:7px;
 
+color:#d4af37;
 
+text-shadow:
 
-
-
-.status-green{
-
-color:
-
-var(--hasineh-green);
-
-}
-
-
-/* ==========================
- HASINEH MARKET V72
- PREMIUM MOBILE POLISH
-========================== */
-
-
-.box{
-
-backdrop-filter:
-
-blur(6px);
+0 0 20px rgba(212,175,55,0.55);
 
 }
 
@@ -124,15 +149,15 @@ blur(6px);
 
 
 
-.price-card-v66,
-.gold-master-board-v67,
-.currency-master-board-v68,
-.status-center-v70,
-.creator-signature-v71{
+.final-tagline-v73{
 
-animation:
+margin-top:12px;
 
-hasinehFade 0.8s ease;
+font-size:14px;
+
+letter-spacing:3px;
+
+color:#999;
 
 }
 
@@ -140,30 +165,75 @@ hasinehFade 0.8s ease;
 
 
 
-@keyframes hasinehFade{
+.final-grid-v73{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:15px;
+
+margin-top:30px;
+
+}
 
 
-from{
 
-opacity:0;
+
+
+.final-module-v73{
+
+padding:22px 10px;
+
+border-radius:25px;
+
+background:#0c0c0c;
+
+border:
+
+1px solid rgba(212,175,55,0.35);
+
+color:#ffffff;
+
+font-weight:bold;
+
+font-size:16px;
+
+transition:0.3s;
+
+}
+
+
+
+
+
+.final-module-v73 span{
+
+display:block;
+
+margin-top:10px;
+
+font-size:12px;
+
+color:#00ff88;
+
+}
+
+
+
+
+
+.final-module-v73:hover{
 
 transform:
 
-translateY(15px);
+translateY(-5px);
 
-}
+box-shadow:
 
-
-to{
-
-opacity:1;
-
-transform:
-
-translateY(0);
-
-}
-
+0 0 30px rgba(212,175,55,0.35);
 
 }
 
@@ -174,101 +244,50 @@ translateY(0);
 @media(max-width:600px){
 
 
+.final-dashboard-v73{
 
-.box{
-
-width:
-
-calc(100% - 24px);
+padding:22px;
 
 }
 
 
 
-.box-title{
+.final-brand-v73{
 
-font-size:
+font-size:25px;
 
-18px;
-
-}
-
-
-
-.price-value-v66{
-
-font-size:
-
-24px;
+letter-spacing:4px;
 
 }
 
 
 
-.gold-item-v67 span:last-child,
-.currency-item-v68 span:last-child{
+.final-grid-v73{
 
-font-size:
+grid-template-columns:
 
-15px;
-
-}
-
-
-
-.creator-name-v71{
-
-font-size:
-
-14px;
+1fr;
 
 }
 
 
-
 }
-
-
-
-
-
-@media(max-width:380px){
-
-
-
-.home-brand-v69,
-.master-logo-v61{
-
-letter-spacing:
-
-3px;
-
-font-size:
-
-22px;
-
-}
-
-
-
-}
-
 
 /* ==========================
- HASINEH MARKET V72
- FINAL VISUAL CONTROL ENGINE
+ HASINEH MARKET V73
+ FINAL DASHBOARD ENGINE
 ========================== */
 
 
-const HASINEH_VISUAL_CONTROL_V72 = {
+const HASINEH_FINAL_DASHBOARD_V73 = {
 
 
-version:
-"V72 PREMIUM",
+brand:
+"HASINEH MARKET",
 
 
-status:
-"FINAL POLISH",
+tagline:
+"Premium Digital Market Board",
 
 
 
@@ -276,33 +295,45 @@ update:function(){
 
 
 
+let brand =
+document.querySelector(
+".final-brand-v73"
+);
+
+
+
+if(brand){
+
+brand.innerHTML =
+this.brand;
+
+}
+
+
+
+
+
+let tagline =
+document.querySelector(
+".final-tagline-v73"
+);
+
+
+
+if(tagline){
+
+tagline.innerHTML =
+this.tagline;
+
+}
+
+
+
+
+
 console.log(
-"HASINEH MARKET " 
-+ this.version 
-+ " | "
-+ this.status
-+ " READY"
+"HASINEH FINAL DASHBOARD V73 READY"
 );
-
-
-
-
-
-let boxes =
-document.querySelectorAll(
-".box"
-);
-
-
-
-boxes.forEach(function(box){
-
-
-box.style.transition =
-"0.3s ease";
-
-
-});
 
 
 
@@ -317,13 +348,13 @@ box.style.transition =
 
 
 
-function hasinehVisualMonitorV72(){
+function hasinehFinalDashboardMonitorV73(){
 
 
 try{
 
 
-HASINEH_VISUAL_CONTROL_V72.update();
+HASINEH_FINAL_DASHBOARD_V73.update();
 
 
 
@@ -333,7 +364,7 @@ catch(error){
 
 
 console.log(
-"HASINEH VISUAL CONTROL V72 ERROR"
+"HASINEH FINAL DASHBOARD V73 ERROR"
 );
 
 
@@ -350,9 +381,9 @@ console.log(
 
 setInterval(
 
-hasinehVisualMonitorV72,
+hasinehFinalDashboardMonitorV73,
 
-60000
+30000
 
 );
 
@@ -360,4 +391,4 @@ hasinehVisualMonitorV72,
 
 
 
-hasinehVisualMonitorV72();
+hasinehFinalDashboardMonitorV73();
