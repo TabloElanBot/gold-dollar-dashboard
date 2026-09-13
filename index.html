@@ -2304,3 +2304,346 @@ window.HASINEH_MARKET_V154 = {
 console.log("HASINEH MARKET V154 PREMIUM MAIN BOARD READY");
 
  </script>
+<!-- ==========================
+ HASINEH MARKET V155
+ PREMIUM MARKET DISPLAY
+========================== -->
+
+<style>
+
+.hasineh-premium-v155{
+    margin-top:24px;
+    border:1px solid rgba(212,175,55,0.35);
+    box-shadow:0 0 22px rgba(212,175,55,0.08);
+}
+
+.hasineh-premium-header-v155{
+    text-align:center;
+    padding:6px 0 18px;
+}
+
+.hasineh-premium-header-v155 .main-title{
+    color:#d4af37;
+    font-size:23px;
+    font-weight:bold;
+}
+
+.hasineh-premium-header-v155 .sub-title{
+    color:#999;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.market-row-v155{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 0.9fr 1fr;
+    align-items:center;
+    gap:8px;
+    padding:14px 10px;
+    margin-top:7px;
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:13px;
+    background:rgba(255,255,255,0.025);
+}
+
+.market-row-v155.header{
+    background:rgba(212,175,55,0.09);
+    border-color:rgba(212,175,55,0.18);
+    color:#d4af37;
+    font-size:12px;
+}
+
+.market-row-v155:not(.header){
+    transition:0.2s;
+}
+
+.market-row-v155:not(.header):hover{
+    border-color:rgba(212,175,55,0.25);
+    background:rgba(212,175,55,0.045);
+}
+
+.market-asset-v155{
+    font-weight:bold;
+    text-align:right;
+}
+
+.market-last-v155{
+    text-align:center;
+    color:#d4af37;
+    font-weight:bold;
+    direction:rtl;
+}
+
+.market-change-v155{
+    text-align:center;
+    color:#aaa;
+}
+
+.market-state-v155{
+    text-align:center;
+    color:#999;
+    font-size:11px;
+}
+
+.market-board-footer-v155{
+    margin-top:17px;
+    padding:14px;
+    border-top:1px solid rgba(212,175,55,0.15);
+    text-align:center;
+}
+
+.market-board-footer-v155 .unit{
+    color:#d4af37;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.market-board-footer-v155 .source{
+    margin-top:7px;
+    color:#999;
+    font-size:11px;
+}
+
+.market-live-v155{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:12px;
+    padding:7px 13px;
+    border-radius:20px;
+    border:1px solid rgba(0,200,100,0.18);
+    color:#7fd6a5;
+    background:rgba(0,200,100,0.045);
+    font-size:11px;
+}
+
+@media(max-width:600px){
+
+    .hasineh-premium-header-v155 .main-title{
+        font-size:20px;
+    }
+
+    .market-row-v155{
+        grid-template-columns:1.35fr 1fr 0.8fr 1fr;
+        gap:4px;
+        padding:12px 6px;
+    }
+
+    .market-row-v155.header{
+        font-size:10px;
+    }
+
+    .market-asset-v155{
+        font-size:12px;
+    }
+
+    .market-last-v155,
+    .market-change-v155{
+        font-size:11px;
+    }
+
+    .market-state-v155{
+        font-size:9px;
+    }
+
+}
+
+</style>
+
+
+<div class="box hasineh-premium-v155">
+
+    <div class="hasineh-premium-header-v155">
+
+        <div class="main-title">
+            📊 تابلوی حرفه‌ای بازار حسینه
+        </div>
+
+        <div class="sub-title">
+            HASINEH MARKET • LIVE MARKET DISPLAY
+        </div>
+
+        <div class="market-live-v155">
+            🟢 سامانه آنلاین
+        </div>
+
+    </div>
+
+
+    <div class="market-row-v155 header">
+
+        <div>
+            دارایی
+        </div>
+
+        <div style="text-align:center;">
+            آخرین نرخ
+        </div>
+
+        <div style="text-align:center;">
+            تغییر
+        </div>
+
+        <div style="text-align:center;">
+            وضعیت
+        </div>
+
+    </div>
+
+
+    <div class="market-row-v155">
+
+        <div class="market-asset-v155">
+            🟡 طلای ۱۸ عیار
+        </div>
+
+        <div class="market-last-v155">
+            ---
+        </div>
+
+        <div class="market-change-v155">
+            ---
+        </div>
+
+        <div class="market-state-v155">
+            در انتظار نرخ
+        </div>
+
+    </div>
+
+
+    <div class="market-row-v155">
+
+        <div class="market-asset-v155">
+            ⚖️ مثقال طلا
+        </div>
+
+        <div class="market-last-v155">
+            ---
+        </div>
+
+        <div class="market-change-v155">
+            ---
+        </div>
+
+        <div class="market-state-v155">
+            در انتظار نرخ
+        </div>
+
+    </div>
+
+
+    <div class="market-row-v155">
+
+        <div class="market-asset-v155">
+            💵 دلار آمریکا
+        </div>
+
+        <div class="market-last-v155">
+            ---
+        </div>
+
+        <div class="market-change-v155">
+            ---
+        </div>
+
+        <div class="market-state-v155">
+            در انتظار نرخ
+        </div>
+
+    </div>
+
+
+    <div class="market-row-v155">
+
+        <div class="market-asset-v155">
+            🪙 سکه امامی
+        </div>
+
+        <div class="market-last-v155">
+            ---
+        </div>
+
+        <div class="market-change-v155">
+            ---
+        </div>
+
+        <div class="market-state-v155">
+            در انتظار نرخ
+        </div>
+
+    </div>
+
+
+    <div class="market-row-v155">
+
+        <div class="market-asset-v155">
+            ₮ تتر
+        </div>
+
+        <div class="market-last-v155">
+            ---
+        </div>
+
+        <div class="market-change-v155">
+            ---
+        </div>
+
+        <div class="market-state-v155">
+            در انتظار نرخ
+        </div>
+
+    </div>
+
+
+    <div class="market-row-v155">
+
+        <div class="market-asset-v155">
+            🥈 نقره
+        </div>
+
+        <div class="market-last-v155">
+            ---
+        </div>
+
+        <div class="market-change-v155">
+            ---
+        </div>
+
+        <div class="market-state-v155">
+            در انتظار نرخ
+        </div>
+
+    </div>
+
+
+    <div class="market-board-footer-v155">
+
+        <div class="unit">
+            واحد نمایش نرخ: تومان
+        </div>
+
+        <div class="source">
+            📡 نرخ‌ها پس از اتصال به منبع معتبر بازار نمایش داده می‌شوند.
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+window.HASINEH_MARKET_V155 = {
+    version: "V155",
+    display: "PREMIUM_MARKET_DISPLAY",
+    currency: "تومان",
+    fakeRates: false,
+    liveData: false,
+    validation: true,
+    status: "READY"
+};
+
+console.log("HASINEH MARKET V155 PREMIUM DISPLAY READY");
+
+</script>
