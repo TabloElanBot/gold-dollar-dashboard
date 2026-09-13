@@ -1705,3 +1705,293 @@ status: "READY"
 <!-- ==========================
  END V152
 ========================== -->
+<!-- ==========================
+ HASINEH MARKET V153
+ BUY / SELL MARKET STRUCTURE
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+💰 تابلو خرید و فروش بازار
+</div>
+
+<p>
+نرخ خرید و فروش فقط در مواردی نمایش داده می‌شود
+که بازار برای آن قلم، نرخ معتبر داشته باشد.
+</p>
+
+<div class="market-grid">
+
+
+<div class="market-card">
+
+<div class="market-name">
+🟡 طلای ۱۸ عیار
+</div>
+
+<div class="market-price">
+قیمت: ---
+</div>
+
+<div class="market-change">
+خرید: ---
+</div>
+
+<div class="market-change">
+فروش: ---
+</div>
+
+<div class="market-status">
+در انتظار نرخ معتبر
+</div>
+
+</div>
+
+
+<div class="market-card">
+
+<div class="market-name">
+⚖️ مثقال طلا
+</div>
+
+<div class="market-price">
+قیمت: ---
+</div>
+
+<div class="market-change">
+خرید: ---
+</div>
+
+<div class="market-change">
+فروش: ---
+</div>
+
+<div class="market-status">
+در انتظار نرخ معتبر
+</div>
+
+</div>
+
+
+<div class="market-card">
+
+<div class="market-name">
+💵 دلار آمریکا
+</div>
+
+<div class="market-price">
+قیمت: ---
+</div>
+
+<div class="market-change">
+خرید: ---
+</div>
+
+<div class="market-change">
+فروش: ---
+</div>
+
+<div class="market-status">
+در انتظار نرخ معتبر
+</div>
+
+</div>
+
+
+<div class="market-card">
+
+<div class="market-name">
+🪙 سکه امامی
+</div>
+
+<div class="market-price">
+قیمت: ---
+</div>
+
+<div class="market-change">
+خرید: ---
+</div>
+
+<div class="market-change">
+فروش: ---
+</div>
+
+<div class="market-status">
+در انتظار نرخ معتبر
+</div>
+
+</div>
+
+
+<div class="market-card">
+
+<div class="market-name">
+₮ تتر
+</div>
+
+<div class="market-price">
+قیمت: ---
+</div>
+
+<div class="market-change">
+خرید: ---
+</div>
+
+<div class="market-change">
+فروش: ---
+</div>
+
+<div class="market-status">
+در انتظار نرخ معتبر
+</div>
+
+</div>
+
+
+<div class="market-card">
+
+<div class="market-name">
+🥈 نقره
+</div>
+
+<div class="market-price">
+قیمت: ---
+</div>
+
+<div class="market-change">
+خرید: ---
+</div>
+
+<div class="market-change">
+فروش: ---
+</div>
+
+<div class="market-status">
+در انتظار نرخ معتبر
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- ==========================
+ V153 MARKET RULES
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+📋 قواعد نمایش نرخ
+</div>
+
+<div class="status-row">
+
+<span>
+💰 نرخ مرجع
+</span>
+
+<span class="gold status-value">
+نمایش در تابلو
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+🟢 نرخ خرید
+</span>
+
+<span class="green status-value">
+فقط با داده معتبر
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+🔴 نرخ فروش
+</span>
+
+<span class="red status-value">
+فقط با داده معتبر
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+⚪ نبود نرخ
+</span>
+
+<span class="status-value">
+در انتظار نرخ
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ==========================
+ V153 DATA SAFETY
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+🛡️ حفاظت از اطلاعات قیمت
+</div>
+
+<p>
+هیچ نرخ خرید یا فروشی بدون منبع معتبر ساخته نمی‌شود.
+</p>
+
+<p>
+در صورت نبود داده معتبر، عددی به‌صورت حدسی نمایش داده نمی‌شود.
+</p>
+
+<p>
+اختلاف غیرعادی بین منابع نیازمند بررسی خواهد بود.
+</p>
+
+</div>
+
+
+<!-- ==========================
+ V153 INTERNAL MARKER
+========================== -->
+
+<script>
+
+window.HASINEH_MARKET_V153 = {
+
+version: "V153",
+
+mode: "BUY_SELL",
+
+currency: "تومان",
+
+fakeRates: false,
+
+validation: true,
+
+status: "READY"
+
+};
+
+</script>
+
+<!-- ==========================
+ END V153
+========================== -->
