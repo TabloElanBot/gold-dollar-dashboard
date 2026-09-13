@@ -1443,3 +1443,265 @@ console.log(
 <!-- ==========================
  END V151
 ========================== -->
+<!-- ==========================
+ HASINEH MARKET V152
+ STANDARD MARKET RATE STRUCTURE
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+📊 ساختار استاندارد نرخ بازار V152
+</div>
+
+<p>
+هر نرخ بازار با اطلاعات معتبر و زمان دریافت آن ثبت می‌شود.
+</p>
+
+<div class="status-row">
+
+<span>🟡 طلای ۱۸ عیار</span>
+
+<span class="gold status-value">
+آماده دریافت نرخ
+</span>
+
+</div>
+
+<div class="status-row">
+
+<span>⚖️ مثقال طلا</span>
+
+<span class="gold status-value">
+آماده دریافت نرخ
+</span>
+
+</div>
+
+<div class="status-row">
+
+<span>💵 دلار آمریکا</span>
+
+<span class="gold status-value">
+آماده دریافت نرخ
+</span>
+
+</div>
+
+<div class="status-row">
+
+<span>🪙 سکه امامی</span>
+
+<span class="gold status-value">
+آماده دریافت نرخ
+</span>
+
+</div>
+
+<div class="status-row">
+
+<span>₮ تتر</span>
+
+<span class="gold status-value">
+آماده دریافت نرخ
+</span>
+
+</div>
+
+<div class="status-row">
+
+<span>🥈 نقره</span>
+
+<span class="gold status-value">
+آماده دریافت نرخ
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ==========================
+ V152 RATE FIELDS
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+📋 مشخصات هر نرخ
+</div>
+
+<div class="status-row">
+
+<span>
+💰 قیمت
+</span>
+
+<span class="green status-value">
+تومان
+</span>
+
+</div>
+
+<div class="status-row">
+
+<span>
+📈 تغییر قیمت
+</span>
+
+<span class="green status-value">
+قابل محاسبه
+</span>
+
+</div>
+
+<div class="status-row">
+
+<span>
+٪ درصد تغییر
+</span>
+
+<span class="green status-value">
+قابل محاسبه
+</span>
+
+</div>
+
+<div class="status-row">
+
+<span>
+🕒 زمان دریافت
+</span>
+
+<span class="green status-value">
+ثبت می‌شود
+</span>
+
+</div>
+
+<div class="status-row">
+
+<span>
+🛡️ اعتبار نرخ
+</span>
+
+<span class="green status-value">
+بررسی می‌شود
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ==========================
+ V152 MARKET MOVEMENT
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+📈 استاندارد تغییرات قیمت
+</div>
+
+<div class="status-row">
+
+<span>
+🟢 افزایش
+</span>
+
+<span class="green status-value">
+قابل نمایش
+</span>
+
+</div>
+
+<div class="status-row">
+
+<span>
+🔴 کاهش
+</span>
+
+<span class="red status-value">
+قابل نمایش
+</span>
+
+</div>
+
+<div class="status-row">
+
+<span>
+⚪ بدون تغییر
+</span>
+
+<span class="status-value">
+ثابت
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ==========================
+ V152 DATA SAFETY
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+🛡️ حفاظت از نرخ بازار
+</div>
+
+<p>
+عدم دریافت نرخ → عدم ساخت عدد جدید
+</p>
+
+<p>
+نرخ نامعتبر → عدم نمایش
+</p>
+
+<p>
+اختلاف غیرعادی → بررسی منبع
+</p>
+
+<p>
+نرخ معتبر → آماده نمایش روی تابلو
+</p>
+
+</div>
+
+
+<!-- ==========================
+ V152 ENGINE MARKER
+========================== -->
+
+<script>
+
+(function(){
+
+window.HASINEH_MARKET_V152 = {
+
+version: "V152",
+
+currency: "تومان",
+
+rateFields: [
+"price",
+"change",
+"changePercent",
+"receivedAt",
+"validity"
+],
+
+status: "READY"
+
+};
+
+})();
+
+</script>
+
+<!-- ==========================
+ END V152
+========================== -->
