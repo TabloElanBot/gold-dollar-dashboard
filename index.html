@@ -1,18 +1,174 @@
-<!-- ==========================
- HASINEH MARKET V146
- SMART MARKET STATUS UPGRADE
- PART 1
-========================== -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+HASINEH MARKET V147
+</title>
+
+<style>
+
+body{
+margin:0;
+padding:20px;
+background:#080808;
+color:#f5f5f5;
+font-family:Tahoma,Arial,sans-serif;
+text-align:center;
+}
+
+.box{
+max-width:700px;
+margin:15px auto;
+padding:22px;
+background:#111;
+border:1px solid #8a6a18;
+border-radius:16px;
+box-shadow:0 0 18px rgba(212,175,55,.12);
+}
+
+h1{
+margin:5px 0 8px;
+color:#d4af37;
+font-size:30px;
+}
+
+h2{
+margin:5px 0;
+color:#eee;
+font-size:21px;
+}
+
+p{
+margin:9px 0;
+line-height:1.8;
+}
+
+.box-title{
+font-size:22px;
+font-weight:bold;
+color:#d4af37;
+margin-bottom:18px;
+}
+
+.green{
+color:#20d878;
+font-weight:bold;
+}
+
+.red{
+color:#ff5252;
+font-weight:bold;
+}
+
+.gold{
+color:#d4af37;
+font-weight:bold;
+}
+
+.market-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+}
+
+.market-card{
+background:#0b0b0b;
+border:1px solid #6d5517;
+border-radius:14px;
+padding:18px 10px;
+}
+
+.market-name{
+font-size:17px;
+margin-bottom:12px;
+color:#ddd;
+}
+
+.market-price{
+font-size:22px;
+font-weight:bold;
+color:#d4af37;
+margin-bottom:8px;
+}
+
+.market-status{
+font-size:13px;
+color:#aaa;
+}
+
+.status-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:9px 0;
+border-bottom:1px solid #252525;
+}
+
+.status-row:last-child{
+border-bottom:none;
+}
+
+.creator{
+margin-top:25px;
+padding-top:15px;
+border-top:1px solid #40340f;
+color:#aaa;
+font-size:13px;
+line-height:1.9;
+}
+
+@media(max-width:600px){
+
+body{
+padding:10px;
+}
+
+.box{
+padding:17px 12px;
+}
+
+h1{
+font-size:26px;
+}
+
+h2{
+font-size:18px;
+}
+
+.market-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================
+ HASINEH MARKET V147
+ MAIN HEADER
+========================== -->
 
 <div class="box">
 
 <h1>
-🏆 HASINEH MARKET
+🏆 بازار حسینه
 </h1>
 
 <h2>
-Digital Smart Market Platform
+پلتفرم بازار هوشمند دیجیتال
 </h2>
 
 <p>
@@ -20,255 +176,420 @@ Digital Smart Market Platform
 </p>
 
 <p>
-📍 Bandar Hasineh
+📍 بندر حسینه
 </p>
 
 <p>
-🟢 PUBLIC ONLINE
+🟢 عمومی آنلاین
 </p>
 
 </div>
 
 
-
-<div class="box">
-
-<h2>
-📊 TODAY MARKET BOARD
-</h2>
-
-
-<div>
-
-<h3>
-🟡 GOLD 18K
-</h3>
-
-<p>
-طلای ۱۸ عیار
-</p>
-
-<strong>
---- تومان
-</strong>
-
-<p>
-آماده دریافت داده
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-⚖️ GOLD MESGHAL
-</h3>
-
-<p>
-مثقال طلا
-</p>
-
-<strong>
---- تومان
-</strong>
-
-<p>
-آماده دریافت داده
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-💵 USD
-</h3>
-
-<p>
-دلار آمریکا
-</p>
-
-<strong>
---- تومان
-</strong>
-
-<p>
-آماده دریافت داده
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-🪙 EMAMI COIN
-</h3>
-
-<p>
-سکه امامی
-</p>
-
-<strong>
---- تومان
-</strong>
-
-<p>
-آماده دریافت داده
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-₮ USDT
-</h3>
-
-<p>
-تتر
-</p>
-
-<strong>
---- تومان
-</strong>
-
-<p>
-آماده دریافت داده
-</p>
-
-</div>
-
-
-</div>
 <!-- ==========================
- HASINEH MARKET V146
- SMART MARKET STATUS UPGRADE
- PART 2
+ V147 MARKET BOARD
 ========================== -->
 
-
 <div class="box">
 
-<h2>
-🕒 HASINEH TIME CENTER V146
-</h2>
+<div class="box-title">
+📊 تابلوی بازار امروز
+</div>
+
+<div class="market-grid">
 
 
-<p>
-🇮🇷 Iran Market Time
-</p>
+<div class="market-card">
 
+<div class="market-name">
+🟡 طلای ۱۸ عیار
+</div>
 
-<p>
-🕒 ساعت: --:--:--
-</p>
+<div class="market-price">
+--- تومان
+</div>
 
-
-<p>
-📅 تاریخ شمسی: ۱۴۰۵/--/--
-</p>
-
-
-<p>
-🌙 وضعیت روز: ACTIVE
-</p>
-
+<div class="market-status">
+آماده دریافت اطلاعات
+</div>
 
 </div>
 
 
+<div class="market-card">
 
-<div class="box">
+<div class="market-name">
+⚖️ مثقال طلا
+</div>
 
-<h2>
-📡 MARKET UPDATE SYSTEM V146
-</h2>
+<div class="market-price">
+--- تومان
+</div>
 
-
-<p>
-🔄 Auto Refresh: READY
-</p>
-
-
-<p>
-🕒 Last Update: WAITING DATA
-</p>
-
-
-<p>
-📊 Market Session: OPEN MONITORING
-</p>
-
-
-<p>
-🧠 Smart Synchronization: ACTIVE
-</p>
-
+<div class="market-status">
+آماده دریافت اطلاعات
+</div>
 
 </div>
 
 
+<div class="market-card">
 
-<div class="box">
+<div class="market-name">
+💵 دلار آمریکا
+</div>
 
-<h2>
-⚡ SYSTEM RELEASE STATUS V146
-</h2>
+<div class="market-price">
+--- تومان
+</div>
 
-
-<p>
-Clean Market Board
-</p>
-
-
-<p>
-Smart Status Upgrade
-</p>
-
-
-<p>
-Future Data Connection Ready
-</p>
-
+<div class="market-status">
+آماده دریافت اطلاعات
+</div>
 
 </div>
 
 
+<div class="market-card">
+
+<div class="market-name">
+🪙 سکه امامی
+</div>
+
+<div class="market-price">
+--- تومان
+</div>
+
+<div class="market-status">
+آماده دریافت اطلاعات
+</div>
+
+</div>
+
+
+<div class="market-card">
+
+<div class="market-name">
+₮ تتر
+</div>
+
+<div class="market-price">
+--- تومان
+</div>
+
+<div class="market-status">
+آماده دریافت اطلاعات
+</div>
+
+</div>
+
+
+<div class="market-card">
+
+<div class="market-name">
+🥈 نقره
+</div>
+
+<div class="market-price">
+--- تومان
+</div>
+
+<div class="market-status">
+آماده دریافت اطلاعات
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- ==========================
+ V147 TIME CENTER
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+🕒 مرکز زمان حسینه V147
+</div>
+
+<div class="status-row">
+
+<span>
+🇮🇷 به وقت بازار ایران
+</span>
+
+<span class="green">
+ONLINE
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+🕒 ساعت
+</span>
+
+<span class="gold" id="iran-time">
+--:--:--
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+📅 تاریخ شمسی
+</span>
+
+<span class="gold" id="solar-date">
+۱۴۰۵/--/--
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+🌙 وضعیت روز
+</span>
+
+<span class="green">
+ACTIVE
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ==========================
+ V147 SYSTEM STATUS
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+📡 سیستم به‌روزرسانی بازار V147
+</div>
+
+
+<div class="status-row">
+
+<span>
+🔄 تازه‌سازی خودکار
+</span>
+
+<span class="green">
+READY
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+🕒 آخرین بروزرسانی
+</span>
+
+<span class="gold">
+منتظر اطلاعات
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+📊 جلسه بازار
+</span>
+
+<span class="green">
+OPEN
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+🧠 همگام‌سازی هوشمند
+</span>
+
+<span class="green">
+ACTIVE
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ==========================
+ V147 PUBLIC STATUS
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+⚡ وضعیت انتشار سیستم V147
+</div>
+
+<p>
+🟢 تابلوی بازار فعال است
+</p>
+
+<p>
+🧠 ارتقاء وضعیت هوشمند انجام شد
+</p>
+
+<p>
+📡 اتصال داده آینده آماده است
+</p>
+
+<p>
+🌐 وضعیت انتشار:
+<span class="green">
+PUBLIC ONLINE
+</span>
+</p>
+
+</div>
+
+
+<!-- ==========================
+ CREATOR
+========================== -->
 
 <div class="box">
 
 <h2>
-🏆 HASINEH MARKET
+🏆 بازار حسینه
 </h2>
 
+<div class="creator">
 
-<p>
-Creator:
-</p>
+خالق:<br>
 
-
-<p>
+<strong class="gold">
 Hassan Divanizadeh
-</p>
+</strong>
 
+<br>
 
-<p>
-Bandar Hasineh
-</p>
+بندر حسینه
 
+<br>
 
-<p>
-Digital Smart Market Platform
-</p>
+پلتفرم بازار هوشمند دیجیتال
 
+<br><br>
 
-<p>
-HASINEH MARKET © ۱۴۰۵
-</p>
-
+بازار حسینه © ۱۴۰۵
 
 </div>
+
+</div>
+
+
+<!-- ==========================
+ V147 TIME SCRIPT
+========================== -->
+
+<script>
+
+function updateIranTime(){
+
+const now = new Date();
+
+const iranTime =
+new Date(
+now.toLocaleString(
+"en-US",
+{
+timeZone:"Asia/Tehran"
+}
+)
+);
+
+let h =
+String(iranTime.getHours()).padStart(2,"0");
+
+let m =
+String(iranTime.getMinutes()).padStart(2,"0");
+
+let s =
+String(iranTime.getSeconds()).padStart(2,"0");
+
+document.getElementById("iran-time").textContent =
+h + ":" + m + ":" + s;
+
+}
+
+function updateSolarDate(){
+
+const now = new Date();
+
+const iranDate =
+new Date(
+now.toLocaleString(
+"en-US",
+{
+timeZone:"Asia/Tehran"
+}
+)
+);
+
+try{
+
+const formatter =
+new Intl.DateTimeFormat(
+"fa-IR-u-ca-persian",
+{
+timeZone:"Asia/Tehran",
+year:"numeric",
+month:"2-digit",
+day:"2-digit"
+}
+);
+
+document.getElementById("solar-date").textContent =
+formatter.format(iranDate);
+
+}catch(e){
+
+document.getElementById("solar-date").textContent =
+"۱۴۰۵/--/--";
+
+}
+
+}
+
+function updateMarket(){
+
+updateIranTime();
+
+updateSolarDate();
+
+}
+
+updateMarket();
+
+setInterval(updateMarket,1000);
+
+</script>
+
+
+</body>
+
+</html>
