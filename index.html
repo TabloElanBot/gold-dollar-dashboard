@@ -903,3 +903,278 @@ updateMarketClock,
 <!-- ==========================
  END V149
 ========================== -->
+<!-- ==========================
+ HASINEH MARKET V150
+ MARKET RATE ENGINE
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+🧠 موتور نرخ بازار V150
+</div>
+
+<p>
+سامانه آماده دریافت و بررسی نرخ‌های بازار است.
+</p>
+
+<div class="status-row">
+
+<span>
+📡 دریافت اطلاعات
+</span>
+
+<span class="gold status-value"
+id="rate-engine-status">
+در انتظار اتصال
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+🔎 بررسی اعتبار نرخ
+</span>
+
+<span class="gold status-value"
+id="rate-validation-status">
+آماده
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+🕒 زمان دریافت اطلاعات
+</span>
+
+<span class="gold status-value"
+id="rate-received-time">
+---
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+📊 وضعیت داده بازار
+</span>
+
+<span class="gold status-value"
+id="market-data-status">
+در انتظار داده معتبر
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ==========================
+ V150 RATE ENGINE RULES
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+⚙️ استاندارد نمایش نرخ
+</div>
+
+<div class="status-row">
+
+<span>
+واحد پول
+</span>
+
+<span class="green status-value">
+تومان
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+نوع داده
+</span>
+
+<span class="green status-value">
+نرخ بازار
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+اعتبارسنجی
+</span>
+
+<span class="green status-value">
+فعال
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+نمایش نرخ نامعتبر
+</span>
+
+<span class="red status-value">
+ممنوع
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ==========================
+ V150 MARKET DATA CONTROL
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+🛡️ کنترل کیفیت اطلاعات بازار
+</div>
+
+<p>
+🟢 نرخ معتبر → نمایش در تابلو
+</p>
+
+<p>
+🟡 نرخ ناقص → در انتظار بررسی
+</p>
+
+<p>
+🔴 نرخ نامعتبر → عدم نمایش
+</p>
+
+<p>
+⚪ نبود اطلاعات → نمایش «در انتظار نرخ»
+</p>
+
+</div>
+
+
+<!-- ==========================
+ V150 CONNECTION STATUS
+========================== -->
+
+<div class="box">
+
+<div class="box-title">
+📡 وضعیت اتصال داده
+</div>
+
+<div class="status-row">
+
+<span>
+منبع داده اصلی
+</span>
+
+<span class="gold status-value">
+در انتظار اتصال
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+منبع جایگزین
+</span>
+
+<span class="gold status-value">
+آماده
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+کنترل اختلاف نرخ
+</span>
+
+<span class="green status-value">
+فعال
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+ثبت آخرین نرخ معتبر
+</span>
+
+<span class="green status-value">
+آماده
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ==========================
+ V150 ENGINE SCRIPT
+========================== -->
+
+<script>
+
+(function(){
+
+const engineStatus =
+document.getElementById(
+"rate-engine-status"
+);
+
+const validationStatus =
+document.getElementById(
+"rate-validation-status"
+);
+
+const dataStatus =
+document.getElementById(
+"market-data-status"
+);
+
+if(engineStatus){
+engineStatus.textContent =
+"در انتظار اتصال";
+}
+
+if(validationStatus){
+validationStatus.textContent =
+"آماده";
+}
+
+if(dataStatus){
+dataStatus.textContent =
+"در انتظار داده معتبر";
+}
+
+})();
+
+</script>
+
+<!-- ==========================
+ END HASINEH MARKET V150
+========================== -->
