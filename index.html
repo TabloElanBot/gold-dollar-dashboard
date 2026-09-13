@@ -1,724 +1,184 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<!-- ==========================
+ HASINEH MARKET V117
+ PREMIUM USER DASHBOARD ENGINE
+========================== -->
 
-<head>
 
-<meta charset="UTF-8">
+<div class="box">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="box-title">
 
-
-<meta name="theme-color" content="#050505">
-
-
-<title>
-
-HASINEH MARKET V116 AI ANALYTICS ENGINE
-
-</title>
-
-
-
-<style>
-
-
-*{
-
-box-sizing:border-box;
-
-}
-
-
-
-body{
-
-
-margin:0;
-
-
-padding:0;
-
-
-
-background:
-
-
-radial-gradient(
-circle at top,
-#333333,
-#050505 65%
-);
-
-
-
-color:white;
-
-
-
-font-family:
-
-
-Tahoma,
-Arial,
-sans-serif;
-
-
-
-min-height:100vh;
-
-
-}
-
-
-
-
-
-.header-v116{
-
-
-text-align:center;
-
-
-padding:65px 15px;
-
-
-
-background:
-
-
-linear-gradient(
-145deg,
-#050505,
-#292929
-);
-
-
-
-border-bottom:
-
-
-1px solid rgba(255,215,0,0.8);
-
-
-
-box-shadow:
-
-
-0 20px 70px rgba(255,215,0,0.25);
-
-
-
-}
-
-
-
-
-
-.brand-v116{
-
-
-font-size:48px;
-
-
-
-font-weight:bold;
-
-
-
-letter-spacing:6px;
-
-
-
-color:#ffd700;
-
-
-
-}
-
-
-
-
-
-.subtitle-v116{
-
-
-margin-top:18px;
-
-
-
-font-size:18px;
-
-
-
-}
-
-
-
-
-
-.city-v116{
-
-
-margin-top:12px;
-
-
-
-color:#d4af37;
-
-
-
-}
-
-
-
-
-
-.badge-v116{
-
-
-display:inline-block;
-
-
-
-margin-top:20px;
-
-
-
-padding:12px 32px;
-
-
-
-border-radius:35px;
-
-
-
-border:
-
-
-1px solid rgba(255,215,0,0.55);
-
-
-
-background:
-
-
-rgba(255,215,0,0.08);
-
-
-
-color:#ffd700;
-
-
-
-}
-
-
-
-
-
-.container-v116{
-
-
-width:92%;
-
-
-max-width:1150px;
-
-
-margin:40px auto;
-
-
-}
-
-
-
-
-
-.box-v116{
-
-
-background:
-
-
-linear-gradient(
-145deg,
-#090909,
-#1d1d1d
-);
-
-
-
-border:
-
-
-1px solid rgba(212,175,55,0.45);
-
-
-
-border-radius:30px;
-
-
-
-padding:28px;
-
-
-
-margin-bottom:30px;
-
-
-
-box-shadow:
-
-
-0 0 55px rgba(212,175,55,0.15);
-
-
-
-}
-
-
-
-
-
-.title-v116{
-
-
-text-align:center;
-
-
-font-size:25px;
-
-
-font-weight:bold;
-
-
-color:#ffd700;
-
-
-
-margin-bottom:25px;
-
-
-
-}
-     
-.analytics-grid-v116{
-
-
-display:grid;
-
-
-grid-template-columns:repeat(
-3,
-1fr
-);
-
-
-
-gap:15px;
-
-
-
-}
-
-
-
-
-
-.analytics-card-v116{
-
-
-padding:22px;
-
-
-
-border-radius:22px;
-
-
-
-background:
-
-
-rgba(255,255,255,0.04);
-
-
-
-border:
-
-
-1px solid rgba(212,175,55,0.25);
-
-
-
-text-align:center;
-
-
-
-}
-
-
-
-
-
-.analytics-title-v116{
-
-
-color:#ffd700;
-
-
-font-weight:bold;
-
-
-font-size:18px;
-
-
-
-}
-
-
-
-
-
-.analytics-value-v116{
-
-
-margin-top:10px;
-
-
-font-size:14px;
-
-
-
-}
-
-
-
-
-
-.status-row-v116{
-
-
-display:flex;
-
-
-justify-content:space-between;
-
-
-align-items:center;
-
-
-
-padding:14px 5px;
-
-
-
-border-bottom:
-
-
-1px solid rgba(212,175,55,0.15);
-
-
-
-}
-
-
-
-
-
-.status-row-v116:last-child{
-
-
-border-bottom:none;
-
-
-}
-
-
-
-
-
-.gold-v116{
-
-
-color:#ffd700;
-
-
-font-weight:bold;
-
-
-
-}
-
-
-
-
-
-.green-v116{
-
-
-color:#00ff88;
-
-
-font-weight:bold;
-
-
-
-}
-
-
-
-
-
-.blue-v116{
-
-
-color:#66ccff;
-
-
-font-weight:bold;
-
-
-
-}
-
-
-
-
-
-</style>
-
-
-</head>
-
-
-
-
-
-<body>
-
-
-<header class="header-v116">
-
-
-<div class="brand-v116">
-
-HASINEH MARKET
+🏆 HASINEH PREMIUM DASHBOARD V117
 
 </div>
 
 
+<div style="text-align:center; margin-bottom:15px;">
 
-<div class="subtitle-v116">
+🧠 Smart User Market Center
 
-Smart AI Market Analytics Platform
+<br>
 
-</div>
+<span class="gold">
 
-
-
-<div class="city-v116">
-
-Bandar Hasineh
-
-</div>
-
-
-
-<div class="badge-v116">
-
-V116 AI ANALYTICS ENGINE
-
-</div>
-
-
-</header>
-
-
-
-
-
-<div class="container-v116">
-     
-<div class="box-v116">
-
-
-<div class="title-v116">
-
-🧠 AI MARKET ANALYSIS CENTER
-
-</div>
-
-
-
-
-
-<div class="analytics-grid-v116">
-
-
-
-<div class="analytics-card-v116">
-
-
-<div class="analytics-title-v116">
-
-📈 Trend Detection
-
-</div>
-
-
-<div class="analytics-value-v116">
-
-Market Direction Analysis
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="analytics-card-v116">
-
-
-<div class="analytics-title-v116">
-
-📊 Smart Reports
-
-</div>
-
-
-<div class="analytics-value-v116">
-
-AI Generated Reports
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="analytics-card-v116">
-
-
-<div class="analytics-title-v116">
-
-🔍 Market Insight
-
-</div>
-
-
-<div class="analytics-value-v116">
-
-Smart Overview
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="box-v116">
-
-
-<div class="title-v116">
-
-📈 MARKET TREND STATUS
-
-</div>
-
-
-
-
-
-<div class="status-row-v116">
-
-
-<span>
-
-Gold Trend Analysis
+AI Powered Market Experience
 
 </span>
 
+</div>
 
-<span class="green-v116">
+
+
+<div class="dashboard-grid">
+
+
+
+<div class="dashboard-card">
+
+<div style="font-size:30px;">
+🟡
+</div>
+
+<h3>
+HASINEH GOLD
+</h3>
+
+<p>
+Gold Market Dashboard
+</p>
+
+<span class="green">
+ACTIVE
+</span>
+
+</div>
+
+
+
+
+<div class="dashboard-card">
+
+<div style="font-size:30px;">
+💵
+</div>
+
+<h3>
+HASINEH CURRENCY
+</h3>
+
+<p>
+Currency Monitoring System
+</p>
+
+<span class="green">
+ACTIVE
+</span>
+
+</div>
+
+
+
+
+<div class="dashboard-card">
+
+<div style="font-size:30px;">
+🚗
+</div>
+
+<h3>
+HASINEH AUTO
+</h3>
+
+<p>
+Iran Car Market Platform
+</p>
+
+<span class="gold">
+READY FOUNDATION
+</span>
+
+</div>
+
+
+
+
+<div class="dashboard-card">
+
+<div style="font-size:30px;">
+🏠
+</div>
+
+<h3>
+HASINEH REAL ESTATE
+</h3>
+
+<p>
+Housing Market Platform
+</p>
+
+<span class="gold">
+READY FOUNDATION
+</span>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<div class="box-title">
+
+📊 HASINEH AI MARKET SUMMARY V117
+
+</div>
+
+
+<div>
+
+🧠 Market Intelligence:
+
+<span class="green">
 
 ACTIVE
 
 </span>
 
+</div>
+
+
+<div>
+
+📈 Trend Monitoring:
+
+<span class="green">
+
+RUNNING
+
+</span>
 
 </div>
 
 
+<div>
 
+🔍 Smart Overview:
 
+<span class="gold">
 
-<div class="status-row-v116">
-
-
-<span>
-
-Currency Trend Analysis
+ENABLED
 
 </span>
-
-
-<span class="gold-v116">
-
-SUPPORTED
-
-</span>
-
 
 </div>
-
-
-
-
-
-<div class="status-row-v116">
-
-
-<span>
-
-Future Prediction Engine
-
-</span>
-
-
-<span class="blue-v116">
-
-FOUNDATION
-
-</span>
-
-
-</div>
-
 
 
 </div>
@@ -727,297 +187,37 @@ FOUNDATION
 
 
 
+<div class="box">
 
 
+<div class="box-title">
 
-
-<div class="box-v116">
-
-
-<div class="title-v116">
-
-⚡ AI DECISION SUPPORT
+🌟 USER EXPERIENCE CENTER
 
 </div>
 
 
+<div style="text-align:center;">
 
-
-
-<div class="status-row-v116">
-
-
-<span>
-
-Smart Market Summary
-
-</span>
-
-
-<span class="green-v116">
-
-READY
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="status-row-v116">
-
-
-<span>
-
-User Market Guidance
-
-</span>
-
-
-<span class="gold-v116">
-
-SUPPORTED
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="status-row-v116">
-
-
-<span>
-
-Advanced AI Recommendation
-
-</span>
-
-
-<span class="blue-v116">
-
-FUTURE
-
-</span>
-
-
-</div>
-
-
-
-</div>
-<div class="box-v116">
-
-
-<div class="title-v116">
-
-🚀 AI INTELLIGENCE CENTER
-
-</div>
-
-
-
-
-
-<div class="status-row-v116">
-
-
-<span>
-
-AI Analytics Core
-
-</span>
-
-
-<span class="green-v116">
-
-READY
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="status-row-v116">
-
-
-<span>
-
-Smart Market Reports
-
-</span>
-
-
-<span class="gold-v116">
-
-SUPPORTED
-
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="status-row-v116">
-
-
-<span>
-
-Predictive Market AI
-
-</span>
-
-
-<span class="blue-v116">
-
-PLANNED
-
-</span>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="box-v116">
-
-
-<div class="title-v116">
-
-🌟 SMART MARKET INSIGHT
-
-</div>
-
-
-
-
-
-<div style="text-align:center;line-height:2.2;">
-
-
-Market Data Understanding
-
+Welcome to
 
 <br>
 
+<b class="gold">
 
-Trend Analysis
+HASINEH MARKET
 
-
-<br>
-
-
-AI Market Overview
-
+</b>
 
 <br><br>
-
-
-<span class="gold-v116">
-
-HASINEH AI ANALYTICS ENGINE
-
-</span>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="box-v116">
-
-
-<div class="title-v116">
-
-🏆 HASINEH MARKET
-
-</div>
-
-
-
-
-<div style="text-align:center;padding:25px;color:#d4af37;">
-
 
 Digital Smart Market Platform
 
-
-<br><br>
-
-
-<span class="gold-v116">
-
-Creator : Hassan Divanizadeh
-
-</span>
-
-
 <br>
 
-
-Bandar Hasineh
-
-
-<br><br>
-
-
-HASINEH MARKET © ۱۴۰۵
-
+Future of Iranian Market Information
 
 </div>
 
 
-
 </div>
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-</body>
-
-
-</html>
