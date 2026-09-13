@@ -9,7 +9,7 @@
 content="width=device-width, initial-scale=1.0">
 
 <title>
-HASINEH MARKET V147
+HASINEH MARKET V148
 </title>
 
 <style>
@@ -96,6 +96,13 @@ font-size:22px;
 font-weight:bold;
 color:#d4af37;
 margin-bottom:8px;
+direction:rtl;
+unicode-bidi:plaintext;
+}
+
+.market-change{
+font-size:14px;
+margin-top:6px;
 }
 
 .market-status{
@@ -107,12 +114,27 @@ color:#aaa;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:9px 0;
+padding:10px 0;
 border-bottom:1px solid #252525;
+gap:12px;
 }
 
 .status-row:last-child{
 border-bottom:none;
+}
+
+.status-value{
+font-weight:bold;
+}
+
+.iran-clock{
+direction:ltr;
+unicode-bidi:isolate;
+font-family:Tahoma,Arial,sans-serif;
+font-variant-numeric:tabular-nums;
+letter-spacing:1px;
+min-width:90px;
+display:inline-block;
 }
 
 .creator{
@@ -122,6 +144,11 @@ border-top:1px solid #40340f;
 color:#aaa;
 font-size:13px;
 line-height:1.9;
+}
+
+.creator-name{
+color:#d4af37;
+font-weight:bold;
 }
 
 @media(max-width:600px){
@@ -157,7 +184,7 @@ grid-template-columns:1fr;
 
 
 <!-- ==========================
- HASINEH MARKET V147
+ HASINEH MARKET V148
  MAIN HEADER
 ========================== -->
 
@@ -172,7 +199,7 @@ grid-template-columns:1fr;
 </h2>
 
 <p>
-تابلو هوشمند بازار ایران
+تابلو آنلاین بازار ایران
 </p>
 
 <p>
@@ -180,20 +207,20 @@ grid-template-columns:1fr;
 </p>
 
 <p>
-🟢 عمومی آنلاین
+🟢 سامانه آنلاین
 </p>
 
 </div>
 
 
 <!-- ==========================
- V147 MARKET BOARD
+ V148 MARKET BOARD
 ========================== -->
 
 <div class="box">
 
 <div class="box-title">
-📊 تابلوی بازار امروز
+📊 تابلوی نرخ بازار
 </div>
 
 <div class="market-grid">
@@ -209,8 +236,14 @@ grid-template-columns:1fr;
 --- تومان
 </div>
 
+<div class="market-change">
+<span class="gold">
+تغییر: ---
+</span>
+</div>
+
 <div class="market-status">
-آماده دریافت اطلاعات
+در انتظار نرخ بازار
 </div>
 
 </div>
@@ -226,8 +259,14 @@ grid-template-columns:1fr;
 --- تومان
 </div>
 
+<div class="market-change">
+<span class="gold">
+تغییر: ---
+</span>
+</div>
+
 <div class="market-status">
-آماده دریافت اطلاعات
+در انتظار نرخ بازار
 </div>
 
 </div>
@@ -243,8 +282,14 @@ grid-template-columns:1fr;
 --- تومان
 </div>
 
+<div class="market-change">
+<span class="gold">
+تغییر: ---
+</span>
+</div>
+
 <div class="market-status">
-آماده دریافت اطلاعات
+در انتظار نرخ بازار
 </div>
 
 </div>
@@ -260,8 +305,14 @@ grid-template-columns:1fr;
 --- تومان
 </div>
 
+<div class="market-change">
+<span class="gold">
+تغییر: ---
+</span>
+</div>
+
 <div class="market-status">
-آماده دریافت اطلاعات
+در انتظار نرخ بازار
 </div>
 
 </div>
@@ -277,8 +328,14 @@ grid-template-columns:1fr;
 --- تومان
 </div>
 
+<div class="market-change">
+<span class="gold">
+تغییر: ---
+</span>
+</div>
+
 <div class="market-status">
-آماده دریافت اطلاعات
+در انتظار نرخ بازار
 </div>
 
 </div>
@@ -294,8 +351,14 @@ grid-template-columns:1fr;
 --- تومان
 </div>
 
+<div class="market-change">
+<span class="gold">
+تغییر: ---
+</span>
+</div>
+
 <div class="market-status">
-آماده دریافت اطلاعات
+در انتظار نرخ بازار
 </div>
 
 </div>
@@ -307,23 +370,23 @@ grid-template-columns:1fr;
 
 
 <!-- ==========================
- V147 TIME CENTER
+ V148 IRAN TIME
 ========================== -->
 
 <div class="box">
 
 <div class="box-title">
-🕒 مرکز زمان حسینه V147
+🕒 زمان بازار حسینه
 </div>
 
 <div class="status-row">
 
 <span>
-🇮🇷 به وقت بازار ایران
+🇮🇷 ساعت رسمی ایران
 </span>
 
-<span class="green">
-ONLINE
+<span class="green status-value">
+فعال
 </span>
 
 </div>
@@ -335,8 +398,10 @@ ONLINE
 🕒 ساعت
 </span>
 
-<span class="gold" id="iran-time">
---:--:--
+<span
+class="gold iran-clock"
+id="iran-time">
+۰۰:۰۰:۰۰
 </span>
 
 </div>
@@ -348,8 +413,10 @@ ONLINE
 📅 تاریخ شمسی
 </span>
 
-<span class="gold" id="solar-date">
-۱۴۰۵/--/--
+<span
+class="gold"
+id="solar-date">
+۱۴۰۵/۰۶/۲۲
 </span>
 
 </div>
@@ -358,11 +425,11 @@ ONLINE
 <div class="status-row">
 
 <span>
-🌙 وضعیت روز
+🌙 وضعیت روز بازار
 </span>
 
-<span class="green">
-ACTIVE
+<span class="green status-value">
+فعال
 </span>
 
 </div>
@@ -371,37 +438,24 @@ ACTIVE
 
 
 <!-- ==========================
- V147 SYSTEM STATUS
+ V148 DATA SYSTEM
 ========================== -->
 
 <div class="box">
 
 <div class="box-title">
-📡 سیستم به‌روزرسانی بازار V147
+📡 سامانه اطلاعات بازار V148
 </div>
 
 
 <div class="status-row">
 
 <span>
-🔄 تازه‌سازی خودکار
+🔄 به‌روزرسانی خودکار
 </span>
 
-<span class="green">
-READY
-</span>
-
-</div>
-
-
-<div class="status-row">
-
-<span>
-🕒 آخرین بروزرسانی
-</span>
-
-<span class="gold">
-منتظر اطلاعات
+<span class="green status-value">
+آماده
 </span>
 
 </div>
@@ -410,11 +464,11 @@ READY
 <div class="status-row">
 
 <span>
-📊 جلسه بازار
+🕒 آخرین به‌روزرسانی
 </span>
 
-<span class="green">
-OPEN
+<span class="gold status-value">
+در انتظار نرخ
 </span>
 
 </div>
@@ -423,11 +477,24 @@ OPEN
 <div class="status-row">
 
 <span>
-🧠 همگام‌سازی هوشمند
+📊 وضعیت بازار
 </span>
 
-<span class="green">
-ACTIVE
+<span class="green status-value">
+فعال
+</span>
+
+</div>
+
+
+<div class="status-row">
+
+<span>
+🧠 همگام‌سازی داده‌ها
+</span>
+
+<span class="green status-value">
+فعال
 </span>
 
 </div>
@@ -436,13 +503,13 @@ ACTIVE
 
 
 <!-- ==========================
- V147 PUBLIC STATUS
+ V148 SYSTEM STATUS
 ========================== -->
 
 <div class="box">
 
 <div class="box-title">
-⚡ وضعیت انتشار سیستم V147
+⚡ وضعیت سامانه V148
 </div>
 
 <p>
@@ -450,17 +517,17 @@ ACTIVE
 </p>
 
 <p>
-🧠 ارتقاء وضعیت هوشمند انجام شد
+🧠 سامانه هوشمند آماده است
 </p>
 
 <p>
-📡 اتصال داده آینده آماده است
+📡 اتصال به منبع داده آماده است
 </p>
 
 <p>
 🌐 وضعیت انتشار:
 <span class="green">
-PUBLIC ONLINE
+عمومی و آنلاین
 </span>
 </p>
 
@@ -479,11 +546,13 @@ PUBLIC ONLINE
 
 <div class="creator">
 
-خالق:<br>
+خالق:
 
-<strong class="gold">
+<br>
+
+<span class="creator-name">
 Hassan Divanizadeh
-</strong>
+</span>
 
 <br>
 
@@ -503,18 +572,27 @@ Hassan Divanizadeh
 
 
 <!-- ==========================
- V147 TIME SCRIPT
+ V148 TIME ENGINE
 ========================== -->
 
 <script>
 
-function updateIranTime(){
+function toPersianDigits(value){
 
-const now = new Date();
+return String(value)
+.replace(/\d/g,function(digit){
 
-const iranTime =
-new Date(
-now.toLocaleString(
+return "۰۱۲۳۴۵۶۷۸۹"[digit];
+
+});
+
+}
+
+
+function getIranDate(){
+
+return new Date(
+new Date().toLocaleString(
 "en-US",
 {
 timeZone:"Asia/Tehran"
@@ -522,33 +600,43 @@ timeZone:"Asia/Tehran"
 )
 );
 
-let h =
-String(iranTime.getHours()).padStart(2,"0");
+}
 
-let m =
-String(iranTime.getMinutes()).padStart(2,"0");
 
-let s =
-String(iranTime.getSeconds()).padStart(2,"0");
+function updateIranTime(){
 
-document.getElementById("iran-time").textContent =
-h + ":" + m + ":" + s;
+const iranDate =
+getIranDate();
+
+let hours =
+String(iranDate.getHours())
+.padStart(2,"0");
+
+let minutes =
+String(iranDate.getMinutes())
+.padStart(2,"0");
+
+let seconds =
+String(iranDate.getSeconds())
+.padStart(2,"0");
+
+const fixedTime =
+hours + ":" +
+minutes + ":" +
+seconds;
+
+document.getElementById(
+"iran-time"
+).textContent =
+toPersianDigits(fixedTime);
 
 }
+
 
 function updateSolarDate(){
 
-const now = new Date();
-
 const iranDate =
-new Date(
-now.toLocaleString(
-"en-US",
-{
-timeZone:"Asia/Tehran"
-}
-)
-);
+getIranDate();
 
 try{
 
@@ -563,19 +651,27 @@ day:"2-digit"
 }
 );
 
-document.getElementById("solar-date").textContent =
+let solar =
 formatter.format(iranDate);
 
-}catch(e){
+document.getElementById(
+"solar-date"
+).textContent =
+solar;
 
-document.getElementById("solar-date").textContent =
-"۱۴۰۵/--/--";
+}catch(error){
+
+document.getElementById(
+"solar-date"
+).textContent =
+"۱۴۰۵/۰۶/۲۲";
 
 }
 
 }
 
-function updateMarket(){
+
+function updateMarketClock(){
 
 updateIranTime();
 
@@ -583,9 +679,13 @@ updateSolarDate();
 
 }
 
-updateMarket();
 
-setInterval(updateMarket,1000);
+updateMarketClock();
+
+setInterval(
+updateMarketClock,
+1000
+);
 
 </script>
 
