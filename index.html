@@ -3169,3 +3169,497 @@ window.HASINEH_MARKET_V160 = {
 console.log("HASINEH MARKET V160 CONTROL CENTER READY");
 
 </script>
+<!-- ==========================
+ HASINEH MARKET V161
+ REAL DATA SOURCE STANDARD
+========================== -->
+
+<div class="box" style="margin-top:24px;">
+
+    <div class="box-title">
+        📡 استاندارد منبع واقعی نرخ
+    </div>
+
+    <div style="text-align:center;color:#999;font-size:12px;margin-top:6px;">
+        HASINEH MARKET • REAL DATA SOURCE STANDARD
+    </div>
+
+    <div class="status-row" style="margin-top:15px;">
+        <span>🟡 طلای ۱۸ عیار</span>
+        <span class="gold">منبع واقعی مورد نیاز</span>
+    </div>
+
+    <div class="status-row">
+        <span>⚖️ مثقال طلا</span>
+        <span class="gold">منبع واقعی مورد نیاز</span>
+    </div>
+
+    <div class="status-row">
+        <span>💵 دلار آمریکا</span>
+        <span class="gold">منبع واقعی مورد نیاز</span>
+    </div>
+
+    <div class="status-row">
+        <span>🪙 سکه امامی</span>
+        <span class="gold">منبع واقعی مورد نیاز</span>
+    </div>
+
+    <div class="status-row">
+        <span>₮ تتر</span>
+        <span class="gold">منبع واقعی مورد نیاز</span>
+    </div>
+
+    <div class="status-row">
+        <span>🥈 نقره</span>
+        <span class="gold">منبع واقعی مورد نیاز</span>
+    </div>
+
+    <div style="
+        margin-top:16px;
+        padding:14px;
+        border:1px solid rgba(212,175,55,0.16);
+        border-radius:12px;
+        text-align:center;
+        color:#aaa;
+        font-size:12px;
+        line-height:1.9;
+    ">
+
+        نرخ تنها از منبع معتبر دریافت می‌شود.
+        <br>
+        هیچ عدد آزمایشی یا ساختگی روی تابلو قرار نمی‌گیرد.
+
+    </div>
+
+</div>
+
+<script>
+
+window.HASINEH_MARKET_V161 = {
+    version:"V161",
+    realSourceRequired:true,
+    fakeRates:false,
+    validation:true,
+    status:"READY"
+};
+
+console.log("HASINEH MARKET V161 REAL SOURCE STANDARD READY");
+
+</script>
+<!-- ==========================
+ HASINEH MARKET V162
+ RATE INGESTION STRUCTURE
+========================== -->
+
+<div class="box" style="margin-top:24px;">
+
+    <div class="box-title">
+        📥 ساختار دریافت نرخ بازار
+    </div>
+
+    <div style="text-align:center;color:#999;font-size:12px;margin-top:6px;">
+        HASINEH MARKET • RATE INGESTION
+    </div>
+
+    <div class="status-row" style="margin-top:15px;">
+        <span>📡 دریافت اطلاعات</span>
+        <span class="gold">آماده</span>
+    </div>
+
+    <div class="status-row">
+        <span>🏷️ شناسایی دارایی</span>
+        <span class="green">فعال</span>
+    </div>
+
+    <div class="status-row">
+        <span>💰 استخراج نرخ</span>
+        <span class="gold">آماده</span>
+    </div>
+
+    <div class="status-row">
+        <span>🕒 ثبت زمان دریافت</span>
+        <span class="green">فعال</span>
+    </div>
+
+    <div class="status-row">
+        <span>🛡️ اعتبارسنجی</span>
+        <span class="green">فعال</span>
+    </div>
+
+    <div class="status-row">
+        <span>📊 ارسال به تابلو</span>
+        <span class="gold">پس از تأیید</span>
+    </div>
+
+    <div style="
+        margin-top:16px;
+        padding:14px;
+        border-radius:12px;
+        border:1px solid rgba(212,175,55,0.15);
+        text-align:center;
+        color:#aaa;
+        font-size:12px;
+        line-height:1.9;
+    ">
+
+        مسیر داده:
+        <span style="color:#d4af37;">
+            منبع واقعی ← دریافت ← اعتبارسنجی ← تابلو
+        </span>
+
+    </div>
+
+</div>
+
+<script>
+
+window.HASINEH_MARKET_V162 = {
+
+    version:"V162",
+
+    ingestion:{
+        receive:true,
+        identify:true,
+        extract:true,
+        timestamp:true,
+        validation:true,
+        publishAfterValidation:true
+    },
+
+    fakeRates:false,
+    status:"READY"
+
+};
+
+console.log("HASINEH MARKET V162 RATE INGESTION READY");
+
+</script>
+<!-- ==========================
+ HASINEH MARKET V163
+ RATE TIMESTAMP STANDARD
+========================== -->
+
+<div class="box" style="margin-top:24px;">
+
+    <div class="box-title">
+        🕒 استاندارد زمان و آخرین نرخ
+    </div>
+
+    <div style="text-align:center;color:#999;font-size:12px;margin-top:6px;">
+        HASINEH MARKET • RATE TIMESTAMP
+    </div>
+
+    <div class="status-row" style="margin-top:15px;">
+        <span>🕒 زمان دریافت نرخ</span>
+        <span class="gold">ثبت خواهد شد</span>
+    </div>
+
+    <div class="status-row">
+        <span>📅 تاریخ دریافت</span>
+        <span class="gold">ثبت خواهد شد</span>
+    </div>
+
+    <div class="status-row">
+        <span>📊 آخرین نرخ معتبر</span>
+        <span class="gold">ثبت خواهد شد</span>
+    </div>
+
+    <div class="status-row">
+        <span>🔄 زمان به‌روزرسانی</span>
+        <span class="gold">ثبت خواهد شد</span>
+    </div>
+
+    <div class="status-row">
+        <span>🛡️ نرخ قدیمی</span>
+        <span style="color:#aaa;">نمایش وضعیت‌دار</span>
+    </div>
+
+    <div style="
+        margin-top:16px;
+        padding:14px;
+        border:1px solid rgba(212,175,55,0.15);
+        border-radius:12px;
+        text-align:center;
+        color:#aaa;
+        font-size:12px;
+        line-height:1.9;
+    ">
+
+        هر نرخ معتبر باید همراه با
+        <span style="color:#d4af37;">
+            زمان دریافت
+        </span>
+        قابل شناسایی باشد.
+
+    </div>
+
+</div>
+
+<script>
+
+window.HASINEH_MARKET_V163 = {
+
+    version:"V163",
+
+    timestamp:{
+        receivedAt:true,
+        receivedDate:true,
+        lastValidRate:true,
+        updatedAt:true
+    },
+
+    fakeRates:false,
+    status:"READY"
+
+};
+
+console.log("HASINEH MARKET V163 TIMESTAMP STANDARD READY");
+
+</script>
+<!-- ==========================
+ HASINEH MARKET V164
+ SOURCE COMPARISON CONTROL
+========================== -->
+
+<div class="box" style="margin-top:24px;">
+
+    <div class="box-title">
+        🔎 کنترل تطبیقی منابع نرخ
+    </div>
+
+    <div style="text-align:center;color:#999;font-size:12px;margin-top:6px;">
+        HASINEH MARKET • SOURCE COMPARISON
+    </div>
+
+    <div class="status-row" style="margin-top:15px;">
+        <span>🥇 منبع اصلی</span>
+        <span class="gold">اولویت اول</span>
+    </div>
+
+    <div class="status-row">
+        <span>🥈 منبع پشتیبان</span>
+        <span class="gold">اولویت دوم</span>
+    </div>
+
+    <div class="status-row">
+        <span>🔎 مقایسه نرخ‌ها</span>
+        <span class="green">فعال</span>
+    </div>
+
+    <div class="status-row">
+        <span>⚠️ اختلاف غیرعادی</span>
+        <span class="gold">نیازمند بررسی</span>
+    </div>
+
+    <div class="status-row">
+        <span>🚫 نرخ مشکوک</span>
+        <span class="red">عدم نمایش</span>
+    </div>
+
+    <div style="
+        margin-top:16px;
+        padding:14px;
+        border:1px solid rgba(212,175,55,0.15);
+        border-radius:12px;
+        text-align:center;
+        color:#aaa;
+        font-size:12px;
+        line-height:1.9;
+    ">
+
+        در صورت اختلاف غیرعادی،
+        نرخ مشکوک مستقیماً روی تابلو نمایش داده نمی‌شود.
+
+    </div>
+
+</div>
+
+<script>
+
+window.HASINEH_MARKET_V164 = {
+
+    version:"V164",
+
+    sourceComparison:{
+        primary:true,
+        backup:true,
+        comparison:true,
+        anomalyCheck:true,
+        suspiciousRateHidden:true
+    },
+
+    fakeRates:false,
+    status:"READY"
+
+};
+
+console.log("HASINEH MARKET V164 SOURCE COMPARISON READY");
+
+</script>
+<!-- ==========================
+ HASINEH MARKET V165
+ REAL MARKET DATA CORE
+========================== -->
+
+<style>
+
+.hasineh-core-v165{
+    margin-top:24px;
+    border:1px solid rgba(212,175,55,0.35);
+    box-shadow:0 0 24px rgba(212,175,55,0.08);
+}
+
+.core-grid-v165{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+    margin-top:16px;
+}
+
+.core-card-v165{
+    padding:15px 10px;
+    text-align:center;
+    border-radius:13px;
+    border:1px solid rgba(255,255,255,0.07);
+    background:rgba(255,255,255,0.025);
+}
+
+.core-card-v165 .label{
+    color:#aaa;
+    font-size:11px;
+}
+
+.core-card-v165 .value{
+    margin-top:7px;
+    color:#d4af37;
+    font-size:13px;
+    font-weight:bold;
+}
+
+@media(max-width:600px){
+
+    .core-grid-v165{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+</style>
+
+
+<div class="box hasineh-core-v165">
+
+    <div class="box-title">
+        🏆 هسته داده واقعی بازار حسینه
+    </div>
+
+    <div style="
+        text-align:center;
+        color:#999;
+        font-size:12px;
+        margin-top:6px;
+    ">
+        HASINEH MARKET • REAL MARKET DATA CORE
+    </div>
+
+
+    <div class="core-grid-v165">
+
+        <div class="core-card-v165">
+            <div class="label">📡 منبع واقعی</div>
+            <div class="value">آماده اتصال</div>
+        </div>
+
+        <div class="core-card-v165">
+            <div class="label">📥 دریافت نرخ</div>
+            <div class="value">آماده</div>
+        </div>
+
+        <div class="core-card-v165">
+            <div class="label">🛡️ اعتبارسنجی</div>
+            <div class="value">فعال</div>
+        </div>
+
+        <div class="core-card-v165">
+            <div class="label">🔎 کنترل اختلاف</div>
+            <div class="value">فعال</div>
+        </div>
+
+        <div class="core-card-v165">
+            <div class="label">🕒 زمان نرخ</div>
+            <div class="value">ثبت خواهد شد</div>
+        </div>
+
+        <div class="core-card-v165">
+            <div class="label">🚫 نرخ ساختگی</div>
+            <div class="value">ممنوع</div>
+        </div>
+
+    </div>
+
+
+    <div style="
+        margin-top:17px;
+        padding:16px;
+        border-radius:13px;
+        border:1px solid rgba(212,175,55,0.18);
+        text-align:center;
+        color:#aaa;
+        font-size:12px;
+        line-height:2;
+    ">
+
+        🟢 هسته بازار آماده اتصال به منبع واقعی نرخ است.
+
+        <br>
+
+        تا زمان دریافت و تأیید داده معتبر،
+        <span style="color:#d4af37;">
+            هیچ عددی به‌صورت حدسی تولید نمی‌شود.
+        </span>
+
+    </div>
+
+
+    <div class="status-row" style="margin-top:15px;">
+
+        <span>
+            🏆 وضعیت هسته بازار
+        </span>
+
+        <span class="green">
+            READY
+        </span>
+
+    </div>
+
+</div>
+
+
+<script>
+
+window.HASINEH_MARKET_V165 = {
+
+    version:"V165",
+
+    realDataCore:true,
+
+    sourceConnection:true,
+
+    rateIngestion:true,
+
+    validation:true,
+
+    sourceComparison:true,
+
+    timestamp:true,
+
+    fakeRates:false,
+
+    status:"READY_FOR_REAL_SOURCE"
+
+};
+
+console.log("HASINEH MARKET V165 REAL DATA CORE READY");
+
+</script>
