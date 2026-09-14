@@ -1,306 +1,161 @@
 <!-- ==========================
- HASINEH MARKET V274
- PREMIUM PRO DEMAND SYSTEM
+ HASINEH MARKET V275
+ USER REQUEST SYSTEM
  PART 1
 ========================== -->
 
-
-<!DOCTYPE html>
-
-<html lang="fa" dir="rtl">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<title>
-HASINEH MARKET V274
-</title>
-
-
-<style>
-
-
-*{
-
-box-sizing:border-box;
-
-font-family:tahoma,Arial,sans-serif;
-
-}
-
-
-
-body{
-
-margin:0;
-
-background:#050505;
-
-color:white;
-
-}
-
-
-
-.container{
-
-width:95%;
-
-max-width:1100px;
-
-margin:auto;
-
-}
-
-
-
-.box{
-
-background:
-
-linear-gradient(
-145deg,
-#121212,
-#080808
-);
-
-border-radius:25px;
-
-padding:22px;
-
-margin:20px 0;
-
-border:1px solid #333;
-
-box-shadow:
-
-0 0 25px rgba(212,175,55,.15);
-
-
-}
-
-
-
-.gold{
-
-color:#d4af37;
-
-}
-
-
-
-.green{
-
-color:#00ff66;
-
-}
-
-
-
-.red{
-
-color:#ff5252;
-
-}
-
-
-
-.center{
-
-text-align:center;
-
-line-height:2;
-
-}
-
-
-
-
-
-.header-v274{
-
-text-align:center;
-
-border:1px solid #d4af37;
-
-}
-
-
-
-.header-v274 h1{
-
-font-size:34px;
-
-color:#d4af37;
-
-}
-
-
-
-.header-v274 h2{
-
-color:white;
-
-}
-
-
-
-.notice-v274{
-
-background:#151515;
-
-border-radius:20px;
-
-padding:18px;
-
-color:#f5d76e;
-
-line-height:2;
-
-}
-
-
-
-</style>
-
-
-</head>
-
-
-
-<body>
-
-
-<div class="container">
-
-
-
-<div class="box header-v274">
-
-
-<h1>
-
-🏆 HASINEH MARKET
-
-</h1>
-
+<div class="box">
 
 <h2>
-
-Digital Smart Market Platform
-
+📢 USER DEMAND CENTER
 </h2>
 
-
 <p>
-
-تابلو هوشمند بازار ایران
-
+سیستم درخواست کاربران HASINEH MARKET
 </p>
 
+<div class="status">
+
+🟢 سیستم جمع‌آوری درخواست فعال
+
+</div>
+
+
+<div class="card">
+
+<h3>
+📊 درخواست نرخ آنلاین
+</h3>
 
 <p>
-
-📍 Bandar Hasineh
-
+کاربران علاقه‌مند به دریافت نرخ زنده بازار
 </p>
 
+<div class="counter">
 
-<div class="green">
-
-🟢 PUBLIC VERSION ONLINE
-
-</div>
-
-
-
-<br>
-
-
-<div class="notice-v274">
-
-
-⏱️ نسخه عمومی رایگان فعال است
-
-
-<br>
-
-
-نرخ‌ها با تأخیر کنترل‌شده نمایش داده می‌شوند
-
-
-<br>
-
-
-برای دسترسی به نرخ زنده، نسخه PRO در آینده فعال خواهد شد.
-
+👥 درخواست ثبت شده:
+<span id="demandCount">
+127
+</span>
 
 </div>
 
 
+<button onclick="addDemand()">
+
++ درخواست من
+
+</button>
 
 </div>
+
+
+<div class="notice">
+
+با افزایش تقاضا،
+امکانات حرفه‌ای و نرخ‌های آنلاین سریع‌تر فعال می‌شوند.
+
+</div>
+
+
+</div>
+
+
+<script>
+
+let demand =
+localStorage.getItem("hasinehDemand")
+|| 127;
+
+
+document.getElementById("demandCount").innerHTML =
+demand;
+
+
+function addDemand(){
+
+demand++;
+
+localStorage.setItem(
+"hasinehDemand",
+demand
+);
+
+
+document.getElementById("demandCount").innerHTML =
+demand;
+
+
+alert(
+"درخواست شما ثبت شد ✅"
+);
+
+}
+
+</script>
 <!-- ==========================
- HASINEH MARKET V274
- PRO DEMAND CENTER
+ HASINEH MARKET V275
+ PRO ACCESS ROADMAP
  PART 2
 ========================== -->
 
 
 <div class="box">
 
-
-<h2 class="gold center">
-
-🔴 HASINEH MARKET PRO
-
+<h2>
+⭐ PRO ACCESS ROADMAP
 </h2>
 
 
+<p>
+مسیر ارتقای کاربران HASINEH MARKET
+</p>
 
-<h3 class="center">
 
-LIVE MARKET ACCESS
+<div class="card">
 
+<h3>
+🟢 PUBLIC USER
 </h3>
 
+<p>
+دسترسی عمومی به تابلو بازار
+</p>
 
-
-<div class="notice-v274">
-
-
-دسترسی به نرخ‌های لحظه‌ای بازار
-
-
+<p>
+✔ مشاهده اطلاعات پایه  
 <br>
-
-
-اتصال به زیرساخت API حرفه‌ای
-
-
+✔ وضعیت بازار  
 <br>
-
-
-ویژه کاربران اشتراکی
-
+✔ امکانات رایگان
+</p>
 
 </div>
 
 
 
+<div class="card">
+
+<h3>
+⭐ PRO USER
+</h3>
+
+<p>
+امکانات حرفه‌ای آینده
+</p>
+
+<p>
+✔ نرخ آنلاین سریع‌تر
 <br>
+✔ هشدار تغییر قیمت
+<br>
+✔ ابزارهای تحلیلی
+</p>
 
 
-<div class="center">
+<button>
 
-
-<button class="request-btn-v274">
-
-🔔 درخواست نرخ زنده
+COMING SOON
 
 </button>
 
@@ -308,395 +163,108 @@ LIVE MARKET ACCESS
 </div>
 
 
+<div class="notice">
 
-</div>
-
-
-
-
-
-
-
-<div class="box">
-
-
-<h2 class="gold center">
-
-📊 PRO DEMAND CENTER
-
-</h2>
-
-
-
-<div class="center">
-
-
-👥 متقاضیان نسخه PRO
-
-
-<br>
-
-
-<strong class="gold">
-
-0 / 100 نفر
-
-</strong>
-
-
-<br><br>
-
-
-🎯 حد نصاب فعال‌سازی
-
-
-<br>
-
-
-100 نفر
-
-
-
-</div>
-
-
-
-
-
-<br>
-
-
-
-<div class="progress-box-v274">
-
-
-<div class="progress-v274">
-
+HASINEH MARKET
+در حال آماده‌سازی نسل حرفه‌ای بازار آنلاین ایران است.
 
 </div>
 
 
 </div>
-
-
-
-<p class="center gold">
-
-
-0٪ تا فعال‌سازی نرخ زنده
-
-
-</p>
-
-
-
-<div class="center green">
-
-
-🟡 در حال جمع‌آوری درخواست کاربران
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<style>
-
-
-.request-btn-v274{
-
-
-background:#8b0000;
-
-color:white;
-
-border:none;
-
-padding:15px 35px;
-
-border-radius:35px;
-
-font-size:16px;
-
-cursor:pointer;
-
-
-}
-
-
-
-.progress-box-v274{
-
-
-height:20px;
-
-background:#222;
-
-border-radius:20px;
-
-overflow:hidden;
-
-
-}
-
-
-
-.progress-v274{
-
-
-height:100%;
-
-width:0%;
-
-background:#d4af37;
-
-
-}
-
-
-
-</style>
 <!-- ==========================
- HASINEH MARKET V274
- PRO INFORMATION CENTER
+ HASINEH MARKET V275
+ SMART DEMAND LEVEL SYSTEM
  PART 3
 ========================== -->
 
 
 <div class="box">
 
-
-<h2 class="gold center">
-
-💎 HASINEH MARKET PRO
-
+<h2>
+📈 SMART DEMAND LEVEL
 </h2>
 
 
-
-<div class="notice-v274">
-
-
-⚡ نرخ زنده طلا و ارز
+<p>
+سطح تقاضای فعال‌سازی امکانات حرفه‌ای
+</p>
 
 
-<br>
+<div class="card">
+
+<h3>
+🚀 PRO ACTIVATION PROGRESS
+</h3>
 
 
-📊 بروزرسانی سریع بازار
+<div class="progress">
 
+<div id="progressBar">
 
-<br>
-
-
-🔔 هشدار تغییر قیمت
-
-
-<br>
-
-
-🧠 امکانات هوشمند HASINEH AI
-
+</div>
 
 </div>
 
 
+<p>
 
-<br>
-
-
-
-<div class="center">
-
-
-<span class="gold">
-
-وضعیت فعلی:
-
-
+سطح فعلی:
+<span id="levelText">
+25%
 </span>
 
-
-<br>
-
-
-<span class="red">
-
-در حال جمع‌آوری متقاضی
-
-</span>
+</p>
 
 
 </div>
 
 
 
+<div class="card">
+
+<h3>
+📌 STATUS</h3>
+
+<p>
+🟡 جامعه کاربران در حال رشد
+</p>
+
+<p>
+🟢 آماده توسعه API در مرحله بعد
+</p>
+
 </div>
-
-
-
-
-
-
-
-<div class="box">
-
-
-<h2 class="gold center">
-
-ℹ️ قوانین فعال‌سازی PRO
-
-</h2>
-
-
-
-<div class="notice-v274">
-
-
-1️⃣ نسخه عمومی HASINEH MARKET همیشه رایگان خواهد بود.
-
-
-<br><br>
-
-
-2️⃣ نرخ زنده فقط برای کاربران دارای اشتراک PRO فعال می‌شود.
-
-
-<br><br>
-
-
-3️⃣ پس از رسیدن تعداد متقاضیان به حد نصاب، زیرساخت API فعال خواهد شد.
-
-
-<br><br>
-
-
-4️⃣ پس از آماده شدن سرویس، کاربران درخواست‌کننده اعلان دریافت خواهند کرد.
-
-
-<br><br>
-
-
-5️⃣ خرید اشتراک فقط پس از آماده شدن زیرساخت و تایید نهایی انجام خواهد شد.
 
 
 </div>
 
 
+<style>
 
-</div>
+.progress{
 
+width:100%;
+height:25px;
+background:#222;
+border-radius:15px;
+overflow:hidden;
 
+}
 
 
+#progressBar{
 
+width:25%;
+height:100%;
+background:#d4af37;
 
+}
 
-<div class="box">
-
-
-<h2 class="gold center">
-
-📢 مسیر فعال‌سازی سرویس
-
-</h2>
-
-
-
-<div class="notice-v274">
-
-
-مرحله ۱️⃣
-
-
-<br>
-
-فعالیت نسخه عمومی رایگان
-
-
-<br><br>
-
-
-⬇️
-
-
-<br><br>
-
-
-مرحله ۲️⃣
-
-
-<br>
-
-جمع‌آوری درخواست کاربران
-
-
-<br><br>
-
-
-⬇️
-
-
-<br><br>
-
-
-مرحله ۳️⃣
-
-
-<br>
-
-رسیدن به حد نصاب فعال‌سازی
-
-
-<br><br>
-
-
-⬇️
-
-
-<br><br>
-
-
-مرحله ۴️⃣
-
-
-<br>
-
-اتصال API و شروع نسخه PRO
-
-
-<br><br>
-
-
-⬇️
-
-
-<br><br>
-
-
-مرحله ۵️⃣
-
-
-<br>
-
-فعال‌سازی اشتراک کاربران
-
-
-</div>
-
-
-
-</div>
+</style>
 <!-- ==========================
- HASINEH MARKET V274
- DATA CENTER + FOOTER
+ HASINEH MARKET V275
+ COMMUNITY ACTIVATION PANEL
  PART 4
 ========================== -->
 
@@ -704,257 +272,84 @@ background:#d4af37;
 <div class="box">
 
 
-<h2 class="gold center">
-
-📡 DATA CONTROL CENTER
-
+<h2>
+🌐 COMMUNITY POWER
 </h2>
 
 
+<p>
+قدرت کاربران در توسعه HASINEH MARKET
+</p>
 
-<div class="notice-v274 center">
 
 
-🟢 سیستم عمومی
+<div class="card">
 
+<h3>
+👥 USER COMMUNITY
+</h3>
+
+
+<p>
+هر درخواست،
+یک قدم برای توسعه بازار هوشمند است.
+</p>
+
+
+<div class="stats">
+
+
+<div>
+
+⭐
 <br>
-
-ONLINE
-
-
-<br><br>
-
-
-📊 وضعیت API
-
+بازدیدکنندگان
 <br>
+ACTIVE
 
-READY FOR FUTURE
-
-
-<br><br>
+</div>
 
 
-🔐 دسترسی PRO
+<div>
 
+📊
 <br>
-
-SUBSCRIPTION ONLY
-
-
-<br><br>
-
-
-⏱️ بروزرسانی عمومی
-
+درخواست‌ها
 <br>
+TRACKED
 
-CONTROLLED DELAY
+</div>
+
+
+<div>
+
+🚀
+<br>
+آینده
+<br>
+API READY
+
+</div>
+
+
+</div>
 
 
 </div>
 
 
 
-</div>
+<div class="notice">
 
-
-
-
-
-
-
-<div class="box">
-
-
-<h2 class="gold center">
-
-🧠 HASINEH AI MARKET
-
-</h2>
-
-
-
-<div class="notice-v274 center">
-
-
-سیستم تحلیل هوشمند بازار
-
-
-<br>
-
-
-پس از دریافت داده واقعی فعال خواهد شد
-
+HASINEH MARKET  
+با مشارکت کاربران رشد می‌کند.
 
 <br><br>
 
-
-Smart Market Intelligence
-
+Digital Smart Market Platform  
+📍 Bandar Hasineh
 
 </div>
 
 
-
 </div>
-
-
-
-
-
-
-
-<div class="box">
-
-
-<h2 class="gold center">
-
-📈 MARKET ROADMAP
-
-</h2>
-
-
-
-<div class="notice-v274">
-
-
-🟢 مرحله ۱
-
-<br>
-
-نسخه عمومی رایگان
-
-
-<br><br>
-
-
-🟡 مرحله ۲
-
-<br>
-
-جمع‌آوری متقاضی PRO
-
-
-<br><br>
-
-
-🟠 مرحله ۳
-
-<br>
-
-تامین زیرساخت API
-
-
-<br><br>
-
-
-🔴 مرحله ۴
-
-<br>
-
-فعال‌سازی نرخ زنده و اشتراک حرفه‌ای
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<footer class="center"
-style="padding:30px;color:#aaa;line-height:2;">
-
-
-
-🏆 HASINEH MARKET
-
-
-<br>
-
-
-Digital Smart Market Platform
-
-
-<br><br>
-
-
-Created by
-
-
-<br>
-
-
-<b class="gold">
-
-Hassan Divanizadeh
-
-</b>
-
-
-
-<br><br>
-
-
-HASINEH MARKET © ۱۴۰۵
-
-
-
-</footer>
-
-
-
-
-
-
-
-<script>
-
-
-function updateV274(){
-
-
-let now = new Date();
-
-
-let time =
-now.toLocaleTimeString("fa-IR");
-
-
-
-document.title =
-"HASINEH MARKET V274";
-
-
-
-}
-
-
-
-setInterval(
-updateV274,
-1000
-);
-
-
-updateV274();
-
-
-
-</script>
-
-
-
-</div>
-
-
-</body>
-
-
-</html>
