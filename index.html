@@ -1,13 +1,14 @@
 <!-- ==========================
- HASINEH MARKET V291
- API CONNECTOR LAYER
+ HASINEH MARKET V292
+ LIVE JSON CONNECTOR
+ BRS API → Pydroid → prices.json → GitHub
  SINGLE BLOCK EDITION
 ========================== -->
 
 
 <style>
 
-.hm291-body{
+.hm292-body{
 background:#050505;
 color:#fff;
 direction:rtl;
@@ -15,7 +16,7 @@ font-family:Tahoma,Arial,sans-serif;
 padding:15px;
 }
 
-.hm291-box{
+.hm292-box{
 background:#111;
 border:1px solid #d4af37;
 border-radius:18px;
@@ -24,7 +25,7 @@ margin:18px auto;
 max-width:900px;
 }
 
-.hm291-card{
+.hm292-card{
 background:#181818;
 border:1px solid #80651d;
 border-radius:14px;
@@ -32,62 +33,78 @@ padding:15px;
 margin:12px 0;
 }
 
-.hm291-title{
+.hm292-title{
 color:#d4af37;
 }
 
-.hm291-price{
+.hm292-price{
 font-size:23px;
 font-weight:bold;
+margin-top:8px;
 }
 
-.hm291-info{
+.hm292-info{
 line-height:2;
 color:#ccc;
 }
 
-.hm291-green{
+.hm292-green{
 color:#00c853;
 font-weight:bold;
 }
 
-.hm291-yellow{
+.hm292-yellow{
 color:#ffc107;
 font-weight:bold;
 }
 
-.hm291-red{
+.hm292-red{
 color:#ff5252;
+font-weight:bold;
+}
+
+.hm292-source{
+color:#aaa;
+font-size:13px;
+margin-top:8px;
+}
+
+.hm292-live{
+border-color:#00c853;
+}
+
+.hm292-error{
+border-color:#ff5252;
+}
+
+.hm292-time{
+color:#d4af37;
 font-weight:bold;
 }
 
 </style>
 
 
+<div class="hm292-body">
 
 
+<!-- ==========================
+ HEADER
+========================== -->
 
-<div class="hm291-body">
+<div class="hm292-box">
 
-
-
-
-
-<div class="hm291-box">
-
-
-<h1 class="hm291-title">
+<h1 class="hm292-title">
 🏆 HASINEH MARKET
 </h1>
 
+<p class="hm292-info">
 
-<p class="hm291-info">
-
-API CONNECTOR LAYER
+LIVE JSON CONNECTOR
 
 <br>
 
-لایه اتصال داده بازار
+اتصال زنده موتور قیمت بازار
 
 <br>
 
@@ -95,39 +112,35 @@ API CONNECTOR LAYER
 
 </p>
 
+<p id="hm292-connector-status"
+class="hm292-green">
 
-<p class="hm291-green">
-
-🟢 CONNECTOR READY
+🟡 CONNECTING...
 
 </p>
-
 
 </div>
 
 
+<!-- ==========================
+ API CONNECTION CENTER
+========================== -->
 
+<div class="hm292-box">
 
-
-
-
-
-
-<div class="hm291-box">
-
-
-<h2 class="hm291-title">
+<h2 class="hm292-title">
 🔌 API CONNECTION CENTER
 </h2>
 
-
-<p class="hm291-info">
+<p class="hm292-info">
 
 SOURCE:
 
 <br>
 
-Official Market API
+<span id="hm292-source">
+BRS API
+</span>
 
 <br><br>
 
@@ -135,133 +148,161 @@ CURRENT MODE:
 
 </p>
 
+<p id="hm292-mode"
+class="hm292-yellow">
 
-<p class="hm291-yellow">
-
-🟡 MANUAL BACKUP
-
-</p>
-
-
-<p class="hm291-info">
-
-FUTURE MODE:
+🟡 CONNECTING TO JSON
 
 </p>
 
+<p class="hm292-info">
 
-<p class="hm291-green">
-
-🟢 LIVE API ONLINE
+ENGINE:
 
 </p>
 
+<p id="hm292-engine"
+class="hm292-green">
+
+HASINEH PRICE ENGINE V1
+
+</p>
 
 </div>
 
 
+<!-- ==========================
+ PRICE ENGINE INPUT
+========================== -->
 
+<div class="hm292-box">
 
-
-
-
-
-
-<div class="hm291-box">
-
-
-<h2 class="hm291-title">
-📊 PRICE ENGINE INPUT
+<h2 class="hm292-title">
+📊 PRICE ENGINE LIVE INPUT
 </h2>
 
 
+<!-- GOLD 18 -->
 
-<div class="hm291-card">
+<div class="hm292-card">
 
-<h3 class="hm291-title">
+<h3 class="hm292-title">
 طلای ۱۸ عیار
 </h3>
 
+<div id="gold18"
+class="hm292-price">
 
-<div class="hm291-price">
-
-۲۳,۵۲۱,۳۶۳ تومان
+—
 
 </div>
 
-
-<p class="hm291-info">
+<p class="hm292-info">
 
 SOURCE:
-Manual
-
-<br>
-
-TIME:
-15:10
+<span id="gold18-source">
+BRS API
+</span>
 
 <br>
 
 STATUS:
-READY
+<span id="gold18-status"
+class="hm292-yellow">
+WAITING
+</span>
 
 </p>
 
 </div>
 
 
+<!-- GOLD 24 -->
 
+<div class="hm292-card">
 
-
-
-<div class="hm291-card">
-
-<h3 class="hm291-title">
+<h3 class="hm292-title">
 طلای ۲۴ عیار
 </h3>
 
+<div id="gold24"
+class="hm292-price">
 
-<div class="hm291-price">
-
-۳۱,۳۶۵,۰۷۰ تومان
+—
 
 </div>
 
-
-<p class="hm291-info">
+<p class="hm292-info">
 
 SOURCE:
-Manual
+<span id="gold24-source">
+BRS API
+</span>
 
 <br>
 
 STATUS:
-READY
+<span id="gold24-status"
+class="hm292-yellow">
+WAITING
+</span>
 
 </p>
 
 </div>
 
 
+<!-- GOLD MELTED -->
 
+<div class="hm292-card">
 
-
-
-<div class="hm291-card">
-
-<h3 class="hm291-title">
-⭐ مثقال طلای ۲۱ عیار
+<h3 class="hm292-title">
+🔥 طلای آب‌شده
 </h3>
 
+<div id="goldMelted"
+class="hm292-price">
 
-<div class="hm291-price">
+—
 
-۱۰۱,۸۰۰,۰۰۰ تومان
+</div>
+
+<p class="hm292-info">
+
+SOURCE:
+<span id="goldMelted-source">
+BRS API
+</span>
+
+<br>
+
+STATUS:
+<span id="goldMelted-status"
+class="hm292-yellow">
+WAITING
+</span>
+
+</p>
 
 </div>
 
 
-<p class="hm291-info">
+<!-- MESGHAL 21 -->
+
+<div class="hm292-card">
+
+<h3 class="hm292-title">
+⭐ مثقال طلای ۲۱ عیار
+</h3>
+
+<div id="mesghal21"
+class="hm292-price">
+
+—
+
+</div>
+
+<p class="hm292-info">
 
 SOURCE:
 Engine Calculation
@@ -269,79 +310,124 @@ Engine Calculation
 <br>
 
 STATUS:
-READY
+<span id="mesghal21-status"
+class="hm292-yellow">
+WAITING
+</span>
 
 </p>
 
 </div>
 
-
-
 </div>
 
 
+<!-- ==========================
+ COIN CONNECTOR
+========================== -->
 
+<div class="hm292-box">
 
-
-
-
-
-
-<div class="hm291-box">
-
-
-<h2 class="hm291-title">
+<h2 class="hm292-title">
 🪙 COIN CONNECTOR
 </h2>
 
 
+<!-- EMAMI -->
 
-<div class="hm291-card">
+<div class="hm292-card">
 
+<h3 class="hm292-title">
 سکه امامی
+</h3>
 
-<br><br>
+<div id="coinEmami"
+class="hm292-price">
 
-۲۳۴,۷۰۰,۰۰۰ تومان
+—
+
+</div>
+
+<p class="hm292-info">
+
+SOURCE:
+BRS API
 
 <br>
 
 STATUS:
-READY
+<span id="coinEmami-status"
+class="hm292-yellow">
+WAITING
+</span>
+
+</p>
 
 </div>
 
 
+<!-- HALF -->
 
-<div class="hm291-card">
+<div class="hm292-card">
 
+<h3 class="hm292-title">
 نیم سکه
+</h3>
 
-<br><br>
+<div id="coinHalf"
+class="hm292-price">
 
-۱۱۹,۰۰۰,۰۰۰ تومان
+—
+
+</div>
+
+<p class="hm292-info">
+
+SOURCE:
+BRS API
 
 <br>
 
 STATUS:
-READY
+<span id="coinHalf-status"
+class="hm292-yellow">
+WAITING
+</span>
+
+</p>
 
 </div>
 
 
+<!-- QUARTER -->
 
-<div class="hm291-card">
+<div class="hm292-card">
 
+<h3 class="hm292-title">
 ربع سکه
+</h3>
 
-<br><br>
+<div id="coinQuarter"
+class="hm292-price">
 
-۶۳,۰۱۰,۰۰۰ تومان
+—
+
+</div>
+
+<p class="hm292-info">
+
+SOURCE:
+BRS API
 
 <br>
 
 STATUS:
-READY
+<span id="coinQuarter-status"
+class="hm292-yellow">
+WAITING
+</span>
+
+</p>
 
 </div>
 
@@ -349,127 +435,273 @@ READY
 </div>
 
 
+<!-- ==========================
+ CURRENCY CONNECTOR
+========================== -->
 
+<div class="hm292-box">
 
-
-
-
-
-
-<div class="hm291-box">
-
-
-<h2 class="hm291-title">
+<h2 class="hm292-title">
 💱 CURRENCY CONNECTOR
 </h2>
 
 
-<div class="hm291-card">
+<!-- USD -->
 
+<div class="hm292-card">
+
+<h3 class="hm292-title">
 دلار آمریکا
+</h3>
 
-<br>
+<div id="usd"
+class="hm292-price">
 
-۲۳۴,۳۱۰ تومان
-
-</div>
-
-
-<div class="hm291-card">
-
-یورو
-
-<br>
-
-۲۷۰,۶۰۹ تومان
+—
 
 </div>
 
+<p class="hm292-info">
 
-<div class="hm291-card">
-
-درهم امارات
-
-<br>
-
-۶۳,۸۰۱ تومان
-
-</div>
-
-
-<div class="hm291-card">
-
-تتر
+SOURCE:
+BRS API
 
 <br>
 
-۲۳۲,۷۰۱ تومان
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="hm291-box">
-
-
-<h2 class="hm291-title">
-⚙️ CONNECTOR STATUS
-</h2>
-
-
-<p class="hm291-info">
-
-🟢 API Input Ready
-
-<br>
-
-🟢 Price Mapping Ready
-
-<br>
-
-🟢 Update System Ready
-
-<br>
-
-🟢 Error Handling Ready
-
-<br><br>
-
-🟡 Waiting For Real API Key
+STATUS:
+<span id="usd-status"
+class="hm292-yellow">
+WAITING
+</span>
 
 </p>
 
+</div>
+
+
+<!-- EUR -->
+
+<div class="hm292-card">
+
+<h3 class="hm292-title">
+یورو
+</h3>
+
+<div id="eur"
+class="hm292-price">
+
+—
+
+</div>
+
+<p class="hm292-info">
+
+SOURCE:
+BRS API
+
+<br>
+
+STATUS:
+<span id="eur-status"
+class="hm292-yellow">
+WAITING
+</span>
+
+</p>
 
 </div>
 
 
+<!-- AED -->
+
+<div class="hm292-card">
+
+<h3 class="hm292-title">
+درهم امارات
+</h3>
+
+<div id="aed"
+class="hm292-price">
+
+—
+
+</div>
+
+<p class="hm292-info">
+
+SOURCE:
+BRS API
+
+<br>
+
+STATUS:
+<span id="aed-status"
+class="hm292-yellow">
+WAITING
+</span>
+
+</p>
+
+</div>
 
 
+<!-- USDT -->
+
+<div class="hm292-card">
+
+<h3 class="hm292-title">
+تتر
+</h3>
+
+<div id="usdt"
+class="hm292-price">
+
+—
+
+</div>
+
+<p class="hm292-info">
+
+SOURCE:
+BRS API
+
+<br>
+
+STATUS:
+<span id="usdt-status"
+class="hm292-yellow">
+WAITING
+</span>
+
+</p>
+
+</div>
 
 
+</div>
 
 
-<div class="hm291-box">
+<!-- ==========================
+ UPDATE CENTER
+========================== -->
+
+<div class="hm292-box">
+
+<h2 class="hm292-title">
+🕒 LIVE UPDATE CENTER
+</h2>
+
+<p class="hm292-info">
+
+ENGINE STATUS:
+
+<br>
+
+<span id="engineStatus"
+class="hm292-green">
+WAITING
+</span>
+
+<br><br>
+
+LAST UPDATE:
+
+<br>
+
+<span id="updatedAt"
+class="hm292-time">
+—
+</span>
+
+<br><br>
+
+SOURCE:
+
+<br>
+
+<span id="dataSource">
+BRS API
+</span>
+
+<br><br>
+
+CURRENCY:
+
+<br>
+
+<span id="dataCurrency">
+IRT
+</span>
+
+</p>
+
+</div>
 
 
-<p class="hm291-info">
+<!-- ==========================
+ CONNECTOR STATUS
+========================== -->
+
+<div class="hm292-box">
+
+<h2 class="hm292-title">
+⚙️ CONNECTOR STATUS
+</h2>
+
+<p class="hm292-info">
+
+<span id="checkJson">
+🟡 Checking prices.json...
+</span>
+
+<br>
+
+<span id="checkMapping">
+🟡 Checking Price Mapping...
+</span>
+
+<br>
+
+<span id="checkUpdate">
+🟡 Checking Update System...
+</span>
+
+<br>
+
+<span id="checkError">
+🟢 Error Handling Ready
+</span>
+
+<br><br>
+
+<span id="nextUpdate">
+AUTO UPDATE: 60 SEC
+</span>
+
+</p>
+
+</div>
+
+
+<!-- ==========================
+ FOOTER
+========================== -->
+
+<div class="hm292-box">
+
+<p class="hm292-info">
 
 🏆 HASINEH MARKET
 
 <br><br>
 
-API CONNECTOR FOUNDATION
+HASINEH PRICE ENGINE V1
 
 <br><br>
+
+LIVE JSON MARKET BOARD
+
+<br>
 
 Digital Smart Market Platform
 
@@ -477,12 +709,555 @@ Digital Smart Market Platform
 
 📍 Bandar Hasineh
 
+<br><br>
+
+<span class="hm292-time">
+© ۱۴۰۵
+</span>
+
 </p>
 
+</div>
+
 
 </div>
 
 
+<!-- ==========================
+ V292 LIVE JSON ENGINE
+========================== -->
+
+<script>
+
+const HASINEH_JSON_URL =
+"./price-engine/prices.json";
 
 
-</div>
+const FALLBACK = {
+
+gold18: null,
+gold24: null,
+goldMelted: null,
+coinEmami: null,
+coinHalf: null,
+coinQuarter: null,
+usd: null,
+eur: null,
+aed: null,
+usdt: null
+
+};
+
+
+function faNumber(value){
+
+if(
+value === null ||
+value === undefined ||
+value === ""
+){
+
+return "—";
+
+}
+
+const number =
+Number(
+String(value)
+.replace(/,/g,"")
+);
+
+if(
+Number.isNaN(number)
+){
+
+return String(value);
+
+}
+
+return number.toLocaleString(
+"fa-IR"
+);
+
+}
+
+
+function setText(
+id,
+value
+){
+
+const element =
+document.getElementById(id);
+
+if(element){
+
+element.textContent =
+value;
+
+}
+
+}
+
+
+function setStatus(
+id,
+text,
+className
+){
+
+const element =
+document.getElementById(id);
+
+if(!element){
+
+return;
+
+}
+
+element.textContent =
+text;
+
+element.className =
+className || "";
+
+}
+
+
+function calculateMesghal21(
+gold18
+){
+
+const value =
+Number(
+String(gold18)
+.replace(/,/g,"")
+);
+
+if(
+Number.isNaN(value) ||
+value <= 0
+){
+
+return null;
+
+}
+
+
+/*
+  مقدار موقت محاسباتی.
+  فرمول رسمی مثقال موتور
+  در نسخه بعدی مستقل می‌شود.
+*/
+
+return value * 4.6083;
+
+}
+
+
+function updatePrice(
+id,
+statusId,
+value
+){
+
+setText(
+id,
+faNumber(value)
+);
+
+setStatus(
+statusId,
+"🟢 LIVE",
+"hm292-green"
+);
+
+}
+
+
+function updateBackup(
+id,
+statusId,
+value
+){
+
+if(
+value !== null &&
+value !== undefined
+){
+
+setText(
+id,
+faNumber(value)
+);
+
+}
+
+setStatus(
+statusId,
+"🟡 BACKUP",
+"hm292-yellow"
+);
+
+}
+
+
+function applyLiveData(
+data
+){
+
+if(
+!data ||
+!data.prices
+){
+
+throw new Error(
+"Invalid prices.json structure"
+);
+
+}
+
+
+const prices =
+data.prices;
+
+
+/* ==========================
+   GOLD
+========================== */
+
+updatePrice(
+"gold18",
+"gold18-status",
+prices.gold_18k
+);
+
+
+updatePrice(
+"gold24",
+"gold24-status",
+prices.gold_24k
+);
+
+
+updatePrice(
+"goldMelted",
+"goldMelted-status",
+prices.gold_melted
+);
+
+
+/* ==========================
+   MESGHAL
+========================== */
+
+const mesghal21 =
+calculateMesghal21(
+prices.gold_18k
+);
+
+
+updatePrice(
+"mesghal21",
+"mesghal21-status",
+mesghal21
+);
+
+
+/* ==========================
+   COINS
+========================== */
+
+updatePrice(
+"coinEmami",
+"coinEmami-status",
+prices.coin_emami
+);
+
+
+updatePrice(
+"coinHalf",
+"coinHalf-status",
+prices.coin_half
+);
+
+
+updatePrice(
+"coinQuarter",
+"coinQuarter-status",
+prices.coin_quarter
+);
+
+
+/* ==========================
+   CURRENCY
+========================== */
+
+updatePrice(
+"usd",
+"usd-status",
+prices.usd
+);
+
+
+updatePrice(
+"eur",
+"eur-status",
+prices.eur
+);
+
+
+updatePrice(
+"aed",
+"aed-status",
+prices.aed
+);
+
+
+updatePrice(
+"usdt",
+"usdt-status",
+prices.usdt
+);
+
+
+/* ==========================
+   ENGINE META
+========================== */
+
+setText(
+"hm292-source",
+data.source || "BRS API"
+);
+
+
+setText(
+"hm292-engine",
+data.engine ||
+"HASINEH PRICE ENGINE V1"
+);
+
+
+setText(
+"dataSource",
+data.source ||
+"BRS API"
+);
+
+
+setText(
+"dataCurrency",
+data.currency ||
+"IRT"
+);
+
+
+setText(
+"updatedAt",
+formatUpdateTime(
+data.updated_at
+)
+);
+
+
+/* ==========================
+   STATUS
+========================== */
+
+setStatus(
+"hm292-connector-status",
+"🟢 LIVE CONNECTED",
+"hm292-green"
+);
+
+
+setStatus(
+"hm292-mode",
+"🟢 LIVE JSON CONNECTED",
+"hm292-green"
+);
+
+
+setStatus(
+"engineStatus",
+"🟢 LIVE_CONNECTED",
+"hm292-green"
+);
+
+
+setText(
+"checkJson",
+"🟢 prices.json CONNECTED"
+);
+
+
+setText(
+"checkMapping",
+"🟢 Price Mapping CONNECTED"
+);
+
+
+setText(
+"checkUpdate",
+"🟢 Auto Update READY"
+);
+
+}
+
+
+function formatUpdateTime(
+value
+){
+
+if(!value){
+
+return "—";
+
+}
+
+const date =
+new Date(value);
+
+if(
+Number.isNaN(
+date.getTime()
+)
+){
+
+return value;
+
+}
+
+
+return date.toLocaleString(
+"fa-IR",
+{
+year:"numeric",
+month:"2-digit",
+day:"2-digit",
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit"
+}
+);
+
+}
+
+
+async function loadHasinehPrices(){
+
+try{
+
+const response =
+await fetch(
+HASINEH_JSON_URL +
+"?v=" +
+Date.now(),
+{
+cache:"no-store"
+}
+);
+
+
+if(
+!response.ok
+){
+
+throw new Error(
+"HTTP " +
+response.status
+);
+
+}
+
+
+const data =
+await response.json();
+
+
+applyLiveData(
+data
+);
+
+
+console.log(
+"HASINEH MARKET V292",
+"LIVE JSON CONNECTED",
+data
+);
+
+
+}catch(error){
+
+console.error(
+"HASINEH V292 ERROR:",
+error
+);
+
+
+/*
+  سایت از کار نمی‌افتد.
+  فقط وضعیت به Backup تغییر می‌کند.
+*/
+
+setStatus(
+"hm292-connector-status",
+"🟡 JSON ERROR / BACKUP",
+"hm292-yellow"
+);
+
+
+setStatus(
+"hm292-mode",
+"🟡 MANUAL BACKUP",
+"hm292-yellow"
+);
+
+
+setStatus(
+"engineStatus",
+"🟡 BACKUP MODE",
+"hm292-yellow"
+);
+
+
+setText(
+"checkJson",
+"🔴 prices.json NOT AVAILABLE"
+);
+
+
+setText(
+"checkMapping",
+"🟡 Previous Data Preserved"
+);
+
+
+setText(
+"checkUpdate",
+"🟡 Waiting For Next Update"
+);
+
+}
+
+}
+
+
+/* ==========================
+   FIRST LOAD
+========================== */
+
+loadHasinehPrices();
+
+
+/* ==========================
+   AUTO UPDATE
+   EVERY 60 SECONDS
+========================== */
+
+setInterval(
+loadHasinehPrices,
+60000
+);
+
+</script>
