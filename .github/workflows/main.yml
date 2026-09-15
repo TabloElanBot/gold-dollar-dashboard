@@ -1,0 +1,23 @@
+name: HASINEH PRICE ENGINE TEST
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "price-engine/test_engine.py"
+
+jobs:
+  test-engine:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run HASINEH Price Engine
+        run: python price-engine/test_engine.py
