@@ -1,0 +1,18 @@
+{
+  "engine": "HASINEH PRICE ENGINE V1",
+  "status": "MANUAL_BACKUP",
+  "currency": "IRT",
+  "updated_at": "",
+  "prices": {
+    "gold_18k": 23500000,
+    "gold_24k": 31333333,
+    "coin_emami": 185000000,
+    "coin_half": 99000000,
+    "coin_quarter": 56000000,
+    "silver": 420000,
+    "usd": 105000,
+    "eur": 123000,
+    "aed": 29000,
+    "usdt": 105500
+  }
+}
