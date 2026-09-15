@@ -1,488 +1,462 @@
-<!-- ==========================
- HASINEH MARKET V291
- API CONNECTOR LAYER
- SINGLE BLOCK EDITION
-========================== -->
+# ============================================================
+# HASINEH PRICE ENGINE V1
+# FREE MARKET PRICE COLLECTOR
+# ============================================================
+# Project:
+# HASINEH MARKET
+#
+# Purpose:
+# Collect public market prices
+# Normalize values
+# Save clean JSON data
+#
+# V1 - Foundation
+# ============================================================
 
+import json
+import re
+import time
+from datetime import datetime, timezone
+from urllib.request import Request, urlopen
+from urllib.error import URLError, HTTPError
 
-<style>
+# ------------------------------------------------------------
+# SETTINGS
+# ------------------------------------------------------------
 
-.hm291-body{
-background:#050505;
-color:#fff;
-direction:rtl;
-font-family:Tahoma,Arial,sans-serif;
-padding:15px;
+OUTPUT_FILE = "price-engine/prices.json"
+
+REQUEST_TIMEOUT = 20
+
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 "
+        "(Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 "
+        "(KHTML, like Gecko) "
+        "Chrome/120.0 Safari/537.36"
+    )
 }
 
-.hm291-box{
-background:#111;
-border:1px solid #d4af37;
-border-radius:18px;
-padding:20px;
-margin:18px auto;
-max-width:900px;
-}
+# Public market source
+# We will expand and improve sources in the next engine stages.
+TGJU_URL = "https://www.tgju.org/"
 
-.hm291-card{
-background:#181818;
-border:1px solid #80651d;
-border-radius:14px;
-padding:15px;
-margin:12px 0;
-}
+# ------------------------------------------------------------
+# PERSIAN / ARABIC DIGITS
+# ------------------------------------------------------------
 
-.hm291-title{
-color:#d4af37;
-}
+PERSIAN_DIGITS = "۰۱۲۳۴۵۶۷۸۹"
+ARABIC_DIGITS = "٠١٢٣٤٥٦٧٨٩"
+ENGLISH_DIGITS = "0123456789"
 
-.hm291-price{
-font-size:23px;
-font-weight:bold;
-}
 
-.hm291-info{
-line-height:2;
-color:#ccc;
-}
+def normalize_digits(value):
+    """
+    Convert Persian and Arabic digits to English digits.
+    """
 
-.hm291-green{
-color:#00c853;
-font-weight:bold;
-}
+    if value is None:
+        return ""
 
-.hm291-yellow{
-color:#ffc107;
-font-weight:bold;
-}
+    text = str(value)
 
-.hm291-red{
-color:#ff5252;
-font-weight:bold;
-}
+    translation_table = str.maketrans(
+        PERSIAN_DIGITS + ARABIC_DIGITS,
+        ENGLISH_DIGITS + ENGLISH_DIGITS
+    )
 
-</style>
+    return text.translate(translation_table)
 
 
+# ------------------------------------------------------------
+# NUMBER CLEANING
+# ------------------------------------------------------------
 
+def clean_number(value):
+    """
+    Convert a price-like string into an integer.
 
+    Examples:
+        123,456,789
+        ۱۲۳٬۴۵۶٬۷۸۹
+        123.456.789
+    """
 
-<div class="hm291-body">
+    if value is None:
+        return None
 
+    text = normalize_digits(value)
 
+    text = text.replace(",", "")
+    text = text.replace("٬", "")
+    text = text.replace(" ", "")
+    text = text.replace(".", "")
 
+    match = re.search(r"\d+", text)
 
+    if not match:
+        return None
 
-<div class="hm291-box">
+    try:
+        return int(match.group())
+    except ValueError:
+        return None
 
 
-<h1 class="hm291-title">
-🏆 HASINEH MARKET
-</h1>
+# ------------------------------------------------------------
+# FETCH PUBLIC PAGE
+# ------------------------------------------------------------
 
+def fetch_page(url):
+    """
+    Download a public webpage.
 
-<p class="hm291-info">
+    Returns:
+        page text
+        or None if the request fails.
+    """
 
-API CONNECTOR LAYER
+    request = Request(
+        url,
+        headers=HEADERS
+    )
 
-<br>
+    try:
+        with urlopen(
+            request,
+            timeout=REQUEST_TIMEOUT
+        ) as response:
 
-لایه اتصال داده بازار
+            content = response.read()
 
-<br>
+            return content.decode(
+                "utf-8",
+                errors="ignore"
+            )
 
-📍 Bandar Hasineh
+    except HTTPError as error:
 
-</p>
-
-
-<p class="hm291-green">
-
-🟢 CONNECTOR READY
-
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="hm291-box">
-
-
-<h2 class="hm291-title">
-🔌 API CONNECTION CENTER
-</h2>
-
-
-<p class="hm291-info">
-
-SOURCE:
-
-<br>
-
-Official Market API
-
-<br><br>
-
-CURRENT MODE:
-
-</p>
-
-
-<p class="hm291-yellow">
-
-🟡 MANUAL BACKUP
-
-</p>
-
-
-<p class="hm291-info">
-
-FUTURE MODE:
-
-</p>
-
-
-<p class="hm291-green">
-
-🟢 LIVE API ONLINE
-
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="hm291-box">
-
-
-<h2 class="hm291-title">
-📊 PRICE ENGINE INPUT
-</h2>
-
-
-
-<div class="hm291-card">
-
-<h3 class="hm291-title">
-طلای ۱۸ عیار
-</h3>
-
-
-<div class="hm291-price">
-
-۲۳,۵۲۱,۳۶۳ تومان
-
-</div>
-
-
-<p class="hm291-info">
-
-SOURCE:
-Manual
-
-<br>
-
-TIME:
-15:10
-
-<br>
-
-STATUS:
-READY
-
-</p>
-
-</div>
-
-
-
-
-
-
-<div class="hm291-card">
-
-<h3 class="hm291-title">
-طلای ۲۴ عیار
-</h3>
-
-
-<div class="hm291-price">
-
-۳۱,۳۶۵,۰۷۰ تومان
-
-</div>
-
-
-<p class="hm291-info">
-
-SOURCE:
-Manual
-
-<br>
-
-STATUS:
-READY
-
-</p>
-
-</div>
-
-
-
-
-
-
-<div class="hm291-card">
-
-<h3 class="hm291-title">
-⭐ مثقال طلای ۲۱ عیار
-</h3>
-
-
-<div class="hm291-price">
-
-۱۰۱,۸۰۰,۰۰۰ تومان
-
-</div>
-
-
-<p class="hm291-info">
-
-SOURCE:
-Engine Calculation
-
-<br>
-
-STATUS:
-READY
-
-</p>
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="hm291-box">
-
-
-<h2 class="hm291-title">
-🪙 COIN CONNECTOR
-</h2>
-
-
-
-<div class="hm291-card">
-
-سکه امامی
-
-<br><br>
-
-۲۳۴,۷۰۰,۰۰۰ تومان
-
-<br>
-
-STATUS:
-READY
-
-</div>
-
-
-
-<div class="hm291-card">
-
-نیم سکه
-
-<br><br>
-
-۱۱۹,۰۰۰,۰۰۰ تومان
-
-<br>
-
-STATUS:
-READY
-
-</div>
-
-
-
-<div class="hm291-card">
-
-ربع سکه
-
-<br><br>
-
-۶۳,۰۱۰,۰۰۰ تومان
-
-<br>
-
-STATUS:
-READY
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="hm291-box">
-
-
-<h2 class="hm291-title">
-💱 CURRENCY CONNECTOR
-</h2>
-
-
-<div class="hm291-card">
-
-دلار آمریکا
-
-<br>
-
-۲۳۴,۳۱۰ تومان
-
-</div>
-
-
-<div class="hm291-card">
-
-یورو
-
-<br>
-
-۲۷۰,۶۰۹ تومان
-
-</div>
-
-
-<div class="hm291-card">
-
-درهم امارات
-
-<br>
-
-۶۳,۸۰۱ تومان
-
-</div>
-
-
-<div class="hm291-card">
-
-تتر
-
-<br>
-
-۲۳۲,۷۰۱ تومان
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="hm291-box">
-
-
-<h2 class="hm291-title">
-⚙️ CONNECTOR STATUS
-</h2>
-
-
-<p class="hm291-info">
-
-🟢 API Input Ready
-
-<br>
-
-🟢 Price Mapping Ready
-
-<br>
-
-🟢 Update System Ready
-
-<br>
-
-🟢 Error Handling Ready
-
-<br><br>
-
-🟡 Waiting For Real API Key
-
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="hm291-box">
-
-
-<p class="hm291-info">
-
-🏆 HASINEH MARKET
-
-<br><br>
-
-API CONNECTOR FOUNDATION
-
-<br><br>
-
-Digital Smart Market Platform
-
-<br>
-
-📍 Bandar Hasineh
-
-</p>
-
-
-</div>
-
-
-
-
-</div>
+        print(
+            f"[ERROR] HTTP {error.code}: {url}"
+        )
+
+        return None
+
+    except URLError as error:
+
+        print(
+            f"[ERROR] URL error: {error.reason}"
+        )
+
+        return None
+
+    except Exception as error:
+
+        print(
+            f"[ERROR] Fetch failed: {error}"
+        )
+
+        return None
+
+
+# ------------------------------------------------------------
+# SOURCE STATUS
+# ------------------------------------------------------------
+
+def source_status(page):
+    """
+    Check whether the source page was successfully received.
+    """
+
+    if page is None:
+        return {
+            "online": False,
+            "message": "SOURCE_UNAVAILABLE"
+        }
+
+    if len(page) < 500:
+        return {
+            "online": False,
+            "message": "SOURCE_RESPONSE_TOO_SHORT"
+        }
+
+    return {
+        "online": True,
+        "message": "SOURCE_OK"
+    }
+
+
+# ------------------------------------------------------------
+# BASIC DATA STRUCTURE
+# ------------------------------------------------------------
+
+def empty_price_item(
+    name,
+    unit="تومان",
+    category="market"
+):
+    """
+    Standard structure for every price item.
+    """
+
+    return {
+        "name": name,
+        "category": category,
+        "price": None,
+        "previous": None,
+        "change": None,
+        "change_percent": None,
+        "unit": unit,
+        "source": None,
+        "status": "pending"
+    }
+
+
+# ------------------------------------------------------------
+# INITIAL MARKET ITEMS
+# ------------------------------------------------------------
+
+def create_market_structure():
+
+    items = {
+
+        "gold_18": empty_price_item(
+            "طلای ۱۸ عیار",
+            "تومان / گرم",
+            "gold"
+        ),
+
+        "gold_24": empty_price_item(
+            "طلای ۲۴ عیار",
+            "تومان / گرم",
+            "gold"
+        ),
+
+        "mesghal": empty_price_item(
+            "مثقال طلا",
+            "تومان / مثقال",
+            "gold"
+        ),
+
+        "coin_emami": empty_price_item(
+            "سکه امامی",
+            "تومان / عدد",
+            "coin"
+        ),
+
+        "coin_half": empty_price_item(
+            "نیم سکه",
+            "تومان / عدد",
+            "coin"
+        ),
+
+        "coin_quarter": empty_price_item(
+            "ربع سکه",
+            "تومان / عدد",
+            "coin"
+        ),
+
+        "silver": empty_price_item(
+            "نقره",
+            "تومان / گرم",
+            "metal"
+        ),
+
+        "usd": empty_price_item(
+            "دلار آمریکا",
+            "تومان",
+            "currency"
+        ),
+
+        "eur": empty_price_item(
+            "یورو",
+            "تومان",
+            "currency"
+        ),
+
+        "aed": empty_price_item(
+            "درهم امارات",
+            "تومان",
+            "currency"
+        )
+    }
+
+    return items
+
+
+# ------------------------------------------------------------
+# ENGINE METADATA
+# ------------------------------------------------------------
+
+def engine_metadata(source_info):
+
+    now = datetime.now(
+        timezone.utc
+    )
+
+    return {
+        "engine": "HASINEH PRICE ENGINE",
+        "version": "V1",
+        "mode": "FREE_PUBLIC_SOURCE",
+        "generated_at_utc": now.isoformat(),
+        "source": "TGJU_PUBLIC_PAGE",
+        "source_status": source_info,
+        "currency_display": "IRR_TOMAN",
+        "automatic": True
+    }
+
+
+# ------------------------------------------------------------
+# BUILD JSON
+# ------------------------------------------------------------
+
+def build_output(page):
+
+    source_info = source_status(page)
+
+    data = {
+        "meta": engine_metadata(
+            source_info
+        ),
+        "prices": create_market_structure()
+    }
+
+    # --------------------------------------------------------
+    # IMPORTANT
+    # --------------------------------------------------------
+    # At this stage we intentionally DO NOT invent prices.
+    #
+    # The next collector stage will map real source fields
+    # to the items above.
+    #
+    # This prevents fake/demo prices from entering
+    # HASINEH MARKET.
+    # --------------------------------------------------------
+
+    if source_info["online"]:
+
+        for key in data["prices"]:
+
+            data["prices"][key]["source"] = (
+                "TGJU_PUBLIC"
+            )
+
+            data["prices"][key]["status"] = (
+                "waiting_for_parser"
+            )
+
+    else:
+
+        for key in data["prices"]:
+
+            data["prices"][key]["source"] = (
+                "TGJU_PUBLIC"
+            )
+
+            data["prices"][key]["status"] = (
+                "source_unavailable"
+            )
+
+    return data
+
+
+# ------------------------------------------------------------
+# SAVE JSON
+# ------------------------------------------------------------
+
+def save_json(data):
+
+    with open(
+        OUTPUT_FILE,
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        json.dump(
+            data,
+            file,
+            ensure_ascii=False,
+            indent=2
+        )
+
+
+# ------------------------------------------------------------
+# MAIN ENGINE
+# ------------------------------------------------------------
+
+def main():
+
+    print("")
+    print("=" * 60)
+    print("HASINEH PRICE ENGINE V1")
+    print("FREE MARKET PRICE COLLECTOR")
+    print("=" * 60)
+    print("")
+
+    print("[1/4] Connecting to public source...")
+
+    page = fetch_page(
+        TGJU_URL
+    )
+
+    if page is not None:
+
+        print(
+            "[OK] Public source received."
+        )
+
+    else:
+
+        print(
+            "[WARNING] Public source unavailable."
+        )
+
+    print(
+        "[2/4] Checking source status..."
+    )
+
+    status = source_status(
+        page
+    )
+
+    print(
+        "[STATUS]",
+        status["message"]
+    )
+
+    print(
+        "[3/4] Building HASINEH price structure..."
+    )
+
+    data = build_output(
+        page
+    )
+
+    print(
+        "[4/4] Saving prices.json..."
+    )
+
+    save_json(
+        data
+    )
+
+    print("")
+    print(
+        "[DONE] HASINEH PRICE ENGINE V1 completed."
+    )
+
+    print(
+        f"[OUTPUT] {OUTPUT_FILE}"
+    )
+
+    print("")
+    print("=" * 60)
+
+
+# ------------------------------------------------------------
+# START
+# ------------------------------------------------------------
+
+if __name__ == "__main__":
+    main()
