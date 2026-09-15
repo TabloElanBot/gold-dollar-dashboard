@@ -3,17 +3,68 @@
   "status": "LIVE_CONNECTED",
   "source": "BRS API",
   "currency": "IRT",
-  "updated_at": "2026-09-15T22:24:50.467690",
+  "updated_at": "2026-09-16T02:01:41.952011+03:30",
   "prices": {
     "gold_18k": 23259100,
     "gold_24k": 31011900,
     "gold_melted": 100247000,
-    "coin_quarter": 62000000,
-    "coin_half": 118000000,
     "coin_emami": 231485000,
-    "usdt": 230829,
+    "coin_half": 118000000,
+    "coin_quarter": 62000000,
+    "coin_1g": 33000000,
+    "coin_bahar": 227000000,
     "usd": 230395,
     "eur": 266180,
-    "aed": 63070
-  }
+    "aed": 63070,
+    "gbp": 310380,
+    "cny": 34610,
+    "try": 4825,
+    "usdt": 231715,
+    "ounce_usd": 4297.0,
+    "apadana_1g": 23491691,
+    "mesghal_21k": 125049062
+  },
+  "changes": {
+    "gold_18k": {
+      "value": -24300,
+      "percent": -0.1
+    },
+    "gold_24k": {
+      "value": -32300,
+      "percent": -0.1
+    },
+    "gold_melted": {
+      "value": -336000,
+      "percent": -0.34
+    },
+    "coin_emami": {
+      "value": -2500000,
+      "percent": -1.08
+    },
+    "coin_half": {
+      "value": -1000000,
+      "percent": -0.85
+    },
+    "coin_quarter": {
+      "value": -1000000,
+      "percent": -1.61
+    },
+    "usd": {
+      "value": -905,
+      "percent": -0.39
+    },
+    "eur": {
+      "value": -1950,
+      "percent": -0.73
+    },
+    "aed": {
+      "value": -246,
+      "percent": -0.39
+    },
+    "usdt": {
+      "value": 1427,
+      "percent": 0.62
+    }
+  },
+  "api_key_exposed": false
 }
