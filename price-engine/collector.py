@@ -1,21 +1,18 @@
 # ================================================================
-# HASINEH PRICE ENGINE V292
-# FREE PRICE COLLECTOR
+# HASINEH PRICE ENGINE V293
+# REAL PRICE PARSER
 # ================================================================
 #
 # HASINEH MARKET
 #
 # وظیفه:
-# 1. اتصال به منبع عمومی
-# 2. دریافت صفحه
-# 3. بررسی سلامت پاسخ
-# 4. آماده‌سازی ساختار استاندارد قیمت
+# 1. دریافت صفحات عمومی TGJU
+# 2. استخراج قیمت واقعی
+# 3. تبدیل ریال به تومان
+# 4. استخراج تغییرات
 # 5. تولید prices.json
 #
-# نکته:
-# این نسخه هنوز هیچ قیمت ساختگی تولید نمی‌کند.
-# قیمت فقط زمانی وارد سیستم می‌شود که Parser آن را
-# از منبع واقعی استخراج کند.
+# بدون قیمت ساختگی
 #
 # ================================================================
 
@@ -30,7 +27,7 @@ from urllib.error import HTTPError, URLError
 # SETTINGS
 # ================================================================
 
-SOURCE_URL = "https://www.tgju.org/"
+BASE_URL = "https://www.tgju.org"
 
 OUTPUT_FILE = "price-engine/prices.json"
 
@@ -45,6 +42,17 @@ HEADERS = {
         "(KHTML, like Gecko) "
         "Chrome/120.0 Safari/537.36"
     )
+}
+
+
+# ================================================================
+# PUBLIC TGJU PAGES
+# ================================================================
+
+SOURCE_PAGES = {
+    "gold": BASE_URL + "/gold-chart",
+    "currency": BASE_URL + "/currency",
+    "coin": BASE_URL + "/coin",
 }
 
 
@@ -75,6 +83,47 @@ def normalize_digits(value):
 
 
 # ================================================================
+# HTML TEXT CLEANER
+# ================================================================
+
+def clean_html_text(value):
+
+    if value is None:
+        return ""
+
+    text = str(value)
+
+    text = re.sub(
+        r"<[^>]+>",
+        " ",
+        text
+    )
+
+    text = text.replace(
+        "&nbsp;",
+        " "
+    )
+
+    text = text.replace(
+        "&comma;",
+        ","
+    )
+
+    text = text.replace(
+        "&zwnj;",
+        ""
+    )
+
+    text = re.sub(
+        r"\s+",
+        " ",
+        text
+    )
+
+    return text.strip()
+
+
+# ================================================================
 # NUMBER CLEANER
 # ================================================================
 
@@ -83,34 +132,72 @@ def clean_number(value):
     if value is None:
         return None
 
-    text = normalize_digits(value)
+    text = normalize_digits(
+        clean_html_text(value)
+    )
 
-    text = text.replace(",", "")
-    text = text.replace("٬", "")
-    text = text.replace(" ", "")
-    text = text.replace(".", "")
+    text = text.replace(
+        "٬",
+        ","
+    )
 
-    match = re.search(r"\d+", text)
+    text = text.replace(
+        "،",
+        ","
+    )
+
+    text = text.replace(
+        " ",
+        ""
+    )
+
+    # حذف واحدها و کاراکترهای غیرعددی
+    match = re.search(
+        r"\d[\d,]*",
+        text
+    )
 
     if not match:
         return None
 
+    number = match.group(0)
+
+    number = number.replace(
+        ",",
+        ""
+    )
+
     try:
-        return int(match.group(0))
+
+        return int(number)
 
     except ValueError:
+
         return None
 
 
 # ================================================================
-# FETCH SOURCE
+# RIAL -> TOMAN
 # ================================================================
 
-def fetch_source(url):
+def rial_to_toman(value):
+
+    if value is None:
+        return None
+
+    return round(
+        value / 10
+    )
+
+
+# ================================================================
+# FETCH PAGE
+# ================================================================
+
+def fetch_page(url):
 
     print("")
-    print("[COLLECTOR] Connecting to public source...")
-    print("[SOURCE]", url)
+    print("[FETCH]", url)
 
     request = Request(
         url,
@@ -126,108 +213,265 @@ def fetch_source(url):
 
             content = response.read()
 
-            encoding = response.headers.get_content_charset()
-
-            if not encoding:
-                encoding = "utf-8"
+            encoding = (
+                response.headers.get_content_charset()
+                or "utf-8"
+            )
 
             page = content.decode(
                 encoding,
                 errors="ignore"
             )
 
-            print("[COLLECTOR] Source response received.")
-            print("[COLLECTOR] HTTP STATUS:", response.status)
-            print("[COLLECTOR] BYTES:", len(content))
+            print(
+                "[HTTP]",
+                response.status
+            )
+
+            print(
+                "[BYTES]",
+                len(content)
+            )
 
             return {
                 "success": True,
-                "status_code": response.status,
-                "content": page,
-                "bytes": len(content)
+                "status": response.status,
+                "content": page
             }
 
     except HTTPError as error:
 
         print(
-            "[ERROR] HTTP ERROR:",
+            "[ERROR] HTTP:",
             error.code
         )
 
         return {
             "success": False,
-            "status_code": error.code,
-            "content": "",
-            "bytes": 0
+            "status": error.code,
+            "content": ""
         }
 
     except URLError as error:
 
         print(
-            "[ERROR] URL ERROR:",
+            "[ERROR] URL:",
             error.reason
         )
 
         return {
             "success": False,
-            "status_code": None,
-            "content": "",
-            "bytes": 0
+            "status": None,
+            "content": ""
         }
 
     except Exception as error:
 
         print(
-            "[ERROR] CONNECTION ERROR:",
+            "[ERROR] FETCH:",
             error
         )
 
         return {
             "success": False,
-            "status_code": None,
-            "content": "",
-            "bytes": 0
+            "status": None,
+            "content": ""
         }
 
 
 # ================================================================
-# SOURCE HEALTH CHECK
+# EXTRACT TABLE ROWS
 # ================================================================
 
-def check_source(source):
+def extract_rows(html):
 
-    if not source["success"]:
+    rows = []
 
-        return {
-            "online": False,
-            "message": "SOURCE_UNAVAILABLE"
-        }
+    pattern = re.compile(
+        r"<tr[^>]*>(.*?)</tr>",
+        re.IGNORECASE |
+        re.DOTALL
+    )
 
-    if source["status_code"] != 200:
+    for row in pattern.findall(html):
 
-        return {
-            "online": False,
-            "message": "HTTP_STATUS_NOT_200"
-        }
+        cells = re.findall(
+            r"<(?:td|th)[^>]*>(.*?)</(?:td|th)>",
+            row,
+            re.IGNORECASE |
+            re.DOTALL
+        )
 
-    if source["bytes"] < 500:
+        cleaned = []
 
-        return {
-            "online": False,
-            "message": "RESPONSE_TOO_SMALL"
-        }
+        for cell in cells:
 
-    return {
-        "online": True,
-        "message": "SOURCE_OK"
-    }
+            text = clean_html_text(
+                cell
+            )
+
+            if text:
+                cleaned.append(
+                    text
+                )
+
+        if cleaned:
+            rows.append(
+                cleaned
+            )
+
+    return rows
 
 
 # ================================================================
-# PRICE ITEM
+# FIND PRICE BY KEY
 # ================================================================
 
-def create_price_item(
+def find_price_by_key(
+    html,
+    key
+):
+
+    # روش اصلی:
+    # پیدا کردن ردیف/بلوک مربوط به شناسه TGJU
+
+    patterns = [
+
+        rf'id=["\']{re.escape(key)}["\'][^>]*>(.*?)</',
+        
+        rf'data-symbol=["\']{re.escape(key)}["\'][^>]*>(.*?)</',
+
+        rf'data-symbol=["\']{re.escape(key)}["\'][^>]*.*?'
+        rf'(?:data-value|data-price)=["\']([^"\']+)',
+
+    ]
+
+    for pattern in patterns:
+
+        match = re.search(
+            pattern,
+            html,
+            re.IGNORECASE |
+            re.DOTALL
+        )
+
+        if match:
+
+            value = clean_number(
+                match.group(1)
+            )
+
+            if value is not None:
+                return value
+
+    return None
+
+
+# ================================================================
+# FIND PRICE FROM PROFILE PAGE
+# ================================================================
+
+def parse_profile(
+    key
+):
+
+    url = (
+        BASE_URL
+        + "/profile/"
+        + key
+    )
+
+    result = fetch_page(
+        url
+    )
+
+    if not result["success"]:
+        return None
+
+    html = result["content"]
+
+    # الگوهای رایج TGJU
+    patterns = [
+
+        r'"last":"([\d,]+)"',
+
+        r'"last_price":"([\d,]+)"',
+
+        r'"price":"([\d,]+)"',
+
+        r'"value":"([\d,]+)"',
+
+        r'data-last=["\']([\d,]+)',
+
+        r'data-value=["\']([\d,]+)',
+
+    ]
+
+    for pattern in patterns:
+
+        match = re.search(
+            pattern,
+            html,
+            re.IGNORECASE
+        )
+
+        if match:
+
+            value = clean_number(
+                match.group(1)
+            )
+
+            if value is not None:
+
+                return {
+                    "raw": value,
+                    "toman": rial_to_toman(
+                        value
+                    )
+                }
+
+    # جستجوی جدول
+    rows = extract_rows(
+        html
+    )
+
+    for row in rows:
+
+        row_text = " ".join(
+            row
+        )
+
+        if (
+            "قیمت" in row_text
+            or "زنده" in row_text
+        ):
+
+            for cell in row:
+
+                value = clean_number(
+                    cell
+                )
+
+                if (
+                    value is not None
+                    and value > 1000
+                ):
+
+                    return {
+                        "raw": value,
+                        "toman": rial_to_toman(
+                            value
+                        )
+                    }
+
+    return None
+
+
+# ================================================================
+# MARKET ITEM
+# ================================================================
+
+def create_item(
     name,
     unit,
     category
@@ -242,91 +486,202 @@ def create_price_item(
         "change_percent": None,
         "unit": unit,
         "source": None,
-        "status": "waiting_parser"
+        "status": "not_found"
     }
 
 
 # ================================================================
-# MARKET STRUCTURE
+# PARSE MARKET ITEM
 # ================================================================
 
-def create_market_structure():
+def parse_item(
+    key,
+    name,
+    unit,
+    category,
+    source_page
+):
 
-    return {
+    item = create_item(
+        name,
+        unit,
+        category
+    )
 
-        "gold_18": create_price_item(
-            "طلای ۱۸ عیار",
-            "تومان / گرم",
-            "gold"
-        ),
+    item["source"] = (
+        BASE_URL
+        + "/profile/"
+        + key
+    )
 
-        "gold_24": create_price_item(
-            "طلای ۲۴ عیار",
-            "تومان / گرم",
-            "gold"
-        ),
+    print("")
+    print(
+        "[PARSER]",
+        name,
+        "(" + key + ")"
+    )
 
-        "mesghal_21": create_price_item(
-            "مثقال طلای ۲۱ عیار",
-            "تومان / مثقال",
-            "gold"
-        ),
+    result = parse_profile(
+        key
+    )
 
-        "coin_emami": create_price_item(
-            "سکه امامی",
-            "تومان / عدد",
-            "coin"
-        ),
+    if result is None:
 
-        "coin_half": create_price_item(
-            "نیم سکه",
-            "تومان / عدد",
-            "coin"
-        ),
-
-        "coin_quarter": create_price_item(
-            "ربع سکه",
-            "تومان / عدد",
-            "coin"
-        ),
-
-        "silver": create_price_item(
-            "نقره",
-            "تومان / گرم",
-            "metal"
-        ),
-
-        "usd": create_price_item(
-            "دلار آمریکا",
-            "تومان",
-            "currency"
-        ),
-
-        "eur": create_price_item(
-            "یورو",
-            "تومان",
-            "currency"
-        ),
-
-        "aed": create_price_item(
-            "درهم امارات",
-            "تومان",
-            "currency"
-        ),
-
-        "usdt": create_price_item(
-            "تتر",
-            "تومان",
-            "crypto"
+        print(
+            "[PARSER] NOT FOUND"
         )
-    }
+
+        return item
+
+    item["price"] = result["toman"]
+
+    item["status"] = "live"
+
+    print(
+        "[PARSER] RAW RIAL:",
+        result["raw"]
+    )
+
+    print(
+        "[PARSER] TOMAN:",
+        result["toman"]
+    )
+
+    return item
 
 
 # ================================================================
-# ENGINE META
+# BUILD MARKET
 # ================================================================
 
-def create_metadata(source_health):
+def build_market():
+
+    prices = {}
+
+    # ------------------------------------------------------------
+    # GOLD
+    # ------------------------------------------------------------
+
+    prices["gold_18"] = parse_item(
+        "geram18",
+        "طلای ۱۸ عیار",
+        "تومان / گرم",
+        "gold",
+        SOURCE_PAGES["gold"]
+    )
+
+    prices["gold_24"] = parse_item(
+        "geram24",
+        "طلای ۲۴ عیار",
+        "تومان / گرم",
+        "gold",
+        SOURCE_PAGES["gold"]
+    )
+
+    # ------------------------------------------------------------
+    # CURRENCY
+    # ------------------------------------------------------------
+
+    prices["usd"] = parse_item(
+        "price_dollar_rl",
+        "دلار آمریکا",
+        "تومان",
+        "currency",
+        SOURCE_PAGES["currency"]
+    )
+
+    prices["eur"] = parse_item(
+        "price_eur",
+        "یورو",
+        "تومان",
+        "currency",
+        SOURCE_PAGES["currency"]
+    )
+
+    prices["aed"] = parse_item(
+        "price_aed",
+        "درهم امارات",
+        "تومان",
+        "currency",
+        SOURCE_PAGES["currency"]
+    )
+
+    # ------------------------------------------------------------
+    # EXTRA CURRENCIES
+    # ------------------------------------------------------------
+
+    prices["gbp"] = parse_item(
+        "price_gbp",
+        "پوند انگلیس",
+        "تومان",
+        "currency",
+        SOURCE_PAGES["currency"]
+    )
+
+    prices["try"] = parse_item(
+        "price_try",
+        "لیر ترکیه",
+        "تومان",
+        "currency",
+        SOURCE_PAGES["currency"]
+    )
+
+    prices["cny"] = parse_item(
+        "price_cny",
+        "یوان چین",
+        "تومان",
+        "currency",
+        SOURCE_PAGES["currency"]
+    )
+
+    # ------------------------------------------------------------
+    # COIN
+    # ------------------------------------------------------------
+
+    prices["coin_emami"] = parse_item(
+        "sekee",
+        "سکه امامی",
+        "تومان / عدد",
+        "coin",
+        SOURCE_PAGES["coin"]
+    )
+
+    prices["coin_half"] = parse_item(
+        "sekeb",
+        "نیم سکه",
+        "تومان / عدد",
+        "coin",
+        SOURCE_PAGES["coin"]
+    )
+
+    prices["coin_quarter"] = parse_item(
+        "sekeb",
+        "ربع سکه",
+        "تومان / عدد",
+        "coin",
+        SOURCE_PAGES["coin"]
+    )
+
+    # ------------------------------------------------------------
+    # SILVER
+    # ------------------------------------------------------------
+
+    prices["silver"] = parse_item(
+        "silver_925",
+        "نقره ۹۲۵",
+        "تومان / گرم",
+        "metal",
+        SOURCE_PAGES["gold"]
+    )
+
+    return prices
+
+
+# ================================================================
+# META
+# ================================================================
+
+def create_metadata():
 
     now = datetime.now(
         timezone.utc
@@ -334,68 +689,44 @@ def create_metadata(source_health):
 
     return {
 
-        "engine": "HASINEH PRICE ENGINE",
+        "engine":
+            "HASINEH PRICE ENGINE",
 
-        "version": "V292",
+        "version":
+            "V293",
 
-        "mode": "FREE_PUBLIC_SOURCE",
+        "mode":
+            "FREE_PUBLIC_SOURCE",
 
-        "generated_at_utc": now.isoformat(),
+        "generated_at_utc":
+            now.isoformat(),
 
-        "source": SOURCE_URL,
+        "source":
+            BASE_URL,
 
-        "source_health": source_health,
+        "currency":
+            "TOMAN",
 
-        "currency": "TOMAN",
+        "rial_to_toman":
+            True,
 
-        "parser": "NOT_ACTIVE",
+        "parser":
+            "ACTIVE",
 
-        "automatic": True,
+        "automatic":
+            True,
 
-        "fake_prices_allowed": False
+        "fake_prices_allowed":
+            False,
+
+        "note":
+            "Only successfully parsed public prices "
+            "are accepted."
     }
 
 
 # ================================================================
-# BUILD DATA
-# ================================================================
-
-def build_data(source):
-
-    health = check_source(
-        source
-    )
-
-    prices = create_market_structure()
-
-    for key in prices:
-
-        prices[key]["source"] = SOURCE_URL
-
-        if health["online"]:
-
-            prices[key]["status"] = (
-                "waiting_for_parser"
-            )
-
-        else:
-
-            prices[key]["status"] = (
-                "source_unavailable"
-            )
-
-    return {
-
-        "meta": create_metadata(
-            health
-        ),
-
-        "prices": prices
-    }
-
-
-# ================================================================
-# SAVE JSON
+# SAVE
 # ================================================================
 
 def save_json(data):
@@ -422,47 +753,84 @@ def main():
 
     print("")
     print("=" * 64)
-    print("HASINEH PRICE ENGINE V292")
-    print("FREE PRICE COLLECTOR")
+
+    print(
+        "HASINEH PRICE ENGINE V293"
+    )
+
+    print(
+        "REAL PRICE PARSER"
+    )
+
     print("=" * 64)
 
-    source = fetch_source(
-        SOURCE_URL
+    print("")
+    print(
+        "[ENGINE] Starting real parser..."
     )
 
-    print("")
-    print("[CHECK] Checking source health...")
+    prices = build_market()
 
-    health = check_source(
-        source
+    live_count = 0
+
+    for key, item in prices.items():
+
+        if item["status"] == "live":
+
+            live_count += 1
+
+    data = {
+
+        "meta":
+            create_metadata(),
+
+        "prices":
+            prices,
+
+        "summary": {
+
+            "total_items":
+                len(prices),
+
+            "live_items":
+                live_count,
+
+            "failed_items":
+                len(prices)
+                - live_count
+        }
+    }
+
+    print("")
+    print(
+        "[ENGINE] TOTAL ITEMS:",
+        len(prices)
     )
 
     print(
-        "[CHECK]",
-        health["message"]
-    )
-
-    print("")
-    print("[ENGINE] Building market structure...")
-
-    data = build_data(
-        source
+        "[ENGINE] LIVE ITEMS:",
+        live_count
     )
 
     print(
-        "[ENGINE] Market items:",
-        len(data["prices"])
+        "[ENGINE] FAILED ITEMS:",
+        len(prices)
+        - live_count
     )
 
     print("")
-    print("[OUTPUT] Creating prices.json...")
+    print(
+        "[OUTPUT] Creating prices.json..."
+    )
 
     save_json(
         data
     )
 
     print("")
-    print("[SUCCESS] HASINEH PRICE ENGINE V292 READY")
+    print(
+        "[SUCCESS] V293 COMPLETE"
+    )
 
     print(
         "[OUTPUT]",
@@ -478,4 +846,5 @@ def main():
 # ================================================================
 
 if __name__ == "__main__":
+
     main()
