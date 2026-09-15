@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "price-engine/test_engine.py"
+      - ".github/workflows/main.yml"
 
 jobs:
   test-engine:
@@ -18,6 +19,16 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Check Python
+        run: python --version
+
+      - name: Check Engine File
+        run: |
+          pwd
+          ls -la
+          ls -la price-engine
+          python -m py_compile price-engine/test_engine.py
 
       - name: Run HASINEH Price Engine
         run: python price-engine/test_engine.py
