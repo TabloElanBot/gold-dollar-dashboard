@@ -3,11 +3,21 @@ name: HASINEH PRICE ENGINE TEST
 on:
   workflow_dispatch:
 
+  schedule:
+    - cron: "*/15 * * * *"
+
   push:
     paths:
       - "price-engine/collector.py"
       - "price-engine/test_engine.py"
       - ".github/workflows/main.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hasineh-price-engine
+  cancel-in-progress: false
 
 jobs:
   test-engine:
@@ -16,6 +26,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
 
       - name: Setup Python
         uses: actions/setup-python@v6
@@ -27,23 +39,24 @@ jobs:
           echo "========================================"
           echo "HASINEH PRICE ENGINE - FILE CHECK"
           echo "========================================"
+
           echo ""
           echo "Collector:"
           ls -lh price-engine/collector.py
+
           echo ""
           echo "Test:"
           ls -lh price-engine/test_engine.py
+
           echo ""
           echo "Current prices.json:"
           ls -lh price-engine/prices.json || true
-          echo ""
 
       - name: Run Price Collector
         run: |
           echo "========================================"
           echo "HASINEH PRICE ENGINE - COLLECTOR"
           echo "========================================"
-          echo ""
 
           python -u price-engine/collector.py
 
@@ -51,29 +64,95 @@ jobs:
           echo "========================================"
           echo "COLLECTOR FINISHED"
           echo "========================================"
-          echo ""
 
           if [ ! -f price-engine/prices.json ]; then
             echo "ERROR: prices.json was not created."
             exit 1
           fi
 
-          echo "prices.json created successfully."
           echo ""
           echo "Generated prices.json:"
           cat price-engine/prices.json
-          echo ""
 
       - name: Run Price Engine Test
         run: |
           echo "========================================"
           echo "HASINEH PRICE ENGINE - TEST"
           echo "========================================"
-          echo ""
 
           python -u price-engine/test_engine.py
 
           echo ""
+          echo "PRICE ENGINE TEST PASSED"
+
+      - name: Check Price Changes
+        id: changes
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+
+          path = "price-engine/prices.json"
+
+          with open(path, "r", encoding="utf-8") as f:
+              current = json.load(f)
+
+          current.pop("generated_at_utc", None)
+          current.pop("updated_at", None)
+
+          try:
+              old_text = subprocess.check_output(
+                  ["git", "show", "HEAD:" + path],
+                  text=True
+              )
+
+              old = json.loads(old_text)
+              old.pop("generated_at_utc", None)
+              old.pop("updated_at", None)
+
+          except Exception:
+              old = None
+
+          changed = current != old
+
+          print("PRICE DATA CHANGED:", changed)
+
+          with open("/tmp/price_changed.txt", "w") as f:
+              f.write("true" if changed else "false")
+          PY
+
+          if [ "$(cat /tmp/price_changed.txt)" = "true" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "New price data detected."
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No price change detected."
+          fi
+
+      - name: Commit Updated Prices
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "HASINEH PRICE ENGINE"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add price-engine/prices.json
+
+          git commit -m "HASINEH PRICE ENGINE: update prices"
+
+          git push
+
+      - name: No Price Change
+        if: steps.changes.outputs.changed == 'false'
+        run: |
+          echo "No new price data."
+          echo "No commit required."
+
+      - name: Final Status
+        run: |
           echo "========================================"
-          echo "PRICE ENGINE TEST FINISHED"
+          echo "HASINEH PRICE ENGINE - COMPLETE"
+          echo "========================================"
+          echo "Collector: PASSED"
+          echo "Test: PASSED"
+          echo "Automatic update: ENABLED"
           echo "========================================"
