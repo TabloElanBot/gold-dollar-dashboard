@@ -189,3 +189,12 @@ print("=" * 60)
 print("HASINEH PRICE ENGINE V1")
 print("TEST COMPLETE")
 print("=" * 60)
+# --------------------------------
+# DEBUG ERROR OUTPUT
+# --------------------------------
+
+try:
+    pass
+
+except Exception:
+    traceback.print_exc()
