@@ -11,23 +11,69 @@ on:
 
 jobs:
   test-engine:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
+      - name: Check Engine Files
+        run: |
+          echo "========================================"
+          echo "HASINEH PRICE ENGINE - FILE CHECK"
+          echo "========================================"
+          echo ""
+          echo "Collector:"
+          ls -lh price-engine/collector.py
+          echo ""
+          echo "Test:"
+          ls -lh price-engine/test_engine.py
+          echo ""
+          echo "Current prices.json:"
+          ls -lh price-engine/prices.json || true
+          echo ""
+
       - name: Run Price Collector
         run: |
-          python price-engine/collector.py
+          echo "========================================"
+          echo "HASINEH PRICE ENGINE - COLLECTOR"
+          echo "========================================"
+          echo ""
+
+          python -u price-engine/collector.py
+
+          echo ""
+          echo "========================================"
+          echo "COLLECTOR FINISHED"
+          echo "========================================"
+          echo ""
+
+          if [ ! -f price-engine/prices.json ]; then
+            echo "ERROR: prices.json was not created."
+            exit 1
+          fi
+
+          echo "prices.json created successfully."
+          echo ""
+          echo "Generated prices.json:"
+          cat price-engine/prices.json
+          echo ""
 
       - name: Run Price Engine Test
         run: |
-          python price-engine/test_engine.py
+          echo "========================================"
+          echo "HASINEH PRICE ENGINE - TEST"
+          echo "========================================"
+          echo ""
+
+          python -u price-engine/test_engine.py
+
+          echo ""
+          echo "========================================"
+          echo "PRICE ENGINE TEST FINISHED"
+          echo "========================================"
