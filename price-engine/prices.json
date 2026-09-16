@@ -1,70 +1,193 @@
 {
-  "engine": "HASINEH PRICE ENGINE V1",
-  "status": "LIVE_CONNECTED",
-  "source": "BRS API",
-  "currency": "IRT",
-  "updated_at": "2026-09-16T02:01:41.952011+03:30",
+  "engine": "HASINEH PRICE ENGINE",
+  "version": "V294",
+  "status": "live",
+  "source": "https://www.tgju.org",
+  "generated_at_utc": "2026-09-16T22:46:02.480464+00:00",
+  "currency": "TOMAN",
+  "fake_prices_allowed": false,
   "prices": {
-    "gold_18k": 23259100,
-    "gold_24k": 31011900,
-    "gold_melted": 100247000,
-    "coin_emami": 231485000,
-    "coin_half": 118000000,
-    "coin_quarter": 62000000,
-    "coin_1g": 33000000,
-    "coin_bahar": 227000000,
-    "usd": 230395,
-    "eur": 266180,
-    "aed": 63070,
-    "gbp": 310380,
-    "cny": 34610,
-    "try": 4825,
-    "usdt": 231715,
-    "ounce_usd": 4297.0,
-    "apadana_1g": 23491691,
-    "mesghal_21k": 125049062
-  },
-  "changes": {
     "gold_18k": {
-      "value": -24300,
-      "percent": -0.1
+      "name": "طلای ۱۸ عیار",
+      "category": "gold",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان / گرم",
+      "source": "https://www.tgju.org/profile/geram18",
+      "status": "live"
     },
     "gold_24k": {
-      "value": -32300,
-      "percent": -0.1
+      "name": "طلای ۲۴ عیار",
+      "category": "gold",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان / گرم",
+      "source": "https://www.tgju.org/profile/geram24",
+      "status": "live"
     },
     "gold_melted": {
-      "value": -336000,
-      "percent": -0.34
-    },
-    "coin_emami": {
-      "value": -2500000,
-      "percent": -1.08
-    },
-    "coin_half": {
-      "value": -1000000,
-      "percent": -0.85
-    },
-    "coin_quarter": {
-      "value": -1000000,
-      "percent": -1.61
+      "name": "طلای آب‌شده",
+      "category": "gold",
+      "price": null,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان",
+      "source": "https://www.tgju.org/profile/gold_melted",
+      "status": "not_found"
     },
     "usd": {
-      "value": -905,
-      "percent": -0.39
+      "name": "دلار آمریکا",
+      "category": "currency",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان",
+      "source": "https://www.tgju.org/profile/price_dollar_rl",
+      "status": "live"
     },
     "eur": {
-      "value": -1950,
-      "percent": -0.73
+      "name": "یورو",
+      "category": "currency",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان",
+      "source": "https://www.tgju.org/profile/price_eur",
+      "status": "live"
     },
     "aed": {
-      "value": -246,
-      "percent": -0.39
+      "name": "درهم امارات",
+      "category": "currency",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان",
+      "source": "https://www.tgju.org/profile/price_aed",
+      "status": "live"
     },
     "usdt": {
-      "value": 1427,
-      "percent": 0.62
+      "name": "تتر",
+      "category": "currency",
+      "price": null,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان",
+      "source": "https://www.tgju.org/profile/price_usdt",
+      "status": "not_found"
+    },
+    "gbp": {
+      "name": "پوند انگلیس",
+      "category": "currency",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان",
+      "source": "https://www.tgju.org/profile/price_gbp",
+      "status": "live"
+    },
+    "try": {
+      "name": "لیر ترکیه",
+      "category": "currency",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان",
+      "source": "https://www.tgju.org/profile/price_try",
+      "status": "live"
+    },
+    "cny": {
+      "name": "یوان چین",
+      "category": "currency",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان",
+      "source": "https://www.tgju.org/profile/price_cny",
+      "status": "live"
+    },
+    "coin_emami": {
+      "name": "سکه امامی",
+      "category": "coin",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان / عدد",
+      "source": "https://www.tgju.org/profile/sekee",
+      "status": "live"
+    },
+    "coin_half": {
+      "name": "نیم سکه",
+      "category": "coin",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان / عدد",
+      "source": "https://www.tgju.org/profile/sekeb",
+      "status": "live"
+    },
+    "coin_quarter": {
+      "name": "ربع سکه",
+      "category": "coin",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان / عدد",
+      "source": "https://www.tgju.org/profile/rob",
+      "status": "live"
+    },
+    "silver_999": {
+      "name": "نقره ۹۹۹",
+      "category": "metal",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان / گرم",
+      "source": "https://www.tgju.org/profile/silver_999",
+      "status": "live"
+    },
+    "silver_925": {
+      "name": "نقره ۹۲۵",
+      "category": "metal",
+      "price": 203,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان / گرم",
+      "source": "https://www.tgju.org/profile/silver_925",
+      "status": "live"
+    },
+    "gold_21k_mesghal": {
+      "name": "طلای ۲۱ عیار / مثقال",
+      "category": "gold",
+      "price": 1091,
+      "previous": null,
+      "change": null,
+      "change_percent": null,
+      "unit": "تومان / مثقال",
+      "source": "https://www.tgju.org/profile/geram18",
+      "status": "calculated"
     }
   },
-  "api_key_exposed": false
+  "summary": {
+    "total_items": 16,
+    "live_items": 13,
+    "calculated_items": 1,
+    "failed_items": 2
+  }
 }
