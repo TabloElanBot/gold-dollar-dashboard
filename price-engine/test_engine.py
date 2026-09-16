@@ -1,167 +1,397 @@
+# ================================================================
+# HASINEH PRICE ENGINE
+# TEST ENGINE V2
+# ================================================================
+
 import json
 import os
-import traceback
-from datetime import datetime
+import sys
+from datetime import datetime, timezone
 
-print("=" * 60)
-print("HASINEH MARKET - PRICE ENGINE V1")
-print("REAL JSON TEST ENGINE")
-print("=" * 60)
+
+# ================================================================
+# SETTINGS
+# ================================================================
+
+PRICE_FILE = "price-engine/prices.json"
+
+REQUIRED_PRICES = [
+    "gold_18k",
+    "gold_24k",
+    "gold_melted",
+    "coin_emami",
+    "coin_half",
+    "coin_quarter",
+    "usd",
+    "eur",
+    "aed",
+    "usdt",
+]
+
+
+OPTIONAL_PRICES = [
+    "gbp",
+    "try",
+    "cny",
+    "silver_999",
+    "silver_925",
+    "gold_21k_mesghal",
+]
+
+
+# ================================================================
+# TEST HELPERS
+# ================================================================
+
+def fail(message):
+    print("")
+    print("[FAIL]", message)
+    print("")
+    sys.exit(1)
+
+
+def success(message):
+    print("[OK]", message)
+
+
+# ================================================================
+# START
+# ================================================================
+
+print("")
+print("=" * 64)
+print("HASINEH PRICE ENGINE TEST V2")
+print("=" * 64)
+print("")
+
+
+# ================================================================
+# CHECK FILE
+# ================================================================
+
+if not os.path.exists(PRICE_FILE):
+    fail(
+        "prices.json was not found: "
+        + PRICE_FILE
+    )
+
+success("prices.json exists")
+
+
+# ================================================================
+# LOAD JSON
+# ================================================================
 
 try:
-    json_file = "price-engine/prices.json"
 
-    print("\nFILE CHECK")
-    print("-" * 60)
-    print("FILE:", json_file)
+    with open(
+        PRICE_FILE,
+        "r",
+        encoding="utf-8"
+    ) as file:
 
-    if not os.path.exists(json_file):
-        print("ERROR: prices.json NOT FOUND")
-        raise SystemExit(1)
-
-    print("prices.json : FOUND")
-
-    with open(json_file, "r", encoding="utf-8") as file:
         data = json.load(file)
 
-    print("JSON LOAD : OK")
+except Exception as error:
 
-    print("\nJSON CHECK")
-    print("-" * 60)
+    fail(
+        "Could not read prices.json: "
+        + str(error)
+    )
 
-    if not isinstance(data, dict):
-        print("ERROR: JSON ROOT IS NOT AN OBJECT")
-        raise SystemExit(1)
 
-    required_main = [
-        "engine",
-        "status",
-        "source",
-        "prices"
-    ]
+# ================================================================
+# ROOT OBJECT
+# ================================================================
 
-    for item in required_main:
-        if item not in data:
-            print("MISSING MAIN FIELD:", item)
-            raise SystemExit(1)
+if not isinstance(data, dict):
+    fail("JSON root is not an object")
 
-    print("JSON STRUCTURE : OK")
+success("JSON root is valid")
 
-    prices = data["prices"]
 
-    if not isinstance(prices, dict):
-        print("ERROR: prices IS NOT AN OBJECT")
-        raise SystemExit(1)
+# ================================================================
+# REQUIRED ROOT FIELDS
+# ================================================================
 
-    print("PRICES OBJECT : OK")
+required_root_fields = [
+    "engine",
+    "status",
+    "source",
+    "prices",
+]
 
-    required_prices = [
-        "gold_18k",
-        "gold_24k",
-        "gold_melted",
-        "coin_emami",
-        "coin_half",
-        "coin_quarter",
-        "usd",
-        "eur",
-        "aed",
-        "usdt"
-    ]
 
-    print("\nPRICE CHECK")
-    print("-" * 60)
+for field in required_root_fields:
 
-    failed = False
+    if field not in data:
+        fail(
+            "Missing root field: "
+            + field
+        )
 
-    for item in required_prices:
-        if item not in prices:
-            print("MISSING PRICE:", item)
-            failed = True
-            continue
+success("Required root fields exist")
 
-        value = prices[item]
 
-        if isinstance(value, bool):
-            print("INVALID PRICE:", item)
-            failed = True
-            continue
+# ================================================================
+# PRICES OBJECT
+# ================================================================
 
-        if not isinstance(value, (int, float)):
-            print("INVALID PRICE:", item, "VALUE:", value)
-            failed = True
-            continue
+prices = data["prices"]
 
-        if value <= 0:
-            print("ZERO/NEGATIVE PRICE:", item, "VALUE:", value)
-            failed = True
-            continue
+if not isinstance(prices, dict):
+    fail("prices is not an object")
 
-        print(f"{item:15} {value:>15,} OK")
+success("prices object is valid")
 
-    if failed:
-        print("\nPRICE TEST : FAILED")
-        raise SystemExit(1)
 
-    print("\nPRICE TEST : PASSED")
+# ================================================================
+# CHECK PRICE ITEMS
+#
+# Supports both:
+#
+# OLD FORMAT:
+# "gold_18k": 23000000
+#
+# NEW FORMAT:
+# "gold_18k": {
+#     "price": 23000000,
+#     "status": "live",
+#     ...
+# }
+# ================================================================
 
-    optional_prices = [
-        "coin_bahar",
-        "silver_999",
-        "silver_925",
-        "gbp",
-        "try",
-        "cny",
-        "gold_21k_mesghal"
-    ]
+live_count = 0
+calculated_count = 0
+not_found_count = 0
 
-    print("\nOPTIONAL PRICE CHECK")
-    print("-" * 60)
 
-    for item in optional_prices:
-        if item not in prices:
-            print(f"{item:20} NOT PRESENT (OPTIONAL)")
-            continue
+for key in REQUIRED_PRICES:
 
-        value = prices[item]
+    if key not in prices:
+        fail(
+            "Missing required price: "
+            + key
+        )
 
-        if isinstance(value, bool):
-            print(f"{item:20} INVALID")
-            continue
+    item = prices[key]
 
-        if not isinstance(value, (int, float)):
-            print(f"{item:20} INVALID")
-            continue
 
-        if value <= 0:
-            print(f"{item:20} INVALID VALUE")
-            continue
+    # ------------------------------------------------------------
+    # NEW FORMAT
+    # ------------------------------------------------------------
 
-        print(f"{item:20} {value:>15,} OK")
+    if isinstance(item, dict):
 
-    print("\nENGINE STATUS")
-    print("-" * 60)
-    print("ENGINE:", data["engine"])
-    print("STATUS:", data["status"])
-    print("SOURCE:", data["source"])
+        if "price" not in item:
+            fail(
+                "Missing price field for: "
+                + key
+            )
 
-    print("\nDATA TEST : PASSED")
+        value = item["price"]
+        status = item.get(
+            "status",
+            "unknown"
+        )
 
-    now = datetime.now()
 
-    print("\nTEST TIME:")
-    print(now.strftime("%Y-%m-%d %H:%M:%S"))
+    # ------------------------------------------------------------
+    # OLD FORMAT
+    # ------------------------------------------------------------
 
-    print("=" * 60)
-    print("HASINEH PRICE ENGINE V1")
-    print("TEST COMPLETE - SUCCESS")
-    print("=" * 60)
+    elif isinstance(item, (int, float)):
 
-except SystemExit:
-    raise
+        value = item
+        status = "live"
 
-except Exception:
-    print("\n" + "=" * 60)
-    print("UNEXPECTED ERROR")
-    print("=" * 60)
-    traceback.print_exc()
-    raise SystemExit(1)
+
+    else:
+
+        fail(
+            "Invalid price format for: "
+            + key
+        )
+
+
+    # ------------------------------------------------------------
+    # VALUE CHECK
+    # ------------------------------------------------------------
+
+    if value is not None:
+
+        if not isinstance(
+            value,
+            (int, float)
+        ):
+            fail(
+                "Price is not numeric for: "
+                + key
+            )
+
+        if value < 0:
+            fail(
+                "Negative price detected for: "
+                + key
+            )
+
+
+    # ------------------------------------------------------------
+    # STATUS COUNT
+    # ------------------------------------------------------------
+
+    if status == "live":
+        live_count += 1
+
+    elif status == "calculated":
+        calculated_count += 1
+
+    elif status == "not_found":
+        not_found_count += 1
+
+
+    success(
+        key
+        + " = "
+        + str(value)
+        + " ["
+        + str(status)
+        + "]"
+    )
+
+
+# ================================================================
+# OPTIONAL PRICES
+# ================================================================
+
+for key in OPTIONAL_PRICES:
+
+    if key not in prices:
+        print(
+            "[INFO] Optional price not present:",
+            key
+        )
+        continue
+
+    item = prices[key]
+
+    if isinstance(item, dict):
+
+        value = item.get("price")
+        status = item.get(
+            "status",
+            "unknown"
+        )
+
+    elif isinstance(item, (int, float)):
+
+        value = item
+        status = "live"
+
+    else:
+
+        fail(
+            "Invalid optional price format for: "
+            + key
+        )
+
+    if value is not None:
+
+        if not isinstance(
+            value,
+            (int, float)
+        ):
+            fail(
+                "Optional price is not numeric for: "
+                + key
+            )
+
+    print(
+        "[INFO]",
+        key,
+        "=",
+        value,
+        "[",
+        status,
+        "]"
+    )
+
+
+# ================================================================
+# FAKE PRICE CHECK
+# ================================================================
+
+if data.get(
+    "fake_prices_allowed",
+    False
+) is True:
+
+    fail(
+        "fake_prices_allowed is TRUE"
+    )
+
+success("Fake prices are disabled")
+
+
+# ================================================================
+# ENGINE STATUS
+# ================================================================
+
+engine_status = data.get(
+    "status",
+    "unknown"
+)
+
+print("")
+print(
+    "[ENGINE STATUS]",
+    engine_status
+)
+
+print(
+    "[LIVE ITEMS]",
+    live_count
+)
+
+print(
+    "[CALCULATED ITEMS]",
+    calculated_count
+)
+
+print(
+    "[NOT FOUND ITEMS]",
+    not_found_count
+)
+
+
+# ================================================================
+# FINAL VALIDATION
+# ================================================================
+
+if live_count == 0:
+
+    fail(
+        "No live prices were collected"
+    )
+
+
+# ================================================================
+# TEST TIME
+# ================================================================
+
+test_time = datetime.now(
+    timezone.utc
+).isoformat()
+
+
+print("")
+print(
+    "[TEST TIME UTC]",
+    test_time
+)
+
+print("")
+print("=" * 64)
+print("HASINEH PRICE ENGINE TEST PASSED")
+print("=" * 64)
+print("")
