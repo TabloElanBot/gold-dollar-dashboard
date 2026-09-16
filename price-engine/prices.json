@@ -1,9 +1,9 @@
 {
   "engine": "HASINEH PRICE ENGINE",
-  "version": "V295",
+  "version": "V296",
   "status": "live",
   "source": "https://www.tgju.org",
-  "generated_at_utc": "2026-09-16T22:58:17.169665+00:00",
+  "generated_at_utc": "2026-09-16T23:05:04.461647+00:00",
   "currency": "TOMAN",
   "fake_prices_allowed": false,
   "prices": {
@@ -32,13 +32,13 @@
     "gold_melted": {
       "name": "طلای آب‌شده",
       "category": "gold",
-      "price": null,
+      "price": 101903000,
       "previous": null,
       "change": null,
       "change_percent": null,
-      "unit": "تومان",
-      "source": "https://www.tgju.org/profile/gold_melted",
-      "status": "not_found"
+      "unit": "تومان / مثقال",
+      "source": "https://www.tgju.org/profile/gold_world_futures",
+      "status": "live"
     },
     "usd": {
       "name": "دلار آمریکا",
@@ -76,13 +76,13 @@
     "usdt": {
       "name": "تتر",
       "category": "currency",
-      "price": null,
+      "price": 229925,
       "previous": null,
       "change": null,
       "change_percent": null,
       "unit": "تومان",
-      "source": "https://www.tgju.org/profile/price_usdt",
-      "status": "not_found"
+      "source": "https://www.tgju.org/profile/crypto-tether/markets-local",
+      "status": "live"
     },
     "gbp": {
       "name": "پوند انگلیس",
@@ -131,12 +131,12 @@
     "coin_half": {
       "name": "نیم سکه",
       "category": "coin",
-      "price": 229240000,
+      "price": 119000000,
       "previous": null,
       "change": null,
       "change_percent": null,
       "unit": "تومان / عدد",
-      "source": "https://www.tgju.org/profile/sekeb",
+      "source": "https://www.tgju.org/profile/nim",
       "status": "live"
     },
     "coin_quarter": {
@@ -186,8 +186,8 @@
   },
   "summary": {
     "total_items": 16,
-    "live_items": 13,
+    "live_items": 15,
     "calculated_items": 1,
-    "failed_items": 2
+    "failed_items": 0
   }
 }
