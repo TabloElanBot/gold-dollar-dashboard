@@ -68,7 +68,11 @@ header{
   padding:18px;
   border:1px solid #3d3218;
   border-radius:18px;
-  background:linear-gradient(145deg,rgba(25,25,25,.96),rgba(7,7,7,.96));
+  background:linear-gradient(
+    145deg,
+    rgba(25,25,25,.96),
+    rgba(7,7,7,.96)
+  );
   box-shadow:0 10px 35px rgba(0,0,0,.4);
 }
 
@@ -104,7 +108,8 @@ header{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
   gap:14px;
 }
 
@@ -112,7 +117,11 @@ header{
   position:relative;
   overflow:hidden;
   background:
-    linear-gradient(145deg,rgba(27,27,27,.98),rgba(8,8,8,.98));
+    linear-gradient(
+      145deg,
+      rgba(27,27,27,.98),
+      rgba(8,8,8,.98)
+    );
   border:1px solid #302815;
   border-radius:18px;
   padding:18px;
@@ -127,7 +136,13 @@ header{
   right:0;
   left:0;
   height:2px;
-  background:linear-gradient(90deg,transparent,#d9b85b,transparent);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #d9b85b,
+      transparent
+    );
   opacity:.6;
 }
 
@@ -198,6 +213,7 @@ footer strong{
 }
 
 @media(max-width:600px){
+
   header{
     padding-top:22px;
   }
@@ -218,6 +234,7 @@ footer strong{
     display:block;
     margin-top:4px;
   }
+
 }
 </style>
 </head>
@@ -227,212 +244,506 @@ footer strong{
 <div class="container">
 
 <header>
-  <div class="logo">HASINEH MARKET</div>
-  <div class="subtitle">بازار آنلاین حسینه | LIVE PREMIUM MARKET BOARD</div>
-  <div class="location">📍 Bandar Hasineh</div>
+
+  <div class="logo">
+    HASINEH MARKET
+  </div>
+
+  <div class="subtitle">
+    بازار آنلاین حسینه | LIVE PREMIUM MARKET BOARD
+  </div>
+
+  <div class="location">
+    📍 Bandar Hasineh
+  </div>
 
   <div class="status" id="connectionStatus">
     🟡 در حال اتصال به موتور قیمت...
   </div>
+
 </header>
 
+
 <section class="engine">
-  <div class="engine-title">🔌 HASINEH PRICE ENGINE V1</div>
+
+  <div class="engine-title">
+    🔌 HASINEH PRICE ENGINE V1
+  </div>
 
   <div class="engine-row">
     <span>منبع داده</span>
-    <strong id="sourceStatus">BRS API</strong>
+    <strong id="sourceStatus">
+      BRS API
+    </strong>
   </div>
 
   <div class="engine-row">
     <span>موتور</span>
-    <strong>HASINEH PRICE ENGINE V1</strong>
+    <strong>
+      HASINEH PRICE ENGINE V1
+    </strong>
   </div>
 
   <div class="engine-row">
     <span>داده</span>
-    <strong id="jsonStatus">در حال دریافت JSON...</strong>
+    <strong id="jsonStatus">
+      در حال دریافت JSON...
+    </strong>
   </div>
 
   <div class="engine-row">
     <span>وضعیت</span>
-    <strong id="engineStatus">WAITING</strong>
+    <strong id="engineStatus">
+      WAITING
+    </strong>
   </div>
+
 </section>
 
-<div class="section-title">📊 بازار طلا</div>
+
+<!-- =========================
+     GOLD
+========================= -->
+
+<div class="section-title">
+  📊 بازار طلا
+</div>
 
 <div class="grid">
 
   <div class="card">
-    <div class="card-name">طلای ۱۸ عیار</div>
-    <div class="price" id="gold18">—</div>
-    <div class="unit">تومان / گرم</div>
-    <div class="move flat" id="gold18Move">—</div>
+
+    <div class="card-name">
+      طلای ۱۸ عیار
+    </div>
+
+    <div class="price" id="gold18">
+      —
+    </div>
+
+    <div class="unit">
+      تومان / گرم
+    </div>
+
+    <div class="move flat" id="gold18Move">
+      —
+    </div>
+
   </div>
 
-  <div class="card">
-    <div class="card-name">طلای ۲۴ عیار</div>
-    <div class="price" id="gold24">—</div>
-    <div class="unit">تومان / گرم</div>
-    <div class="move flat" id="gold24Move">—</div>
-  </div>
 
   <div class="card">
-    <div class="card-name">طلای آب‌شده</div>
-    <div class="price" id="melted">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="meltedMove">—</div>
+
+    <div class="card-name">
+      طلای ۲۴ عیار
+    </div>
+
+    <div class="price" id="gold24">
+      —
+    </div>
+
+    <div class="unit">
+      تومان / گرم
+    </div>
+
+    <div class="move flat" id="gold24Move">
+      —
+    </div>
+
   </div>
 
+
   <div class="card">
-    <div class="card-name">طلای ۲۱ عیار / مثقال</div>
-    <div class="price" id="mesghal21">—</div>
-    <div class="unit">تومان / مثقال</div>
-    <div class="move flat" id="mesghal21Move">—</div>
+
+    <div class="card-name">
+      طلای آب‌شده
+    </div>
+
+    <div class="price" id="melted">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="meltedMove">
+      —
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="card-name">
+      طلای ۲۱ عیار / مثقال
+    </div>
+
+    <div class="price" id="mesghal21">
+      —
+    </div>
+
+    <div class="unit">
+      تومان / مثقال
+    </div>
+
+    <div class="move flat" id="mesghal21Move">
+      —
+    </div>
+
   </div>
 
 </div>
 
-<div class="section-title">🪙 بازار سکه</div>
+
+<!-- =========================
+     COINS
+========================= -->
+
+<div class="section-title">
+  🪙 بازار سکه
+</div>
 
 <div class="grid">
 
   <div class="card">
-    <div class="card-name">سکه امامی</div>
-    <div class="price" id="emami">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="emamiMove">—</div>
+
+    <div class="card-name">
+      سکه امامی
+    </div>
+
+    <div class="price" id="emami">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="emamiMove">
+      —
+    </div>
+
   </div>
 
-  <div class="card">
-    <div class="card-name">نیم سکه</div>
-    <div class="price" id="half">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="halfMove">—</div>
-  </div>
 
   <div class="card">
-    <div class="card-name">ربع سکه</div>
-    <div class="price" id="quarter">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="quarterMove">—</div>
+
+    <div class="card-name">
+      نیم سکه
+    </div>
+
+    <div class="price" id="half">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="halfMove">
+      —
+    </div>
+
   </div>
 
+
   <div class="card">
-    <div class="card-name">سکه بهار آزادی</div>
-    <div class="price unavailable" id="bahar">—</div>
-    <div class="unit">داده فعلاً در JSON موجود نیست</div>
-    <div class="move flat" id="baharMove">—</div>
+
+    <div class="card-name">
+      ربع سکه
+    </div>
+
+    <div class="price" id="quarter">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="quarterMove">
+      —
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="card-name">
+      سکه بهار آزادی
+    </div>
+
+    <div class="price" id="bahar">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="baharMove">
+      —
+    </div>
+
   </div>
 
 </div>
 
-<div class="section-title">🥈 بازار نقره</div>
+
+<!-- =========================
+     SILVER
+========================= -->
+
+<div class="section-title">
+  🥈 بازار نقره
+</div>
 
 <div class="grid">
 
   <div class="card">
-    <div class="card-name">نقره ۹۹۹</div>
-    <div class="price" id="silver999">—</div>
-    <div class="unit">تومان / گرم</div>
-    <div class="move flat" id="silver999Move">—</div>
+
+    <div class="card-name">
+      نقره ۹۹۹
+    </div>
+
+    <div class="price unavailable" id="silver999">
+      —
+    </div>
+
+    <div class="unit">
+      داده فعلاً در JSON موجود نیست
+    </div>
+
+    <div class="move flat" id="silver999Move">
+      —
+    </div>
+
   </div>
 
+
   <div class="card">
-    <div class="card-name">نقره ۹۲۵</div>
-    <div class="price" id="silver925">—</div>
-    <div class="unit">تومان / گرم</div>
-    <div class="move flat" id="silver925Move">—</div>
+
+    <div class="card-name">
+      نقره ۹۲۵
+    </div>
+
+    <div class="price unavailable" id="silver925">
+      —
+    </div>
+
+    <div class="unit">
+      داده فعلاً در JSON موجود نیست
+    </div>
+
+    <div class="move flat" id="silver925Move">
+      —
+    </div>
+
   </div>
 
 </div>
-<div class="section-title">💱 بازار ارز</div>
+<!-- =========================
+     CURRENCY
+========================= -->
+
+<div class="section-title">
+  💱 بازار ارز
+</div>
 
 <div class="grid">
 
   <div class="card">
-    <div class="card-name">دلار آمریکا</div>
-    <div class="price" id="usd">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="usdMove">—</div>
+    <div class="card-name">
+      دلار آمریکا
+    </div>
+
+    <div class="price" id="usd">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="usdMove">
+      —
+    </div>
   </div>
 
-  <div class="card">
-    <div class="card-name">تتر USDT</div>
-    <div class="price" id="usdt">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="usdtMove">—</div>
-  </div>
 
   <div class="card">
-    <div class="card-name">یورو</div>
-    <div class="price" id="eur">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="eurMove">—</div>
+    <div class="card-name">
+      تتر USDT
+    </div>
+
+    <div class="price" id="usdt">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="usdtMove">
+      —
+    </div>
   </div>
 
-  <div class="card">
-    <div class="card-name">پوند انگلیس</div>
-    <div class="price" id="gbp">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="gbpMove">—</div>
-  </div>
 
   <div class="card">
-    <div class="card-name">درهم امارات</div>
-    <div class="price" id="aed">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="aedMove">—</div>
+    <div class="card-name">
+      یورو
+    </div>
+
+    <div class="price" id="eur">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="eurMove">
+      —
+    </div>
   </div>
 
-  <div class="card">
-    <div class="card-name">لیر ترکیه</div>
-    <div class="price" id="try">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="tryMove">—</div>
-  </div>
 
   <div class="card">
-    <div class="card-name">یوان چین</div>
-    <div class="price" id="cny">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="cnyMove">—</div>
+    <div class="card-name">
+      پوند انگلیس
+    </div>
+
+    <div class="price" id="gbp">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="gbpMove">
+      —
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-name">
+      درهم امارات
+    </div>
+
+    <div class="price" id="aed">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="aedMove">
+      —
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-name">
+      لیر ترکیه
+    </div>
+
+    <div class="price" id="try">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="tryMove">
+      —
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-name">
+      یوان چین
+    </div>
+
+    <div class="price" id="cny">
+      —
+    </div>
+
+    <div class="unit">
+      تومان
+    </div>
+
+    <div class="move flat" id="cnyMove">
+      —
+    </div>
   </div>
 
 </div>
+
 
 <div class="notice">
-  🟢 داده‌های تابلو از فایل JSON موتور قیمت دریافت می‌شوند.<br>
-  Fake Data: <strong>DISABLED</strong><br>
-  در صورت نبود داده معتبر، مقدار «—» نمایش داده می‌شود.
+
+  🟢 داده‌های تابلو از فایل JSON موتور قیمت دریافت می‌شوند.
+
+  <br>
+
+  Fake Data:
+  <strong>DISABLED</strong>
+
+  <br>
+
+  در صورت نبود داده معتبر،
+  مقدار «—» نمایش داده می‌شود.
+
 </div>
 
+
 <footer>
+
   HASINEH MARKET © 2026
+
   <br>
-  <strong>Created by Hassan Divanizadeh</strong>
+
+  <strong>
+    Created by Hassan Divanizadeh
+  </strong>
+
 </footer>
 
 </div>
 
+
 <script>
 
 /* ==========================================
-   HASINEH MARKET V297.1
-   JSON KEY SYNC
+   HASINEH MARKET V297.2
+   COMPLETE JSON KEY SYNC
    ========================================== */
 
-const JSON_URL = "./price-engine/prices.json";
+const JSON_URL =
+  "./price-engine/prices.json";
 
 
-/* ------------------------------------------
+/* ==========================================
    FORMAT PRICE
------------------------------------------- */
+   ========================================== */
 
 function formatPrice(value){
 
-  if(value === null || value === undefined || value === ""){
+  if(
+    value === null ||
+    value === undefined ||
+    value === ""
+  ){
     return "—";
   }
 
@@ -442,105 +753,160 @@ function formatPrice(value){
     return "—";
   }
 
-  return new Intl.NumberFormat("fa-IR").format(number);
+  return new Intl.NumberFormat(
+    "fa-IR"
+  ).format(number);
 }
 
 
-/* ------------------------------------------
+/* ==========================================
    SHOW PRICE
------------------------------------------- */
+   ========================================== */
 
 function showPrice(id,value){
 
-  const element = document.getElementById(id);
+  const element =
+    document.getElementById(id);
 
   if(!element){
     return;
   }
 
-  if(value === null || value === undefined || value === ""){
+  if(
+    value === null ||
+    value === undefined ||
+    value === ""
+  ){
+
     element.textContent = "—";
-    element.classList.add("unavailable");
+
+    element.classList.add(
+      "unavailable"
+    );
+
     return;
   }
 
   const number = Number(value);
 
-  if(!Number.isFinite(number) || number <= 0){
+  if(
+    !Number.isFinite(number) ||
+    number <= 0
+  ){
+
     element.textContent = "—";
-    element.classList.add("unavailable");
+
+    element.classList.add(
+      "unavailable"
+    );
+
     return;
   }
 
-  element.classList.remove("unavailable");
-  element.textContent = formatPrice(number);
+  element.classList.remove(
+    "unavailable"
+  );
+
+  element.textContent =
+    formatPrice(number);
 }
 
 
-/* ------------------------------------------
+/* ==========================================
    SHOW MOVEMENT
------------------------------------------- */
+   ========================================== */
 
 function showMovement(id,value){
 
-  const element = document.getElementById(id);
+  const element =
+    document.getElementById(id);
 
   if(!element){
     return;
   }
 
-  if(value === null || value === undefined || value === ""){
+  if(
+    value === null ||
+    value === undefined ||
+    value === ""
+  ){
+
     element.textContent = "—";
     element.className = "move flat";
+
     return;
   }
 
   const number = Number(value);
 
   if(!Number.isFinite(number)){
+
     element.textContent = "—";
     element.className = "move flat";
+
     return;
   }
+
 
   if(number > 0){
 
     element.textContent =
-      "▲ " + formatPrice(Math.abs(number));
+      "▲ " +
+      formatPrice(
+        Math.abs(number)
+      );
 
-    element.className = "move up";
+    element.className =
+      "move up";
 
-  }else if(number < 0){
+  }
+
+  else if(number < 0){
 
     element.textContent =
-      "▼ " + formatPrice(Math.abs(number));
+      "▼ " +
+      formatPrice(
+        Math.abs(number)
+      );
 
-    element.className = "move down";
+    element.className =
+      "move down";
 
-  }else{
+  }
 
-    element.textContent = "● بدون تغییر";
-    element.className = "move flat";
+  else{
 
+    element.textContent =
+      "● بدون تغییر";
+
+    element.className =
+      "move flat";
   }
 
 }
 
 
-/* ------------------------------------------
+/* ==========================================
    LOAD JSON
------------------------------------------- */
+   ========================================== */
 
 async function loadPrices(){
 
   const connectionStatus =
-    document.getElementById("connectionStatus");
+    document.getElementById(
+      "connectionStatus"
+    );
 
   const jsonStatus =
-    document.getElementById("jsonStatus");
+    document.getElementById(
+      "jsonStatus"
+    );
 
   const engineStatus =
-    document.getElementById("engineStatus");
+    document.getElementById(
+      "engineStatus"
+    );
+
 
   try{
 
@@ -554,40 +920,78 @@ async function loadPrices(){
       "LOADING";
 
 
-    const response = await fetch(
-      JSON_URL + "?t=" + Date.now(),
-      {
-        cache:"no-store"
-      }
-    );
+    const response =
+      await fetch(
+        JSON_URL +
+        "?t=" +
+        Date.now(),
+        {
+          cache:"no-store"
+        }
+      );
 
 
     if(!response.ok){
+
       throw new Error(
-        "HTTP " + response.status
+        "HTTP " +
+        response.status
       );
+
     }
 
 
-    const data = await response.json();
+    const data =
+      await response.json();
 
-    const p = data.prices || data;
+
+    /*
+      قیمت‌ها داخل data.prices
+      قرار دارند.
+    */
+
+    const p =
+      data.prices || {};
+
+
+    /*
+      تغییرات داخل data.changes
+      قرار دارند.
+    */
+
+    const c =
+      data.changes || {};
 
 
     /* ======================================
-       V297.1 JSON KEY MAPPING
+       GOLD
        ====================================== */
 
-    showPrice("gold18",p.gold18);
-    showPrice("gold24",p.gold24);
+    showPrice(
+      "gold18",
+      p.gold_18k
+    );
 
-    /* آب‌شده — کلید صحیح JSON */
+    showPrice(
+      "gold24",
+      p.gold_24k
+    );
+
     showPrice(
       "melted",
       p.gold_melted
     );
 
-    /* سکه‌ها — کلیدهای صحیح JSON */
+    showPrice(
+      "mesghal21",
+      p.mesghal_21k
+    );
+
+
+    /* ======================================
+       COINS
+       ====================================== */
+
     showPrice(
       "emami",
       p.coin_emami
@@ -603,30 +1007,42 @@ async function loadPrices(){
       p.coin_quarter
     );
 
-    /* بهار آزادی فعلاً در JSON وجود ندارد */
     showPrice(
       "bahar",
       p.coin_bahar
     );
 
+
+    /* ======================================
+       SILVER
+       ====================================== */
+
+    /*
+      نقره فعلاً در prices.json
+      وجود ندارد.
+
+      بنابراین هیچ عدد ساختگی
+      نمایش داده نمی‌شود.
+    */
+
     showPrice(
       "silver999",
-      p.silver999
+      null
     );
 
     showPrice(
       "silver925",
-      p.silver925
+      null
     );
+
+
+    /* ======================================
+       CURRENCY
+       ====================================== */
 
     showPrice(
       "usd",
       p.usd
-    );
-
-    showPrice(
-      "usdt",
-      p.usdt
     );
 
     showPrice(
@@ -635,13 +1051,18 @@ async function loadPrices(){
     );
 
     showPrice(
+      "aed",
+      p.aed
+    );
+
+    showPrice(
       "gbp",
       p.gbp
     );
 
     showPrice(
-      "aed",
-      p.aed
+      "cny",
+      p.cny
     );
 
     showPrice(
@@ -650,128 +1071,105 @@ async function loadPrices(){
     );
 
     showPrice(
-      "cny",
-      p.cny
+      "usdt",
+      p.usdt
     );
 
 
-    /* --------------------------------------
-       21K MESGHAL
-    -------------------------------------- */
-
-    if(
-      p.mesghal21 !== undefined &&
-      p.mesghal21 !== null
-    ){
-
-      showPrice(
-        "mesghal21",
-        p.mesghal21
-      );
-
-    }else{
-
-      showPrice(
-        "mesghal21",
-        null
-      );
-
-    }
-
-
-    /* --------------------------------------
-       MOVEMENT DATA
-    -------------------------------------- */
+    /* ======================================
+       GOLD MOVEMENTS
+       ====================================== */
 
     showMovement(
       "gold18Move",
-      p.gold18_change
+      c.gold_18k?.value
     );
 
     showMovement(
       "gold24Move",
-      p.gold24_change
+      c.gold_24k?.value
     );
 
     showMovement(
       "meltedMove",
-      p.gold_melted_change
+      c.gold_melted?.value
     );
+
+
+    /* ======================================
+       COIN MOVEMENTS
+       ====================================== */
 
     showMovement(
       "emamiMove",
-      p.coin_emami_change
+      c.coin_emami?.value
     );
 
     showMovement(
       "halfMove",
-      p.coin_half_change
+      c.coin_half?.value
     );
 
     showMovement(
       "quarterMove",
-      p.coin_quarter_change
+      c.coin_quarter?.value
     );
+
+
+    /*
+      بهار آزادی در بخش changes
+      فعلاً مقدار تغییر ندارد.
+    */
 
     showMovement(
       "baharMove",
-      p.coin_bahar_change
+      c.coin_bahar?.value
     );
 
-    showMovement(
-      "silver999Move",
-      p.silver999_change
-    );
 
-    showMovement(
-      "silver925Move",
-      p.silver925_change
-    );
+    /* ======================================
+       CURRENCY MOVEMENTS
+       ====================================== */
 
     showMovement(
       "usdMove",
-      p.usd_change
-    );
-
-    showMovement(
-      "usdtMove",
-      p.usdt_change
+      c.usd?.value
     );
 
     showMovement(
       "eurMove",
-      p.eur_change
-    );
-
-    showMovement(
-      "gbpMove",
-      p.gbp_change
+      c.eur?.value
     );
 
     showMovement(
       "aedMove",
-      p.aed_change
+      c.aed?.value
     );
 
     showMovement(
-      "tryMove",
-      p.try_change
+      "gbpMove",
+      c.gbp?.value
     );
 
     showMovement(
       "cnyMove",
-      p.cny_change
+      c.cny?.value
     );
 
     showMovement(
-      "mesghal21Move",
-      p.mesghal21_change
+      "tryMove",
+      c.try?.value
+    );
+
+    showMovement(
+      "usdtMove",
+      c.usdt?.value
     );
 
 
-    /* --------------------------------------
-       SUCCESS
-    -------------------------------------- */
+    /* ======================================
+       ENGINE SUCCESS
+       ====================================== */
 
     connectionStatus.textContent =
       "🟢 اتصال موفق به موتور قیمت";
@@ -786,12 +1184,21 @@ async function loadPrices(){
       "CONNECTED";
 
 
-  }catch(error){
+    console.log(
+      "HASINEH PRICE ENGINE V297.2:",
+      data
+    );
+
+  }
+
+
+  catch(error){
 
     console.error(
       "HASINEH PRICE ENGINE ERROR:",
       error
     );
+
 
     connectionStatus.textContent =
       "🔴 خطا در دریافت JSON";
@@ -810,16 +1217,16 @@ async function loadPrices(){
 }
 
 
-/* ------------------------------------------
-   START ENGINE
------------------------------------------- */
+/* ==========================================
+   START
+   ========================================== */
 
 loadPrices();
 
 
-/* ------------------------------------------
-   AUTO REFRESH — 60 SECONDS
------------------------------------------- */
+/* ==========================================
+   AUTO REFRESH
+   ========================================== */
 
 setInterval(
   loadPrices,
