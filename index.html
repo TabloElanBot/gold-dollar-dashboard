@@ -516,7 +516,7 @@ footer strong{
 /* =========================================================
    HASINEH MARKET
    REAL PRICE ENGINE JSON CONNECTOR
-   V296
+   V297
    ========================================================= */
 
 const JSON_URL =
@@ -846,9 +846,10 @@ async function loadPrices(){
       )
     );
 
+
     /*
       coin_bahar در V296 وجود ندارد.
-      بنابراین عدد ساختگی نمایش نمی‌دهیم.
+      فعلاً قیمت ساختگی نمایش نمی‌دهیم.
     */
 
     showPrice(
@@ -1035,12 +1036,19 @@ async function loadPrices(){
     connectionStatus.style.color =
       "#75e08a";
 
+
+    /*
+      نسخه را عیناً از JSON می‌گیریم.
+      اگر JSON مقدار V296 داشته باشد،
+      دیگر VV296 نمایش داده نمی‌شود.
+    */
+
     jsonStatus.textContent =
-      "V" +
       String(
-        data.version || "296"
+        data.version || "UNKNOWN"
       ) +
       " | JSON زنده دریافت شد";
+
 
     engineStatus.textContent =
       "CONNECTED";
