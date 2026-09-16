@@ -1,141 +1,190 @@
 # HASINEH MARKET
 # HASINEH PRICE ENGINE V1
-# TEST ENGINE
+# REAL JSON TEST ENGINE
 # Bandar Hasineh
 # Hassan Divanizadeh
 
+import json
+import os
 from datetime import datetime
+
 
 print("=" * 60)
 print("HASINEH MARKET - PRICE ENGINE V1")
-print("TEST ENGINE")
+print("REAL JSON TEST ENGINE")
 print("=" * 60)
 
-# -----------------------------
-# TEST MARKET INPUT
-# -----------------------------
 
-market_data = {
-    "gold_18k": 23500000,
-    "gold_24k": 31333333,
-    "coin_emami": 185000000,
-    "coin_half": 99000000,
-    "coin_quarter": 56000000,
-    "silver": 420000,
-    "usd": 105000,
-    "eur": 123000,
-    "aed": 29000,
-    "usdt": 105500
-}
+# --------------------------------
+# LOAD PRICES JSON
+# --------------------------------
 
-# -----------------------------
-# PRICE ENGINE
-# -----------------------------
-
-def calculate_market_status(price, previous_price):
-    if price > previous_price:
-        return "UP"
-    elif price < previous_price:
-        return "DOWN"
-    else:
-        return "STABLE"
+json_file = "price-engine/prices.json"
 
 
-def calculate_change(price, previous_price):
-    if previous_price == 0:
-        return 0
+if not os.path.exists(json_file):
 
-    return ((price - previous_price) / previous_price) * 100
+    print("ERROR: prices.json NOT FOUND")
+    raise SystemExit(1)
 
 
-# -----------------------------
-# PREVIOUS TEST PRICES
-# -----------------------------
+with open(
+    json_file,
+    "r",
+    encoding="utf-8"
+) as file:
 
-previous_data = {
-    "gold_18k": 23400000,
-    "gold_24k": 31200000,
-    "coin_emami": 184000000,
-    "coin_half": 98500000,
-    "coin_quarter": 55500000,
-    "silver": 415000,
-    "usd": 104500,
-    "eur": 122000,
-    "aed": 28800,
-    "usdt": 105000
-}
+    data = json.load(file)
 
-# -----------------------------
-# ENGINE OUTPUT
-# -----------------------------
 
-print("\nPRICE ENGINE RESULT")
+
+# --------------------------------
+# BASIC CHECK
+# --------------------------------
+
+print("\nJSON CHECK")
 print("-" * 60)
 
-for name, price in market_data.items():
 
-    previous_price = previous_data.get(name, price)
+required_main = [
+    "engine",
+    "status",
+    "source",
+    "prices"
+]
 
-    status = calculate_market_status(
-        price,
-        previous_price
-    )
 
-    change = calculate_change(
-        price,
-        previous_price
-    )
+for item in required_main:
 
-    print(
-        f"{name:15} "
-        f"{price:>12,} "
-        f"{status:>8} "
-        f"{change:+.2f}%"
-    )
+    if item not in data:
 
-# -----------------------------
-# ENGINE STATUS
-# -----------------------------
+        print(
+            "MISSING:",
+            item
+        )
 
-print("\n" + "=" * 60)
+        raise SystemExit(1)
 
-required_items = [
+
+print("JSON STRUCTURE : OK")
+
+
+
+# --------------------------------
+# PRICE CHECK
+# --------------------------------
+
+prices = data["prices"]
+
+
+required_prices = [
+
     "gold_18k",
     "gold_24k",
+    "gold_melted",
     "coin_emami",
     "coin_half",
     "coin_quarter",
-    "silver",
+    "coin_bahar",
     "usd",
     "eur",
     "aed",
     "usdt"
+
 ]
 
-engine_ready = all(
-    item in market_data
-    for item in required_items
+
+print("\nPRICE CHECK")
+print("-" * 60)
+
+
+for item in required_prices:
+
+    if item not in prices:
+
+        print(
+            "MISSING PRICE:",
+            item
+        )
+
+        raise SystemExit(1)
+
+
+    value = prices[item]
+
+
+    if not isinstance(value, (int, float)):
+
+        print(
+            "INVALID PRICE:",
+            item
+        )
+
+        raise SystemExit(1)
+
+
+    if value <= 0:
+
+        print(
+            "ZERO PRICE:",
+            item
+        )
+
+        raise SystemExit(1)
+
+
+    print(
+        f"{item:15} {value:>15,} OK"
+    )
+
+
+
+# --------------------------------
+# ENGINE STATUS
+# --------------------------------
+
+print("\nENGINE STATUS")
+print("-" * 60)
+
+
+print(
+    "ENGINE:",
+    data["engine"]
 )
 
-if engine_ready:
-    print("ENGINE STATUS : READY")
-    print("DATA TEST     : PASSED")
-else:
-    print("ENGINE STATUS : ERROR")
-    print("DATA TEST     : FAILED")
+print(
+    "STATUS:",
+    data["status"]
+)
 
-# -----------------------------
+print(
+    "SOURCE:",
+    data["source"]
+)
+
+
+print(
+    "DATA TEST : PASSED"
+)
+
+
+
+# --------------------------------
 # TIME
-# -----------------------------
+# --------------------------------
 
 now = datetime.now()
 
+
+print("\nTEST TIME:")
 print(
-    "TEST TIME     :",
-    now.strftime("%Y-%m-%d %H:%M:%S")
+    now.strftime(
+        "%Y-%m-%d %H:%M:%S"
+    )
 )
 
+
 print("=" * 60)
-print("HASINEH MARKET PRICE ENGINE V1")
+print("HASINEH PRICE ENGINE V1")
 print("TEST COMPLETE")
 print("=" * 60)
