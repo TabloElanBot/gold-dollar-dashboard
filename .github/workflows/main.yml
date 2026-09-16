@@ -3,28 +3,22 @@ name: HASINEH PRICE ENGINE TEST
 on:
   workflow_dispatch:
   push:
+    paths:
+      - "price-engine/**"
 
 jobs:
   test-engine:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v5
 
-      - name: Python Test
-        run: |
-          python --version
-          echo "Python is working"
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
 
-      - name: File Test
+      - name: Run Price Engine Test
         run: |
-          echo "Checking engine file..."
-          test -f price-engine/test_engine.py
-          echo "Engine file exists"
-
-      - name: Run Engine
-        run: |
-          echo "Starting HASINEH PRICE ENGINE..."
           python price-engine/test_engine.py
-          echo "ENGINE FINISHED SUCCESSFULLY"
