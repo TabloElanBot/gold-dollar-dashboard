@@ -1,18 +1,16 @@
 # ================================================================
-# HASINEH PRICE ENGINE V293
-# REAL PRICE PARSER
+# HASINEH PRICE ENGINE V294
+# REAL PRICE COLLECTOR
 # ================================================================
 #
 # HASINEH MARKET
 #
 # وظیفه:
 # 1. دریافت صفحات عمومی TGJU
-# 2. استخراج قیمت واقعی
+# 2. استخراج قیمت‌های واقعی
 # 3. تبدیل ریال به تومان
-# 4. استخراج تغییرات
+# 4. جلوگیری از قیمت ساختگی
 # 5. تولید prices.json
-#
-# بدون قیمت ساختگی
 #
 # ================================================================
 
@@ -28,11 +26,8 @@ from urllib.error import HTTPError, URLError
 # ================================================================
 
 BASE_URL = "https://www.tgju.org"
-
 OUTPUT_FILE = "price-engine/prices.json"
-
 REQUEST_TIMEOUT = 20
-
 
 HEADERS = {
     "User-Agent": (
@@ -46,29 +41,15 @@ HEADERS = {
 
 
 # ================================================================
-# PUBLIC TGJU PAGES
-# ================================================================
-
-SOURCE_PAGES = {
-    "gold": BASE_URL + "/gold-chart",
-    "currency": BASE_URL + "/currency",
-    "coin": BASE_URL + "/coin",
-}
-
-
-# ================================================================
-# DIGIT NORMALIZER
+# DIGIT NORMALIZATION
 # ================================================================
 
 PERSIAN_DIGITS = "۰۱۲۳۴۵۶۷۸۹"
-
 ARABIC_DIGITS = "٠١٢٣٤٥٦٧٨٩"
-
 ENGLISH_DIGITS = "0123456789"
 
 
 def normalize_digits(value):
-
     if value is None:
         return ""
 
@@ -83,42 +64,21 @@ def normalize_digits(value):
 
 
 # ================================================================
-# HTML TEXT CLEANER
+# HTML CLEANER
 # ================================================================
 
 def clean_html_text(value):
-
     if value is None:
         return ""
 
     text = str(value)
 
-    text = re.sub(
-        r"<[^>]+>",
-        " ",
-        text
-    )
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = text.replace("&nbsp;", " ")
+    text = text.replace("&comma;", ",")
+    text = text.replace("&zwnj;", "")
 
-    text = text.replace(
-        "&nbsp;",
-        " "
-    )
-
-    text = text.replace(
-        "&comma;",
-        ","
-    )
-
-    text = text.replace(
-        "&zwnj;",
-        ""
-    )
-
-    text = re.sub(
-        r"\s+",
-        " ",
-        text
-    )
+    text = re.sub(r"\s+", " ", text)
 
     return text.strip()
 
@@ -128,7 +88,6 @@ def clean_html_text(value):
 # ================================================================
 
 def clean_number(value):
-
     if value is None:
         return None
 
@@ -136,58 +95,32 @@ def clean_number(value):
         clean_html_text(value)
     )
 
-    text = text.replace(
-        "٬",
-        ","
-    )
+    text = text.replace("٬", ",")
+    text = text.replace("،", ",")
+    text = text.replace(" ", "")
 
-    text = text.replace(
-        "،",
-        ","
-    )
-
-    text = text.replace(
-        " ",
-        ""
-    )
-
-    # حذف واحدها و کاراکترهای غیرعددی
-    match = re.search(
-        r"\d[\d,]*",
-        text
-    )
+    match = re.search(r"\d[\d,]*", text)
 
     if not match:
         return None
 
-    number = match.group(0)
-
-    number = number.replace(
-        ",",
-        ""
-    )
+    number = match.group(0).replace(",", "")
 
     try:
-
         return int(number)
-
     except ValueError:
-
         return None
 
 
 # ================================================================
-# RIAL -> TOMAN
+# RIAL → TOMAN
 # ================================================================
 
 def rial_to_toman(value):
-
     if value is None:
         return None
 
-    return round(
-        value / 10
-    )
+    return round(value / 10)
 
 
 # ================================================================
@@ -223,15 +156,8 @@ def fetch_page(url):
                 errors="ignore"
             )
 
-            print(
-                "[HTTP]",
-                response.status
-            )
-
-            print(
-                "[BYTES]",
-                len(content)
-            )
+            print("[HTTP]", response.status)
+            print("[BYTES]", len(content))
 
             return {
                 "success": True,
@@ -241,10 +167,7 @@ def fetch_page(url):
 
     except HTTPError as error:
 
-        print(
-            "[ERROR] HTTP:",
-            error.code
-        )
+        print("[ERROR] HTTP:", error.code)
 
         return {
             "success": False,
@@ -254,10 +177,7 @@ def fetch_page(url):
 
     except URLError as error:
 
-        print(
-            "[ERROR] URL:",
-            error.reason
-        )
+        print("[ERROR] URL:", error.reason)
 
         return {
             "success": False,
@@ -267,10 +187,7 @@ def fetch_page(url):
 
     except Exception as error:
 
-        print(
-            "[ERROR] FETCH:",
-            error
-        )
+        print("[ERROR] FETCH:", error)
 
         return {
             "success": False,
@@ -289,8 +206,7 @@ def extract_rows(html):
 
     pattern = re.compile(
         r"<tr[^>]*>(.*?)</tr>",
-        re.IGNORECASE |
-        re.DOTALL
+        re.IGNORECASE | re.DOTALL
     )
 
     for row in pattern.findall(html):
@@ -298,51 +214,45 @@ def extract_rows(html):
         cells = re.findall(
             r"<(?:td|th)[^>]*>(.*?)</(?:td|th)>",
             row,
-            re.IGNORECASE |
-            re.DOTALL
+            re.IGNORECASE | re.DOTALL
         )
 
         cleaned = []
 
         for cell in cells:
 
-            text = clean_html_text(
-                cell
-            )
+            text = clean_html_text(cell)
 
             if text:
-                cleaned.append(
-                    text
-                )
+                cleaned.append(text)
 
         if cleaned:
-            rows.append(
-                cleaned
-            )
+            rows.append(cleaned)
 
     return rows
 
 
 # ================================================================
-# FIND PRICE BY KEY
+# EXTRACT PROFILE PRICE
 # ================================================================
 
-def find_price_by_key(
-    html,
-    key
-):
-
-    # روش اصلی:
-    # پیدا کردن ردیف/بلوک مربوط به شناسه TGJU
+def extract_profile_price(html):
 
     patterns = [
 
-        rf'id=["\']{re.escape(key)}["\'][^>]*>(.*?)</',
-        
-        rf'data-symbol=["\']{re.escape(key)}["\'][^>]*>(.*?)</',
+        r'"last"\s*:\s*"([\d,]+)"',
 
-        rf'data-symbol=["\']{re.escape(key)}["\'][^>]*.*?'
-        rf'(?:data-value|data-price)=["\']([^"\']+)',
+        r'"last_price"\s*:\s*"([\d,]+)"',
+
+        r'"price"\s*:\s*"([\d,]+)"',
+
+        r'"value"\s*:\s*"([\d,]+)"',
+
+        r'data-last=["\']([\d,]+)',
+
+        r'data-value=["\']([\d,]+)',
+
+        r'data-price=["\']([\d,]+)'
 
     ]
 
@@ -351,8 +261,7 @@ def find_price_by_key(
         match = re.search(
             pattern,
             html,
-            re.IGNORECASE |
-            re.DOTALL
+            re.IGNORECASE | re.DOTALL
         )
 
         if match:
@@ -364,82 +273,16 @@ def find_price_by_key(
             if value is not None:
                 return value
 
-    return None
 
+    # ------------------------------------------------------------
+    # TABLE FALLBACK
+    # ------------------------------------------------------------
 
-# ================================================================
-# FIND PRICE FROM PROFILE PAGE
-# ================================================================
-
-def parse_profile(
-    key
-):
-
-    url = (
-        BASE_URL
-        + "/profile/"
-        + key
-    )
-
-    result = fetch_page(
-        url
-    )
-
-    if not result["success"]:
-        return None
-
-    html = result["content"]
-
-    # الگوهای رایج TGJU
-    patterns = [
-
-        r'"last":"([\d,]+)"',
-
-        r'"last_price":"([\d,]+)"',
-
-        r'"price":"([\d,]+)"',
-
-        r'"value":"([\d,]+)"',
-
-        r'data-last=["\']([\d,]+)',
-
-        r'data-value=["\']([\d,]+)',
-
-    ]
-
-    for pattern in patterns:
-
-        match = re.search(
-            pattern,
-            html,
-            re.IGNORECASE
-        )
-
-        if match:
-
-            value = clean_number(
-                match.group(1)
-            )
-
-            if value is not None:
-
-                return {
-                    "raw": value,
-                    "toman": rial_to_toman(
-                        value
-                    )
-                }
-
-    # جستجوی جدول
-    rows = extract_rows(
-        html
-    )
+    rows = extract_rows(html)
 
     for row in rows:
 
-        row_text = " ".join(
-            row
-        )
+        row_text = " ".join(row)
 
         if (
             "قیمت" in row_text
@@ -448,27 +291,45 @@ def parse_profile(
 
             for cell in row:
 
-                value = clean_number(
-                    cell
-                )
+                value = clean_number(cell)
 
                 if (
                     value is not None
                     and value > 1000
                 ):
-
-                    return {
-                        "raw": value,
-                        "toman": rial_to_toman(
-                            value
-                        )
-                    }
+                    return value
 
     return None
 
 
 # ================================================================
-# MARKET ITEM
+# FETCH TGJU PROFILE
+# ================================================================
+
+def fetch_profile(symbol):
+
+    url = BASE_URL + "/profile/" + symbol
+
+    result = fetch_page(url)
+
+    if not result["success"]:
+        return None
+
+    html = result["content"]
+
+    raw_price = extract_profile_price(html)
+
+    if raw_price is None:
+        return None
+
+    return {
+        "raw": raw_price,
+        "toman": rial_to_toman(raw_price)
+    }
+
+
+# ================================================================
+# CREATE ITEM
 # ================================================================
 
 def create_item(
@@ -491,15 +352,14 @@ def create_item(
 
 
 # ================================================================
-# PARSE MARKET ITEM
+# PARSE ITEM
 # ================================================================
 
 def parse_item(
-    key,
+    symbol,
     name,
     unit,
-    category,
-    source_page
+    category
 ):
 
     item = create_item(
@@ -511,25 +371,21 @@ def parse_item(
     item["source"] = (
         BASE_URL
         + "/profile/"
-        + key
+        + symbol
     )
 
     print("")
     print(
         "[PARSER]",
         name,
-        "(" + key + ")"
+        "(" + symbol + ")"
     )
 
-    result = parse_profile(
-        key
-    )
+    result = fetch_profile(symbol)
 
     if result is None:
 
-        print(
-            "[PARSER] NOT FOUND"
-        )
+        print("[PARSER] NOT FOUND")
 
         return item
 
@@ -558,25 +414,37 @@ def build_market():
 
     prices = {}
 
+
     # ------------------------------------------------------------
     # GOLD
     # ------------------------------------------------------------
 
-    prices["gold_18"] = parse_item(
+    prices["gold_18k"] = parse_item(
         "geram18",
         "طلای ۱۸ عیار",
         "تومان / گرم",
-        "gold",
-        SOURCE_PAGES["gold"]
+        "gold"
     )
 
-    prices["gold_24"] = parse_item(
+    prices["gold_24k"] = parse_item(
         "geram24",
         "طلای ۲۴ عیار",
         "تومان / گرم",
-        "gold",
-        SOURCE_PAGES["gold"]
+        "gold"
     )
+
+
+    # ------------------------------------------------------------
+    # MELTED GOLD
+    # ------------------------------------------------------------
+
+    prices["gold_melted"] = parse_item(
+        "gold_melted",
+        "طلای آب‌شده",
+        "تومان",
+        "gold"
+    )
+
 
     # ------------------------------------------------------------
     # CURRENCY
@@ -586,99 +454,143 @@ def build_market():
         "price_dollar_rl",
         "دلار آمریکا",
         "تومان",
-        "currency",
-        SOURCE_PAGES["currency"]
+        "currency"
     )
 
     prices["eur"] = parse_item(
         "price_eur",
         "یورو",
         "تومان",
-        "currency",
-        SOURCE_PAGES["currency"]
+        "currency"
     )
 
     prices["aed"] = parse_item(
         "price_aed",
         "درهم امارات",
         "تومان",
-        "currency",
-        SOURCE_PAGES["currency"]
+        "currency"
     )
 
-    # ------------------------------------------------------------
-    # EXTRA CURRENCIES
-    # ------------------------------------------------------------
+    prices["usdt"] = parse_item(
+        "price_usdt",
+        "تتر",
+        "تومان",
+        "currency"
+    )
 
     prices["gbp"] = parse_item(
         "price_gbp",
         "پوند انگلیس",
         "تومان",
-        "currency",
-        SOURCE_PAGES["currency"]
+        "currency"
     )
 
     prices["try"] = parse_item(
         "price_try",
         "لیر ترکیه",
         "تومان",
-        "currency",
-        SOURCE_PAGES["currency"]
+        "currency"
     )
 
     prices["cny"] = parse_item(
         "price_cny",
         "یوان چین",
         "تومان",
-        "currency",
-        SOURCE_PAGES["currency"]
+        "currency"
     )
 
+
     # ------------------------------------------------------------
-    # COIN
+    # COINS
     # ------------------------------------------------------------
 
     prices["coin_emami"] = parse_item(
         "sekee",
         "سکه امامی",
         "تومان / عدد",
-        "coin",
-        SOURCE_PAGES["coin"]
+        "coin"
     )
 
     prices["coin_half"] = parse_item(
         "sekeb",
         "نیم سکه",
         "تومان / عدد",
-        "coin",
-        SOURCE_PAGES["coin"]
+        "coin"
     )
 
     prices["coin_quarter"] = parse_item(
-        "sekeb",
+        "rob",
         "ربع سکه",
         "تومان / عدد",
-        "coin",
-        SOURCE_PAGES["coin"]
+        "coin"
     )
+
 
     # ------------------------------------------------------------
     # SILVER
     # ------------------------------------------------------------
 
-    prices["silver"] = parse_item(
+    prices["silver_999"] = parse_item(
+        "silver_999",
+        "نقره ۹۹۹",
+        "تومان / گرم",
+        "metal"
+    )
+
+    prices["silver_925"] = parse_item(
         "silver_925",
         "نقره ۹۲۵",
         "تومان / گرم",
-        "metal",
-        SOURCE_PAGES["gold"]
+        "metal"
     )
+
+
+    # ------------------------------------------------------------
+    # 21K MESGHAL
+    #
+    # This is a CALCULATED value based on 18K gold.
+    # It is NOT presented as a separately sourced live price.
+    # ------------------------------------------------------------
+
+    gold18 = prices["gold_18k"]
+
+    mesghal = create_item(
+        "طلای ۲۱ عیار / مثقال",
+        "تومان / مثقال",
+        "gold"
+    )
+
+    mesghal["source"] = (
+        BASE_URL
+        + "/profile/geram18"
+    )
+
+    if gold18["price"] is not None:
+
+        calculated_value = round(
+            gold18["price"]
+            * (21 / 18)
+            * 4.6083
+        )
+
+        mesghal["price"] = calculated_value
+        mesghal["status"] = "calculated"
+
+        print("")
+        print(
+            "[CALCULATED]",
+            "21K MESGHAL:",
+            calculated_value
+        )
+
+    prices["gold_21k_mesghal"] = mesghal
+
 
     return prices
 
 
 # ================================================================
-# META
+# METADATA
 # ================================================================
 
 def create_metadata():
@@ -693,7 +605,7 @@ def create_metadata():
             "HASINEH PRICE ENGINE",
 
         "version":
-            "V293",
+            "V294",
 
         "mode":
             "FREE_PUBLIC_SOURCE",
@@ -720,13 +632,12 @@ def create_metadata():
             False,
 
         "note":
-            "Only successfully parsed public prices "
-            "are accepted."
+            "Only successfully parsed public prices are accepted."
     }
 
 
 # ================================================================
-# SAVE
+# SAVE JSON
 # ================================================================
 
 def save_json(data):
@@ -753,36 +664,81 @@ def main():
 
     print("")
     print("=" * 64)
-
-    print(
-        "HASINEH PRICE ENGINE V293"
-    )
-
-    print(
-        "REAL PRICE PARSER"
-    )
-
+    print("HASINEH PRICE ENGINE V294")
+    print("REAL PRICE COLLECTOR")
     print("=" * 64)
-
     print("")
+
     print(
         "[ENGINE] Starting real parser..."
     )
 
     prices = build_market()
 
-    live_count = 0
 
-    for key, item in prices.items():
+    # ------------------------------------------------------------
+    # COUNT LIVE / CALCULATED
+    # ------------------------------------------------------------
+
+    live_count = 0
+    calculated_count = 0
+
+    for item in prices.values():
 
         if item["status"] == "live":
-
             live_count += 1
+
+        elif item["status"] == "calculated":
+            calculated_count += 1
+
+
+    total_items = len(prices)
+
+    failed_items = (
+        total_items
+        - live_count
+        - calculated_count
+    )
+
+
+    # ------------------------------------------------------------
+    # STATUS
+    # ------------------------------------------------------------
+
+    if live_count > 0:
+        engine_status = "live"
+    else:
+        engine_status = "error"
+
+
+    # ------------------------------------------------------------
+    # OUTPUT
+    # ------------------------------------------------------------
 
     data = {
 
-        "meta":
-            create_metadata(),
+        "engine":
+            "HASINEH PRICE ENGINE",
+
+        "version":
+            "V294",
+
+        "status":
+            engine_status,
+
+        "source":
+            BASE_URL,
+
+        "generated_at_utc":
+            datetime.now(
+                timezone.utc
+            ).isoformat(),
+
+        "currency":
+            "TOMAN",
+
+        "fake_prices_allowed":
+            False,
 
         "prices":
             prices,
@@ -790,21 +746,24 @@ def main():
         "summary": {
 
             "total_items":
-                len(prices),
+                total_items,
 
             "live_items":
                 live_count,
 
+            "calculated_items":
+                calculated_count,
+
             "failed_items":
-                len(prices)
-                - live_count
+                failed_items
         }
     }
+
 
     print("")
     print(
         "[ENGINE] TOTAL ITEMS:",
-        len(prices)
+        total_items
     )
 
     print(
@@ -813,9 +772,13 @@ def main():
     )
 
     print(
+        "[ENGINE] CALCULATED ITEMS:",
+        calculated_count
+    )
+
+    print(
         "[ENGINE] FAILED ITEMS:",
-        len(prices)
-        - live_count
+        failed_items
     )
 
     print("")
@@ -823,13 +786,11 @@ def main():
         "[OUTPUT] Creating prices.json..."
     )
 
-    save_json(
-        data
-    )
+    save_json(data)
 
     print("")
     print(
-        "[SUCCESS] V293 COMPLETE"
+        "[SUCCESS] V294 COMPLETE"
     )
 
     print(
@@ -846,5 +807,4 @@ def main():
 # ================================================================
 
 if __name__ == "__main__":
-
     main()
