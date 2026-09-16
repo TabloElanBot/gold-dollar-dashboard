@@ -1,1895 +1,943 @@
-<!-- =========================================================
-     HASINEH MARKET V296
-     BRAND CORE + MULTILINGUAL + COUNTRY TIME
-     BRS API → HASINEH PRICE ENGINE V1 → JSON → BOARD
-
-     IMPORTANT:
-     - Price engine logic preserved
-     - BRS JSON path preserved
-     - Parsian formula preserved: gold18 × 1.03
-     - QR placeholder only until official links are supplied
-     ========================================================= -->
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width,initial-scale=1.0">
-
-<title>حسینه مارکت | HASINEH MARKET</title>
+<title>HASINEH MARKET | حسینه مارکت</title>
 
 <style>
-
 *{
-box-sizing:border-box;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-
-margin:0;
-
-background:
-radial-gradient(
-circle at top,
-#151515 0%,
-#050505 55%,
-#020202 100%
-);
-
-color:white;
-
-font-family:
-Tahoma,
-Arial,
-sans-serif;
-
-min-height:100vh;
-
+  background:
+    radial-gradient(circle at top,#241b00 0%,#0b0b0b 32%,#050505 100%);
+  color:#f4d77a;
+  font-family:Tahoma,Arial,sans-serif;
+  min-height:100vh;
 }
 
-.hm-container{
-
-max-width:950px;
-
-margin:auto;
-
-padding:15px;
-
+.container{
+  width:min(1100px,94%);
+  margin:auto;
+  padding:20px 0 35px;
 }
 
-.hm-box{
-
-background:
-linear-gradient(
-145deg,
-#151515,
-#080808
-);
-
-border:
-1px solid #d4af37;
-
-border-radius:22px;
-
-padding:20px;
-
-margin-bottom:18px;
-
-box-shadow:
-0 0 18px
-rgba(212,175,55,.15);
-
+.header{
+  text-align:center;
+  padding:24px 15px 20px;
+  border:1px solid rgba(212,175,55,.35);
+  border-radius:22px;
+  background:rgba(10,10,10,.88);
+  box-shadow:0 0 35px rgba(212,175,55,.08);
 }
 
-.hm-title{
-
-color:#d4af37;
-
-font-size:28px;
-
-font-weight:bold;
-
+.logo{
+  font-family:Georgia,serif;
+  font-size:clamp(30px,7vw,58px);
+  font-weight:bold;
+  letter-spacing:2px;
+  color:#e8c65a;
+  text-shadow:0 0 18px rgba(232,198,90,.2);
 }
 
-.hm-sub{
-
-color:#ccc;
-
-line-height:2;
-
+.fa-brand{
+  margin-top:5px;
+  font-size:clamp(20px,4vw,30px);
+  color:#fff1bd;
+  font-weight:bold;
 }
 
-.hm-card{
-
-background:#111;
-
-border:
-1px solid #70591b;
-
-border-radius:16px;
-
-padding:16px;
-
-margin-top:12px;
-
+.subtitle{
+  margin-top:7px;
+  color:#aaa;
+  font-size:14px;
+  direction:ltr;
 }
 
-.hm-name{
-
-color:#d4af37;
-
-font-size:20px;
-
+.location{
+  margin-top:9px;
+  color:#c7a84b;
+  font-size:13px;
 }
 
-.hm-price{
-
-font-size:28px;
-
-font-weight:bold;
-
-margin:10px 0;
-
+.controls{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:20px;
 }
 
-.green{
-
-color:#00e676;
-
-font-weight:bold;
-
+.control{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  background:#111;
+  border:1px solid rgba(212,175,55,.32);
+  border-radius:12px;
+  padding:7px 10px;
 }
 
-.red{
-
-color:#ff5252;
-
-font-weight:bold;
-
+.control label{
+  color:#aaa;
+  font-size:11px;
 }
 
-.yellow{
-
-color:#ffc107;
-
-font-weight:bold;
-
+select{
+  background:#111;
+  color:#f4d77a;
+  border:0;
+  outline:none;
+  font-family:inherit;
+  font-size:12px;
+  cursor:pointer;
 }
 
-.hm-small{
-
-color:#aaa;
-
-font-size:14px;
-
-line-height:2;
-
+.status{
+  margin-top:18px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
 }
 
-.hm-time{
-
-color:#d4af37;
-
-font-weight:bold;
-
-font-size:18px;
-
+.badge{
+  padding:7px 12px;
+  border-radius:20px;
+  font-size:11px;
+  border:1px solid rgba(212,175,55,.3);
+  background:#111;
 }
 
-/* =========================
-   BRAND HEADER
-========================= */
-
-.hm-brand{
-
-text-align:center;
-
-padding:8px 0 18px;
-
+.live{
+  color:#64e58a;
 }
 
-.hm-brand-main{
-
-color:#d4af37;
-
-font-size:34px;
-
-font-weight:bold;
-
-letter-spacing:.5px;
-
+.api{
+  color:#f4d77a;
 }
 
-.hm-brand-fa{
-
-color:#f1d77a;
-
-font-size:20px;
-
-margin-top:8px;
-
-font-weight:bold;
-
+.engine{
+  color:#72c8ff;
 }
 
-.hm-brand-sub{
-
-color:#aaa;
-
-font-size:13px;
-
-margin-top:7px;
-
-letter-spacing:1px;
-
+.section{
+  margin-top:18px;
+  padding:18px;
+  border:1px solid rgba(212,175,55,.22);
+  border-radius:20px;
+  background:rgba(10,10,10,.84);
+  box-shadow:0 0 25px rgba(0,0,0,.3);
 }
 
-/* =========================
-   CONTROLS
-========================= */
-
-.hm-controls{
-
-display:flex;
-
-gap:10px;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-margin-top:18px;
-
+.section-title{
+  text-align:center;
+  font-size:21px;
+  color:#f0d36b;
+  margin-bottom:15px;
 }
 
-.hm-select{
-
-background:#0b0b0b;
-
-color:#fff;
-
-border:1px solid #70591b;
-
-border-radius:12px;
-
-padding:10px 12px;
-
-font-family:Tahoma,Arial,sans-serif;
-
-font-size:14px;
-
-outline:none;
-
-cursor:pointer;
-
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:11px;
 }
 
-.hm-select:focus{
-
-border-color:#d4af37;
-
+.card{
+  background:linear-gradient(145deg,#151515,#090909);
+  border:1px solid rgba(212,175,55,.2);
+  border-radius:15px;
+  padding:15px;
+  transition:.2s;
 }
 
-/* =========================
-   TIME PANEL
-========================= */
-
-.hm-time-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(2,1fr);
-
-gap:12px;
-
-margin-top:12px;
-
+.card:hover{
+  border-color:rgba(212,175,55,.55);
+  transform:translateY(-1px);
 }
 
-.hm-time-card{
-
-background:#0d0d0d;
-
-border:1px solid #4f4018;
-
-border-radius:14px;
-
-padding:13px;
-
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  color:#ddd;
+  font-size:13px;
 }
 
-.hm-time-label{
-
-color:#999;
-
-font-size:12px;
-
-margin-bottom:7px;
-
+.price{
+  margin-top:10px;
+  font-size:23px;
+  font-weight:bold;
+  color:#f5d66d;
+  direction:ltr;
+  text-align:right;
 }
 
-.hm-time-value{
-
-color:#d4af37;
-
-font-size:18px;
-
-font-weight:bold;
-
+.unit{
+  color:#777;
+  font-size:10px;
+  margin-top:3px;
 }
 
-/* =========================
-   QR PLACEHOLDER
-========================= */
-
-.hm-qr{
-
-width:110px;
-
-height:110px;
-
-border:
-1px dashed #70591b;
-
-border-radius:16px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-text-align:center;
-
-margin:15px auto 8px;
-
-color:#806d31;
-
-font-size:11px;
-
-line-height:1.7;
-
-background:#090909;
-
+.change{
+  margin-top:8px;
+  font-size:11px;
+  direction:ltr;
+  text-align:right;
 }
 
-.hm-qr-text{
-
-text-align:center;
-
-color:#777;
-
-font-size:11px;
-
-line-height:1.8;
-
+.up{
+  color:#45db7a;
 }
 
-/* =========================
-   CREATOR
-========================= */
-
-.hm-creator{
-
-text-align:center;
-
-margin-top:10px;
-
+.down{
+  color:#ff5757;
 }
 
-.hm-creator-name{
-
-color:#b99b43;
-
-font-size:12px;
-
-font-weight:bold;
-
+.flat{
+  color:#aaa;
 }
 
-.hm-creator-phone{
-
-color:#8c8c8c;
-
-font-size:11px;
-
-margin-top:4px;
-
-direction:ltr;
-
+.formula{
+  margin-top:7px;
+  color:#888;
+  font-size:10px;
 }
 
-.hm-copyright{
-
-color:#666;
-
-font-size:11px;
-
-margin-top:12px;
-
+.time-box{
+  text-align:center;
 }
 
-/* =========================
-   MOBILE
-========================= */
+.time-main{
+  margin-top:9px;
+  font-size:27px;
+  color:#f4d77a;
+  direction:ltr;
+}
+
+.time-label{
+  color:#aaa;
+  font-size:11px;
+}
+
+.iran-note{
+  margin-top:12px;
+  padding:9px;
+  border-radius:10px;
+  background:rgba(212,175,55,.06);
+  border:1px solid rgba(212,175,55,.12);
+  color:#b9b9b9;
+  font-size:10px;
+}
+
+.update-info{
+  text-align:center;
+  margin-top:10px;
+  color:#888;
+  font-size:10px;
+}
+
+.footer{
+  margin-top:22px;
+  text-align:center;
+  color:#777;
+  font-size:10px;
+  line-height:2;
+}
+
+.footer strong{
+  color:#c6a94e;
+}
+
+.qr{
+  margin:12px auto;
+  width:82px;
+  height:82px;
+  border:1px dashed rgba(212,175,55,.35);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#777;
+  font-size:9px;
+}
+
+.warning{
+  display:none;
+  margin-top:10px;
+  color:#ff6060;
+  font-size:11px;
+}
 
 @media(max-width:600px){
+  .container{
+    width:96%;
+    padding-top:10px;
+  }
 
-.hm-box{
+  .header{
+    padding:20px 10px 17px;
+  }
 
-padding:16px;
+  .section{
+    padding:13px;
+  }
 
-border-radius:18px;
+  .grid{
+    grid-template-columns:1fr;
+  }
 
+  .price{
+    font-size:21px;
+  }
 }
-
-.hm-title{
-
-font-size:23px;
-
-}
-
-.hm-brand-main{
-
-font-size:28px;
-
-}
-
-.hm-brand-fa{
-
-font-size:18px;
-
-}
-
-.hm-price{
-
-font-size:25px;
-
-}
-
-.hm-time-grid{
-
-grid-template-columns:1fr;
-
-}
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
+<div class="container">
+
+<header class="header">
+
+  <div class="logo">HASINEH MARKET</div>
+  <div class="fa-brand">حسینه مارکت</div>
+  <div class="subtitle">LIVE PREMIUM MARKET BOARD</div>
+  <div class="subtitle">Digital Smart Market Platform</div>
+  <div class="location">📍 Bandar Hasineh</div>
+
+  <div class="controls">
+
+    <div class="control">
+      <label>زبان</label>
+      <select id="languageSelect">
+        <option value="fa">🇮🇷 فارسی</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="en">🇬🇧 English</option>
+      </select>
+    </div>
+
+    <div class="control">
+      <label>کشور</label>
+      <select id="countrySelect">
+        <option value="Asia/Tehran">🇮🇷 ایران</option>
+        <option value="Canada/Eastern">🇨🇦 کانادا</option>
+        <option value="America/New_York">🇺🇸 آمریکا</option>
+        <option value="Europe/London">🇬🇧 بریتانیا</option>
+        <option value="Europe/Paris">🇫🇷 فرانسه</option>
+        <option value="Europe/Berlin">🇩🇪 آلمان</option>
+        <option value="Europe/Moscow">🇷🇺 روسیه</option>
+        <option value="Asia/Dubai">🇦🇪 امارات</option>
+        <option value="Asia/Riyadh">🇸🇦 عربستان</option>
+        <option value="Asia/Qatar">🇶🇦 قطر</option>
+        <option value="Asia/Kuwait">🇰🇼 کویت</option>
+        <option value="Asia/Bahrain">🇧🇭 بحرین</option>
+        <option value="Asia/Baghdad">🇮🇶 عراق</option>
+        <option value="Asia/Istanbul">🇹🇷 ترکیه</option>
+        <option value="Asia/Baku">🇦🇿 آذربایجان</option>
+        <option value="Asia/Tbilisi">🇬🇪 گرجستان</option>
+        <option value="Asia/Yerevan">🇦🇲 ارمنستان</option>
+        <option value="Asia/Kabul">🇦🇫 افغانستان</option>
+        <option value="Asia/Karachi">🇵🇰 پاکستان</option>
+        <option value="Asia/Kolkata">🇮🇳 هند</option>
+        <option value="Asia/Dhaka">🇧🇩 بنگلادش</option>
+        <option value="Asia/Bangkok">🇹🇭 تایلند</option>
+        <option value="Asia/Shanghai">🇨🇳 چین</option>
+        <option value="Asia/Tokyo">🇯🇵 ژاپن</option>
+        <option value="Asia/Seoul">🇰🇷 کره جنوبی</option>
+        <option value="Australia/Sydney">🇦🇺 استرالیا</option>
+        <option value="Africa/Cairo">🇪🇬 مصر</option>
+        <option value="Africa/Johannesburg">🇿🇦 آفریقای جنوبی</option>
+        <option value="America/Sao_Paulo">🇧🇷 برزیل</option>
+        <option value="America/Mexico_City">🇲🇽 مکزیک</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="status">
+    <div class="badge live">🟢 LIVE CONNECTED</div>
+    <div class="badge api">🔌 BRS API</div>
+    <div class="badge engine">⚙️ HASINEH PRICE ENGINE V1</div>
+  </div>
+
+  <div id="warning" class="warning">
+    ⚠️ ارتباط با منبع قیمت برقرار نیست؛ آخرین داده معتبر نمایش داده می‌شود.
+  </div>
+
+</header>
+
+
+<!-- GOLD -->
+
+<section class="section">
+  <div class="section-title">📊 بازار طلا</div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-top">
+        <span>طلای ۱۸ عیار</span>
+        <span>18K</span>
+      </div>
+      <div id="gold18" class="price">—</div>
+      <div class="unit">تومان / گرم</div>
+      <div id="gold18Change" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span>طلای ۲۴ عیار</span>
+        <span>24K</span>
+      </div>
+      <div id="gold24" class="price">—</div>
+      <div class="unit">تومان / گرم</div>
+      <div id="gold24Change" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span>طلای آب‌شده</span>
+        <span>750</span>
+      </div>
+      <div id="melted" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="meltedChange" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span>مثقال طلای ۲۱ عیار</span>
+        <span>21K</span>
+      </div>
+      <div id="mesghal21" class="price">—</div>
+      <div class="unit">تومان / مثقال</div>
+      <div class="formula">محاسبه بر اساس نرخ موتور</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span>سکه یک گرمی ۱۸ عیار (پارسیان)</span>
+        <span>18K</span>
+      </div>
+      <div id="parsian" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div class="formula">18K × 1.03 | محاسبه مستقیم موتور</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- COINS -->
+
+<section class="section">
+  <div class="section-title">🪙 بازار سکه</div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-top">
+        <span>سکه امامی</span>
+      </div>
+      <div id="emami" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="emamiChange" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span>نیم سکه</span>
+      </div>
+      <div id="half" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="halfChange" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span>ربع سکه</span>
+      </div>
+      <div id="quarter" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="quarterChange" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <span>سکه بهار آزادی</span>
+      </div>
+      <div id="bahar" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="baharChange" class="change flat">—</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CURRENCIES -->
+
+<section class="section">
+  <div class="section-title">💱 بازار ارز</div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-top"><span>دلار آمریکا</span><span>USD</span></div>
+      <div id="usd" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="usdChange" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><span>یورو</span><span>EUR</span></div>
+      <div id="eur" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="eurChange" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><span>درهم امارات</span><span>AED</span></div>
+      <div id="aed" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="aedChange" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><span>تتر</span><span>USDT</span></div>
+      <div id="usdt" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="usdtChange" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><span>پوند</span><span>GBP</span></div>
+      <div id="gbp" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="gbpChange" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><span>یوان چین</span><span>CNY</span></div>
+      <div id="cny" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="cnyChange" class="change flat">—</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><span>لیر ترکیه</span><span>TRY</span></div>
+      <div id="try" class="price">—</div>
+      <div class="unit">تومان</div>
+      <div id="tryChange" class="change flat">—</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TIME -->
+
+<section class="section">
+  <div class="section-title">🌍 مرکز زمان</div>
+
+  <div class="grid">
+
+    <div class="card time-box">
+      <div class="time-label">زمان کشور انتخاب‌شده</div>
+      <div id="visitorTime" class="time-main">--:--:--</div>
+      <div id="visitorZone" class="unit">—</div>
+    </div>
+
+    <div class="card time-box">
+      <div class="time-label">🇮🇷 زمان ایران</div>
+      <div id="iranTime" class="time-main">--:--:--</div>
+      <div class="unit">Asia/Tehran</div>
+    </div>
+
+  </div>
+
+  <div class="iran-note">
+    🇮🇷 نرخ‌های بازار بر اساس زمان ایران محاسبه و بروزرسانی می‌شوند؛
+    انتخاب کشور فقط زمان محلی نمایش داده‌شده را تغییر می‌دهد.
+  </div>
+
+  <div id="lastUpdate" class="update-info">
+    آخرین بروزرسانی: —
+  </div>
+
+  <div id="nextUpdate" class="update-info">
+    وضعیت بروزرسانی: آنلاین
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  <strong>HASINEH MARKET</strong><br>
+  حسینه مارکت — Digital Smart Market Platform
+
+  <div class="qr">
+    QR<br>
+    COMING SOON
+  </div>
+
+  <div>
+    Hassan Divanizadeh<br>
+    📞 989178649970<br>
+    📍 Bandar Hasineh
+  </div>
+
+  <div>
+    © 1405 HASINEH MARKET
+  </div>
+
+</footer>
 
-<div class="hm-container">
-
-
-<!-- =====================================================
-     BRAND HEADER
-===================================================== -->
-
-<div class="hm-box">
-
-<div class="hm-brand">
-
-<div class="hm-brand-main">
-
-🏆 HASINEH MARKET
-
-</div>
-
-<div class="hm-brand-fa"
-id="brandFa">
-
-حسینه مارکت
-
-</div>
-
-<div class="hm-brand-sub">
-
-LIVE PREMIUM MARKET BOARD
-
-</div>
-
-<div class="hm-brand-sub">
-
-Digital Smart Market Platform
-
-</div>
-
-</div>
-
-
-<div class="hm-controls">
-
-<select
-id="languageSelect"
-class="hm-select"
-onchange="changeLanguage(this.value)">
-
-<option value="fa">🇮🇷 فارسی</option>
-
-<option value="ar">🇸🇦 العربية</option>
-
-<option value="en">🇬🇧 English</option>
-
-</select>
-
-
-<select
-id="countrySelect"
-class="hm-select"
-onchange="changeCountry(this.value)">
-
-<option value="Asia/Tehran">🇮🇷 ایران</option>
-
-<option value="Canada/Eastern">🇨🇦 کانادا</option>
-
-<option value="America/New_York">🇺🇸 آمریکا</option>
-
-<option value="Europe/London">🇬🇧 بریتانیا</option>
-
-<option value="Europe/Paris">🇫🇷 فرانسه</option>
-
-<option value="Europe/Berlin">🇩🇪 آلمان</option>
-
-<option value="Asia/Dubai">🇦🇪 امارات</option>
-
-<option value="Asia/Riyadh">🇸🇦 عربستان</option>
-
-<option value="Asia/Qatar">🇶🇦 قطر</option>
-
-<option value="Asia/Kuwait">🇰🇼 کویت</option>
-
-<option value="Asia/Istanbul">🇹🇷 ترکیه</option>
-
-<option value="Asia/Shanghai">🇨🇳 چین</option>
-
-<option value="Asia/Tokyo">🇯🇵 ژاپن</option>
-
-<option value="Asia/Seoul">🇰🇷 کره جنوبی</option>
-
-<option value="Asia/Kolkata">🇮🇳 هند</option>
-
-<option value="Australia/Sydney">🇦🇺 استرالیا</option>
-
-<option value="Europe/Moscow">🇷🇺 روسیه</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-     CONNECTION
-===================================================== -->
-
-<div class="hm-box">
-
-<div class="hm-title"
-id="connectionTitle">
-
-🔌 اتصال زنده
-
-</div>
-
-<div class="hm-sub">
-
-<span id="connection"
-class="green">
-
-🟢 ارتباط زنده
-
-</span>
-
-<br>
-
-<span id="sourceLabel">
-
-منبع:
-
-</span>
-
-<span id="source">
-
-BRS API
-
-</span>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-     API CENTER
-===================================================== -->
-
-<div class="hm-box">
-
-<div class="hm-title">
-
-🔌 مرکز اتصال API
-
-</div>
-
-<div class="hm-sub">
-
-<span id="engineSourceLabel">
-
-منبع:
-
-</span>
-
-<span>
-
-BRS API
-
-</span>
-
-<br><br>
-
-<span id="engineLabel">
-
-موتور:
-
-</span>
-
-<br>
-
-HASINEH PRICE ENGINE V1
-
-<br><br>
-
-<span id="statusLabel">
-
-وضعیت:
-
-</span>
-
-<span class="green">
-
-🟢 متصل به JSON زنده
-
-</span>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-     GOLD
-===================================================== -->
-
-<div class="hm-box">
-
-<div class="hm-title">
-
-📊 بازار طلا
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-طلای ۱۸ عیار
-</div>
-
-<div id="gold18"
-class="hm-price">
-—
-</div>
-
-<div class="hm-small">
-
-منبع: BRS API
-
-<br>
-
-وضعیت:
-<span class="green">
-🟢 زنده
-</span>
-
-<br>
-
-<span id="gold18Change"></span>
-
-</div>
-
-</div>
-
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-طلای ۲۴ عیار
-</div>
-
-<div id="gold24"
-class="hm-price">
-—
-</div>
-
-<div class="hm-small">
-
-منبع: BRS API
-
-<br>
-
-<span id="gold24Change"></span>
-
-</div>
-
-</div>
-
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-🔥 طلای آب‌شده
-</div>
-
-<div id="melted"
-class="hm-price">
-—
-</div>
-
-<div class="hm-small">
-
-منبع: BRS API
-
-<br>
-
-<span id="meltedChange"></span>
-
-</div>
-
-</div>
-
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-⭐ مثقال طلای ۲۱ عیار
-</div>
-
-<div id="mesghal"
-class="hm-price">
-—
-</div>
-
-<div class="hm-small">
-
-منبع:
-HASINEH PRICE ENGINE
-
-<br>
-
-<span class="green">
-🟢 مستقیم از موتور
-</span>
-
-</div>
-
-</div>
-
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-💎 سکه یک گرمی ۱۸ عیار (پارسیان)
-</div>
-
-<div id="parsian"
-class="hm-price">
-—
-</div>
-
-<div class="hm-small">
-
-فرمول:
-
-<br>
-
-طلای ۱۸ عیار × ۱.۰۳
-
-<br>
-
-منبع:
-HASINEH PRICE ENGINE
-
-<br>
-
-<span class="green">
-
-🟢 محاسبه مستقیم موتور
-
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-     COINS
-===================================================== -->
-
-<div class="hm-box">
-
-<div class="hm-title">
-
-🪙 بازار سکه
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-سکه امامی
-</div>
-
-<div id="emami"
-class="hm-price">
-—
-</div>
-
-<span id="emamiChange"></span>
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-نیم سکه
-</div>
-
-<div id="half"
-class="hm-price">
-—
-</div>
-
-<span id="halfChange"></span>
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-ربع سکه
-</div>
-
-<div id="quarter"
-class="hm-price">
-—
-</div>
-
-<span id="quarterChange"></span>
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-سکه بهار آزادی
-</div>
-
-<div id="bahar"
-class="hm-price">
-—
-</div>
-
-<span id="baharChange"></span>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-     CURRENCY
-===================================================== -->
-
-<div class="hm-box">
-
-<div class="hm-title">
-
-💱 بازار ارز
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-دلار آمریکا
-</div>
-
-<div id="usd"
-class="hm-price">
-—
-</div>
-
-<span id="usdChange"></span>
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-یورو
-</div>
-
-<div id="eur"
-class="hm-price">
-—
-</div>
-
-<span id="eurChange"></span>
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-درهم امارات
-</div>
-
-<div id="aed"
-class="hm-price">
-—
-</div>
-
-<span id="aedChange"></span>
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-تتر
-</div>
-
-<div id="usdt"
-class="hm-price">
-—
-</div>
-
-<span id="usdtChange"></span>
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-پوند انگلیس
-</div>
-
-<div id="gbp"
-class="hm-price">
-—
-</div>
-
-<span id="gbpChange"></span>
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-یوآن چین
-</div>
-
-<div id="cny"
-class="hm-price">
-—
-</div>
-
-<span id="cnyChange"></span>
-
-</div>
-
-
-<div class="hm-card">
-
-<div class="hm-name">
-لیر ترکیه
-</div>
-
-<div id="try"
-class="hm-price">
-—
-</div>
-
-<span id="tryChange"></span>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-     TIME CENTER
-===================================================== -->
-
-<div class="hm-box">
-
-<div class="hm-title">
-
-🕒 مرکز زمان و بروزرسانی
-
-</div>
-
-<div class="hm-time-grid">
-
-<div class="hm-time-card">
-
-<div class="hm-time-label"
-id="visitorTimeLabel">
-
-ساعت کشور انتخاب‌شده
-
 </div>
-
-<div id="visitorTime"
-class="hm-time-value">
-
-—
-
-</div>
-
-</div>
-
-
-<div class="hm-time-card">
-
-<div class="hm-time-label">
-
-🇮🇷 زمان مبنای نرخ بازار
-
-</div>
-
-<div id="iranTime"
-class="hm-time-value">
-
-—
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="hm-sub"
-style="margin-top:14px;">
-
-<span id="rateTimeNotice">
-
-🇮🇷 نرخ‌های بازار بر اساس زمان ایران محاسبه و بروزرسانی می‌شوند.
-
-</span>
-
-</div>
-
-
-<hr
-style="
-border:0;
-border-top:1px solid #302713;
-margin:18px 0;
-">
-
-
-<div class="hm-sub">
-
-وضعیت موتور:
-
-<br>
-
-<span id="engineStatus"
-class="green">
-
-🟢 LIVE_CONNECTED
-
-</span>
-
-
-<br><br>
-
-
-آخرین بروزرسانی:
-
-<br>
-
-<span id="updated"
-class="hm-time">
-
-—
-
-</span>
-
-
-<br><br>
-
-
-بروزرسانی بعدی:
-
-<br>
-
-<span id="countdown"
-class="hm-time">
-
-۶۰ ثانیه
-
-</span>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-     BRAND / QR / CREATOR
-===================================================== -->
-
-<div class="hm-box">
-
-<div class="hm-brand">
-
-<div class="hm-brand-main">
-
-🏆 HASINEH MARKET
-
-</div>
-
-<div class="hm-brand-fa">
-
-حسینه مارکت
-
-</div>
-
-<div class="hm-brand-sub">
-
-LIVE PREMIUM MARKET BOARD
-
-</div>
-
-</div>
-
-
-<div class="hm-qr">
-
-QR<br>
-COMING<br>
-SOON
-
-</div>
-
-<div class="hm-qr-text">
-
-مسیر ارتباط و معرفی رسمی HASINEH MARKET
-
-<br>
-
-QR Code رسمی پس از ثبت لینک‌های ارتباطی فعال خواهد شد.
-
-</div>
-
-
-<div class="hm-creator">
-
-<div class="hm-creator-name">
-
-Hassan Divanizadeh
-
-</div>
-
-<div class="hm-creator-phone">
-
-989178649970
-
-</div>
-
-<div class="hm-copyright">
-
-📍 Bandar Hasineh
-
-<br>
-
-© ۱۴۰۵
-
-</div>
-
-</div>
-
-</div>
-
-
-
-</div>
-
 
 
 <script>
 
-/* ========================================================
-   HASINEH PRICE ENGINE V1
-   BRS API → JSON → BOARD
-   ======================================================== */
+/* ==========================================
+   HASINEH MARKET V297
+   LIVE PRICE ENGINE
+   BRS API → PRICE ENGINE → JSON → BOARD
+========================================== */
 
-const JSON_URL =
-"./price-engine/prices.json";
+const PRICE_JSON = "./price-engine/prices.json";
 
-let seconds = 60;
-
-let selectedTimezone =
-"Asia/Tehran";
+let prices = null;
+let selectedZone = "Asia/Tehran";
 
 
-/* ========================================================
-   NUMBER FORMAT
-   ======================================================== */
+/* ---------- HELPERS ---------- */
 
 function formatNumber(value){
 
-if(value===undefined || value===null)
-return "—";
+  if(value === null || value === undefined || value === ""){
+    return "—";
+  }
 
-return Number(value)
-.toLocaleString(
-"fa-IR",
-{
-maximumFractionDigits:2
+  const n = Number(value);
+
+  if(Number.isNaN(n)){
+    return "—";
+  }
+
+  return n.toLocaleString("fa-IR");
 }
-);
 
-}
-
-
-/* ========================================================
-   SET TEXT
-   ======================================================== */
 
 function setText(id,value){
 
-let e =
-document.getElementById(id);
+  const el = document.getElementById(id);
 
-if(e)
-e.textContent=value;
+  if(el){
+    el.textContent = value;
+  }
+}
+
+
+function showPrice(id,value){
+
+  setText(id,formatNumber(value));
 
 }
 
 
-/* ========================================================
-   CHANGE DISPLAY
-   ======================================================== */
+function showChange(id,value){
 
-function showChange(id,data){
+  const el = document.getElementById(id);
 
-let e =
-document.getElementById(id);
+  if(!el) return;
 
-if(!e || !data)
-return;
+  if(value === null || value === undefined || value === ""){
+    el.textContent = "—";
+    el.className = "change flat";
+    return;
+  }
 
-let value =
-data.value || 0;
+  const n = Number(value);
 
-let percent =
-data.percent || 0;
+  if(Number.isNaN(n)){
+    el.textContent = "—";
+    el.className = "change flat";
+    return;
+  }
 
-let icon =
-value >= 0
-? "🟢 ▲"
-: "🔴 ▼";
+  if(n > 0){
 
-let cls =
-value >= 0
-? "green"
-: "red";
+    el.textContent = "▲ +" + formatNumber(n);
+    el.className = "change up";
 
-e.className=cls;
+  }else if(n < 0){
 
-e.textContent =
-icon+
-" "+
-formatNumber(value)+
-" ("+
-percent+
-"%)";
+    el.textContent = "▼ " + formatNumber(n);
+    el.className = "change down";
 
-}
+  }else{
 
+    el.textContent = "— 0";
+    el.className = "change flat";
 
-/* ========================================================
-   PRICE
-   ======================================================== */
-
-function updatePrice(id,value){
-
-setText(
-id,
-formatNumber(value)
-);
+  }
 
 }
 
 
-/* ========================================================
-   APPLY JSON DATA
-   ======================================================== */
-
-function applyData(data){
-
-let p =
-data.prices || {};
-
-
-updatePrice(
-"gold18",
-p.gold_18k
-);
-
-
-updatePrice(
-"gold24",
-p.gold_24k
-);
-
-
-updatePrice(
-"melted",
-p.gold_melted
-);
-
-
-updatePrice(
-"mesghal",
-p.mesghal_21k
-);
-
-
-/* ======================================================
-   PARSIAN COIN
-   طلای ۱۸ عیار × ۱.۰۳
-   ====================================================== */
-
-let parsian =
-Number(p.gold_18k) * 1.03;
-
-
-updatePrice(
-"parsian",
-parsian
-);
-
-
-updatePrice(
-"emami",
-p.coin_emami
-);
-
-
-updatePrice(
-"half",
-p.coin_half
-);
-
-
-updatePrice(
-"quarter",
-p.coin_quarter
-);
-
-
-updatePrice(
-"bahar",
-p.coin_bahar
-);
-
-
-updatePrice(
-"usd",
-p.usd
-);
-
-
-updatePrice(
-"eur",
-p.eur
-);
-
-
-updatePrice(
-"aed",
-p.aed
-);
-
-
-updatePrice(
-"usdt",
-p.usdt
-);
-
-
-updatePrice(
-"gbp",
-p.gbp
-);
-
-
-updatePrice(
-"cny",
-p.cny
-);
-
-
-updatePrice(
-"try",
-p.try
-);
-
-
-/* ======================================================
-   CHANGES
-   ====================================================== */
-
-let c =
-data.changes || {};
-
-
-showChange(
-"gold18Change",
-c.gold_18k
-);
-
-
-showChange(
-"gold24Change",
-c.gold_24k
-);
-
-
-showChange(
-"meltedChange",
-c.gold_melted
-);
-
-
-showChange(
-"emamiChange",
-c.coin_emami
-);
-
-
-showChange(
-"halfChange",
-c.coin_half
-);
-
-
-showChange(
-"quarterChange",
-c.coin_quarter
-);
-
-
-showChange(
-"baharChange",
-c.coin_bahar
-);
-
-
-showChange(
-"usdChange",
-c.usd
-);
-
-
-showChange(
-"eurChange",
-c.eur
-);
-
-
-showChange(
-"aedChange",
-c.aed
-);
-
-
-showChange(
-"usdtChange",
-c.usdt
-);
-
-
-showChange(
-"gbpChange",
-c.gbp
-);
-
-
-showChange(
-"cnyChange",
-c.cny
-);
-
-
-showChange(
-"tryChange",
-c.try
-);
-
-
-/* ======================================================
-   UPDATE TIME
-   ====================================================== */
-
-if(data.updated_at){
-
-setText(
-"updated",
-new Date(
-data.updated_at
-).toLocaleString(
-"fa-IR"
-)
-);
-
-}
-
-
-/* ======================================================
-   ENGINE STATUS
-   ====================================================== */
-
-setText(
-"engineStatus",
-"🟢 "+
-(data.status || "LIVE_CONNECTED")
-);
-
-
-seconds=60;
-
-}
-
-
-/* ========================================================
-   LOAD PRICES
-   ======================================================== */
+/* ---------- DATA ---------- */
 
 async function loadPrices(){
 
-try{
+  try{
 
-let r =
-await fetch(
-JSON_URL+
-"?v="+
-Date.now()
-);
+    const response = await fetch(
+      PRICE_JSON + "?t=" + Date.now(),
+      {cache:"no-store"}
+    );
 
-if(!r.ok)
-throw new Error(
-"JSON request failed"
-);
+    if(!response.ok){
+      throw new Error("JSON ERROR");
+    }
 
-let data =
-await r.json();
+    const data = await response.json();
 
-applyData(data);
+    prices = data;
 
-setText(
-"connection",
-"🟢 ارتباط زنده"
-);
+    renderPrices();
 
-}
+    document.getElementById("warning").style.display = "none";
 
-catch(e){
+  }catch(error){
 
-setText(
-"connection",
-"🔴 خطا در اتصال"
-);
+    console.error(error);
 
-setText(
-"engineStatus",
-"🔴 BACKUP MODE"
-);
+    document.getElementById("warning").style.display = "block";
 
-}
+  }
 
 }
 
 
-/* ========================================================
-   LANGUAGE SYSTEM
-   ======================================================== */
+/* ---------- PRICE RENDER ---------- */
 
-const translations={
+function renderPrices(){
 
-fa:{
-brand:"حسینه مارکت",
-connectionTitle:"🔌 اتصال زنده",
-source:"منبع:",
-engine:"موتور:",
-status:"وضعیت:",
-visitorTime:"ساعت کشور انتخاب‌شده",
-rateNotice:"🇮🇷 نرخ‌های بازار بر اساس زمان ایران محاسبه و بروزرسانی می‌شوند."
-},
+  if(!prices) return;
 
-ar:{
-brand:"حسینه مارکت",
-connectionTitle:"🔌 اتصال مباشر",
-source:"المصدر:",
-engine:"المحرك:",
-status:"الحالة:",
-visitorTime:"وقت الدولة المختارة",
-rateNotice:"🇮🇷 أسعار السوق تعتمد على توقيت إيران في الحساب والتحديث."
-},
+  const p = prices.prices || prices.data || prices;
 
-en:{
-brand:"Hasineh Market",
-connectionTitle:"🔌 Live Connection",
-source:"Source:",
-engine:"Engine:",
-status:"Status:",
-visitorTime:"Selected Country Time",
-rateNotice:"🇮🇷 Market rates are calculated and updated based on Iran time."
-}
+  /* GOLD */
 
-};
+  showPrice("gold18",p.gold_18k);
+  showPrice("gold24",p.gold_24k);
+  showPrice("melted",p.melted_gold);
+
+  showChange("gold18Change",p.gold_18k_change);
+  showChange("gold24Change",p.gold_24k_change);
+  showChange("meltedChange",p.melted_gold_change);
 
 
-function changeLanguage(lang){
+  /* MESGHAL 21K */
 
-let t =
-translations[lang] ||
-translations.fa;
+  if(p.gold_18k){
 
+    const mesghal21 = Number(p.gold_18k) * 4.608;
 
-setText(
-"brandFa",
-t.brand
-);
+    showPrice("mesghal21",mesghal21);
+
+  }
 
 
-setText(
-"connectionTitle",
-t.connectionTitle
-);
+  /* PARSIAN */
+
+  if(p.gold_18k){
+
+    const parsian = Number(p.gold_18k) * 1.03;
+
+    showPrice("parsian",parsian);
+
+  }
 
 
-setText(
-"sourceLabel",
-t.source
-);
+  /* COINS */
+
+  showPrice("emami",p.emami);
+  showPrice("half",p.half);
+  showPrice("quarter",p.quarter);
+  showPrice("bahar",p.bahar);
+
+  showChange("emamiChange",p.emami_change);
+  showChange("halfChange",p.half_change);
+  showChange("quarterChange",p.quarter_change);
+  showChange("baharChange",p.bahar_change);
 
 
-setText(
-"engineSourceLabel",
-t.source
-);
+  /* CURRENCIES */
+
+  showPrice("usd",p.usd);
+  showPrice("eur",p.eur);
+  showPrice("aed",p.aed);
+  showPrice("usdt",p.usdt);
+  showPrice("gbp",p.gbp);
+  showPrice("cny",p.cny);
+  showPrice("try",p.try);
+
+  showChange("usdChange",p.usd_change);
+  showChange("eurChange",p.eur_change);
+  showChange("aedChange",p.aed_change);
+  showChange("usdtChange",p.usdt_change);
+  showChange("gbpChange",p.gbp_change);
+  showChange("cnyChange",p.cny_change);
+  showChange("tryChange",p.try_change);
 
 
-setText(
-"engineLabel",
-t.engine
-);
+  /* UPDATE TIME */
 
+  const timestamp =
+    prices.updated_at ||
+    prices.timestamp ||
+    prices.last_update ||
+    prices.time;
 
-setText(
-"statusLabel",
-t.status
-);
+  if(timestamp){
 
+    setText(
+      "lastUpdate",
+      "آخرین بروزرسانی: " + timestamp
+    );
 
-setText(
-"visitorTimeLabel",
-t.visitorTime
-);
-
-
-setText(
-"rateTimeNotice",
-t.rateNotice
-);
-
-
-if(lang==="ar"){
-
-document.documentElement.lang="ar";
-
-document.documentElement.dir="rtl";
-
-}
-
-else if(lang==="en"){
-
-document.documentElement.lang="en";
-
-document.documentElement.dir="ltr";
-
-}
-
-else{
-
-document.documentElement.lang="fa";
-
-document.documentElement.dir="rtl";
-
-}
+  }
 
 }
 
 
-/* ========================================================
-   COUNTRY / TIMEZONE
-   ======================================================== */
+/* ---------- COUNTRY TIME ---------- */
 
-function changeCountry(zone){
+function updateTimes(){
 
-selectedTimezone=zone;
+  const now = new Date();
 
-updateClocks();
+  try{
 
-}
+    const visitor = new Intl.DateTimeFormat(
+      "fa-IR",
+      {
+        timeZone:selectedZone,
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit",
+        hour12:false
+      }
+    ).format(now);
 
+    setText("visitorTime",visitor);
 
-function updateClocks(){
+    setText(
+      "visitorZone",
+      selectedZone
+    );
 
-let now =
-new Date();
+  }catch(error){
 
+    setText("visitorTime","--:--:--");
 
-try{
-
-let visitor =
-now.toLocaleTimeString(
-"fa-IR",
-{
-timeZone:selectedTimezone,
-hour:"2-digit",
-minute:"2-digit",
-second:"2-digit"
-}
-);
-
-setText(
-"visitorTime",
-visitor
-);
+  }
 
 
-let iran =
-now.toLocaleTimeString(
-"fa-IR",
-{
-timeZone:"Asia/Tehran",
-hour:"2-digit",
-minute:"2-digit",
-second:"2-digit"
-}
-);
+  try{
 
-setText(
-"iranTime",
-iran
-);
+    const iran = new Intl.DateTimeFormat(
+      "fa-IR",
+      {
+        timeZone:"Asia/Tehran",
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit",
+        hour12:false
+      }
+    ).format(now);
 
-}
+    setText("iranTime",iran);
 
-catch(e){
+  }catch(error){
 
-setText(
-"visitorTime",
-"—"
-);
+    setText("iranTime","--:--:--");
 
-setText(
-"iranTime",
-"—"
-);
-
-}
+  }
 
 }
 
 
-/* ========================================================
-   COUNTDOWN
-   ======================================================== */
+/* ---------- COUNTRY SELECT ---------- */
 
-setInterval(
+document
+  .getElementById("countrySelect")
+  .addEventListener("change",function(){
 
-()=>{
+    selectedZone = this.value;
 
-if(seconds>0)
-seconds--;
+    updateTimes();
 
-setText(
-"countdown",
-seconds+
-" ثانیه"
-);
+  });
 
-if(seconds<=0){
+
+/* ---------- LANGUAGE ---------- */
+
+document
+  .getElementById("languageSelect")
+  .addEventListener("change",function(){
+
+    const lang = this.value;
+
+    if(lang === "ar"){
+
+      document.documentElement.lang = "ar";
+      document.documentElement.dir = "rtl";
+
+    }else if(lang === "en"){
+
+      document.documentElement.lang = "en";
+      document.documentElement.dir = "ltr";
+
+    }else{
+
+      document.documentElement.lang = "fa";
+      document.documentElement.dir = "rtl";
+
+    }
+
+  });
+
+
+/* ---------- AUTO UPDATE ---------- */
 
 loadPrices();
 
-}
+updateTimes();
 
-},
+setInterval(updateTimes,1000);
 
-1000
+/*
+  Re-read JSON periodically.
+  The board does not fabricate changes.
+  It displays whatever is currently
+  published by the price engine.
+*/
 
-);
-
-
-/* ========================================================
-   CLOCK
-   ======================================================== */
-
-setInterval(
-updateClocks,
-1000
-);
-
-
-/* ========================================================
-   INITIAL START
-   ======================================================== */
-
-changeLanguage("fa");
-
-changeCountry(
-"Asia/Tehran"
-);
-
-loadPrices();
+setInterval(loadPrices,15000);
 
 </script>
 
-
 </body>
-
-     </html>
+         </html>
