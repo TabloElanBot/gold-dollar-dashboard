@@ -2,23 +2,32 @@ name: HASINEH PRICE ENGINE TEST
 
 on:
   workflow_dispatch:
+
   push:
     paths:
-      - "price-engine/**"
+      - "price-engine/collector.py"
+      - "price-engine/test_engine.py"
+      - ".github/workflows/main.yml"
 
 jobs:
   test-engine:
+
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
+      - name: Run Price Collector
+        run: |
+          python price-engine/collector.py
+
       - name: Run Price Engine Test
-        run: python -u price-engine/test_engine.py
-        continue-on-error: false
+        run: |
+          python price-engine/test_engine.py
