@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.12"
 
-       - name: Run Price Engine Test
-  run: |
-    python -u price-engine/test_engine.py
-  continue-on-error: false
+      - name: Run Price Engine Test
+        run: |
+          python -u price-engine/test_engine.py
+        continue-on-error: false
