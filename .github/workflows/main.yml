@@ -8,11 +8,9 @@ on:
 
 jobs:
   test-engine:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v5
 
@@ -22,6 +20,5 @@ jobs:
           python-version: "3.12"
 
       - name: Run Price Engine Test
-        run: |
-          python -u price-engine/test_engine.py
+        run: python -u price-engine/test_engine.py
         continue-on-error: false
