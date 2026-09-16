@@ -1,16 +1,16 @@
 {
   "engine": "HASINEH PRICE ENGINE",
-  "version": "V294",
+  "version": "V295",
   "status": "live",
   "source": "https://www.tgju.org",
-  "generated_at_utc": "2026-09-16T22:46:02.480464+00:00",
+  "generated_at_utc": "2026-09-16T22:58:17.169665+00:00",
   "currency": "TOMAN",
   "fake_prices_allowed": false,
   "prices": {
     "gold_18k": {
       "name": "طلای ۱۸ عیار",
       "category": "gold",
-      "price": 203,
+      "price": 23501300,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -21,7 +21,7 @@
     "gold_24k": {
       "name": "طلای ۲۴ عیار",
       "category": "gold",
-      "price": 203,
+      "price": 31334800,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -43,7 +43,7 @@
     "usd": {
       "name": "دلار آمریکا",
       "category": "currency",
-      "price": 203,
+      "price": 230500,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -54,7 +54,7 @@
     "eur": {
       "name": "یورو",
       "category": "currency",
-      "price": 203,
+      "price": 266300,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -65,7 +65,7 @@
     "aed": {
       "name": "درهم امارات",
       "category": "currency",
-      "price": 203,
+      "price": 63040,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -87,7 +87,7 @@
     "gbp": {
       "name": "پوند انگلیس",
       "category": "currency",
-      "price": 203,
+      "price": 310070,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -98,7 +98,7 @@
     "try": {
       "name": "لیر ترکیه",
       "category": "currency",
-      "price": 203,
+      "price": 4825,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -109,7 +109,7 @@
     "cny": {
       "name": "یوان چین",
       "category": "currency",
-      "price": 203,
+      "price": 34630,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -120,7 +120,7 @@
     "coin_emami": {
       "name": "سکه امامی",
       "category": "coin",
-      "price": 203,
+      "price": 234010000,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -131,7 +131,7 @@
     "coin_half": {
       "name": "نیم سکه",
       "category": "coin",
-      "price": 203,
+      "price": 229240000,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -142,7 +142,7 @@
     "coin_quarter": {
       "name": "ربع سکه",
       "category": "coin",
-      "price": 203,
+      "price": 63000000,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -153,7 +153,7 @@
     "silver_999": {
       "name": "نقره ۹۹۹",
       "category": "metal",
-      "price": 203,
+      "price": 493480,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -164,7 +164,7 @@
     "silver_925": {
       "name": "نقره ۹۲۵",
       "category": "metal",
-      "price": 203,
+      "price": 456473,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -175,7 +175,7 @@
     "gold_21k_mesghal": {
       "name": "طلای ۲۱ عیار / مثقال",
       "category": "gold",
-      "price": 1091,
+      "price": 126351214,
       "previous": null,
       "change": null,
       "change_percent": null,
