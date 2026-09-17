@@ -3,14 +3,14 @@
   "version": "V296",
   "status": "live",
   "source": "https://www.tgju.org",
-  "generated_at_utc": "2026-09-17T08:30:48.058047+00:00",
+  "generated_at_utc": "2026-09-17T10:31:56.759520+00:00",
   "currency": "TOMAN",
   "fake_prices_allowed": false,
   "prices": {
     "gold_18k": {
       "name": "طلای ۱۸ عیار",
       "category": "gold",
-      "price": 23256800,
+      "price": 23211100,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -21,7 +21,7 @@
     "gold_24k": {
       "name": "طلای ۲۴ عیار",
       "category": "gold",
-      "price": 31008800,
+      "price": 30947900,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -32,7 +32,7 @@
     "gold_melted": {
       "name": "طلای آب‌شده",
       "category": "gold",
-      "price": 100821000,
+      "price": 100797000,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -43,7 +43,7 @@
     "usd": {
       "name": "دلار آمریکا",
       "category": "currency",
-      "price": 228600,
+      "price": 228580,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -54,7 +54,7 @@
     "eur": {
       "name": "یورو",
       "category": "currency",
-      "price": 262660,
+      "price": 262870,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -65,7 +65,7 @@
     "aed": {
       "name": "درهم امارات",
       "category": "currency",
-      "price": 62545,
+      "price": 62551,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -76,7 +76,7 @@
     "usdt": {
       "name": "تتر",
       "category": "currency",
-      "price": 227855,
+      "price": 228150,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -87,7 +87,7 @@
     "gbp": {
       "name": "پوند انگلیس",
       "category": "currency",
-      "price": 305990,
+      "price": 306490,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -120,7 +120,7 @@
     "coin_emami": {
       "name": "سکه امامی",
       "category": "coin",
-      "price": 231995000,
+      "price": 232005000,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -153,7 +153,7 @@
     "silver_999": {
       "name": "نقره ۹۹۹",
       "category": "metal",
-      "price": 498520,
+      "price": 495050,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -164,7 +164,7 @@
     "silver_925": {
       "name": "نقره ۹۲۵",
       "category": "metal",
-      "price": 461129,
+      "price": 457925,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -175,7 +175,7 @@
     "gold_21k_mesghal": {
       "name": "طلای ۲۱ عیار / مثقال",
       "category": "gold",
-      "price": 125036697,
+      "price": 124790997,
       "previous": null,
       "change": null,
       "change_percent": null,
