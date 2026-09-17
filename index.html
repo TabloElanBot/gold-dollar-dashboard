@@ -100,47 +100,31 @@ header{
 .update-box{
   margin-top:14px;
   padding:14px;
-  border-radius:14px;
   border:1px solid #493d1c;
-  background:rgba(120,95,25,.07);
-}
-
-.update-title{
-  color:#d9b85b;
-  font-size:13px;
-  font-weight:800;
-  margin-bottom:10px;
+  border-radius:14px;
+  background:rgba(120,95,25,.06);
 }
 
 .update-row{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:12px;
-  padding:7px 0;
+  gap:10px;
+  padding:5px 0;
   color:#aaa;
   font-size:12px;
 }
 
 .update-row strong{
   color:#f1df9c;
+  text-align:left;
 }
 
 .countdown{
-  color:#75e08a !important;
-  font-size:16px;
+  color:#d9b85b !important;
+  font-size:18px;
   font-weight:900;
   direction:ltr;
-  min-width:55px;
-  text-align:center;
-}
-
-.countdown.waiting{
-  color:#d9b85b !important;
-}
-
-.countdown.error{
-  color:#ff6262 !important;
 }
 
 .section-title{
@@ -287,9 +271,8 @@ footer strong{
 
   .update-row strong{
     display:block;
-    margin-top:5px;
+    margin-top:4px;
   }
-
 }
 </style>
 </head>
@@ -327,73 +310,45 @@ footer strong{
 
   <div class="engine-row">
     <span>منبع داده</span>
-    <strong id="sourceStatus">
-      TGJU
-    </strong>
+    <strong id="sourceStatus">TGJU</strong>
   </div>
 
   <div class="engine-row">
     <span>موتور</span>
-    <strong>
-      HASINEH PRICE ENGINE V1
-    </strong>
+    <strong>HASINEH PRICE ENGINE V1</strong>
   </div>
 
   <div class="engine-row">
     <span>داده</span>
-    <strong id="jsonStatus">
-      در حال دریافت JSON...
-    </strong>
+    <strong id="jsonStatus">در حال دریافت JSON...</strong>
   </div>
 
   <div class="engine-row">
     <span>وضعیت</span>
-    <strong id="engineStatus">
-      WAITING
-    </strong>
+    <strong id="engineStatus">WAITING</strong>
   </div>
-
-  <!-- =====================================================
-       UPDATE TIMER
-  ====================================================== -->
 
   <div class="update-box">
 
-    <div class="update-title">
-      ⏱ وضعیت بروزرسانی موتور
+    <div class="update-row">
+      <span>آخرین بروزرسانی واقعی</span>
+      <strong id="lastUpdate">در حال دریافت...</strong>
     </div>
 
     <div class="update-row">
-      <span>
-        🕐 آخرین بروزرسانی واقعی
-      </span>
-
-      <strong id="lastUpdate">
-        در حال دریافت...
-      </strong>
+      <span>بررسی بعدی سایت</span>
+      <strong id="nextCheck">در حال دریافت...</strong>
     </div>
 
     <div class="update-row">
-      <span>
-        ⏳ بروزرسانی / بررسی بعدی
-      </span>
-
-      <strong
-        id="nextUpdate"
-        class="countdown waiting"
-      >
-        --:--
-      </strong>
+      <span>زمان باقی‌مانده تا چرخه موتور</span>
+      <strong class="countdown" id="countdown">--:--</strong>
     </div>
 
   </div>
 
 </section>
 
-
-<!-- =========================
-     GOLD
-========================= -->
 
 <div class="section-title">
   📊 بازار طلا
@@ -432,10 +387,6 @@ footer strong{
 </div>
 
 
-<!-- =========================
-     COINS
-========================= -->
-
 <div class="section-title">
   🪙 بازار سکه
 </div>
@@ -473,10 +424,6 @@ footer strong{
 </div>
 
 
-<!-- =========================
-     SILVER
-========================= -->
-
 <div class="section-title">
   🥈 بازار نقره
 </div>
@@ -499,10 +446,6 @@ footer strong{
 
 </div>
 
-
-<!-- =========================
-     CURRENCY
-========================= -->
 
 <div class="section-title">
   💱 بازار ارز
@@ -570,13 +513,16 @@ footer strong{
 
   <br>
 
-  منبع موتور:
-  <strong>TGJU</strong>
+  موتور قیمت هر <strong>۵ دقیقه</strong> اجرا می‌شود.
 
   <br>
 
-  موتور قیمت:
-  <strong>هر ۵ دقیقه</strong>
+  سایت هر <strong>۶۰ ثانیه</strong> وضعیت JSON را بررسی می‌کند.
+
+  <br>
+
+  منبع موتور:
+  <strong>TGJU</strong>
 
   <br>
 
@@ -610,37 +556,21 @@ footer strong{
 
 /* =========================================================
    HASINEH MARKET
-   REAL PRICE ENGINE JSON CONNECTOR
    V298
+   REAL PRICE ENGINE JSON CONNECTOR
    ========================================================= */
 
 const JSON_URL =
   "./price-engine/prices.json";
 
-
-/* =========================================================
-   PRICE ENGINE UPDATE CYCLE
-   5 MINUTES
-   ========================================================= */
-
 const ENGINE_INTERVAL_MS =
   5 * 60 * 1000;
-
-
-/* =========================================================
-   SITE JSON CHECK
-   60 SECONDS
-   ========================================================= */
 
 const SITE_CHECK_INTERVAL_MS =
   60 * 1000;
 
-
-/* =========================================================
-   LAST ENGINE UPDATE
-   ========================================================= */
-
-let lastEngineUpdateMs = null;
+let lastEngineUpdateMs =
+  null;
 
 
 /* =========================================================
@@ -657,8 +587,7 @@ function formatPrice(value){
     return "—";
   }
 
-  const number =
-    Number(value);
+  const number = Number(value);
 
   if(!Number.isFinite(number)){
     return "—";
@@ -671,7 +600,7 @@ function formatPrice(value){
 
 
 /* =========================================================
-   GET REAL PRICE FROM JSON ITEM
+   GET REAL PRICE
    ========================================================= */
 
 function getPrice(item){
@@ -687,7 +616,6 @@ function getPrice(item){
       "price"
     )
   ){
-
     return item.price;
   }
 
@@ -819,19 +747,17 @@ function showMovement(id,value){
     element.className =
       "move flat";
   }
-
 }
 
 
 /* =========================================================
    FORMAT REAL UPDATE TIME
-   generated_at_utc
    ========================================================= */
 
 function formatUpdateTime(timestamp){
 
   if(!timestamp){
-    return "زمان ثبت داده موجود نیست";
+    return "نامشخص";
   }
 
   const date =
@@ -842,23 +768,21 @@ function formatUpdateTime(timestamp){
       date.getTime()
     )
   ){
-    return "زمان ثبت داده نامعتبر است";
+    return "نامشخص";
   }
 
   return new Intl.DateTimeFormat(
     "fa-IR",
     {
       dateStyle:"short",
-      timeStyle:"medium",
-      hour12:false
+      timeStyle:"medium"
     }
   ).format(date);
-
 }
 
 
 /* =========================================================
-   SET LAST UPDATE
+   SET LAST REAL UPDATE
    ========================================================= */
 
 function setLastUpdate(timestamp){
@@ -872,17 +796,6 @@ function setLastUpdate(timestamp){
     return;
   }
 
-  if(!timestamp){
-
-    element.textContent =
-      "زمان ثبت داده موجود نیست";
-
-    lastEngineUpdateMs =
-      null;
-
-    return;
-  }
-
   const date =
     new Date(timestamp);
 
@@ -893,7 +806,7 @@ function setLastUpdate(timestamp){
   ){
 
     element.textContent =
-      "زمان ثبت داده نامعتبر است";
+      "نامشخص";
 
     lastEngineUpdateMs =
       null;
@@ -906,33 +819,39 @@ function setLastUpdate(timestamp){
 
   element.textContent =
     formatUpdateTime(timestamp);
-
 }
 
 
 /* =========================================================
    COUNTDOWN
-   Based on REAL JSON UPDATE TIME
    ========================================================= */
 
 function updateCountdown(){
 
-  const element =
+  const countdown =
     document.getElementById(
-      "nextUpdate"
+      "countdown"
     );
 
-  if(!element){
+  const nextCheck =
+    document.getElementById(
+      "nextCheck"
+    );
+
+  if(
+    !countdown ||
+    !nextCheck
+  ){
     return;
   }
 
   if(!lastEngineUpdateMs){
 
-    element.textContent =
+    countdown.textContent =
       "--:--";
 
-    element.className =
-      "countdown waiting";
+    nextCheck.textContent =
+      "در انتظار زمان واقعی موتور";
 
     return;
   }
@@ -941,28 +860,38 @@ function updateCountdown(){
   const now =
     Date.now();
 
-  const nextExpected =
-    lastEngineUpdateMs +
-    ENGINE_INTERVAL_MS;
-
-  let remaining =
-    nextExpected - now;
+  const elapsed =
+    now - lastEngineUpdateMs;
 
 
   /*
-    اگر زمان مورد انتظار گذشته باشد،
-    صفر نمایش داده می‌شود تا JSON جدید برسد.
+    زمان هدف بر اساس آخرین اجرای واقعی موتور
+    و چرخه ۵ دقیقه‌ای محاسبه می‌شود.
   */
 
-  if(remaining <= 0){
+  const cyclesPassed =
+    Math.max(
+      1,
+      Math.floor(
+        elapsed /
+        ENGINE_INTERVAL_MS
+      ) + 1
+    );
 
-    element.textContent =
-      "00:00";
 
-    element.className =
-      "countdown waiting";
+  const nextEngineTime =
+    lastEngineUpdateMs +
+    cyclesPassed *
+    ENGINE_INTERVAL_MS;
 
-    return;
+
+  let remaining =
+    nextEngineTime -
+    now;
+
+
+  if(remaining < 0){
+    remaining = 0;
   }
 
 
@@ -980,14 +909,21 @@ function updateCountdown(){
     totalSeconds % 60;
 
 
-  element.textContent =
+  countdown.textContent =
     String(minutes).padStart(2,"0") +
     ":" +
     String(seconds).padStart(2,"0");
 
-  element.className =
-    "countdown";
 
+  nextCheck.textContent =
+    new Intl.DateTimeFormat(
+      "fa-IR",
+      {
+        timeStyle:"medium"
+      }
+    ).format(
+      new Date(nextEngineTime)
+    );
 }
 
 
@@ -1050,17 +986,12 @@ async function loadPrices(){
         "HTTP " +
         response.status
       );
-
     }
 
 
     const data =
       await response.json();
 
-
-    /* =====================================================
-       CHECK ENGINE
-       ===================================================== */
 
     if(
       data.status !== "live"
@@ -1069,7 +1000,6 @@ async function loadPrices(){
       throw new Error(
         "PRICE ENGINE STATUS IS NOT LIVE"
       );
-
     }
 
 
@@ -1135,11 +1065,6 @@ async function loadPrices(){
       )
     );
 
-
-    /*
-      coin_bahar در V296 وجود ندارد.
-      فعلاً قیمت ساختگی نمایش نمی‌دهیم.
-    */
 
     showPrice(
       "bahar",
@@ -1224,36 +1149,81 @@ async function loadPrices(){
        MOVEMENTS
        ===================================================== */
 
-    showMovement(
-      "gold18Move",
-      null
+    showMovement("gold18Move",null);
+    showMovement("gold24Move",null);
+    showMovement("meltedMove",null);
+    showMovement("mesghal21Move",null);
+    showMovement("emamiMove",null);
+    showMovement("halfMove",null);
+    showMovement("quarterMove",null);
+    showMovement("baharMove",null);
+    showMovement("silver999Move",null);
+    showMovement("silver925Move",null);
+    showMovement("usdMove",null);
+    showMovement("usdtMove",null);
+    showMovement("eurMove",null);
+    showMovement("gbpMove",null);
+    showMovement("aedMove",null);
+    showMovement("tryMove",null);
+    showMovement("cnyMove",null);
+
+
+    /* =====================================================
+       REAL ENGINE TIMESTAMP
+       ===================================================== */
+
+    setLastUpdate(
+      data.generated_at_utc
     );
 
-    showMovement(
-      "gold24Move",
-      null
+
+    /* =====================================================
+       SUCCESS
+       ===================================================== */
+
+    connectionStatus.textContent =
+      "🟢 اتصال موفق به موتور قیمت";
+
+    connectionStatus.style.color =
+      "#75e08a";
+
+    jsonStatus.textContent =
+      String(
+        data.version || "UNKNOWN"
+      ) +
+      " | JSON زنده دریافت شد";
+
+    engineStatus.textContent =
+      "CONNECTED";
+
+    console.log(
+      "HASINEH PRICE ENGINE DATA:",
+      data
     );
 
-    showMovement(
-      "meltedMove",
-      null
+  }
+
+
+  catch(error){
+
+    console.error(
+      "HASINEH PRICE ENGINE ERROR:",
+      error
     );
 
-    showMovement(
-      "mesghal21Move",
-      null
-    );
+    connectionStatus.textContent =
+      "🔴 خطا در دریافت JSON";
 
-    showMovement(
-      "emamiMove",
-      null
-    );
+    connectionStatus.style.color =
+      "#ff6262";
 
-    showMovement(
-      "halfMove",
-      null
-    );
+    jsonStatus.textContent =
+      "داده قابل دریافت نیست";
 
-    showMovement(
-      "quarterMove",
-  
+    engineStatus.textContent =
+      "ERROR";
+  }
+}
+
+
+      
