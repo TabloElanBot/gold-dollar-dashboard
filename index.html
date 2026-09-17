@@ -4,287 +4,506 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HASINEH MARKET | حسینه مارکت</title>
+<title>HASINEH MARKET | بازار آنلاین حسینه</title>
+
+<meta name="description" content="HASINEH MARKET - بازار آنلاین حرفه‌ای طلا، سکه، ارز و نقره">
+<meta name="theme-color" content="#080808">
 
 <style>
+:root{
+  --bg:#070707;
+  --panel:#101010;
+  --panel2:#151515;
+  --gold:#d4af37;
+  --gold2:#f3d675;
+  --gold-soft:#9d8128;
+  --text:#f4f1e7;
+  --muted:#999;
+  --green:#4ade80;
+  --red:#ff5c5c;
+  --line:rgba(212,175,55,.20);
+  --shadow:0 12px 35px rgba(0,0,0,.45);
+}
+
 *{
   box-sizing:border-box;
-  margin:0;
-  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
+  margin:0;
   background:
-    radial-gradient(circle at top,#211b0b 0,#080808 38%,#000 100%);
-  color:#f4f0df;
+    radial-gradient(circle at 50% -10%,rgba(212,175,55,.10),transparent 35%),
+    linear-gradient(180deg,#050505 0%,#090909 55%,#050505 100%);
+  color:var(--text);
   font-family:Tahoma,Arial,sans-serif;
   min-height:100vh;
 }
 
+button,
+select{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
 .container{
-  width:min(1200px,94%);
+  width:min(1180px,94%);
   margin:auto;
 }
 
-header{
-  padding:28px 10px 18px;
+/* HEADER */
+
+.header{
+  padding:28px 0 20px;
+  border-bottom:1px solid var(--line);
+}
+
+.brand{
   text-align:center;
 }
 
-.logo{
-  color:#d9b85b;
-  font-size:clamp(26px,5vw,48px);
-  font-weight:900;
-  letter-spacing:3px;
-  text-shadow:0 0 20px rgba(217,184,91,.25);
+.brand h1{
+  margin:0;
+  color:var(--gold2);
+  font-size:clamp(30px,6vw,58px);
+  letter-spacing:4px;
+  font-weight:800;
+  text-shadow:0 0 25px rgba(212,175,55,.18);
 }
 
-.subtitle{
-  margin-top:8px;
-  color:#aaa;
+.brand .subtitle{
+  margin-top:9px;
+  color:#c8c1ad;
   font-size:14px;
 }
 
-.location{
-  margin-top:10px;
-  color:#d9b85b;
-  font-size:13px;
+.brand .location{
+  margin-top:8px;
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:1px;
 }
 
-.status{
-  margin:18px auto 0;
-  width:max-content;
-  max-width:100%;
-  padding:8px 16px;
-  border:1px solid #315b3b;
-  border-radius:30px;
-  color:#75e08a;
-  background:rgba(30,100,45,.12);
-  font-size:13px;
-}
+/* CONTROL BAR */
 
-.engine{
-  margin:22px auto;
-  padding:18px;
-  border:1px solid #3d3218;
-  border-radius:18px;
-  background:linear-gradient(
-    145deg,
-    rgba(25,25,25,.96),
-    rgba(7,7,7,.96)
-  );
-  box-shadow:0 10px 35px rgba(0,0,0,.4);
-}
-
-.engine-title{
-  color:#d9b85b;
-  font-weight:800;
-  font-size:17px;
-  margin-bottom:12px;
-}
-
-.engine-row{
+.controls{
+  margin-top:20px;
   display:flex;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-  color:#bbb;
-  font-size:13px;
-  padding:6px 0;
-}
-
-.engine-row strong{
-  color:#f1df9c;
-}
-
-.update-box{
-  margin-top:14px;
-  padding:14px;
-  border:1px solid #493d1c;
-  border-radius:14px;
-  background:rgba(120,95,25,.06);
-}
-
-.update-row{
-  display:flex;
-  justify-content:space-between;
+  justify-content:center;
   align-items:center;
   gap:10px;
-  padding:5px 0;
+  flex-wrap:wrap;
+}
+
+.control-box{
+  background:rgba(255,255,255,.025);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:8px 11px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.control-box label{
+  color:#aaa;
+  font-size:11px;
+}
+
+select{
+  background:#0b0b0b;
+  color:var(--gold2);
+  border:1px solid rgba(212,175,55,.35);
+  border-radius:8px;
+  padding:7px 10px;
+  outline:none;
+}
+
+select:focus{
+  border-color:var(--gold);
+}
+
+/* STATUS */
+
+.status-line{
+  margin:18px auto 0;
+  text-align:center;
   color:#aaa;
   font-size:12px;
 }
 
-.update-row strong{
-  color:#f1df9c;
-  text-align:left;
+.status-dot{
+  color:var(--green);
+}
+
+.status-dot.offline{
+  color:var(--red);
+}
+
+/* ENGINE */
+
+.engine{
+  margin:25px 0 28px;
+  background:
+    linear-gradient(135deg,rgba(212,175,55,.06),rgba(255,255,255,.015));
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+.engine-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.engine-title{
+  color:var(--gold2);
+  font-weight:bold;
+  font-size:16px;
+}
+
+.live-badge{
+  border:1px solid rgba(74,222,128,.35);
+  color:var(--green);
+  border-radius:20px;
+  padding:5px 11px;
+  font-size:11px;
+}
+
+.engine-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+  margin-top:15px;
+}
+
+.engine-item{
+  background:rgba(0,0,0,.24);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:11px;
+  padding:11px;
+}
+
+.engine-item span{
+  display:block;
+}
+
+.engine-item .label{
+  color:#777;
+  font-size:10px;
+  margin-bottom:5px;
+}
+
+.engine-item .value{
+  color:#ddd;
+  font-size:12px;
+  word-break:break-word;
 }
 
 .countdown{
-  color:#d9b85b !important;
-  font-size:18px;
-  font-weight:900;
-  direction:ltr;
+  color:var(--gold2)!important;
+  font-weight:bold;
+}
+
+/* SECTIONS */
+
+.section{
+  margin:35px 0;
 }
 
 .section-title{
-  margin:30px 0 15px;
-  color:#d9b85b;
-  font-size:20px;
-  font-weight:800;
-  border-right:4px solid #d9b85b;
-  padding-right:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
 }
 
-.grid{
+.section-title h2{
+  margin:0;
+  font-size:18px;
+  color:var(--gold2);
+}
+
+.section-title .line{
+  height:1px;
+  flex:1;
+  background:linear-gradient(90deg,var(--line),transparent);
+}
+
+/* CARDS */
+
+.market-grid{
   display:grid;
-  grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
-  gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:13px;
 }
 
 .card{
   position:relative;
-  overflow:hidden;
   background:
-    linear-gradient(
-      145deg,
-      rgba(27,27,27,.98),
-      rgba(8,8,8,.98)
-    );
-  border:1px solid #302815;
-  border-radius:18px;
-  padding:18px;
+    linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+  border:1px solid rgba(212,175,55,.16);
+  border-radius:16px;
+  padding:17px;
   min-height:145px;
-  box-shadow:0 8px 25px rgba(0,0,0,.35);
+  box-shadow:0 8px 25px rgba(0,0,0,.28);
+  transition:.25s ease;
+  overflow:hidden;
 }
 
-.card:before{
+.card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(212,175,55,.38);
+}
+
+.card::before{
   content:"";
   position:absolute;
   top:0;
   right:0;
   left:0;
   height:2px;
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #d9b85b,
-      transparent
-    );
-  opacity:.6;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:.55;
 }
 
 .card-name{
-  color:#bdbdbd;
-  font-size:14px;
-  margin-bottom:12px;
+  color:#ddd;
+  font-size:13px;
+}
+
+.card-symbol{
+  color:#777;
+  font-size:10px;
+  margin-top:4px;
 }
 
 .price{
-  color:#f4d77a;
-  font-size:24px;
-  font-weight:900;
-  direction:ltr;
-  text-align:right;
-  word-break:break-word;
+  color:var(--gold2);
+  font-size:22px;
+  font-weight:bold;
+  margin-top:18px;
+  direction:rtl;
+  unicode-bidi:plaintext;
 }
 
 .unit{
-  margin-top:8px;
-  color:#888;
+  color:#777;
+  font-size:10px;
+  margin-top:5px;
+}
+
+.movement{
+  position:absolute;
+  left:13px;
+  bottom:13px;
   font-size:11px;
 }
 
-.move{
-  margin-top:10px;
-  font-size:12px;
-  line-height:1.8;
-  font-weight:700;
-}
-
 .up{
-  color:#49d17d;
+  color:var(--green);
 }
 
 .down{
-  color:#ff6262;
+  color:var(--red);
 }
 
 .flat{
-  color:#999;
-}
-
-.unavailable{
   color:#777;
-  font-size:24px;
 }
 
-.move-main{
-  font-weight:900;
+.invalid{
+  color:#777;
 }
 
-.move-percent{
-  margin-right:7px;
-  font-weight:700;
-  direction:ltr;
-  display:inline-block;
-}
+/* SOURCE NOTE */
 
-.notice{
-  margin-top:25px;
-  padding:15px;
-  border-radius:15px;
-  border:1px solid #493d1c;
-  background:rgba(120,95,25,.08);
-  color:#aaa;
+.source-note{
   text-align:center;
+  margin-top:18px;
+  color:#777;
+  font-size:10px;
+}
+
+/* PRO */
+
+.pro-box{
+  border:1px solid rgba(212,175,55,.28);
+  border-radius:18px;
+  padding:20px;
+  background:
+    radial-gradient(circle at 90% 20%,rgba(212,175,55,.08),transparent 30%),
+    #0d0d0d;
+}
+
+.pro-box h3{
+  margin:0 0 8px;
+  color:var(--gold2);
+}
+
+.pro-box p{
+  margin:7px 0;
+  color:#999;
   font-size:12px;
   line-height:2;
 }
 
-footer{
-  text-align:center;
-  padding:35px 10px 25px;
-  color:#666;
+.pro-features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:9px;
+  margin-top:15px;
+}
+
+.pro-feature{
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:10px;
+  padding:11px;
+  color:#aaa;
   font-size:11px;
 }
 
-footer strong{
-  color:#8d7840;
+.pro-button{
+  margin-top:16px;
+  background:linear-gradient(135deg,#b48b20,#e4c04c);
+  color:#090909;
+  border:0;
+  border-radius:10px;
+  padding:11px 18px;
+  font-weight:bold;
 }
 
-@media(max-width:600px){
+.pro-button:hover{
+  filter:brightness(1.08);
+}
 
-  header{
+/* OCCASION */
+
+.occasion{
+  display:none;
+  border:1px solid rgba(212,175,55,.24);
+  background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(255,255,255,.015));
+  border-radius:16px;
+  padding:15px;
+  text-align:center;
+  margin-bottom:22px;
+}
+
+.occasion.active{
+  display:block;
+}
+
+.occasion-title{
+  color:var(--gold2);
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.occasion-text{
+  color:#aaa;
+  font-size:12px;
+}
+
+/* FUTURE ARCHITECTURE - HIDDEN FROM USER */
+
+.future-market{
+  display:none!important;
+}
+
+/* FOOTER */
+
+.footer{
+  margin-top:55px;
+  padding:30px 0 35px;
+  border-top:1px solid rgba(212,175,55,.12);
+  text-align:center;
+}
+
+.footer-brand{
+  color:#777;
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+.creator{
+  margin-top:13px;
+  color:#74662f;
+  font-size:10px;
+  letter-spacing:1.5px;
+  opacity:.78;
+}
+
+.creator-name{
+  color:#a48b3c;
+}
+
+.creator-phone{
+  margin-top:5px;
+  direction:ltr;
+  unicode-bidi:embed;
+  color:#66582b;
+  font-size:9px;
+  letter-spacing:1px;
+}
+
+.footer-note{
+  margin-top:15px;
+  color:#444;
+  font-size:9px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+  .header{
     padding-top:22px;
   }
 
+  .brand h1{
+    letter-spacing:2px;
+  }
+
+  .engine{
+    padding:14px;
+  }
+
+  .market-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+  }
+
   .card{
-    min-height:135px;
+    min-height:138px;
+    padding:13px;
   }
 
   .price{
-    font-size:21px;
+    font-size:17px;
+    margin-top:15px;
   }
 
-  .engine-row{
-    display:block;
+  .card-name{
+    font-size:11px;
   }
 
-  .engine-row strong{
-    display:block;
-    margin-top:4px;
+  .section-title h2{
+    font-size:15px;
   }
+}
 
-  .update-row{
-    display:block;
-  }
-
-  .update-row strong{
-    display:block;
-    margin-top:4px;
+@media(max-width:380px){
+  .market-grid{
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -294,855 +513,408 @@ footer strong{
 
 <div class="container">
 
-<header>
+  <!-- HEADER -->
+  <header class="header">
 
-  <div class="logo">
-    HASINEH MARKET
-  </div>
-
-  <div class="subtitle">
-    بازار آنلاین حسینه | LIVE PREMIUM MARKET BOARD
-  </div>
-
-  <div class="location">
-    📍 Bandar Hasineh
-  </div>
-
-  <div class="status" id="connectionStatus">
-    🟡 در حال اتصال به موتور قیمت...
-  </div>
-
-</header>
-
-<section class="engine">
-
-  <div class="engine-title">
-    🔌 HASINEH PRICE ENGINE V1
-  </div>
-
-  <div class="engine-row">
-    <span>منبع داده</span>
-    <strong id="sourceStatus">TGJU</strong>
-  </div>
-
-  <div class="engine-row">
-    <span>موتور</span>
-    <strong>HASINEH PRICE ENGINE V1</strong>
-  </div>
-
-  <div class="engine-row">
-    <span>داده</span>
-    <strong id="jsonStatus">در حال دریافت JSON...</strong>
-  </div>
-
-  <div class="engine-row">
-    <span>وضعیت</span>
-    <strong id="engineStatus">WAITING</strong>
-  </div>
-
-  <div class="update-box">
-
-    <div class="update-row">
-      <span>آخرین بروزرسانی واقعی</span>
-      <strong id="lastUpdate">در حال دریافت...</strong>
+    <div class="brand">
+      <h1>HASINEH MARKET</h1>
+      <div class="subtitle" id="subtitle">
+        بازار آنلاین حسینه | LIVE PREMIUM MARKET BOARD
+      </div>
+      <div class="location">
+        📍 Bandar Hasineh
+      </div>
     </div>
 
-    <div class="update-row">
-      <span>بررسی بعدی سایت</span>
-      <strong id="nextCheck">در حال دریافت...</strong>
+    <!-- LANGUAGE / COUNTRY -->
+    <div class="controls">
+
+      <div class="control-box">
+        <label id="languageLabel">زبان</label>
+        <select id="languageSelect">
+          <option value="fa">فارسی</option>
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+
+      <div class="control-box">
+        <label id="countryLabel">کشور / ساعت</label>
+        <select id="countrySelect">
+          <option value="Asia/Tehran">🇮🇷 ایران</option>
+          <option value="Asia/Dubai">🇦🇪 امارات</option>
+          <option value="Europe/Italy">🇮🇹 ایتالیا</option>
+          <option value="Europe/London">🇬🇧 بریتانیا</option>
+          <option value="Europe/Istanbul">🇹🇷 ترکیه</option>
+          <option value="Asia/Shanghai">🇨🇳 چین</option>
+          <option value="Asia/Tokyo">🇯🇵 ژاپن</option>
+          <option value="Asia/Kolkata">🇮🇳 هند</option>
+          <option value="Asia/Riyadh">🇸🇦 عربستان</option>
+          <option value="Asia/Qatar">🇶🇦 قطر</option>
+          <option value="Asia/Kuwait">🇰🇼 کویت</option>
+          <option value="America/New_York">🇺🇸 آمریکا</option>
+          <option value="America/Toronto">🇨🇦 کانادا</option>
+          <option value="Australia/Sydney">🇦🇺 استرالیا</option>
+        </select>
+      </div>
+
     </div>
 
-    <div class="update-row">
-      <span>زمان باقی‌مانده تا چرخه موتور</span>
-      <strong class="countdown" id="countdown">--:--</strong>
+    <div class="status-line" id="connectionStatus">
+      <span class="status-dot" id="statusDot">●</span>
+      <span id="connectionText">اتصال به موتور قیمت برقرار است</span>
     </div>
 
+  </header>
+
+  <!-- SMART OCCASION -->
+  <div class="occasion" id="occasionBox">
+    <div class="occasion-title" id="occasionTitle"></div>
+    <div class="occasion-text" id="occasionText"></div>
   </div>
 
-</section>
-
-<div class="section-title">
-  📊 بازار طلا
-</div>
-
-<div class="grid">
-
-  <div class="card">
-    <div class="card-name">طلای ۱۸ عیار</div>
-    <div class="price" id="gold18">—</div>
-    <div class="unit">تومان / گرم</div>
-    <div class="move flat" id="gold18Move">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">طلای ۲۴ عیار</div>
-    <div class="price" id="gold24">—</div>
-    <div class="unit">تومان / گرم</div>
-    <div class="move flat" id="gold24Move">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">طلای آب‌شده</div>
-    <div class="price" id="melted">—</div>
-    <div class="unit">تومان / مثقال</div>
-    <div class="move flat" id="meltedMove">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">طلای ۲۱ عیار / مثقال</div>
-    <div class="price" id="mesghal21">—</div>
-    <div class="unit">تومان / مثقال</div>
-    <div class="move flat" id="mesghal21Move">—</div>
-  </div>
-
-</div>
-
-<div class="section-title">
-  🪙 سکه
-</div>
-
-<div class="grid">
-
-  <div class="card">
-    <div class="card-name">سکه امامی</div>
-    <div class="price" id="emami">—</div>
-    <div class="unit">تومان / عدد</div>
-    <div class="move flat" id="emamiMove">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">نیم سکه</div>
-    <div class="price" id="half">—</div>
-    <div class="unit">تومان / عدد</div>
-    <div class="move flat" id="halfMove">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">ربع سکه</div>
-    <div class="price" id="quarter">—</div>
-    <div class="unit">تومان / عدد</div>
-    <div class="move flat" id="quarterMove">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">سکه بهار آزادی</div>
-    <div class="price unavailable">—</div>
-    <div class="unit">اطلاعات معتبر در دسترس نیست</div>
-    <div class="move flat">—</div>
-  </div>
-
-</div>
-
-<div class="section-title">
-  🥈 بازار نقره
-</div>
-
-<div class="grid">
-
-  <div class="card">
-    <div class="card-name">نقره ۹۹۹</div>
-    <div class="price" id="silver999">—</div>
-    <div class="unit">تومان / گرم</div>
-    <div class="move flat" id="silver999Move">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">نقره ۹۲۵</div>
-    <div class="price" id="silver925">—</div>
-    <div class="unit">تومان / گرم</div>
-    <div class="move flat" id="silver925Move">—</div>
-  </div>
-
-</div>
-
-<div class="section-title">
-  💱 ارز و رمزارز
-</div>
-
-<div class="grid">
-
-  <div class="card">
-    <div class="card-name">دلار آمریکا</div>
-    <div class="price" id="usd">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="usdMove">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">تتر</div>
-    <div class="price" id="usdt">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="usdtMove">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">یورو</div>
-    <div class="price" id="eur">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="eurMove">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">پوند انگلیس</div>
-    <div class="price" id="gbp">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="gbpMove">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">درهم امارات</div>
-    <div class="price" id="aed">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="aedMove">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">لیر ترکیه</div>
-    <div class="price" id="try">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="tryMove">—</div>
-  </div>
-
-  <div class="card">
-    <div class="card-name">یوان چین</div>
-    <div class="price" id="cny">—</div>
-    <div class="unit">تومان</div>
-    <div class="move flat" id="cnyMove">—</div>
-  </div>
-
-</div>
-
-<div class="notice">
-  این تابلو مستقیماً از HASINEH PRICE ENGINE تغذیه می‌شود.
-  <br>
-  قیمت ساختگی مجاز نیست.
-  <br>
-  در صورت نبود داده معتبر، مقدار «—» نمایش داده می‌شود.
-</div>
-
-<footer>
-  HASINEH MARKET
-  <br>
-  <strong>Created by Hassan Divanizadeh</strong>
-</footer>
-
-</div>
-
-<script>
-
-const JSON_URL =
-  "./price-engine/prices.json?nocache=" + Date.now();
-
-const REFRESH_INTERVAL = 300000;
-
-let nextRefreshTime = Date.now() + REFRESH_INTERVAL;
-
-
-/* =========================================================
-   NUMBER FORMAT
-   ========================================================= */
-
-function formatPrice(value){
-
-  if(
-    value === null ||
-    value === undefined ||
-    !Number.isFinite(Number(value))
-  ){
-    return "—";
-  }
-
-  return Number(value).toLocaleString("fa-IR");
-}
-
-
-function formatPercent(value){
-
-  if(
-    value === null ||
-    value === undefined ||
-    !Number.isFinite(Number(value))
-  ){
-    return "—";
-  }
-
-  const number = Number(value);
-
-  if(number > 0){
-    return "+" + number.toLocaleString("fa-IR",{
-      minimumFractionDigits:0,
-      maximumFractionDigits:4
-    }) + "%";
-  }
-
-  if(number < 0){
-    return "−" + Math.abs(number).toLocaleString("fa-IR",{
-      minimumFractionDigits:0,
-      maximumFractionDigits:4
-    }) + "%";
-  }
-
-  return "۰٪";
-}
-
-
-/* =========================================================
-   PRICE
-   ========================================================= */
-
-function showPrice(id,item){
-
-  const element = document.getElementById(id);
-
-  if(!element){
-    return;
-  }
-
-  if(
-    !item ||
-    item.price === null ||
-    item.price === undefined ||
-    !Number.isFinite(Number(item.price))
-  ){
-    element.textContent = "—";
-    return;
-  }
-
-  element.textContent = formatPrice(item.price);
-}
-
-
-/* =========================================================
-   MOVEMENT
-   ========================================================= */
-
-function showMovement(id,item){
-
-  const element = document.getElementById(id);
-
-  if(!element){
-    return;
-  }
-
-  if(
-    !item ||
-    item.change === null ||
-    item.change === undefined ||
-    !Number.isFinite(Number(item.change))
-  ){
-    element.className = "move flat";
-    element.textContent = "—";
-    return;
-  }
-
-  const change = Number(item.change);
-  const percent = Number(item.change_percent);
-
-  if(change > 0){
-
-    element.className = "move up";
-
-    element.innerHTML =
-      '<span class="move-main">🟢 ▲ +' +
-      formatPrice(change) +
-      '</span>' +
-      '<span class="move-percent">' +
-      formatPercent(percent) +
-      '</span>';
-
-    return;
-  }
-
-  if(change < 0){
-
-    element.className = "move down";
-
-    element.innerHTML =
-      '<span class="move-main">🔴 ▼ −' +
-      formatPrice(Math.abs(change)) +
-      '</span>' +
-      '<span class="move-percent">' +
-      formatPercent(percent) +
-      '</span>';
-
-    return;
-  }
-
-  element.className = "move flat";
-
-  element.innerHTML =
-    '<span class="move-main">⚪ بدون تغییر</span>' +
-    '<span class="move-percent">۰٪</span>';
-}
-
-
-/* =========================================================
-   DATE
-   ========================================================= */
-
-function formatDateTime(value){
-
-  if(!value){
-    return "—";
-  }
-
-  try{
-
-    const date = new Date(value);
-
-    if(Number.isNaN(date.getTime())){
-      return value;
-    }
-
-    return date.toLocaleString("fa-IR",{
-      dateStyle:"medium",
-      timeStyle:"medium"
-    });
-
-  }catch(error){
-
-    return value;
-
-  }
-}
-
-
-/* =========================================================
-   CONNECTION STATUS
-   ========================================================= */
-
-function setConnection(
-  connected,
-  message
-){
-
-  const status =
-    document.getElementById("connectionStatus");
-
-  if(!status){
-    return;
-  }
-
-  if(connected){
-
-    status.textContent =
-      "🟢 اتصال به موتور قیمت برقرار است";
-
-    status.style.borderColor = "#315b3b";
-    status.style.color = "#75e08a";
-    status.style.background =
-      "rgba(30,100,45,.12)";
-
-  }else{
-
-    status.textContent =
-      message || "🔴 اتصال به موتور قیمت برقرار نیست";
-
-    status.style.borderColor = "#6b2525";
-    status.style.color = "#ff7777";
-    status.style.background =
-      "rgba(120,30,30,.12)";
-  }
-}
-
-
-/* =========================================================
-   LOAD PRICES
-   ========================================================= */
-
-async function loadPrices(){
-
-  const jsonStatus =
-    document.getElementById("jsonStatus");
-
-  const engineStatus =
-    document.getElementById("engineStatus");
-
-  try{
-
-    if(jsonStatus){
-      jsonStatus.textContent =
-        "در حال دریافت JSON...";
-    }
-
-    if(engineStatus){
-      engineStatus.textContent =
-        "LOADING";
-    }
-
-    const response = await fetch(
-      JSON_URL,
-      {
-        method:"GET",
-        cache:"no-store",
-        headers:{
-          "Accept":"application/json"
-        }
-      }
-    );
-
-    if(!response.ok){
-
-      throw new Error(
-        "HTTP " +
-        response.status +
-        " - " +
-        response.statusText
-      );
-    }
-
-    const data =
-      await response.json();
-
-
-    /* =====================================================
-       VALIDATION
-       ===================================================== */
-
-    if(
-      !data ||
-      typeof data !== "object" ||
-      !data.prices ||
-      typeof data.prices !== "object"
-    ){
-
-      throw new Error(
-        "ساختار prices.json معتبر نیست."
-      );
-    }
-
-
-    /* =====================================================
-       ENGINE INFO
-       ===================================================== */
-
-    if(jsonStatus){
-
-      jsonStatus.textContent =
-        "JSON متصل است";
-    }
-
-    if(engineStatus){
-
-      engineStatus.textContent =
-        data.status === "live"
-          ? "LIVE"
-          : String(data.status || "UNKNOWN").toUpperCase();
-    }
-
-    setConnection(true);
-
-
-    const sourceStatus =
-      document.getElementById("sourceStatus");
-
-    if(sourceStatus){
-
-      sourceStatus.textContent =
-        data.source
-          ? "TGJU"
-          : "PUBLIC SOURCE";
-    }
-
-
-    const lastUpdate =
-      document.getElementById("lastUpdate");
-
-    if(lastUpdate){
-
-      lastUpdate.textContent =
-        formatDateTime(data.generated_at_utc);
-    }
-
-
-    /* =====================================================
-       GOLD
-       ===================================================== */
-
-    showPrice(
-      "gold18",
-      data.prices.gold_18k
-    );
-
-    showMovement(
-      "gold18Move",
-      data.prices.gold_18k
-    );
-
-
-    showPrice(
-      "gold24",
-      data.prices.gold_24k
-    );
-
-    showMovement(
-      "gold24Move",
-      data.prices.gold_24k
-    );
-
-
-    showPrice(
-      "melted",
-      data.prices.gold_melted
-    );
-
-    showMovement(
-      "meltedMove",
-      data.prices.gold_melted
-    );
-
-
-    showPrice(
-      "mesghal21",
-      data.prices.gold_21k_mesghal
-    );
-
-    showMovement(
-      "mesghal21Move",
-      data.prices.gold_21k_mesghal
-    );
-
-
-    /* =====================================================
-       COINS
-       ===================================================== */
-
-    showPrice(
-      "emami",
-      data.prices.coin_emami
-    );
-
-    showMovement(
-      "emamiMove",
-      data.prices.coin_emami
-    );
-
-
-    showPrice(
-      "half",
-      data.prices.coin_half
-    );
-
-    showMovement(
-      "halfMove",
-      data.prices.coin_half
-    );
-
-
-    showPrice(
-      "quarter",
-      data.prices.coin_quarter
-    );
-
-    showMovement(
-      "quarterMove",
-      data.prices.coin_quarter
-    );
-
-
-    /* =====================================================
-       SILVER
-       ===================================================== */
-
-    showPrice(
-      "silver999",
-      data.prices.silver_999
-    );
-
-    showMovement(
-      "silver999Move",
-      data.prices.silver_999
-    );
-
-
-    showPrice(
-      "silver925",
-      data.prices.silver_925
-    );
-
-    showMovement(
-      "silver925Move",
-      data.prices.silver_925
-    );
-
-
-    /* =====================================================
-       CURRENCIES
-       ===================================================== */
-
-    showPrice(
-      "usd",
-      data.prices.usd
-    );
-
-    showMovement(
-      "usdMove",
-      data.prices.usd
-    );
-
-
-    showPrice(
-      "usdt",
-      data.prices.usdt
-    );
-
-    showMovement(
-      "usdtMove",
-      data.prices.usdt
-    );
-
-
-    showPrice(
-      "eur",
-      data.prices.eur
-    );
-
-    showMovement(
-      "eurMove",
-      data.prices.eur
-    );
-
-
-    showPrice(
-      "gbp",
-      data.prices.gbp
-    );
-
-    showMovement(
-      "gbpMove",
-      data.prices.gbp
-    );
-
-
-    showPrice(
-      "aed",
-      data.prices.aed
-    );
-
-    showMovement(
-      "aedMove",
-      data.prices.aed
-    );
-
-
-    showPrice(
-      "try",
-      data.prices.try
-    );
-
-    showMovement(
-      "tryMove",
-      data.prices.try
-    );
-
-
-    showPrice(
-      "cny",
-      data.prices.cny
-    );
-
-    showMovement(
-      "cnyMove",
-      data.prices.cny
-    );
-
-
-    nextRefreshTime =
-      Date.now() + REFRESH_INTERVAL;
-
-
-  }catch(error){
-
-    console.error(
-      "HASINEH PRICE ENGINE ERROR:",
-      error
-    );
-
-    if(jsonStatus){
-
-      jsonStatus.textContent =
-        "خطا در دریافت JSON";
-    }
-
-    if(engineStatus){
-
-      engineStatus.textContent =
-        "ERROR";
-    }
-
-    setConnection(
-      false,
-      "🔴 خطا در اتصال به موتور قیمت"
-    );
-
-    console.error(error.message);
-  }
-}
-
-
-/* =========================================================
-   COUNTDOWN
-   ========================================================= */
-
-function updateCountdown(){
-
-  const element =
-    document.getElementById("countdown");
-
-  const nextCheck =
-    document.getElementById("nextCheck");
-
-  if(!element){
-    return;
-  }
-
-  const remaining =
-    Math.max(
-      0,
-      nextRefreshTime - Date.now()
-    );
-
-  const totalSeconds =
-    Math.ceil(remaining / 1000);
-
-  const minutes =
-    Math.floor(totalSeconds / 60);
-
-  const seconds =
-    totalSeconds % 60;
-
-  element.textContent =
-    String(minutes).padStart(2,"0") +
-    ":" +
-    String(seconds).padStart(2,"0");
-
-  if(nextCheck){
-
-    nextCheck.textContent =
-      "هر ۵ دقیقه";
-  }
-}
-
-
-/* =========================================================
-   START
-   ========================================================= */
-
-loadPrices();
-
-updateCountdown();
-
-setInterval(
-  updateCountdown,
-  1000
-);
-
-setInterval(
-  loadPrices,
-  REFRESH_INTERVAL
-);
-
-</script>
-
-</body>
-  </html>
+  <!-- PRICE ENGINE -->
+  <section class="engine">
+
+    <div class="engine-head">
+
+      <div class="engine-title">
+        🔌 HASINEH PRICE ENGINE V1
+      </div>
+
+      <div class="live-badge" id="liveBadge">
+        LIVE
+      </div>
+
+    </div>
+
+    <div class="engine-grid">
+
+      <div class="engine-item">
+        <span class="label" id="sourceLabel">منبع</span>
+        <span class="value" id="sourceValue">PUBLIC SOURCE</span>
+      </div>
+
+      <div class="engine-item">
+        <span class="label">ENGINE</span>
+        <span class="value" id="engineValue">HASINEH PRICE ENGINE V1</span>
+      </div>
+
+      <div class="engine-item">
+        <span class="label" id="jsonLabel">وضعیت JSON</span>
+        <span class="value" id="jsonStatus">در انتظار دریافت</span>
+      </div>
+
+      <div class="engine-item">
+        <span class="label" id="lastUpdateLabel">آخرین بروزرسانی واقعی</span>
+        <span class="value" id="lastUpdate">—</span>
+      </div>
+
+      <div class="engine-item">
+        <span class="label" id="boardTimeLabel">ساعت تابلو</span>
+        <span class="value" id="boardTime">—</span>
+      </div>
+
+      <div class="engine-item">
+        <span class="label" id="nextCheckLabel">بررسی بعدی</span>
+        <span class="value countdown" id="countdown">05:00</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GOLD -->
+  <section class="section">
+
+    <div class="section-title">
+      <h2 id="goldTitle">🥇 طلا</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="market-grid">
+
+      <div class="card" data-key="gold_18k">
+        <div class="card-name" data-fa="طلای ۱۸ عیار" data-ar="ذهب عيار 18" data-en="18K Gold">
+          طلای ۱۸ عیار
+        </div>
+        <div class="card-symbol">18K</div>
+        <div class="price" id="gold_18k">—</div>
+        <div class="unit" data-fa="تومان / گرم" data-ar="تومان / غرام" data-en="Toman / gram">
+          تومان / گرم
+        </div>
+        <div class="movement flat" id="move_gold_18k">—</div>
+      </div>
+
+      <div class="card" data-key="gold_24k">
+        <div class="card-name" data-fa="طلای ۲۴ عیار" data-ar="ذهب عيار 24" data-en="24K Gold">
+          طلای ۲۴ عیار
+        </div>
+        <div class="card-symbol">24K</div>
+        <div class="price" id="gold_24k">—</div>
+        <div class="unit">تومان / گرم</div>
+        <div class="movement flat" id="move_gold_24k">—</div>
+      </div>
+
+      <div class="card" data-key="gold_melted">
+        <div class="card-name" data-fa="طلای آب‌شده" data-ar="الذهب المذاب" data-en="Melted Gold">
+          طلای آب‌شده
+        </div>
+        <div class="card-symbol">MESGHAL</div>
+        <div class="price" id="gold_melted">—</div>
+        <div class="unit">تومان / مثقال</div>
+        <div class="movement flat" id="move_gold_melted">—</div>
+      </div>
+
+      <div class="card" data-key="gold_21k_mesghal">
+        <div class="card-name" data-fa="مثقال طلای ۲۱ عیار" data-ar="مثقال ذهب عيار 21" data-en="21K Gold Mesghal">
+          مثقال طلای ۲۱ عیار
+        </div>
+        <div class="card-symbol">21K MESGHAL</div>
+        <div class="price" id="gold_21k_mesghal">—</div>
+        <div class="unit">تومان / مثقال</div>
+        <div class="movement flat" id="move_gold_21k_mesghal">—</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- COINS -->
+  <section class="section">
+
+    <div class="section-title">
+      <h2 id="coinTitle">🪙 سکه</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="market-grid">
+
+      <div class="card" data-key="coin_emami">
+        <div class="card-name" data-fa="سکه امامی" data-ar="عملة إمامي" data-en="Emami Coin">
+          سکه امامی
+        </div>
+        <div class="card-symbol">EMAMI</div>
+        <div class="price" id="coin_emami">—</div>
+        <div class="unit">تومان</div>
+        <div class="movement flat" id="move_coin_emami">—</div>
+      </div>
+
+      <div class="card" data-key="coin_half">
+        <div class="card-name" data-fa="نیم سکه" data-ar="نصف عملة" data-en="Half Coin">
+          نیم سکه
+        </div>
+        <div class="card-symbol">HALF</div>
+        <div class="price" id="coin_half">—</div>
+        <div class="unit">تومان</div>
+        <div class="movement flat" id="move_coin_half">—</div>
+      </div>
+
+      <div class="card" data-key="coin_quarter">
+        <div class="card-name" data-fa="ربع سکه" data-ar="ربع عملة" data-en="Quarter Coin">
+          ربع سکه
+        </div>
+        <div class="card-symbol">QUARTER</div>
+        <div class="price" id="coin_quarter">—</div>
+        <div class="unit">تومان</div>
+        <div class="movement flat" id="move_coin_quarter">—</div>
+      </div>
+
+      <div class="card">
+        <div class="card-name" data-fa="سکه بهار آزادی" data-ar="عملة بهار آزادي" data-en="Bahar Azadi Coin">
+          سکه بهار آزادی
+        </div>
+        <div class="card-symbol">BAHAR</div>
+        <div class="price invalid">—</div>
+        <div class="unit" data-fa="اطلاعات معتبر در دسترس نیست" data-ar="لا توجد بيانات موثوقة" data-en="Reliable data unavailable">
+          اطلاعات معتبر در دسترس نیست
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SILVER -->
+  <section class="section">
+
+    <div class="section-title">
+      <h2 id="silverTitle">🥈 نقره</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="market-grid">
+
+      <div class="card" data-key="silver_999">
+        <div class="card-name" data-fa="نقره ۹۹۹" data-ar="فضة 999" data-en="Silver 999">
+          نقره ۹۹۹
+        </div>
+        <div class="card-symbol">999</div>
+        <div class="price" id="silver_999">—</div>
+        <div class="unit">تومان / گرم</div>
+        <div class="movement flat" id="move_silver_999">—</div>
+      </div>
+
+      <div class="card" data-key="silver_925">
+        <div class="card-name" data-fa="نقره ۹۲۵" data-ar="فضة 925" data-en="Silver 925">
+          نقره ۹۲۵
+        </div>
+        <div class="card-symbol">925</div>
+        <div class="price" id="silver_925">—</div>
+        <div class="unit">تومان / گرم</div>
+        <div class="movement flat" id="move_silver_925">—</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CURRENCY -->
+  <section class="section">
+
+    <div class="section-title">
+      <h2 id="currencyTitle">💱 ارز و رمزارز</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="market-grid">
+
+      <div class="card" data-key="usd">
+        <div class="card-name" data-fa="دلار آمریکا" data-ar="الدولار الأمريكي" data-en="US Dollar">
+          دلار آمریکا
+        </div>
+        <div class="card-symbol">USD</div>
+        <div class="price" id="usd">—</div>
+        <div class="unit">تومان</div>
+        <div class="movement flat" id="move_usd">—</div>
+      </div>
+
+      <div class="card" data-key="usdt">
+        <div class="card-name">تتر</div>
+        <div class="card-symbol">USDT</div>
+        <div class="price" id="usdt">—</div>
+        <div class="unit">تومان</div>
+        <div class="movement flat" id="move_usdt">—</div>
+      </div>
+
+      <div class="card" data-key="eur">
+        <div class="card-name" data-fa="یورو" data-ar="اليورو" data-en="Euro">
+          یورو
+        </div>
+        <div class="card-symbol">EUR</div>
+        <div class="price" id="eur">—</div>
+        <div class="unit">تومان</div>
+        <div class="movement flat" id="move_eur">—</div>
+      </div>
+
+      <div class="card" data-key="gbp">
+        <div class="card-name" data-fa="پوند انگلیس" data-ar="الجنيه الإسترليني" data-en="British Pound">
+          پوند انگلیس
+        </div>
+        <div class="card-symbol">GBP</div>
+        <div class="price" id="gbp">—</div>
+        <div class="unit">تومان</div>
+        <div class="movement flat" id="move_gbp">—</div>
+      </div>
+
+      <div class="card" data-key="aed">
+        <div class="card-name" data-fa="درهم امارات" data-ar="الدرهم الإماراتي" data-en="UAE Dirham">
+          درهم امارات
+        </div>
+        <div class="card-symbol">AED</div>
+        <div class="price" id="aed">—</div>
+        <div class="unit">تومان</div>
+        <div class="movement flat" id="move_aed">—</div>
+      </div>
+
+      <div class="card" data-key="try">
+        <div class="card-name" data-fa="لیر ترکیه" data-ar="الليرة التركية" data-en="Turkish Lira">
+          لیر ترکیه
+        </div>
+        <div class="card-symbol">TRY</div>
+        <div class="price" id="try">—</div>
+        <div class="unit">تومان</div>
+        <div class="movement flat" id="move_try">—</div>
+      </div>
+
+      <div class="card" data-key="cny">
+        <div class="card-name" data-fa="یوان چین" data-ar="اليوان الصيني" data-en="Chinese Yuan">
+          یوان چین
+        </div>
+        <div class="card-symbol">CNY</div>
+        <div class="price" id="cny">—</div>
+        <div class="unit">تومان</div>
+        <div class="movement flat" id="move_cny">—</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRO / REVENUE ARCHITECTURE -->
+  <section class="section">
+
+    <div class="section-title">
+      <h2 id="proTitle">👑 HASINEH PRO</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="pro-box">
+
+      <h3 id="proHeading">
+        مسیر توسعه خدمات حرفه‌ای
+      </h3>
+
+      <p id="proText">
+        نسخه عمومی HASINEH MARKET می‌تواند رایگان و شفاف باقی بماند.
+        در آینده خدمات حرفه‌ای مانند نرخ‌های سریع‌تر، دسترسی ویژه و امکانات
+        پیشرفته می‌توانند بدون تغییر هسته اصلی موتور قیمت فعال شوند.
+      </p>
+
+      <div class="pro-features">
+
+        <div class="pro-feature">
+          ⚡ <span data-fa="نرخ‌های سریع‌تر" data-ar="أسعار أسرع" data-en="Faster Rates">
+          نرخ‌های سریع‌تر
+          </span>
+        </div>
+
+        <div class="pro-feature">
+          🔔 <span data-fa="هشدار تغییر قیمت" data-ar="تنبيهات الأسعار" data-en="Price Alerts">
+          هشدار تغییر قیمت
+          </span>
+        </div>
+
+        <div class="pro-feature">
+          📊 <span data-fa="ابزارهای حرفه‌ای بازار" data-ar="أدوات السوق الاحترافية" data-en="Professional Market Tools">
+          ابزارهای حرفه‌ای بازار
+          </span>
+        </div>
+
+        <div class="pro-feature">
+          💎 <span data-fa="خدمات اشتراکی ویژه" data-ar="خدمات اشتراك مميزة" data-en="Premium Subscription Services">
+          خدمات اشتراکی ویژه
+          </span>
+        </div>
+
+      </div>
+
+      <button class="pro-button" id="proButton">
+        درخواست دسترسی PRO
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <div class="footer-brand">
+      HASINEH MARKET
+    </div>
+
+    <div class="creator">
+      Created by
+      <span class="creator-name">
