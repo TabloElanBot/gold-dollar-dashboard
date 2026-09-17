@@ -1224,6 +1224,18 @@ async function loadPrices(){
       "ERROR";
   }
 }
+loadPrices();
 
+setInterval(
+  loadPrices,
+  SITE_CHECK_INTERVAL_MS
+);
+
+setInterval(
+  updateCountdown,
+  1000
+);
+
+updateCountdown();
 
       
