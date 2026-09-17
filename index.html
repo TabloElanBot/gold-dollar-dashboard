@@ -221,11 +221,6 @@ header{
   font-size:24px;
 }
 
-
-/* =========================================================
-   MOVEMENT DETAILS
-   ========================================================= */
-
 .move-main{
   font-weight:900;
 }
@@ -319,7 +314,6 @@ footer strong{
 
 </header>
 
-
 <section class="engine">
 
   <div class="engine-title">
@@ -367,7 +361,6 @@ footer strong{
 
 </section>
 
-
 <div class="section-title">
   📊 بازار طلا
 </div>
@@ -399,4 +392,757 @@ footer strong{
     <div class="card-name">طلای ۲۱ عیار / مثقال</div>
     <div class="price" id="mesghal21">—</div>
     <div class="unit">تومان / مثقال</div>
-    <div class
+    <div class="move flat" id="mesghal21Move">—</div>
+  </div>
+
+</div>
+
+<div class="section-title">
+  🪙 سکه
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="card-name">سکه امامی</div>
+    <div class="price" id="emami">—</div>
+    <div class="unit">تومان / عدد</div>
+    <div class="move flat" id="emamiMove">—</div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">نیم سکه</div>
+    <div class="price" id="half">—</div>
+    <div class="unit">تومان / عدد</div>
+    <div class="move flat" id="halfMove">—</div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">ربع سکه</div>
+    <div class="price" id="quarter">—</div>
+    <div class="unit">تومان / عدد</div>
+    <div class="move flat" id="quarterMove">—</div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">سکه بهار آزادی</div>
+    <div class="price unavailable">—</div>
+    <div class="unit">اطلاعات معتبر در دسترس نیست</div>
+    <div class="move flat">—</div>
+  </div>
+
+</div>
+
+<div class="section-title">
+  🥈 بازار نقره
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="card-name">نقره ۹۹۹</div>
+    <div class="price" id="silver999">—</div>
+    <div class="unit">تومان / گرم</div>
+    <div class="move flat" id="silver999Move">—</div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">نقره ۹۲۵</div>
+    <div class="price" id="silver925">—</div>
+    <div class="unit">تومان / گرم</div>
+    <div class="move flat" id="silver925Move">—</div>
+  </div>
+
+</div>
+
+<div class="section-title">
+  💱 ارز و رمزارز
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="card-name">دلار آمریکا</div>
+    <div class="price" id="usd">—</div>
+    <div class="unit">تومان</div>
+    <div class="move flat" id="usdMove">—</div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">تتر</div>
+    <div class="price" id="usdt">—</div>
+    <div class="unit">تومان</div>
+    <div class="move flat" id="usdtMove">—</div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">یورو</div>
+    <div class="price" id="eur">—</div>
+    <div class="unit">تومان</div>
+    <div class="move flat" id="eurMove">—</div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">پوند انگلیس</div>
+    <div class="price" id="gbp">—</div>
+    <div class="unit">تومان</div>
+    <div class="move flat" id="gbpMove">—</div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">درهم امارات</div>
+    <div class="price" id="aed">—</div>
+    <div class="unit">تومان</div>
+    <div class="move flat" id="aedMove">—</div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">لیر ترکیه</div>
+    <div class="price" id="try">—</div>
+    <div class="unit">تومان</div>
+    <div class="move flat" id="tryMove">—</div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">یوان چین</div>
+    <div class="price" id="cny">—</div>
+    <div class="unit">تومان</div>
+    <div class="move flat" id="cnyMove">—</div>
+  </div>
+
+</div>
+
+<div class="notice">
+  این تابلو مستقیماً از HASINEH PRICE ENGINE تغذیه می‌شود.
+  <br>
+  قیمت ساختگی مجاز نیست.
+  <br>
+  در صورت نبود داده معتبر، مقدار «—» نمایش داده می‌شود.
+</div>
+
+<footer>
+  HASINEH MARKET
+  <br>
+  <strong>Created by Hassan Divanizadeh</strong>
+</footer>
+
+</div>
+
+<script>
+
+const JSON_URL =
+  "./price-engine/prices.json?nocache=" + Date.now();
+
+const REFRESH_INTERVAL = 60000;
+
+let nextRefreshTime = Date.now() + REFRESH_INTERVAL;
+
+
+/* =========================================================
+   NUMBER FORMAT
+   ========================================================= */
+
+function formatPrice(value){
+
+  if(
+    value === null ||
+    value === undefined ||
+    !Number.isFinite(Number(value))
+  ){
+    return "—";
+  }
+
+  return Number(value).toLocaleString("fa-IR");
+}
+
+
+function formatPercent(value){
+
+  if(
+    value === null ||
+    value === undefined ||
+    !Number.isFinite(Number(value))
+  ){
+    return "—";
+  }
+
+  const number = Number(value);
+
+  if(number > 0){
+    return "+" + number.toLocaleString("fa-IR",{
+      minimumFractionDigits:0,
+      maximumFractionDigits:4
+    }) + "%";
+  }
+
+  if(number < 0){
+    return "−" + Math.abs(number).toLocaleString("fa-IR",{
+      minimumFractionDigits:0,
+      maximumFractionDigits:4
+    }) + "%";
+  }
+
+  return "۰٪";
+}
+
+
+/* =========================================================
+   PRICE
+   ========================================================= */
+
+function showPrice(id,item){
+
+  const element = document.getElementById(id);
+
+  if(!element){
+    return;
+  }
+
+  if(
+    !item ||
+    item.price === null ||
+    item.price === undefined ||
+    !Number.isFinite(Number(item.price))
+  ){
+    element.textContent = "—";
+    return;
+  }
+
+  element.textContent = formatPrice(item.price);
+}
+
+
+/* =========================================================
+   MOVEMENT
+   ========================================================= */
+
+function showMovement(id,item){
+
+  const element = document.getElementById(id);
+
+  if(!element){
+    return;
+  }
+
+  if(
+    !item ||
+    item.change === null ||
+    item.change === undefined ||
+    !Number.isFinite(Number(item.change))
+  ){
+    element.className = "move flat";
+    element.textContent = "—";
+    return;
+  }
+
+  const change = Number(item.change);
+  const percent = Number(item.change_percent);
+
+  if(change > 0){
+
+    element.className = "move up";
+
+    element.innerHTML =
+      '<span class="move-main">🟢 ▲ +' +
+      formatPrice(change) +
+      '</span>' +
+      '<span class="move-percent">' +
+      formatPercent(percent) +
+      '</span>';
+
+    return;
+  }
+
+  if(change < 0){
+
+    element.className = "move down";
+
+    element.innerHTML =
+      '<span class="move-main">🔴 ▼ −' +
+      formatPrice(Math.abs(change)) +
+      '</span>' +
+      '<span class="move-percent">' +
+      formatPercent(percent) +
+      '</span>';
+
+    return;
+  }
+
+  element.className = "move flat";
+
+  element.innerHTML =
+    '<span class="move-main">⚪ بدون تغییر</span>' +
+    '<span class="move-percent">۰٪</span>';
+}
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+function formatDateTime(value){
+
+  if(!value){
+    return "—";
+  }
+
+  try{
+
+    const date = new Date(value);
+
+    if(Number.isNaN(date.getTime())){
+      return value;
+    }
+
+    return date.toLocaleString("fa-IR",{
+      dateStyle:"medium",
+      timeStyle:"medium"
+    });
+
+  }catch(error){
+
+    return value;
+
+  }
+}
+
+
+/* =========================================================
+   CONNECTION STATUS
+   ========================================================= */
+
+function setConnection(
+  connected,
+  message
+){
+
+  const status =
+    document.getElementById("connectionStatus");
+
+  if(!status){
+    return;
+  }
+
+  if(connected){
+
+    status.textContent =
+      "🟢 اتصال به موتور قیمت برقرار است";
+
+    status.style.borderColor = "#315b3b";
+    status.style.color = "#75e08a";
+    status.style.background =
+      "rgba(30,100,45,.12)";
+
+  }else{
+
+    status.textContent =
+      message || "🔴 اتصال به موتور قیمت برقرار نیست";
+
+    status.style.borderColor = "#6b2525";
+    status.style.color = "#ff7777";
+    status.style.background =
+      "rgba(120,30,30,.12)";
+  }
+}
+
+
+/* =========================================================
+   LOAD PRICES
+   ========================================================= */
+
+async function loadPrices(){
+
+  const jsonStatus =
+    document.getElementById("jsonStatus");
+
+  const engineStatus =
+    document.getElementById("engineStatus");
+
+  try{
+
+    if(jsonStatus){
+      jsonStatus.textContent =
+        "در حال دریافت JSON...";
+    }
+
+    if(engineStatus){
+      engineStatus.textContent =
+        "LOADING";
+    }
+
+    const response = await fetch(
+      JSON_URL,
+      {
+        method:"GET",
+        cache:"no-store",
+        headers:{
+          "Accept":"application/json"
+        }
+      }
+    );
+
+    if(!response.ok){
+
+      throw new Error(
+        "HTTP " +
+        response.status +
+        " - " +
+        response.statusText
+      );
+    }
+
+    const data =
+      await response.json();
+
+
+    /* =====================================================
+       VALIDATION
+       ===================================================== */
+
+    if(
+      !data ||
+      typeof data !== "object" ||
+      !data.prices ||
+      typeof data.prices !== "object"
+    ){
+
+      throw new Error(
+        "ساختار prices.json معتبر نیست."
+      );
+    }
+
+
+    /* =====================================================
+       ENGINE INFO
+       ===================================================== */
+
+    if(jsonStatus){
+
+      jsonStatus.textContent =
+        "JSON متصل است";
+    }
+
+    if(engineStatus){
+
+      engineStatus.textContent =
+        data.status === "live"
+          ? "LIVE"
+          : String(data.status || "UNKNOWN").toUpperCase();
+    }
+
+    setConnection(true);
+
+
+    const sourceStatus =
+      document.getElementById("sourceStatus");
+
+    if(sourceStatus){
+
+      sourceStatus.textContent =
+        data.source
+          ? "TGJU"
+          : "PUBLIC SOURCE";
+    }
+
+
+    const lastUpdate =
+      document.getElementById("lastUpdate");
+
+    if(lastUpdate){
+
+      lastUpdate.textContent =
+        formatDateTime(data.generated_at_utc);
+    }
+
+
+    /* =====================================================
+       GOLD
+       ===================================================== */
+
+    showPrice(
+      "gold18",
+      data.prices.gold_18k
+    );
+
+    showMovement(
+      "gold18Move",
+      data.prices.gold_18k
+    );
+
+
+    showPrice(
+      "gold24",
+      data.prices.gold_24k
+    );
+
+    showMovement(
+      "gold24Move",
+      data.prices.gold_24k
+    );
+
+
+    showPrice(
+      "melted",
+      data.prices.gold_melted
+    );
+
+    showMovement(
+      "meltedMove",
+      data.prices.gold_melted
+    );
+
+
+    showPrice(
+      "mesghal21",
+      data.prices.gold_21k_mesghal
+    );
+
+    showMovement(
+      "mesghal21Move",
+      data.prices.gold_21k_mesghal
+    );
+
+
+    /* =====================================================
+       COINS
+       ===================================================== */
+
+    showPrice(
+      "emami",
+      data.prices.coin_emami
+    );
+
+    showMovement(
+      "emamiMove",
+      data.prices.coin_emami
+    );
+
+
+    showPrice(
+      "half",
+      data.prices.coin_half
+    );
+
+    showMovement(
+      "halfMove",
+      data.prices.coin_half
+    );
+
+
+    showPrice(
+      "quarter",
+      data.prices.coin_quarter
+    );
+
+    showMovement(
+      "quarterMove",
+      data.prices.coin_quarter
+    );
+
+
+    /* =====================================================
+       SILVER
+       ===================================================== */
+
+    showPrice(
+      "silver999",
+      data.prices.silver_999
+    );
+
+    showMovement(
+      "silver999Move",
+      data.prices.silver_999
+    );
+
+
+    showPrice(
+      "silver925",
+      data.prices.silver_925
+    );
+
+    showMovement(
+      "silver925Move",
+      data.prices.silver_925
+    );
+
+
+    /* =====================================================
+       CURRENCIES
+       ===================================================== */
+
+    showPrice(
+      "usd",
+      data.prices.usd
+    );
+
+    showMovement(
+      "usdMove",
+      data.prices.usd
+    );
+
+
+    showPrice(
+      "usdt",
+      data.prices.usdt
+    );
+
+    showMovement(
+      "usdtMove",
+      data.prices.usdt
+    );
+
+
+    showPrice(
+      "eur",
+      data.prices.eur
+    );
+
+    showMovement(
+      "eurMove",
+      data.prices.eur
+    );
+
+
+    showPrice(
+      "gbp",
+      data.prices.gbp
+    );
+
+    showMovement(
+      "gbpMove",
+      data.prices.gbp
+    );
+
+
+    showPrice(
+      "aed",
+      data.prices.aed
+    );
+
+    showMovement(
+      "aedMove",
+      data.prices.aed
+    );
+
+
+    showPrice(
+      "try",
+      data.prices.try
+    );
+
+    showMovement(
+      "tryMove",
+      data.prices.try
+    );
+
+
+    showPrice(
+      "cny",
+      data.prices.cny
+    );
+
+    showMovement(
+      "cnyMove",
+      data.prices.cny
+    );
+
+
+    nextRefreshTime =
+      Date.now() + REFRESH_INTERVAL;
+
+
+  }catch(error){
+
+    console.error(
+      "HASINEH PRICE ENGINE ERROR:",
+      error
+    );
+
+    if(jsonStatus){
+
+      jsonStatus.textContent =
+        "خطا در دریافت JSON";
+    }
+
+    if(engineStatus){
+
+      engineStatus.textContent =
+        "ERROR";
+    }
+
+    setConnection(
+      false,
+      "🔴 خطا در اتصال به موتور قیمت"
+    );
+
+    console.error(error.message);
+  }
+}
+
+
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
+
+function updateCountdown(){
+
+  const element =
+    document.getElementById("countdown");
+
+  const nextCheck =
+    document.getElementById("nextCheck");
+
+  if(!element){
+    return;
+  }
+
+  const remaining =
+    Math.max(
+      0,
+      nextRefreshTime - Date.now()
+    );
+
+  const totalSeconds =
+    Math.ceil(remaining / 1000);
+
+  const minutes =
+    Math.floor(totalSeconds / 60);
+
+  const seconds =
+    totalSeconds % 60;
+
+  element.textContent =
+    String(minutes).padStart(2,"0") +
+    ":" +
+    String(seconds).padStart(2,"0");
+
+  if(nextCheck){
+
+    nextCheck.textContent =
+      "هر ۶۰ ثانیه";
+  }
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+loadPrices();
+
+updateCountdown();
+
+setInterval(
+  updateCountdown,
+  1000
+);
+
+setInterval(
+  loadPrices,
+  REFRESH_INTERVAL
+);
+
+</script>
+
+</body>
+</html>
