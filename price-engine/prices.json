@@ -3,17 +3,17 @@
   "version": "V297",
   "status": "live",
   "source": "https://www.tgju.org",
-  "generated_at_utc": "2026-09-17T13:59:01.770984+00:00",
+  "generated_at_utc": "2026-09-17T14:32:52.956972+00:00",
   "currency": "TOMAN",
   "fake_prices_allowed": false,
   "prices": {
     "gold_18k": {
       "name": "طلای ۱۸ عیار",
       "category": "gold",
-      "price": 23408000,
+      "price": 23363000,
       "previous": 23408000,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -45000,
+      "change_percent": -0.1922,
       "unit": "تومان / گرم",
       "source": "https://www.tgju.org/profile/geram18",
       "status": "live"
@@ -21,10 +21,10 @@
     "gold_24k": {
       "name": "طلای ۲۴ عیار",
       "category": "gold",
-      "price": 31210400,
+      "price": 31150400,
       "previous": 31210400,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -60000,
+      "change_percent": -0.1922,
       "unit": "تومان / گرم",
       "source": "https://www.tgju.org/profile/geram24",
       "status": "live"
@@ -32,10 +32,10 @@
     "gold_melted": {
       "name": "طلای آب‌شده",
       "category": "gold",
-      "price": 101456000,
+      "price": 101304000,
       "previous": 101456000,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -152000,
+      "change_percent": -0.1498,
       "unit": "تومان / مثقال",
       "source": "https://www.tgju.org/profile/gold_world_futures",
       "status": "live"
@@ -43,10 +43,10 @@
     "usd": {
       "name": "دلار آمریکا",
       "category": "currency",
-      "price": 228505,
+      "price": 227900,
       "previous": 228505,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -605,
+      "change_percent": -0.2648,
       "unit": "تومان",
       "source": "https://www.tgju.org/profile/price_dollar_rl",
       "status": "live"
@@ -54,10 +54,10 @@
     "eur": {
       "name": "یورو",
       "category": "currency",
-      "price": 262950,
+      "price": 262290,
       "previous": 262950,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -660,
+      "change_percent": -0.251,
       "unit": "تومان",
       "source": "https://www.tgju.org/profile/price_eur",
       "status": "live"
@@ -65,10 +65,10 @@
     "aed": {
       "name": "درهم امارات",
       "category": "currency",
-      "price": 62517,
+      "price": 62355,
       "previous": 62517,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -162,
+      "change_percent": -0.2591,
       "unit": "تومان",
       "source": "https://www.tgju.org/profile/price_aed",
       "status": "live"
@@ -87,10 +87,10 @@
     "gbp": {
       "name": "پوند انگلیس",
       "category": "currency",
-      "price": 306070,
+      "price": 304910,
       "previous": 306070,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -1160,
+      "change_percent": -0.379,
       "unit": "تومان",
       "source": "https://www.tgju.org/profile/price_gbp",
       "status": "live"
@@ -98,10 +98,10 @@
     "try": {
       "name": "لیر ترکیه",
       "category": "currency",
-      "price": 4765,
+      "price": 4745,
       "previous": 4765,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -20,
+      "change_percent": -0.4197,
       "unit": "تومان",
       "source": "https://www.tgju.org/profile/price_try",
       "status": "live"
@@ -109,10 +109,10 @@
     "cny": {
       "name": "یوان چین",
       "category": "currency",
-      "price": 34340,
+      "price": 34240,
       "previous": 34340,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -100,
+      "change_percent": -0.2912,
       "unit": "تومان",
       "source": "https://www.tgju.org/profile/price_cny",
       "status": "live"
@@ -153,10 +153,10 @@
     "silver_999": {
       "name": "نقره ۹۹۹",
       "category": "metal",
-      "price": 498860,
+      "price": 502900,
       "previous": 498860,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": 4040,
+      "change_percent": 0.8098,
       "unit": "تومان / گرم",
       "source": "https://www.tgju.org/profile/silver_999",
       "status": "live"
@@ -164,10 +164,10 @@
     "silver_925": {
       "name": "نقره ۹۲۵",
       "category": "metal",
-      "price": 461445,
+      "price": 465181,
       "previous": 461445,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": 3736,
+      "change_percent": 0.8096,
       "unit": "تومان / گرم",
       "source": "https://www.tgju.org/profile/silver_925",
       "status": "live"
@@ -175,10 +175,10 @@
     "gold_21k_mesghal": {
       "name": "طلای ۲۱ عیار / مثقال",
       "category": "gold",
-      "price": 125849601,
+      "price": 125607665,
       "previous": 125849601,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -241936,
+      "change_percent": -0.1922,
       "unit": "تومان / مثقال",
       "source": "https://www.tgju.org/profile/geram18",
       "status": "calculated"
