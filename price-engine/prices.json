@@ -3,7 +3,7 @@
   "version": "V297",
   "status": "live",
   "source": "https://www.tgju.org",
-  "generated_at_utc": "2026-09-17T16:47:24.253674+00:00",
+  "generated_at_utc": "2026-09-17T18:29:51.784741+00:00",
   "currency": "TOMAN",
   "fake_prices_allowed": false,
   "prices": {
@@ -153,10 +153,10 @@
     "silver_999": {
       "name": "نقره ۹۹۹",
       "category": "metal",
-      "price": 504130,
+      "price": 503170,
       "previous": 504130,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -960,
+      "change_percent": -0.1904,
       "unit": "تومان / گرم",
       "source": "https://www.tgju.org/profile/silver_999",
       "status": "live"
@@ -164,10 +164,10 @@
     "silver_925": {
       "name": "نقره ۹۲۵",
       "category": "metal",
-      "price": 466324,
+      "price": 465433,
       "previous": 466324,
-      "change": 0,
-      "change_percent": 0.0,
+      "change": -891,
+      "change_percent": -0.1911,
       "unit": "تومان / گرم",
       "source": "https://www.tgju.org/profile/silver_925",
       "status": "live"
