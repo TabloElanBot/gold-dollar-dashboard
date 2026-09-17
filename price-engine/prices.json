@@ -3,7 +3,7 @@
   "version": "V297",
   "status": "live",
   "source": "https://www.tgju.org",
-  "generated_at_utc": "2026-09-17T14:46:25.607821+00:00",
+  "generated_at_utc": "2026-09-17T14:57:43.915237+00:00",
   "currency": "TOMAN",
   "fake_prices_allowed": false,
   "prices": {
@@ -77,9 +77,9 @@
       "name": "تتر",
       "category": "currency",
       "price": 227900,
-      "previous": 228500,
-      "change": -600,
-      "change_percent": -0.2626,
+      "previous": 227900,
+      "change": 0,
+      "change_percent": 0.0,
       "unit": "تومان",
       "source": "https://www.tgju.org/profile/crypto-tether/markets-local",
       "status": "live"
