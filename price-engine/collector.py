@@ -1,53 +1,34 @@
-# ================================================================
-# HASINEH PRICE ENGINE V296
-# REAL PRICE COLLECTOR
-# ================================================================
-#
-# HASINEH MARKET
-#
-# وظیفه:
-# 1. دریافت صفحات عمومی TGJU
-# 2. استخراج قیمت‌های واقعی
-# 3. تبدیل ریال به تومان
-# 4. جلوگیری از قیمت ساختگی
-# 5. تولید prices.json
-#
-# ================================================================
+# ============================================================
+# HASINEH PRICE ENGINE V297
+# REAL PRICE COLLECTOR + PRICE HISTORY + CHANGE DETECTION
+# ============================================================
 
 import json
 import re
+import sys
 from datetime import datetime, timezone
-from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
-
-# ================================================================
-# SETTINGS
-# ================================================================
 
 BASE_URL = "https://www.tgju.org"
 OUTPUT_FILE = "price-engine/prices.json"
-REQUEST_TIMEOUT = 20
+TIMEOUT = 20
+
 
 HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 "
-        "(Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 "
-        "(KHTML, like Gecko) "
-        "Chrome/120.0 Safari/537.36"
-    )
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/131.0.0.0 Safari/537.36"
+    ),
+    "Accept-Language": "fa-IR,fa;q=0.9,en;q=0.8",
 }
 
 
-# ================================================================
+# ------------------------------------------------------------
 # DIGIT NORMALIZATION
-# ================================================================
-
-PERSIAN_DIGITS = "۰۱۲۳۴۵۶۷۸۹"
-ARABIC_DIGITS = "٠١٢٣٤٥٦٧٨٩"
-ENGLISH_DIGITS = "0123456789"
-
+# ------------------------------------------------------------
 
 def normalize_digits(value):
     if value is None:
@@ -55,92 +36,102 @@ def normalize_digits(value):
 
     text = str(value)
 
-    table = str.maketrans(
-        PERSIAN_DIGITS + ARABIC_DIGITS,
-        ENGLISH_DIGITS + ENGLISH_DIGITS
-    )
+    replacements = {
+        "۰": "0",
+        "۱": "1",
+        "۲": "2",
+        "۳": "3",
+        "۴": "4",
+        "۵": "5",
+        "۶": "6",
+        "۷": "7",
+        "۸": "8",
+        "۹": "9",
+        "٠": "0",
+        "١": "1",
+        "٢": "2",
+        "٣": "3",
+        "٤": "4",
+        "٥": "5",
+        "٦": "6",
+        "٧": "7",
+        "٨": "8",
+        "٩": "9",
+    }
 
-    return text.translate(table)
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+
+    return text
 
 
-# ================================================================
-# HTML CLEANER
-# ================================================================
+# ------------------------------------------------------------
+# HTML CLEANING
+# ------------------------------------------------------------
 
-def clean_html_text(value):
-    if value is None:
+def clean_html(html):
+    if not html:
         return ""
-
-    text = str(value)
 
     text = re.sub(
         r"<script\b[^>]*>.*?</script>",
         " ",
-        text,
-        flags=re.IGNORECASE | re.DOTALL
+        html,
+        flags=re.IGNORECASE | re.DOTALL,
     )
 
     text = re.sub(
         r"<style\b[^>]*>.*?</style>",
         " ",
         text,
-        flags=re.IGNORECASE | re.DOTALL
+        flags=re.IGNORECASE | re.DOTALL,
     )
 
-    text = re.sub(
-        r"<[^>]+>",
-        " ",
-        text
-    )
+    text = re.sub(r"<[^>]+>", " ", text)
 
     text = text.replace("&nbsp;", " ")
-    text = text.replace("&comma;", ",")
-    text = text.replace("&zwnj;", "")
+    text = text.replace("&amp;", "&")
+    text = text.replace("&quot;", '"')
+    text = text.replace("&#39;", "'")
 
-    text = re.sub(
-        r"\s+",
-        " ",
-        text
-    )
+    text = re.sub(r"\s+", " ", text)
 
-    return text.strip()
+    return normalize_digits(text).strip()
 
 
-# ================================================================
-# NUMBER CLEANER
-# ================================================================
+# ------------------------------------------------------------
+# NUMBER CLEANING
+# ------------------------------------------------------------
 
 def clean_number(value):
     if value is None:
         return None
 
-    text = normalize_digits(
-        clean_html_text(value)
+    text = normalize_digits(value)
+
+    text = (
+        text.replace(",", "")
+        .replace("٬", "")
+        .replace("،", "")
+        .replace(" ", "")
     )
 
-    text = text.replace("٬", ",")
-    text = text.replace("،", ",")
-    text = text.replace(" ", "")
-
-    match = re.search(
-        r"\d[\d,]*",
-        text
-    )
+    match = re.search(r"-?\d+(?:\.\d+)?", text)
 
     if not match:
         return None
 
-    number = match.group(0).replace(",", "")
-
     try:
-        return int(number)
-    except ValueError:
+        number = float(match.group(0))
+
+        if number.is_integer():
+            return int(number)
+
+        return number
+
+    except Exception:
         return None
 
-
-# ================================================================
-# RIAL → TOMAN
-# ================================================================
 
 def rial_to_toman(value):
     if value is None:
@@ -149,311 +140,309 @@ def rial_to_toman(value):
     return round(value / 10)
 
 
-# ================================================================
-# FETCH PAGE
-# ================================================================
+# ------------------------------------------------------------
+# FETCH
+# ------------------------------------------------------------
 
 def fetch_page(url):
-
-    print("")
-    print("[FETCH]", url)
-
-    request = Request(
-        url,
-        headers=HEADERS
-    )
+    request = Request(url, headers=HEADERS)
 
     try:
-
-        with urlopen(
-            request,
-            timeout=REQUEST_TIMEOUT
-        ) as response:
-
-            content = response.read()
-
-            encoding = (
-                response.headers.get_content_charset()
-                or "utf-8"
-            )
-
-            page = content.decode(
-                encoding,
-                errors="ignore"
-            )
-
-            print("[HTTP]", response.status)
-            print("[BYTES]", len(content))
+        with urlopen(request, timeout=TIMEOUT) as response:
+            content = response.read().decode("utf-8", errors="ignore")
 
             return {
-                "success": True,
+                "ok": True,
                 "status": response.status,
-                "content": page
+                "content": content,
+                "url": url,
             }
 
-    except HTTPError as error:
-
-        print("[ERROR] HTTP:", error.code)
-
+    except HTTPError as exc:
         return {
-            "success": False,
-            "status": error.code,
-            "content": ""
+            "ok": False,
+            "status": exc.code,
+            "content": "",
+            "url": url,
+            "error": f"HTTP {exc.code}",
         }
 
-    except URLError as error:
-
-        print("[ERROR] URL:", error.reason)
-
+    except URLError as exc:
         return {
-            "success": False,
+            "ok": False,
             "status": None,
-            "content": ""
+            "content": "",
+            "url": url,
+            "error": f"URL Error: {exc.reason}",
         }
 
-    except Exception as error:
-
-        print("[ERROR] FETCH:", error)
-
+    except Exception as exc:
         return {
-            "success": False,
+            "ok": False,
             "status": None,
-            "content": ""
+            "content": "",
+            "url": url,
+            "error": str(exc),
         }
 
 
-# ================================================================
-# EXTRACT CURRENT RATE
-# ================================================================
+# ------------------------------------------------------------
+# CURRENT RATE EXTRACTION
+# ------------------------------------------------------------
 
 def extract_current_rate(html):
+    text = clean_html(html)
 
-    text = normalize_digits(
-        clean_html_text(html)
-    )
+    if not text:
+        return None
 
-    text = text.replace("٬", ",")
-    text = text.replace("،", ",")
+    # Primary method: text around "نرخ فعلی"
+    patterns = [
+        r"نرخ فعلی.{0,250}?([\d۰-۹][\d۰-۹,٬،\s]*)",
+        r"نرخ فعلی.{0,120}?([\d۰-۹][\d۰-۹,٬،]*)",
+    ]
 
-    # ------------------------------------------------------------
-    # Primary target:
-    # نرخ فعلی
-    # ------------------------------------------------------------
+    for pattern in patterns:
+        matches = re.findall(pattern, text, flags=re.IGNORECASE)
 
-    matches = list(
-        re.finditer(
-            r"نرخ\s*فعلی",
-            text,
-            flags=re.IGNORECASE
-        )
-    )
+        for match in matches:
+            value = clean_number(match)
 
-    for match in matches:
-
-        window = text[
-            match.end():
-            match.end() + 220
-        ]
-
-        numbers = re.findall(
-            r"\d[\d,]{3,}",
-            window
-        )
-
-        for number_text in numbers:
-
-            value = clean_number(
-                number_text
-            )
-
-            if value is not None and value >= 1000:
+            if value is not None and value > 0:
                 return value
 
-    # ------------------------------------------------------------
-    # Fallback:
-    # table rows containing current price
-    # ------------------------------------------------------------
+    # Secondary method: nearby realistic numbers
+    index = text.find("نرخ فعلی")
 
-    rows = re.findall(
-        r"<tr[^>]*>(.*?)</tr>",
-        html,
-        flags=re.IGNORECASE | re.DOTALL
-    )
-
-    for row in rows:
-
-        row_text = normalize_digits(
-            clean_html_text(row)
-        )
-
-        row_text = row_text.replace(
-            "٬",
-            ","
-        ).replace(
-            "،",
-            ","
-        )
-
-        if "نرخ فعلی" not in row_text:
-            continue
+    if index >= 0:
+        area = text[index:index + 600]
 
         numbers = re.findall(
-            r"\d[\d,]{3,}",
-            row_text
+            r"[\d۰-۹][\d۰-۹,٬،\s]{2,}",
+            area
         )
 
-        for number_text in numbers:
+        candidates = []
 
-            value = clean_number(
-                number_text
-            )
+        for item in numbers:
+            value = clean_number(item)
 
-            if value is not None and value >= 1000:
-                return value
+            if value is not None and value > 0:
+                candidates.append(value)
+
+        if candidates:
+            return candidates[0]
 
     return None
 
 
-# ================================================================
-# EXTRACT LOCAL USDT MARKET PRICE
-# ================================================================
+# ------------------------------------------------------------
+# USDT LOCAL MARKET
+# ------------------------------------------------------------
 
 def extract_usdt_local_price(html):
+    text = clean_html(html)
 
-    # TGJU's normal Tether profile is USD-based.
-    # For HASINEH we need the Iranian local USDT/IRR market.
+    if not text:
+        return None
 
-    rows = re.findall(
-        r"<tr[^>]*>(.*?)</tr>",
-        html,
-        flags=re.IGNORECASE | re.DOTALL
-    )
+    lines = re.split(r"\s{2,}", text)
 
     candidates = []
 
-    for row in rows:
+    for line in lines:
+        upper = line.upper()
 
-        row_text = normalize_digits(
-            clean_html_text(row)
-        )
+        if "USDT" not in upper:
+            continue
 
-        row_text = row_text.replace(
-            "٬",
-            ","
-        ).replace(
-            "،",
-            ","
-        )
-
-        if "USDT / IRR" not in row_text.upper():
+        if "IRR" not in upper and "تومان" not in line:
             continue
 
         numbers = re.findall(
-            r"\d[\d,]{3,}",
-            row_text
+            r"[\d۰-۹][\d۰-۹,٬،\s]{2,}",
+            line
         )
 
-        values = []
+        for number in numbers:
+            value = clean_number(number)
 
-        for number_text in numbers:
+            if value is None:
+                continue
 
-            value = clean_number(
-                number_text
-            )
+            # USDT/IRR is normally much larger than ordinary decimal data.
+            if 1000000 <= value <= 5000000000:
+                candidates.append(value)
 
-            if value is not None:
-                values.append(value)
+    if not candidates:
+        return None
 
-        # First numeric values after the pair are normally:
-        # sell price, buy price, change, high, low...
-        if values:
-            candidates.append(values)
+    # Use the smallest realistic market price candidate.
+    # This helps avoid volume / unrelated large values.
+    selected = min(candidates)
 
-    # Prefer a realistic Iranian USDT rial price.
-    for values in candidates:
+    return rial_to_toman(selected)
 
-        for value in values:
 
-            if 100000 <= value <= 5000000:
-                print(
-                    "[USDT] LOCAL RAW RIAL:",
-                    value
-                )
+# ------------------------------------------------------------
+# PROFILE FETCH
+# ------------------------------------------------------------
 
-                return rial_to_toman(
-                    value
-                )
+def fetch_profile(symbol):
+    url = f"{BASE_URL}/profile/{symbol}"
+
+    result = fetch_page(url)
+
+    if not result["ok"]:
+        return {
+            "raw": None,
+            "toman": None,
+            "url": url,
+            "error": result.get("error"),
+        }
+
+    raw = extract_current_rate(result["content"])
+
+    if raw is None:
+        return {
+            "raw": None,
+            "toman": None,
+            "url": url,
+            "error": "Current rate not found",
+        }
+
+    toman = rial_to_toman(raw)
+
+    return {
+        "raw": raw,
+        "toman": toman,
+        "url": url,
+        "error": None,
+    }
+
+
+# ------------------------------------------------------------
+# USDT FETCH
+# ------------------------------------------------------------
+
+def fetch_usdt_local():
+    url = f"{BASE_URL}/profile/crypto-tether/markets-local"
+
+    result = fetch_page(url)
+
+    if not result["ok"]:
+        return {
+            "raw": None,
+            "toman": None,
+            "url": url,
+            "error": result.get("error"),
+        }
+
+    toman = extract_usdt_local_price(result["content"])
+
+    if toman is None:
+        return {
+            "raw": None,
+            "toman": None,
+            "url": url,
+            "error": "USDT local price not found",
+        }
+
+    return {
+        "raw": toman * 10,
+        "toman": toman,
+        "url": url,
+        "error": None,
+    }
+
+
+# ------------------------------------------------------------
+# LOAD PREVIOUS PRICES
+# ------------------------------------------------------------
+
+def load_previous_prices():
+    try:
+        with open(OUTPUT_FILE, "r", encoding="utf-8") as file:
+            old_data = json.load(file)
+
+        prices = old_data.get("prices", {})
+
+        if isinstance(prices, dict):
+            return prices
+
+    except Exception:
+        pass
+
+    return {}
+
+
+# ------------------------------------------------------------
+# HISTORY / CHANGE CALCULATION
+# ------------------------------------------------------------
+
+def get_previous_price(previous_prices, key):
+    old_item = previous_prices.get(key)
+
+    if old_item is None:
+        return None
+
+    # Old format support
+    if isinstance(old_item, (int, float)):
+        if old_item >= 0:
+            return old_item
+
+        return None
+
+    # Current object format
+    if isinstance(old_item, dict):
+        old_price = old_item.get("price")
+
+        if isinstance(old_price, (int, float)):
+            if old_price >= 0:
+                return old_price
 
     return None
 
 
-# ================================================================
-# FETCH TGJU PROFILE
-# ================================================================
+def apply_history(item, previous_prices, key):
+    current = item.get("price")
 
-def fetch_profile(symbol):
+    old_price = get_previous_price(previous_prices, key)
 
-    url = (
-        BASE_URL
-        + "/profile/"
-        + symbol
-    )
+    item["previous"] = None
+    item["change"] = None
+    item["change_percent"] = None
 
-    result = fetch_page(url)
+    # No valid current price.
+    if not isinstance(current, (int, float)):
+        return item
 
-    if not result["success"]:
-        return None
+    # No previous valid price.
+    if old_price is None:
+        return item
 
-    html = result["content"]
+    if old_price < 0:
+        return item
 
-    raw_price = extract_current_rate(
-        html
-    )
+    change = current - old_price
 
-    if raw_price is None:
-        return None
+    if old_price == 0:
+        change_percent = None
+    else:
+        change_percent = round((change / old_price) * 100, 4)
 
-    return {
-        "raw": raw_price,
-        "toman": rial_to_toman(
-            raw_price
-        )
-    }
+    item["previous"] = old_price
+    item["change"] = change
+    item["change_percent"] = change_percent
 
-
-# ================================================================
-# FETCH LOCAL USDT
-# ================================================================
-
-def fetch_usdt_local():
-
-    url = (
-        BASE_URL
-        + "/profile/crypto-tether/markets-local"
-    )
-
-    result = fetch_page(url)
-
-    if not result["success"]:
-        return None
-
-    html = result["content"]
-
-    return extract_usdt_local_price(
-        html
-    )
+    return item
 
 
-# ================================================================
-# CREATE ITEM
-# ================================================================
+# ------------------------------------------------------------
+# ITEM CREATION
+# ------------------------------------------------------------
 
-def create_item(
-    name,
-    unit,
-    category
-):
-
+def create_item(name, category, unit, source):
     return {
         "name": name,
         "category": category,
@@ -462,473 +451,351 @@ def create_item(
         "change": None,
         "change_percent": None,
         "unit": unit,
-        "source": None,
-        "status": "not_found"
+        "source": source,
+        "status": "not_found",
     }
 
 
-# ================================================================
-# PARSE ITEM
-# ================================================================
-
-def parse_item(
-    symbol,
-    name,
-    unit,
-    category
-):
+def parse_item(name, category, unit, symbol, previous_prices, key):
+    source = f"{BASE_URL}/profile/{symbol}"
 
     item = create_item(
-        name,
-        unit,
-        category
+        name=name,
+        category=category,
+        unit=unit,
+        source=source,
     )
 
-    item["source"] = (
-        BASE_URL
-        + "/profile/"
-        + symbol
-    )
+    result = fetch_profile(symbol)
 
-    print("")
-    print(
-        "[PARSER]",
-        name,
-        "(" + symbol + ")"
-    )
+    toman_price = result.get("toman")
 
-    result = fetch_profile(
-        symbol
-    )
+    if isinstance(toman_price, (int, float)) and toman_price >= 100:
+        item["price"] = toman_price
+        item["status"] = "live"
 
-    if result is None:
-
-        print(
-            "[PARSER] NOT FOUND"
-        )
-
-        return item
-
-    toman_price = result["toman"]
-
-    # Never accept tiny or invalid prices.
-    if toman_price is None or toman_price < 100:
-
-        print(
-            "[PARSER] INVALID PRICE:",
-            toman_price
-        )
-
-        return item
-
-    item["price"] = toman_price
-    item["status"] = "live"
-
-    print(
-        "[PARSER] RAW RIAL:",
-        result["raw"]
-    )
-
-    print(
-        "[PARSER] TOMAN:",
-        toman_price
-    )
+    apply_history(item, previous_prices, key)
 
     return item
 
 
-# ================================================================
-# PARSE LOCAL USDT
-# ================================================================
-
-def parse_usdt():
+def parse_usdt(previous_prices, key):
+    source = f"{BASE_URL}/profile/crypto-tether/markets-local"
 
     item = create_item(
-        "تتر",
-        "تومان",
-        "currency"
+        name="تتر",
+        category="currency",
+        unit="تومان",
+        source=source,
     )
 
-    item["source"] = (
-        BASE_URL
-        + "/profile/crypto-tether/markets-local"
-    )
+    result = fetch_usdt_local()
 
-    print("")
-    print(
-        "[PARSER] تتر (LOCAL MARKET)"
-    )
+    toman_price = result.get("toman")
 
-    price = fetch_usdt_local()
+    if isinstance(toman_price, (int, float)) and toman_price >= 100:
+        item["price"] = toman_price
+        item["status"] = "live"
 
-    if price is None:
-
-        print(
-            "[PARSER] USDT NOT FOUND"
-        )
-
-        return item
-
-    if price < 100:
-
-        print(
-            "[PARSER] USDT INVALID:",
-            price
-        )
-
-        return item
-
-    item["price"] = price
-    item["status"] = "live"
-
-    print(
-        "[PARSER] USDT TOMAN:",
-        price
-    )
+    apply_history(item, previous_prices, key)
 
     return item
 
 
-# ================================================================
-# BUILD MARKET
-# ================================================================
+# ------------------------------------------------------------
+# MARKET BUILD
+# ------------------------------------------------------------
 
-def build_market():
-
+def build_market(previous_prices):
     prices = {}
 
-    # ------------------------------------------------------------
-    # GOLD
-    # ------------------------------------------------------------
-
     prices["gold_18k"] = parse_item(
-        "geram18",
         "طلای ۱۸ عیار",
+        "gold",
         "تومان / گرم",
-        "gold"
+        "geram18",
+        previous_prices,
+        "gold_18k",
     )
 
     prices["gold_24k"] = parse_item(
-        "geram24",
         "طلای ۲۴ عیار",
+        "gold",
         "تومان / گرم",
-        "gold"
+        "geram24",
+        previous_prices,
+        "gold_24k",
     )
-
-    # ------------------------------------------------------------
-    # MELTED GOLD
-    # TGJU symbol = gold_world_futures
-    # ------------------------------------------------------------
 
     prices["gold_melted"] = parse_item(
-        "gold_world_futures",
         "طلای آب‌شده",
+        "gold",
         "تومان / مثقال",
-        "gold"
+        "gold_world_futures",
+        previous_prices,
+        "gold_melted",
     )
 
-    # ------------------------------------------------------------
-    # CURRENCY
-    # ------------------------------------------------------------
-
     prices["usd"] = parse_item(
-        "price_dollar_rl",
         "دلار آمریکا",
+        "currency",
         "تومان",
-        "currency"
+        "price_dollar_rl",
+        previous_prices,
+        "usd",
     )
 
     prices["eur"] = parse_item(
-        "price_eur",
         "یورو",
+        "currency",
         "تومان",
-        "currency"
+        "price_eur",
+        previous_prices,
+        "eur",
     )
 
     prices["aed"] = parse_item(
-        "price_aed",
         "درهم امارات",
+        "currency",
         "تومان",
-        "currency"
+        "price_aed",
+        previous_prices,
+        "aed",
     )
 
-    prices["usdt"] = parse_usdt()
+    prices["usdt"] = parse_usdt(
+        previous_prices,
+        "usdt",
+    )
 
     prices["gbp"] = parse_item(
-        "price_gbp",
         "پوند انگلیس",
+        "currency",
         "تومان",
-        "currency"
+        "price_gbp",
+        previous_prices,
+        "gbp",
     )
 
     prices["try"] = parse_item(
-        "price_try",
         "لیر ترکیه",
+        "currency",
         "تومان",
-        "currency"
+        "price_try",
+        previous_prices,
+        "try",
     )
 
     prices["cny"] = parse_item(
-        "price_cny",
         "یوان چین",
+        "currency",
         "تومان",
-        "currency"
+        "price_cny",
+        previous_prices,
+        "cny",
     )
-
-    # ------------------------------------------------------------
-    # COINS
-    # ------------------------------------------------------------
 
     prices["coin_emami"] = parse_item(
-        "sekee",
         "سکه امامی",
+        "coin",
         "تومان / عدد",
-        "coin"
+        "sekee",
+        previous_prices,
+        "coin_emami",
     )
 
-    # Correct TGJU symbol for Half Coin:
-    # nim
     prices["coin_half"] = parse_item(
-        "nim",
         "نیم سکه",
+        "coin",
         "تومان / عدد",
-        "coin"
+        "nim",
+        previous_prices,
+        "coin_half",
     )
 
     prices["coin_quarter"] = parse_item(
-        "rob",
         "ربع سکه",
+        "coin",
         "تومان / عدد",
-        "coin"
+        "rob",
+        previous_prices,
+        "coin_quarter",
     )
 
-    # ------------------------------------------------------------
-    # SILVER
-    # ------------------------------------------------------------
-
     prices["silver_999"] = parse_item(
-        "silver_999",
         "نقره ۹۹۹",
+        "metal",
         "تومان / گرم",
-        "metal"
+        "silver_999",
+        previous_prices,
+        "silver_999",
     )
 
     prices["silver_925"] = parse_item(
-        "silver_925",
         "نقره ۹۲۵",
+        "metal",
         "تومان / گرم",
-        "metal"
+        "silver_925",
+        previous_prices,
+        "silver_925",
     )
 
-    # ------------------------------------------------------------
+    # --------------------------------------------------------
     # 21K MESGHAL
-    #
-    # Calculated from live 18K price.
-    # ------------------------------------------------------------
-
-    gold18 = prices["gold_18k"]
+    # --------------------------------------------------------
 
     mesghal = create_item(
-        "طلای ۲۱ عیار / مثقال",
-        "تومان / مثقال",
-        "gold"
+        name="طلای ۲۱ عیار / مثقال",
+        category="gold",
+        unit="تومان / مثقال",
+        source=f"{BASE_URL}/profile/geram18",
     )
 
-    mesghal["source"] = (
-        BASE_URL
-        + "/profile/geram18"
-    )
+    gold18_price = prices["gold_18k"].get("price")
 
-    if gold18["price"] is not None:
-
-        calculated_value = round(
-            gold18["price"]
-            * (21 / 18)
-            * 4.6083
+    if isinstance(gold18_price, (int, float)) and gold18_price > 0:
+        mesghal["price"] = round(
+            gold18_price * (21 / 18) * 4.6083
         )
 
-        mesghal["price"] = calculated_value
         mesghal["status"] = "calculated"
 
-        print("")
-        print(
-            "[CALCULATED] 21K MESGHAL:",
-            calculated_value
-        )
+    apply_history(
+        mesghal,
+        previous_prices,
+        "gold_21k_mesghal",
+    )
 
     prices["gold_21k_mesghal"] = mesghal
 
     return prices
 
 
-# ================================================================
+# ------------------------------------------------------------
 # SAVE JSON
-# ================================================================
+# ------------------------------------------------------------
 
 def save_json(data):
-
     with open(
         OUTPUT_FILE,
         "w",
-        encoding="utf-8"
+        encoding="utf-8",
     ) as file:
-
         json.dump(
             data,
             file,
             ensure_ascii=False,
-            indent=2
+            indent=2,
         )
 
 
-# ================================================================
+# ------------------------------------------------------------
 # MAIN
-# ================================================================
+# ------------------------------------------------------------
 
 def main():
-
-    print("")
-    print("=" * 64)
-    print("HASINEH PRICE ENGINE V296")
+    print("=" * 60)
+    print("HASINEH PRICE ENGINE V297")
     print("REAL PRICE COLLECTOR")
-    print("=" * 64)
+    print("PRICE HISTORY + CHANGE DETECTION")
+    print("=" * 60)
+
+    print("")
+    print("Loading previous prices...")
+
+    previous_prices = load_previous_prices()
+
+    if previous_prices:
+        print(
+            f"Previous price records found: "
+            f"{len(previous_prices)}"
+        )
+    else:
+        print("No previous price history found.")
+
+    print("")
+    print("Collecting live market prices...")
+    print("Source:", BASE_URL)
     print("")
 
-    print(
-        "[ENGINE] Starting real parser..."
-    )
-
-    prices = build_market()
-
-    # ------------------------------------------------------------
-    # COUNT
-    # ------------------------------------------------------------
+    prices = build_market(previous_prices)
 
     live_count = 0
     calculated_count = 0
+    failed_count = 0
 
-    for item in prices.values():
+    for key, item in prices.items():
+        status = item.get("status")
 
-        if item["status"] == "live":
+        if status == "live":
             live_count += 1
 
-        elif item["status"] == "calculated":
+        elif status == "calculated":
             calculated_count += 1
+
+        else:
+            failed_count += 1
+
+        price = item.get("price")
+        previous = item.get("previous")
+        change = item.get("change")
+        change_percent = item.get("change_percent")
+
+        print(
+            f"{key}: "
+            f"price={price} | "
+            f"previous={previous} | "
+            f"change={change} | "
+            f"change_percent={change_percent} | "
+            f"status={status}"
+        )
 
     total_items = len(prices)
 
-    failed_items = (
-        total_items
-        - live_count
-        - calculated_count
+    engine_status = (
+        "live"
+        if live_count > 0
+        else "error"
     )
-
-    # ------------------------------------------------------------
-    # ENGINE STATUS
-    # ------------------------------------------------------------
-
-    if live_count > 0:
-        engine_status = "live"
-    else:
-        engine_status = "error"
-
-    # ------------------------------------------------------------
-    # OUTPUT
-    # ------------------------------------------------------------
 
     data = {
-
-        "engine":
-            "HASINEH PRICE ENGINE",
-
-        "version":
-            "V296",
-
-        "status":
-            engine_status,
-
-        "source":
-            BASE_URL,
-
-        "generated_at_utc":
-            datetime.now(
-                timezone.utc
-            ).isoformat(),
-
-        "currency":
-            "TOMAN",
-
-        "fake_prices_allowed":
-            False,
-
-        "prices":
-            prices,
-
+        "engine": "HASINEH PRICE ENGINE",
+        "version": "V297",
+        "status": engine_status,
+        "source": BASE_URL,
+        "generated_at_utc": datetime.now(
+            timezone.utc
+        ).isoformat(),
+        "currency": "TOMAN",
+        "fake_prices_allowed": False,
+        "prices": prices,
         "summary": {
-
-            "total_items":
-                total_items,
-
-            "live_items":
-                live_count,
-
-            "calculated_items":
-                calculated_count,
-
-            "failed_items":
-                failed_items
-        }
+            "total_items": total_items,
+            "live_items": live_count,
+            "calculated_items": calculated_count,
+            "failed_items": failed_count,
+        },
     }
-
-    print("")
-
-    print(
-        "[ENGINE] TOTAL ITEMS:",
-        total_items
-    )
-
-    print(
-        "[ENGINE] LIVE ITEMS:",
-        live_count
-    )
-
-    print(
-        "[ENGINE] CALCULATED ITEMS:",
-        calculated_count
-    )
-
-    print(
-        "[ENGINE] FAILED ITEMS:",
-        failed_items
-    )
-
-    print("")
-
-    print(
-        "[OUTPUT] Creating prices.json..."
-    )
 
     save_json(data)
 
     print("")
+    print("=" * 60)
+    print("HASINEH PRICE ENGINE V297 COMPLETE")
+    print("=" * 60)
+    print(f"Total items:      {total_items}")
+    print(f"Live items:       {live_count}")
+    print(f"Calculated items: {calculated_count}")
+    print(f"Failed items:     {failed_count}")
+    print("Fake data:        DISABLED")
+    print("History:          ENABLED")
+    print("Change detection: ENABLED")
+    print("=" * 60)
 
-    print(
-        "[SUCCESS] V296 COMPLETE"
-    )
+    if live_count == 0:
+        print("ERROR: No live prices collected.")
+        sys.exit(1)
 
-    print(
-        "[OUTPUT]",
-        OUTPUT_FILE
-    )
-
-    print("")
-
-    print("=" * 64)
-
-
-# ================================================================
-# START
-# ================================================================
 
 if __name__ == "__main__":
     main()
