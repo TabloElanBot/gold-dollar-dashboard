@@ -533,7 +533,7 @@ footer strong{
 const JSON_URL =
   "./price-engine/prices.json?nocache=" + Date.now();
 
-const REFRESH_INTERVAL = 60000;
+const REFRESH_INTERVAL = 300000;
 
 let nextRefreshTime = Date.now() + REFRESH_INTERVAL;
 
@@ -1119,7 +1119,7 @@ function updateCountdown(){
   if(nextCheck){
 
     nextCheck.textContent =
-      "هر ۶۰ ثانیه";
+      "هر ۵ دقیقه";
   }
 }
 
@@ -1145,4 +1145,4 @@ setInterval(
 </script>
 
 </body>
-</html>
+  </html>
