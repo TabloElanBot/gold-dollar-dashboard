@@ -3,7 +3,7 @@
   "version": "V296",
   "status": "live",
   "source": "https://www.tgju.org",
-  "generated_at_utc": "2026-09-17T02:31:59.406658+00:00",
+  "generated_at_utc": "2026-09-17T03:11:20.174489+00:00",
   "currency": "TOMAN",
   "fake_prices_allowed": false,
   "prices": {
@@ -76,7 +76,7 @@
     "usdt": {
       "name": "تتر",
       "category": "currency",
-      "price": 229930,
+      "price": 229820,
       "previous": null,
       "change": null,
       "change_percent": null,
