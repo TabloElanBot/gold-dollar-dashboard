@@ -856,18 +856,11 @@ function updateCountdown(){
     return;
   }
 
-
   const now =
     Date.now();
 
   const elapsed =
     now - lastEngineUpdateMs;
-
-
-  /*
-    زمان هدف بر اساس آخرین اجرای واقعی موتور
-    و چرخه ۵ دقیقه‌ای محاسبه می‌شود.
-  */
 
   const cyclesPassed =
     Math.max(
@@ -878,22 +871,18 @@ function updateCountdown(){
       ) + 1
     );
 
-
   const nextEngineTime =
     lastEngineUpdateMs +
     cyclesPassed *
     ENGINE_INTERVAL_MS;
 
-
   let remaining =
     nextEngineTime -
     now;
 
-
   if(remaining < 0){
     remaining = 0;
   }
-
 
   const totalSeconds =
     Math.ceil(
@@ -908,12 +897,10 @@ function updateCountdown(){
   const seconds =
     totalSeconds % 60;
 
-
   countdown.textContent =
     String(minutes).padStart(2,"0") +
     ":" +
     String(seconds).padStart(2,"0");
-
 
   nextCheck.textContent =
     new Intl.DateTimeFormat(
@@ -953,7 +940,6 @@ async function loadPrices(){
       "engineStatus"
     );
 
-
   try{
 
     connectionStatus.textContent =
@@ -968,7 +954,6 @@ async function loadPrices(){
     engineStatus.textContent =
       "LOADING";
 
-
     const response =
       await fetch(
         JSON_URL +
@@ -979,7 +964,6 @@ async function loadPrices(){
         }
       );
 
-
     if(!response.ok){
 
       throw new Error(
@@ -988,10 +972,8 @@ async function loadPrices(){
       );
     }
 
-
     const data =
       await response.json();
-
 
     if(
       data.status !== "live"
@@ -1002,14 +984,11 @@ async function loadPrices(){
       );
     }
 
-
     const p =
       data.prices || {};
 
 
-    /* =====================================================
-       GOLD
-       ===================================================== */
+    /* GOLD */
 
     showPrice(
       "gold18",
@@ -1040,9 +1019,7 @@ async function loadPrices(){
     );
 
 
-    /* =====================================================
-       COINS
-       ===================================================== */
+    /* COINS */
 
     showPrice(
       "emami",
@@ -1065,16 +1042,13 @@ async function loadPrices(){
       )
     );
 
-
     showPrice(
       "bahar",
       null
     );
 
 
-    /* =====================================================
-       SILVER
-       ===================================================== */
+    /* SILVER */
 
     showPrice(
       "silver999",
@@ -1091,9 +1065,7 @@ async function loadPrices(){
     );
 
 
-    /* =====================================================
-       CURRENCY
-       ===================================================== */
+    /* CURRENCY */
 
     showPrice(
       "usd",
@@ -1145,9 +1117,7 @@ async function loadPrices(){
     );
 
 
-    /* =====================================================
-       MOVEMENTS
-       ===================================================== */
+    /* MOVEMENTS */
 
     showMovement("gold18Move",null);
     showMovement("gold24Move",null);
@@ -1168,18 +1138,14 @@ async function loadPrices(){
     showMovement("cnyMove",null);
 
 
-    /* =====================================================
-       REAL ENGINE TIMESTAMP
-       ===================================================== */
+    /* REAL ENGINE TIMESTAMP */
 
     setLastUpdate(
       data.generated_at_utc
     );
 
 
-    /* =====================================================
-       SUCCESS
-       ===================================================== */
+    /* SUCCESS */
 
     connectionStatus.textContent =
       "🟢 اتصال موفق به موتور قیمت";
@@ -1203,7 +1169,6 @@ async function loadPrices(){
 
   }
 
-
   catch(error){
 
     console.error(
@@ -1224,6 +1189,12 @@ async function loadPrices(){
       "ERROR";
   }
 }
+
+
+/* =========================================================
+   START PRICE ENGINE
+   ========================================================= */
+
 loadPrices();
 
 setInterval(
@@ -1238,4 +1209,7 @@ setInterval(
 
 updateCountdown();
 
-      
+</script>
+
+</body>
+</html>
