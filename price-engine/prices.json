@@ -3,7 +3,7 @@
   "version": "V296",
   "status": "live",
   "source": "https://www.tgju.org",
-  "generated_at_utc": "2026-09-17T03:11:20.174489+00:00",
+  "generated_at_utc": "2026-09-17T04:22:31.081968+00:00",
   "currency": "TOMAN",
   "fake_prices_allowed": false,
   "prices": {
@@ -76,7 +76,7 @@
     "usdt": {
       "name": "تتر",
       "category": "currency",
-      "price": 229820,
+      "price": 229500,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -153,7 +153,7 @@
     "silver_999": {
       "name": "نقره ۹۹۹",
       "category": "metal",
-      "price": 489100,
+      "price": 495830,
       "previous": null,
       "change": null,
       "change_percent": null,
@@ -164,7 +164,7 @@
     "silver_925": {
       "name": "نقره ۹۲۵",
       "category": "metal",
-      "price": 449998,
+      "price": 458646,
       "previous": null,
       "change": null,
       "change_percent": null,
