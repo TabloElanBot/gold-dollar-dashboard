@@ -6,23 +6,28 @@
 
 <title>HASINEH MARKET | بازار آنلاین حسینه</title>
 
-<meta name="description" content="HASINEH MARKET - بازار آنلاین حرفه‌ای طلا، سکه، ارز و نقره">
-<meta name="theme-color" content="#080808">
+<meta name="description" content="HASINEH MARKET - بازار حرفه‌ای طلا، سکه، نقره، ارز و دارایی‌های بازار">
+<meta name="theme-color" content="#070707">
 
 <style>
 :root{
-  --bg:#070707;
-  --panel:#101010;
-  --panel2:#151515;
+  --bg:#050505;
+  --bg2:#090909;
+  --panel:rgba(18,18,18,.88);
+  --panel2:rgba(25,25,25,.72);
   --gold:#d4af37;
-  --gold2:#f3d675;
-  --gold-soft:#9d8128;
-  --text:#f4f1e7;
-  --muted:#999;
-  --green:#4ade80;
-  --red:#ff5c5c;
-  --line:rgba(212,175,55,.20);
-  --shadow:0 12px 35px rgba(0,0,0,.45);
+  --gold2:#f5da78;
+  --gold3:#9d7d21;
+  --gold4:rgba(212,175,55,.16);
+  --text:#f5f1e5;
+  --muted:#929292;
+  --muted2:#666;
+  --green:#45df83;
+  --red:#ff5d5d;
+  --line:rgba(212,175,55,.18);
+  --line2:rgba(255,255,255,.055);
+  --shadow:0 18px 55px rgba(0,0,0,.55);
+  --radius:20px;
 }
 
 *{
@@ -35,12 +40,13 @@ html{
 
 body{
   margin:0;
-  background:
-    radial-gradient(circle at 50% -10%,rgba(212,175,55,.10),transparent 35%),
-    linear-gradient(180deg,#050505 0%,#090909 55%,#050505 100%);
+  min-height:100vh;
   color:var(--text);
   font-family:Tahoma,Arial,sans-serif;
-  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(212,175,55,.14),transparent 32%),
+    radial-gradient(circle at 0% 50%,rgba(212,175,55,.035),transparent 30%),
+    linear-gradient(180deg,#030303 0%,#090909 48%,#040404 100%);
 }
 
 button,
@@ -53,75 +59,140 @@ button{
 }
 
 .container{
-  width:min(1180px,94%);
+  width:min(1220px,94%);
   margin:auto;
 }
 
-/* HEADER */
+/* =========================
+   TOP BAR
+========================= */
+
+.top-strip{
+  height:4px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--gold3),
+    var(--gold2),
+    var(--gold3),
+    transparent
+  );
+  box-shadow:0 0 20px rgba(212,175,55,.35);
+}
 
 .header{
-  padding:28px 0 20px;
+  padding:28px 0 22px;
   border-bottom:1px solid var(--line);
+  position:relative;
 }
+
+.header::after{
+  content:"";
+  position:absolute;
+  bottom:-1px;
+  left:15%;
+  right:15%;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(212,175,55,.45),
+    transparent
+  );
+}
+
+/* =========================
+   BRAND
+========================= */
 
 .brand{
   text-align:center;
 }
 
+.logo-mark{
+  width:58px;
+  height:58px;
+  margin:0 auto 12px;
+  border:1px solid rgba(212,175,55,.55);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold2);
+  font-size:23px;
+  background:
+    radial-gradient(circle,rgba(212,175,55,.17),rgba(212,175,55,.02));
+  box-shadow:
+    inset 0 0 20px rgba(212,175,55,.08),
+    0 0 30px rgba(212,175,55,.08);
+}
+
+.logo-mark span{
+  transform:translateY(-1px);
+}
+
 .brand h1{
   margin:0;
   color:var(--gold2);
-  font-size:clamp(30px,6vw,58px);
-  letter-spacing:4px;
-  font-weight:800;
-  text-shadow:0 0 25px rgba(212,175,55,.18);
+  font-size:clamp(31px,6vw,62px);
+  line-height:1;
+  letter-spacing:5px;
+  font-weight:900;
+  text-shadow:
+    0 1px 0 #5f4b14,
+    0 0 25px rgba(212,175,55,.17);
 }
 
-.brand .subtitle{
-  margin-top:9px;
-  color:#c8c1ad;
-  font-size:14px;
+.brand-subtitle{
+  margin-top:12px;
+  color:#c9c1ae;
+  font-size:13px;
+  letter-spacing:.3px;
 }
 
-.brand .location{
+.brand-location{
   margin-top:8px;
-  color:var(--gold);
-  font-size:12px;
-  letter-spacing:1px;
+  color:var(--gold3);
+  font-size:11px;
+  letter-spacing:1.5px;
 }
 
-/* CONTROL BAR */
+/* =========================
+   CONTROL BAR
+========================= */
 
 .controls{
-  margin-top:20px;
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:10px;
   flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
 }
 
 .control-box{
-  background:rgba(255,255,255,.025);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:8px 11px;
   display:flex;
   align-items:center;
   gap:8px;
+  padding:8px 10px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:rgba(255,255,255,.025);
+  backdrop-filter:blur(12px);
 }
 
 .control-box label{
-  color:#aaa;
-  font-size:11px;
+  color:#888;
+  font-size:10px;
 }
 
 select{
-  background:#0b0b0b;
+  min-width:125px;
   color:var(--gold2);
-  border:1px solid rgba(212,175,55,.35);
+  background:#0a0a0a;
+  border:1px solid rgba(212,175,55,.30);
   border-radius:8px;
-  padding:7px 10px;
+  padding:7px 9px;
   outline:none;
 }
 
@@ -129,185 +200,316 @@ select:focus{
   border-color:var(--gold);
 }
 
-/* STATUS */
+/* =========================
+   LIVE INFO
+========================= */
 
-.status-line{
-  margin:18px auto 0;
-  text-align:center;
-  color:#aaa;
-  font-size:12px;
+.live-info{
+  margin:20px auto 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px 18px;
+  color:#8d8d8d;
+  font-size:11px;
 }
 
-.status-dot{
+.live-dot{
   color:var(--green);
+  text-shadow:0 0 10px rgba(69,223,131,.5);
 }
 
-.status-dot.offline{
+.live-dot.offline{
   color:var(--red);
 }
 
-/* ENGINE */
+/* =========================
+   OCCASION
+========================= */
+
+.occasion{
+  display:none;
+  margin:22px 0 0;
+  padding:14px 18px;
+  border:1px solid rgba(212,175,55,.22);
+  border-radius:17px;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(212,175,55,.10),transparent 28%),
+    rgba(255,255,255,.018);
+  text-align:center;
+}
+
+.occasion.active{
+  display:block;
+}
+
+.occasion-symbol{
+  font-size:21px;
+  margin-bottom:5px;
+}
+
+.occasion-title{
+  color:var(--gold2);
+  font-weight:bold;
+  font-size:13px;
+}
+
+.occasion-text{
+  margin-top:5px;
+  color:#929292;
+  font-size:11px;
+}
+
+/* =========================
+   ENGINE
+========================= */
 
 .engine{
-  margin:25px 0 28px;
+  margin:26px 0 34px;
+  padding:20px;
+  border:1px solid rgba(212,175,55,.20);
+  border-radius:22px;
   background:
-    linear-gradient(135deg,rgba(212,175,55,.06),rgba(255,255,255,.015));
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:18px;
+    linear-gradient(135deg,rgba(212,175,55,.075),rgba(255,255,255,.012));
   box-shadow:var(--shadow);
+  backdrop-filter:blur(16px);
 }
 
 .engine-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:15px;
+  gap:12px;
   flex-wrap:wrap;
 }
 
 .engine-title{
   color:var(--gold2);
-  font-weight:bold;
   font-size:16px;
+  font-weight:bold;
 }
 
 .live-badge{
-  border:1px solid rgba(74,222,128,.35);
+  padding:5px 12px;
+  border-radius:30px;
+  border:1px solid rgba(69,223,131,.35);
   color:var(--green);
-  border-radius:20px;
-  padding:5px 11px;
-  font-size:11px;
+  font-size:10px;
+  letter-spacing:1px;
 }
 
 .engine-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  grid-template-columns:repeat(6,1fr);
   gap:10px;
-  margin-top:15px;
+  margin-top:16px;
 }
 
 .engine-item{
-  background:rgba(0,0,0,.24);
-  border:1px solid rgba(255,255,255,.05);
-  border-radius:11px;
-  padding:11px;
+  min-width:0;
+  padding:12px;
+  border:1px solid var(--line2);
+  border-radius:13px;
+  background:rgba(0,0,0,.25);
 }
 
-.engine-item span{
+.engine-label{
   display:block;
+  color:#666;
+  font-size:9px;
+  margin-bottom:6px;
 }
 
-.engine-item .label{
-  color:#777;
-  font-size:10px;
-  margin-bottom:5px;
-}
-
-.engine-item .value{
-  color:#ddd;
-  font-size:12px;
+.engine-value{
+  display:block;
+  color:#d4d4d4;
+  font-size:11px;
   word-break:break-word;
 }
 
-.countdown{
-  color:var(--gold2)!important;
+.engine-value.gold{
+  color:var(--gold2);
+}
+
+#countdown{
   font-weight:bold;
 }
 
-/* SECTIONS */
+/* =========================
+   SECTION
+========================= */
 
 .section{
-  margin:35px 0;
+  margin:38px 0;
+}
+
+.section-heading{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:16px;
+}
+
+.section-icon{
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:rgba(212,175,55,.035);
+  font-size:18px;
 }
 
 .section-title{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:14px;
+  min-width:max-content;
 }
 
 .section-title h2{
   margin:0;
-  font-size:18px;
   color:var(--gold2);
+  font-size:18px;
 }
 
-.section-title .line{
-  height:1px;
+.section-title p{
+  margin:4px 0 0;
+  color:#666;
+  font-size:9px;
+}
+
+.heading-line{
   flex:1;
-  background:linear-gradient(90deg,var(--line),transparent);
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    var(--line),
+    transparent
+  );
 }
 
-/* CARDS */
+/* =========================
+   MARKET CARDS
+========================= */
 
 .market-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:13px;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
 }
 
-.card{
+.market-card{
   position:relative;
-  background:
-    linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
-  border:1px solid rgba(212,175,55,.16);
-  border-radius:16px;
-  padding:17px;
-  min-height:145px;
-  box-shadow:0 8px 25px rgba(0,0,0,.28);
-  transition:.25s ease;
+  min-height:170px;
+  padding:18px;
   overflow:hidden;
+  border:1px solid rgba(212,175,55,.14);
+  border-radius:19px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.045),
+      rgba(255,255,255,.012)
+    );
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.025);
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
 }
 
-.card:hover{
-  transform:translateY(-2px);
-  border-color:rgba(212,175,55,.38);
-}
-
-.card::before{
+.market-card::before{
   content:"";
   position:absolute;
   top:0;
-  right:0;
-  left:0;
-  height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  opacity:.55;
+  right:10%;
+  left:10%;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  opacity:.45;
+}
+
+.market-card::after{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  top:-70px;
+  left:-70px;
+  border-radius:50%;
+  background:rgba(212,175,55,.04);
+  pointer-events:none;
+}
+
+.market-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(212,175,55,.38);
+  box-shadow:
+    0 15px 38px rgba(0,0,0,.4),
+    0 0 25px rgba(212,175,55,.045);
+}
+
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:8px;
 }
 
 .card-name{
-  color:#ddd;
+  color:#dedbd2;
   font-size:13px;
+  font-weight:bold;
 }
 
 .card-symbol{
-  color:#777;
-  font-size:10px;
-  margin-top:4px;
+  margin-top:5px;
+  color:#686868;
+  font-size:9px;
+  letter-spacing:1.5px;
+}
+
+.card-badge{
+  padding:4px 7px;
+  border-radius:7px;
+  border:1px solid rgba(212,175,55,.15);
+  color:#8e7730;
+  font-size:8px;
 }
 
 .price{
+  margin-top:22px;
   color:var(--gold2);
   font-size:22px;
-  font-weight:bold;
-  margin-top:18px;
+  font-weight:900;
   direction:rtl;
   unicode-bidi:plaintext;
+  letter-spacing:.3px;
+}
+
+.price.waiting{
+  color:#5e5e5e;
 }
 
 .unit{
-  color:#777;
-  font-size:10px;
-  margin-top:5px;
+  margin-top:6px;
+  color:#686868;
+  font-size:9px;
 }
 
 .movement{
   position:absolute;
-  left:13px;
-  bottom:13px;
-  font-size:11px;
+  left:16px;
+  bottom:15px;
+  font-size:10px;
 }
 
 .up{
@@ -319,112 +521,216 @@ select:focus{
 }
 
 .flat{
-  color:#777;
+  color:#686868;
 }
 
 .invalid{
-  color:#777;
+  color:#5b5b5b;
 }
 
-/* SOURCE NOTE */
+/* =========================
+   MARKET NOTE
+========================= */
 
-.source-note{
-  text-align:center;
-  margin-top:18px;
-  color:#777;
-  font-size:10px;
+.market-note{
+  margin-top:15px;
+  padding:11px 13px;
+  border-right:2px solid var(--gold3);
+  background:rgba(212,175,55,.025);
+  color:#666;
+  font-size:9px;
+  line-height:1.9;
 }
 
-/* PRO */
+/* =========================
+   PRO
+========================= */
 
 .pro-box{
+  position:relative;
+  overflow:hidden;
+  padding:25px;
   border:1px solid rgba(212,175,55,.28);
-  border-radius:18px;
-  padding:20px;
+  border-radius:23px;
   background:
-    radial-gradient(circle at 90% 20%,rgba(212,175,55,.08),transparent 30%),
-    #0d0d0d;
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(212,175,55,.13),
+      transparent 27%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.035),
+      rgba(255,255,255,.008)
+    );
+  box-shadow:var(--shadow);
 }
 
-.pro-box h3{
-  margin:0 0 8px;
+.pro-box::before{
+  content:"PRO";
+  position:absolute;
+  top:12px;
+  left:20px;
+  color:rgba(212,175,55,.06);
+  font-size:60px;
+  font-weight:900;
+  letter-spacing:5px;
+}
+
+.pro-heading{
+  position:relative;
+  margin:0;
   color:var(--gold2);
+  font-size:19px;
 }
 
-.pro-box p{
-  margin:7px 0;
+.pro-text{
+  position:relative;
+  max-width:850px;
+  margin:10px 0 0;
   color:#999;
-  font-size:12px;
+  font-size:11px;
   line-height:2;
 }
 
 .pro-features{
+  position:relative;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:9px;
-  margin-top:15px;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:18px;
 }
 
 .pro-feature{
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:10px;
-  padding:11px;
+  padding:13px;
+  border:1px solid var(--line2);
+  border-radius:12px;
   color:#aaa;
-  font-size:11px;
+  background:rgba(0,0,0,.18);
+  font-size:10px;
 }
 
 .pro-button{
-  margin-top:16px;
-  background:linear-gradient(135deg,#b48b20,#e4c04c);
-  color:#090909;
+  position:relative;
+  margin-top:18px;
+  padding:11px 20px;
   border:0;
-  border-radius:10px;
-  padding:11px 18px;
+  border-radius:11px;
+  color:#090909;
+  background:linear-gradient(
+    135deg,
+    #a77d1c,
+    #f0d15e
+  );
   font-weight:bold;
+  box-shadow:0 8px 22px rgba(212,175,55,.12);
 }
 
 .pro-button:hover{
   filter:brightness(1.08);
 }
 
-/* OCCASION */
-
-.occasion{
-  display:none;
-  border:1px solid rgba(212,175,55,.24);
-  background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(255,255,255,.015));
-  border-radius:16px;
-  padding:15px;
-  text-align:center;
-  margin-bottom:22px;
-}
-
-.occasion.active{
-  display:block;
-}
-
-.occasion-title{
-  color:var(--gold2);
-  font-weight:bold;
-  margin-bottom:5px;
-}
-
-.occasion-text{
-  color:#aaa;
-  font-size:12px;
-}
-
-/* FUTURE ARCHITECTURE - HIDDEN FROM USER */
+/* =========================
+   FUTURE ARCHITECTURE
+========================= */
 
 .future-market{
   display:none!important;
 }
 
-/* FOOTER */
+/* =========================
+   CONNECT / QR
+========================= */
+
+.connect-box{
+  display:grid;
+  grid-template-columns:1fr 210px;
+  gap:20px;
+  align-items:center;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:rgba(255,255,255,.018);
+}
+
+.connect-title{
+  margin:0;
+  color:var(--gold2);
+  font-size:16px;
+}
+
+.connect-text{
+  margin:9px 0 0;
+  color:#888;
+  font-size:10px;
+  line-height:2;
+}
+
+.connect-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:14px;
+}
+
+.connect-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 12px;
+  border:1px solid rgba(212,175,55,.18);
+  border-radius:9px;
+  color:#aaa;
+  background:#0b0b0b;
+  font-size:9px;
+}
+
+.qr-placeholder{
+  min-height:170px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:1px dashed rgba(212,175,55,.28);
+  border-radius:16px;
+  color:#776329;
+  background:rgba(212,175,55,.025);
+}
+
+.qr-symbol{
+  font-size:55px;
+  line-height:1;
+}
+
+.qr-placeholder span{
+  font-size:9px;
+}
+
+/* =========================
+   AD ARCHITECTURE
+========================= */
+
+.ad-space{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:25px 0;
+  border:1px dashed rgba(255,255,255,.07);
+  border-radius:15px;
+  color:#3e3e3e;
+  font-size:9px;
+  letter-spacing:1px;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
-  margin-top:55px;
-  padding:30px 0 35px;
+  margin-top:60px;
+  padding:32px 0 38px;
   border-top:1px solid rgba(212,175,55,.12);
   text-align:center;
 }
@@ -432,39 +738,64 @@ select:focus{
 .footer-brand{
   color:#777;
   font-size:12px;
-  letter-spacing:2px;
+  letter-spacing:3px;
 }
 
 .creator{
-  margin-top:13px;
-  color:#74662f;
+  margin-top:14px;
+  color:#6d5d29;
   font-size:10px;
-  letter-spacing:1.5px;
-  opacity:.78;
+  letter-spacing:1.6px;
 }
 
 .creator-name{
-  color:#a48b3c;
+  color:#a88e3e;
 }
 
 .creator-phone{
-  margin-top:5px;
+  margin-top:6px;
+  color:#66582b;
   direction:ltr;
   unicode-bidi:embed;
-  color:#66582b;
   font-size:9px;
   letter-spacing:1px;
 }
 
-.footer-note{
-  margin-top:15px;
-  color:#444;
-  font-size:9px;
+.footer-status{
+  margin-top:16px;
+  color:#414141;
+  font-size:8px;
 }
 
-/* RESPONSIVE */
+.footer-note{
+  margin-top:8px;
+  color:#333;
+  font-size:8px;
+}
 
-@media(max-width:600px){
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1050px){
+  .engine-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .market-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .pro-features{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:720px){
+  .container{
+    width:min(94%,620px);
+  }
+
   .header{
     padding-top:22px;
   }
@@ -474,34 +805,86 @@ select:focus{
   }
 
   .engine{
-    padding:14px;
+    padding:15px;
+  }
+
+  .engine-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
   .market-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:repeat(2,1fr);
     gap:9px;
   }
 
-  .card{
-    min-height:138px;
-    padding:13px;
-  }
-
-  .price{
-    font-size:17px;
-    margin-top:15px;
+  .market-card{
+    min-height:155px;
+    padding:14px;
+    border-radius:16px;
   }
 
   .card-name{
     font-size:11px;
   }
 
+  .price{
+    margin-top:18px;
+    font-size:17px;
+  }
+
+  .section{
+    margin:30px 0;
+  }
+
   .section-title h2{
     font-size:15px;
   }
+
+  .connect-box{
+    grid-template-columns:1fr;
+  }
+
+  .qr-placeholder{
+    min-height:130px;
+  }
 }
 
-@media(max-width:380px){
+@media(max-width:430px){
+  .controls{
+    align-items:stretch;
+  }
+
+  .control-box{
+    width:100%;
+    justify-content:space-between;
+  }
+
+  .control-box select{
+    flex:1;
+  }
+
+  .engine-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .market-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .market-card{
+    min-height:150px;
+  }
+
+  .pro-box{
+    padding:18px;
+  }
+
+  .pro-features{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:340px){
   .market-grid{
     grid-template-columns:1fr;
   }
@@ -511,410 +894,280 @@ select:focus{
 
 <body>
 
+<div class="top-strip"></div>
+
 <div class="container">
 
-  <!-- HEADER -->
-  <header class="header">
+<header class="header">
 
-    <div class="brand">
-      <h1>HASINEH MARKET</h1>
-      <div class="subtitle" id="subtitle">
-        بازار آنلاین حسینه | LIVE PREMIUM MARKET BOARD
-      </div>
-      <div class="location">
-        📍 Bandar Hasineh
-      </div>
+  <div class="brand">
+
+    <div class="logo-mark">
+      <span>✦</span>
     </div>
 
-    <!-- LANGUAGE / COUNTRY -->
-    <div class="controls">
+    <h1>HASINEH MARKET</h1>
 
-      <div class="control-box">
-        <label id="languageLabel">زبان</label>
-        <select id="languageSelect">
-          <option value="fa">فارسی</option>
-          <option value="ar">العربية</option>
-          <option value="en">English</option>
-        </select>
-      </div>
-
-      <div class="control-box">
-        <label id="countryLabel">کشور / ساعت</label>
-        <select id="countrySelect">
-          <option value="Asia/Tehran">🇮🇷 ایران</option>
-          <option value="Asia/Dubai">🇦🇪 امارات</option>
-          <option value="Europe/Italy">🇮🇹 ایتالیا</option>
-          <option value="Europe/London">🇬🇧 بریتانیا</option>
-          <option value="Europe/Istanbul">🇹🇷 ترکیه</option>
-          <option value="Asia/Shanghai">🇨🇳 چین</option>
-          <option value="Asia/Tokyo">🇯🇵 ژاپن</option>
-          <option value="Asia/Kolkata">🇮🇳 هند</option>
-          <option value="Asia/Riyadh">🇸🇦 عربستان</option>
-          <option value="Asia/Qatar">🇶🇦 قطر</option>
-          <option value="Asia/Kuwait">🇰🇼 کویت</option>
-          <option value="America/New_York">🇺🇸 آمریکا</option>
-          <option value="America/Toronto">🇨🇦 کانادا</option>
-          <option value="Australia/Sydney">🇦🇺 استرالیا</option>
-        </select>
-      </div>
-
+    <div class="brand-subtitle" id="subtitle">
+      بازار آنلاین حسینه | LIVE PREMIUM MARKET BOARD
     </div>
 
-    <div class="status-line" id="connectionStatus">
-      <span class="status-dot" id="statusDot">●</span>
-      <span id="connectionText">اتصال به موتور قیمت برقرار است</span>
+    <div class="brand-location">
+      📍 Bandar Hasineh
     </div>
 
-  </header>
-
-  <!-- SMART OCCASION -->
-  <div class="occasion" id="occasionBox">
-    <div class="occasion-title" id="occasionTitle"></div>
-    <div class="occasion-text" id="occasionText"></div>
   </div>
 
-  <!-- PRICE ENGINE -->
-  <section class="engine">
+  <div class="controls">
 
-    <div class="engine-head">
+    <div class="control-box">
+      <label id="languageLabel">زبان</label>
 
-      <div class="engine-title">
-        🔌 HASINEH PRICE ENGINE V1
-      </div>
-
-      <div class="live-badge" id="liveBadge">
-        LIVE
-      </div>
-
+      <select id="languageSelect">
+        <option value="fa">🇮🇷 فارسی</option>
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+      </select>
     </div>
 
-    <div class="engine-grid">
+    <div class="control-box">
+      <label id="countryLabel">کشور / ساعت</label>
 
-      <div class="engine-item">
-        <span class="label" id="sourceLabel">منبع</span>
-        <span class="value" id="sourceValue">PUBLIC SOURCE</span>
-      </div>
-
-      <div class="engine-item">
-        <span class="label">ENGINE</span>
-        <span class="value" id="engineValue">HASINEH PRICE ENGINE V1</span>
-      </div>
-
-      <div class="engine-item">
-        <span class="label" id="jsonLabel">وضعیت JSON</span>
-        <span class="value" id="jsonStatus">در انتظار دریافت</span>
-      </div>
-
-      <div class="engine-item">
-        <span class="label" id="lastUpdateLabel">آخرین بروزرسانی واقعی</span>
-        <span class="value" id="lastUpdate">—</span>
-      </div>
-
-      <div class="engine-item">
-        <span class="label" id="boardTimeLabel">ساعت تابلو</span>
-        <span class="value" id="boardTime">—</span>
-      </div>
-
-      <div class="engine-item">
-        <span class="label" id="nextCheckLabel">بررسی بعدی</span>
-        <span class="value countdown" id="countdown">05:00</span>
-      </div>
-
+      <select id="countrySelect">
+        <option value="Asia/Tehran">🇮🇷 ایران</option>
+        <option value="Asia/Dubai">🇦🇪 امارات</option>
+        <option value="Europe/Italy">🇮🇹 ایتالیا</option>
+        <option value="Europe/London">🇬🇧 بریتانیا</option>
+        <option value="Europe/Istanbul">🇹🇷 ترکیه</option>
+        <option value="Asia/Shanghai">🇨🇳 چین</option>
+        <option value="Asia/Tokyo">🇯🇵 ژاپن</option>
+        <option value="Asia/Kolkata">🇮🇳 هند</option>
+        <option value="Asia/Riyadh">🇸🇦 عربستان</option>
+        <option value="Asia/Qatar">🇶🇦 قطر</option>
+        <option value="Asia/Kuwait">🇰🇼 کویت</option>
+        <option value="America/New_York">🇺🇸 آمریکا</option>
+        <option value="America/Toronto">🇨🇦 کانادا</option>
+        <option value="Australia/Sydney">🇦🇺 استرالیا</option>
+      </select>
     </div>
 
-  </section>
+  </div>
 
-  <!-- GOLD -->
-  <section class="section">
+  <div class="live-info">
+
+    <span>
+      <span class="live-dot" id="statusDot">●</span>
+      <span id="connectionText">
+        اتصال به موتور قیمت برقرار است
+      </span>
+    </span>
+
+    <span id="liveClock">—</span>
+
+    <span id="liveDate">—</span>
+
+  </div>
+
+</header>
+
+<!-- SMART OCCASION -->
+
+<div class="occasion" id="occasionBox">
+
+  <div class="occasion-symbol" id="occasionSymbol"></div>
+
+  <div class="occasion-title" id="occasionTitle"></div>
+
+  <div class="occasion-text" id="occasionText"></div>
+
+</div>
+
+
+<!-- PRICE ENGINE -->
+
+<section class="engine">
+
+  <div class="engine-head">
+
+    <div class="engine-title">
+      🔌 HASINEH PRICE ENGINE V1
+    </div>
+
+    <div class="live-badge" id="liveBadge">
+      LIVE
+    </div>
+
+  </div>
+
+  <div class="engine-grid">
+
+    <div class="engine-item">
+      <span class="engine-label" id="sourceLabel">منبع</span>
+      <span class="engine-value" id="sourceValue">PUBLIC SOURCE</span>
+    </div>
+
+    <div class="engine-item">
+      <span class="engine-label">ENGINE</span>
+      <span class="engine-value">HASINEH PRICE ENGINE V1</span>
+    </div>
+
+    <div class="engine-item">
+      <span class="engine-label" id="jsonLabel">وضعیت JSON</span>
+      <span class="engine-value" id="jsonStatus">
+        در انتظار دریافت
+      </span>
+    </div>
+
+    <div class="engine-item">
+      <span class="engine-label" id="lastUpdateLabel">
+        آخرین بروزرسانی واقعی
+      </span>
+
+      <span class="engine-value" id="lastUpdate">
+        —
+      </span>
+    </div>
+
+    <div class="engine-item">
+      <span class="engine-label" id="boardTimeLabel">
+        ساعت تابلو
+      </span>
+
+      <span class="engine-value" id="boardTime">
+        —
+      </span>
+    </div>
+
+    <div class="engine-item">
+      <span class="engine-label" id="nextCheckLabel">
+        بررسی بعدی
+      </span>
+
+      <span class="engine-value gold" id="countdown">
+        05:00
+      </span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- GOLD -->
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div class="section-icon">🥇</div>
 
     <div class="section-title">
-      <h2 id="goldTitle">🥇 طلا</h2>
-      <div class="line"></div>
+      <h2 id="goldTitle">طلا</h2>
+      <p id="goldSubTitle">GOLD MARKET</p>
     </div>
 
-    <div class="market-grid">
+    <div class="heading-line"></div>
 
-      <div class="card" data-key="gold_18k">
-        <div class="card-name" data-fa="طلای ۱۸ عیار" data-ar="ذهب عيار 18" data-en="18K Gold">
-          طلای ۱۸ عیار
+  </div>
+
+  <div class="market-grid">
+
+    <div class="market-card" data-key="gold_18k">
+
+      <div class="card-top">
+        <div>
+          <div class="card-name"
+               data-fa="طلای ۱۸ عیار"
+               data-ar="ذهب عيار 18"
+               data-en="18K Gold">
+            طلای ۱۸ عیار
+          </div>
+
+          <div class="card-symbol">18K</div>
         </div>
-        <div class="card-symbol">18K</div>
-        <div class="price" id="gold_18k">—</div>
-        <div class="unit" data-fa="تومان / گرم" data-ar="تومان / غرام" data-en="Toman / gram">
-          تومان / گرم
-        </div>
-        <div class="movement flat" id="move_gold_18k">—</div>
+
+        <div class="card-badge">GOLD</div>
       </div>
 
-      <div class="card" data-key="gold_24k">
-        <div class="card-name" data-fa="طلای ۲۴ عیار" data-ar="ذهب عيار 24" data-en="24K Gold">
-          طلای ۲۴ عیار
-        </div>
-        <div class="card-symbol">24K</div>
-        <div class="price" id="gold_24k">—</div>
-        <div class="unit">تومان / گرم</div>
-        <div class="movement flat" id="move_gold_24k">—</div>
+      <div class="price waiting" id="gold_18k">—</div>
+
+      <div class="unit"
+           data-fa="تومان / گرم"
+           data-ar="تومان / غرام"
+           data-en="Toman / gram">
+        تومان / گرم
       </div>
 
-      <div class="card" data-key="gold_melted">
-        <div class="card-name" data-fa="طلای آب‌شده" data-ar="الذهب المذاب" data-en="Melted Gold">
-          طلای آب‌شده
-        </div>
-        <div class="card-symbol">MESGHAL</div>
-        <div class="price" id="gold_melted">—</div>
-        <div class="unit">تومان / مثقال</div>
-        <div class="movement flat" id="move_gold_melted">—</div>
-      </div>
-
-      <div class="card" data-key="gold_21k_mesghal">
-        <div class="card-name" data-fa="مثقال طلای ۲۱ عیار" data-ar="مثقال ذهب عيار 21" data-en="21K Gold Mesghal">
-          مثقال طلای ۲۱ عیار
-        </div>
-        <div class="card-symbol">21K MESGHAL</div>
-        <div class="price" id="gold_21k_mesghal">—</div>
-        <div class="unit">تومان / مثقال</div>
-        <div class="movement flat" id="move_gold_21k_mesghal">—</div>
-      </div>
+      <div class="movement flat" id="move_gold_18k">—</div>
 
     </div>
 
-  </section>
 
-  <!-- COINS -->
-  <section class="section">
+    <div class="market-card" data-key="gold_24k">
 
-    <div class="section-title">
-      <h2 id="coinTitle">🪙 سکه</h2>
-      <div class="line"></div>
-    </div>
+      <div class="card-top">
+        <div>
+          <div class="card-name"
+               data-fa="طلای ۲۴ عیار"
+               data-ar="ذهب عيار 24"
+               data-en="24K Gold">
+            طلای ۲۴ عیار
+          </div>
 
-    <div class="market-grid">
-
-      <div class="card" data-key="coin_emami">
-        <div class="card-name" data-fa="سکه امامی" data-ar="عملة إمامي" data-en="Emami Coin">
-          سکه امامی
+          <div class="card-symbol">24K</div>
         </div>
-        <div class="card-symbol">EMAMI</div>
-        <div class="price" id="coin_emami">—</div>
-        <div class="unit">تومان</div>
-        <div class="movement flat" id="move_coin_emami">—</div>
+
+        <div class="card-badge">GOLD</div>
       </div>
 
-      <div class="card" data-key="coin_half">
-        <div class="card-name" data-fa="نیم سکه" data-ar="نصف عملة" data-en="Half Coin">
-          نیم سکه
-        </div>
-        <div class="card-symbol">HALF</div>
-        <div class="price" id="coin_half">—</div>
-        <div class="unit">تومان</div>
-        <div class="movement flat" id="move_coin_half">—</div>
-      </div>
+      <div class="price waiting" id="gold_24k">—</div>
 
-      <div class="card" data-key="coin_quarter">
-        <div class="card-name" data-fa="ربع سکه" data-ar="ربع عملة" data-en="Quarter Coin">
-          ربع سکه
-        </div>
-        <div class="card-symbol">QUARTER</div>
-        <div class="price" id="coin_quarter">—</div>
-        <div class="unit">تومان</div>
-        <div class="movement flat" id="move_coin_quarter">—</div>
-      </div>
+      <div class="unit">تومان / گرم</div>
 
-      <div class="card">
-        <div class="card-name" data-fa="سکه بهار آزادی" data-ar="عملة بهار آزادي" data-en="Bahar Azadi Coin">
-          سکه بهار آزادی
-        </div>
-        <div class="card-symbol">BAHAR</div>
-        <div class="price invalid">—</div>
-        <div class="unit" data-fa="اطلاعات معتبر در دسترس نیست" data-ar="لا توجد بيانات موثوقة" data-en="Reliable data unavailable">
-          اطلاعات معتبر در دسترس نیست
-        </div>
-      </div>
+      <div class="movement flat" id="move_gold_24k">—</div>
 
     </div>
 
-  </section>
 
-  <!-- SILVER -->
-  <section class="section">
+    <div class="market-card" data-key="gold_melted">
 
-    <div class="section-title">
-      <h2 id="silverTitle">🥈 نقره</h2>
-      <div class="line"></div>
-    </div>
+      <div class="card-top">
+        <div>
+          <div class="card-name"
+               data-fa="طلای آب‌شده"
+               data-ar="الذهب المذاب"
+               data-en="Melted Gold">
+            طلای آب‌شده
+          </div>
 
-    <div class="market-grid">
-
-      <div class="card" data-key="silver_999">
-        <div class="card-name" data-fa="نقره ۹۹۹" data-ar="فضة 999" data-en="Silver 999">
-          نقره ۹۹۹
+          <div class="card-symbol">MELTED</div>
         </div>
-        <div class="card-symbol">999</div>
-        <div class="price" id="silver_999">—</div>
-        <div class="unit">تومان / گرم</div>
-        <div class="movement flat" id="move_silver_999">—</div>
+
+        <div class="card-badge">GOLD</div>
       </div>
 
-      <div class="card" data-key="silver_925">
-        <div class="card-name" data-fa="نقره ۹۲۵" data-ar="فضة 925" data-en="Silver 925">
-          نقره ۹۲۵
-        </div>
-        <div class="card-symbol">925</div>
-        <div class="price" id="silver_925">—</div>
-        <div class="unit">تومان / گرم</div>
-        <div class="movement flat" id="move_silver_925">—</div>
-      </div>
+      <div class="price waiting" id="gold_melted">—</div>
+
+      <div class="unit">تومان / مثقال</div>
+
+      <div class="movement flat" id="move_gold_melted">—</div>
 
     </div>
 
-  </section>
 
-  <!-- CURRENCY -->
-  <section class="section">
+    <div class="market-card" data-key="gold_21k_mesghal">
 
-    <div class="section-title">
-      <h2 id="currencyTitle">💱 ارز و رمزارز</h2>
-      <div class="line"></div>
-    </div>
+      <div class="card-top">
+        <div>
+          <div class="card-name"
+               data-fa="مثقال طلای ۲۱ عیار"
+               data-ar="مثقال ذهب عيار 21"
+               data-en="21K Gold Mesghal">
+            مثقال طلای ۲۱ عیار
+          </div>
 
-    <div class="market-grid">
-
-      <div class="card" data-key="usd">
-        <div class="card-name" data-fa="دلار آمریکا" data-ar="الدولار الأمريكي" data-en="US Dollar">
-          دلار آمریکا
-        </div>
-        <div class="card-symbol">USD</div>
-        <div class="price" id="usd">—</div>
-        <div class="unit">تومان</div>
-        <div class="movement flat" id="move_usd">—</div>
-      </div>
-
-      <div class="card" data-key="usdt">
-        <div class="card-name">تتر</div>
-        <div class="card-symbol">USDT</div>
-        <div class="price" id="usdt">—</div>
-        <div class="unit">تومان</div>
-        <div class="movement flat" id="move_usdt">—</div>
-      </div>
-
-      <div class="card" data-key="eur">
-        <div class="card-name" data-fa="یورو" data-ar="اليورو" data-en="Euro">
-          یورو
-        </div>
-        <div class="card-symbol">EUR</div>
-        <div class="price" id="eur">—</div>
-        <div class="unit">تومان</div>
-        <div class="movement flat" id="move_eur">—</div>
-      </div>
-
-      <div class="card" data-key="gbp">
-        <div class="card-name" data-fa="پوند انگلیس" data-ar="الجنيه الإسترليني" data-en="British Pound">
-          پوند انگلیس
-        </div>
-        <div class="card-symbol">GBP</div>
-        <div class="price" id="gbp">—</div>
-        <div class="unit">تومان</div>
-        <div class="movement flat" id="move_gbp">—</div>
-      </div>
-
-      <div class="card" data-key="aed">
-        <div class="card-name" data-fa="درهم امارات" data-ar="الدرهم الإماراتي" data-en="UAE Dirham">
-          درهم امارات
-        </div>
-        <div class="card-symbol">AED</div>
-        <div class="price" id="aed">—</div>
-        <div class="unit">تومان</div>
-        <div class="movement flat" id="move_aed">—</div>
-      </div>
-
-      <div class="card" data-key="try">
-        <div class="card-name" data-fa="لیر ترکیه" data-ar="الليرة التركية" data-en="Turkish Lira">
-          لیر ترکیه
-        </div>
-        <div class="card-symbol">TRY</div>
-        <div class="price" id="try">—</div>
-        <div class="unit">تومان</div>
-        <div class="movement flat" id="move_try">—</div>
-      </div>
-
-      <div class="card" data-key="cny">
-        <div class="card-name" data-fa="یوان چین" data-ar="اليوان الصيني" data-en="Chinese Yuan">
-          یوان چین
-        </div>
-        <div class="card-symbol">CNY</div>
-        <div class="price" id="cny">—</div>
-        <div class="unit">تومان</div>
-        <div class="movement flat" id="move_cny">—</div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- PRO / REVENUE ARCHITECTURE -->
-  <section class="section">
-
-    <div class="section-title">
-      <h2 id="proTitle">👑 HASINEH PRO</h2>
-      <div class="line"></div>
-    </div>
-
-    <div class="pro-box">
-
-      <h3 id="proHeading">
-        مسیر توسعه خدمات حرفه‌ای
-      </h3>
-
-      <p id="proText">
-        نسخه عمومی HASINEH MARKET می‌تواند رایگان و شفاف باقی بماند.
-        در آینده خدمات حرفه‌ای مانند نرخ‌های سریع‌تر، دسترسی ویژه و امکانات
-        پیشرفته می‌توانند بدون تغییر هسته اصلی موتور قیمت فعال شوند.
-      </p>
-
-      <div class="pro-features">
-
-        <div class="pro-feature">
-          ⚡ <span data-fa="نرخ‌های سریع‌تر" data-ar="أسعار أسرع" data-en="Faster Rates">
-          نرخ‌های سریع‌تر
-          </span>
+          <div class="card-symbol">21K MESGHAL</div>
         </div>
 
-        <div class="pro-feature">
-          🔔 <span data-fa="هشدار تغییر قیمت" data-ar="تنبيهات الأسعار" data-en="Price Alerts">
-          هشدار تغییر قیمت
-          </span>
-        </div>
-
-        <div class="pro-feature">
-          📊 <span data-fa="ابزارهای حرفه‌ای بازار" data-ar="أدوات السوق الاحترافية" data-en="Professional Market Tools">
-          ابزارهای حرفه‌ای بازار
-          </span>
-        </div>
-
-        <div class="pro-feature">
-          💎 <span data-fa="خدمات اشتراکی ویژه" data-ar="خدمات اشتراك مميزة" data-en="Premium Subscription Services">
-          خدمات اشتراکی ویژه
-          </span>
-        </div>
-
-      </div>
-
-      <button class="pro-button" id="proButton">
-        درخواست دسترسی PRO
-      </button>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer class="footer">
-
-    <div class="footer-brand">
-      HASINEH MARKET
-    </div>
-
-    <div class="creator">
-      Created by
-      <span class="creator-name">
+        <div class="card-badge">21K</div>
+      </div
